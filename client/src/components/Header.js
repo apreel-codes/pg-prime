@@ -5,7 +5,7 @@ import './Header.css';
 const Header = () => {
     return(
         <div className="header">
-            <a href="/#brand">PG PRIME</a>
+            <Link to="/">PG PRIME</Link>
         </div>
     )
 }
