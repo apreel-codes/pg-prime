@@ -35,6 +35,10 @@ html, body, #root {
   max-height: 300px;
 }
 
+.img-large {
+  max-width: 100%;
+}
+
 .site-container {
   min-height: 100vh;
 }
@@ -42,3 +46,9 @@ html, body, #root {
 main {
   flex: 1;
 }
+
+.rating span {
+  color: #ffc000;
+}
+
+

@@ -1,8 +1,14 @@
-import Header from "../components/Header";
+
 import { Routes, Route, Link } from "react-router-dom";
 import React, { useEffect, useReducer, useState } from "react";
 import axios from 'axios';
 import logger from 'use-reducer-logger';
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col';
+import HomeProduct from "../components/HomeProduct";
+import { Helmet } from 'react-helmet-async';
+import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 // import data from "../data";
 
 const reducer = (state, action) => {
@@ -43,28 +49,22 @@ const Home = () => {
 
 
     return (
-        <div className="mt-10 mx-28">
-            <h1 className='text-medium text-5xl'>Featured products</h1>
+        <div className="mx-28">
+            <Helmet>
+                <title>PG PRIME</title>
+            </Helmet>
+            <h1 className='text-medium text-5xl font-bold'>Featured products</h1>
             <div className='flex flex-wrap w-full mt-5'>
-            {
-                loading ? ( <div>Loading...</div> )
-                :
-                error ? ( <div>{error}</div> )
-                : (
-                products.map((product, i) => (
-                <div className='border mx-5' key={product.slug}>
-                    <Link to={`/product/${product.slug}`}>
-                    <img className='image' src={product.image} />
-                    </Link>
-                    <div className='p-5'>
-                    <Link to={`/product/${product.slug}`}>
-                    <p>{product.name}</p>
-                    </Link>
-                    <p><strong>$</strong>{product.price}</p>
-                    <button className='bg-orange-500 px-5 py-2 mt-3 rounded'>Add to Cart</button>
-                </div>
-                </div>          
-                 ))
+            { 
+                 (
+                    <Row className="mx-14">
+                        {products.map((product, i) => (
+                            <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                                <HomeProduct product={product}></HomeProduct>
+                            </Col>
+                        
+                 ))}
+                    </Row>
                 )
              }
             </div>      
