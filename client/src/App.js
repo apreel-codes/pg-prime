@@ -10,19 +10,25 @@ import Footer from './components/Footer';
 import ErrorPage from './screens/NoPage';
 import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Store } from './Store';
+import Cart from './screens/Cart';
+import Signin from './screens/Signin';
 
 function App() {
-  const { state } = useContext(Store);
-  const { cart } = state;
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { cart, userInfo } = state;
 
-
+  const signoutHandler = () => {
+    ctxDispatch({ type: 'USER_SIGNOUT', });
+    localStorage.removeItem('userInfo');
+  }
   return (
     <BrowserRouter>
       <div className="App d-flex flex-column site-container">
       <header>
-        <Navbar bg="dark" variant="dark">
-          <Container>
+        <Navbar className='bg-black' bg="dark" variant="dark">
+          <Container className='flex flex-row justify-between'>
             <LinkContainer to="/">
               <Navbar.Brand>PG PRIME</Navbar.Brand>
             </LinkContainer>
@@ -35,6 +41,28 @@ function App() {
                   </Badge>
                 )}
               </Link>
+              {userInfo ? (
+                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    <LinkContainer to="/profile">
+                      <NavDropdown.Item>User Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/orderhistory">
+                      <NavDropdown.Item>Order History</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Divider />
+                    <Link 
+                    className='dropdown-item'
+                    to="#signout"
+                    onClick={signoutHandler}
+                    >
+                      Sign Out
+                   </Link>             
+                </NavDropdown>
+              ) : (
+                <Link className="nav-link" to="/signin">
+                  Sign In
+                </Link>
+              )}
             </Nav>
           </Container>
         </Navbar>
@@ -46,6 +74,8 @@ function App() {
               <Route>
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
+                <Route path="/cart" element={<Cart />} />
+                <Route path="/signin" element={<Signin />} />
                 <Route path='/product/:slug' element={<Product />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />

@@ -1,4 +1,4 @@
-import { Routes, Route, Link, useParams } from "react-router-dom";
+import { Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
@@ -30,6 +30,7 @@ const reducer = (state, action) => {
 };
 
 const Product = () => {
+    const navigate = useNavigate();
     const params = useParams();
     console.log(params)
     const { slug } = params;
@@ -67,7 +68,9 @@ const Product = () => {
         }
 
 
-        ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity }})
+        ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity }});
+        navigate('/cart');
+        // alert("Item added to cart!");
     }
 
 
@@ -78,14 +81,14 @@ const Product = () => {
                 :
                 error ? ( <MessageBox variant="danger">{error}</MessageBox> ) : (
                     <Row className="mx-20">
-                        <Col md={6}>
+                        <Col className="border" md={6}>
                             <img
                                 className="img-large" 
                                 src={product.image}
                                 alt={product.image}
                             ></img>
                         </Col>
-                        <Col md={6}>
+                        <Col className="border" md={6}>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>
                                     <Helmet>
@@ -129,7 +132,7 @@ const Product = () => {
                                             {product.countInStock > 0 && (
                                                 <ListGroupItem>
                                                     <div className="d-grid">
-                                                        <Button onClick={addToCartHandler} className="bg-blue-500" variant="primary">
+                                                        <Button onClick={addToCartHandler} className="bg-black py-3" variant="primary">
                                                             Add to Cart
                                                         </Button>
                                                     </div>

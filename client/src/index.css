@@ -28,6 +28,7 @@ html, body, #root {
   min-height: 15rem;
 } */
 
+
 .image {
   width: 100%;
   max-width: 400px;
@@ -48,7 +49,15 @@ main {
 }
 
 .rating span {
-  color: #ffc000;
+  color: #080807;
+}
+
+.img-thumbnail {
+  height: 80px;
+}
+
+.small-container {
+  max-width: 600px;
 }
 
 
