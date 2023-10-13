@@ -16,7 +16,7 @@ import { getError } from "../uttils";
 import { Store } from "../Store";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+
 
 
 const reducer = (state, action) => {
