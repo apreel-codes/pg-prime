@@ -4,10 +4,13 @@ import Container from "react-bootstrap/Container";
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Store } from "../Store";
+import { toast } from "react-toastify";
+import { getError } from "../uttils";
 
 const Signin = () => {
+
     const navigate = useNavigate();
     const { search } = useLocation();
     const redirectInUrl = new URLSearchParams(search).get('redirect');
@@ -17,6 +20,7 @@ const Signin = () => {
     const [password, setPassword] = useState('');
 
     const {state, dispatch: ctxDispatch} = useContext(Store);
+    const { userInfo } = state;
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -29,9 +33,17 @@ const Signin = () => {
             localStorage.setItem('userInfo', JSON.stringify(data));
             navigate(redirect || '/');
         } catch (err) {
-            alert('Invalid email address or password')
+            toast.error(getError(err));
         }
     }
+
+    useEffect(() => {
+        if(userInfo) {
+            navigate(redirect);
+        }
+    }, [navigate, redirect, userInfo]);
+
+
     return (
        <Container className="small-container">
         <Helmet>

@@ -28,6 +28,11 @@ html, body, #root {
   min-height: 15rem;
 } */
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
 
 .image {
   width: 100%;

@@ -14,6 +14,9 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { getError } from "../uttils";
 import { Store } from "../Store";
+import { ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const reducer = (state, action) => {
@@ -70,12 +73,14 @@ const Product = () => {
 
         ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity }});
         navigate('/cart');
+        toast.success('Item added to cart')
         // alert("Item added to cart!");
     }
 
 
     return (
         <div className=" mx-48">
+            <ToastContainer position='top-center' limit={1} />
             {
                 loading ? ( <LoadingBox /> )
                 :

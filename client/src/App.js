@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Home from './screens/Home';
 import Product from './screens/Product';
@@ -26,11 +28,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App d-flex flex-column site-container">
-      <header>
+      <ToastContainer position='bottom-center' limit={1} />
+      <header className=''>
         <Navbar className='bg-black' bg="dark" variant="dark">
-          <Container className='flex flex-row justify-between'>
-            <LinkContainer to="/">
-              <Navbar.Brand>PG PRIME</Navbar.Brand>
+          <Container className=''>
+            <LinkContainer className='' to="/">
+              <Navbar.Brand className=''>PG PRIME</Navbar.Brand>
             </LinkContainer>
             <Nav className="me-auto">
               <Link to="/cart" className="nav-link">

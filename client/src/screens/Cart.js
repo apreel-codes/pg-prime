@@ -39,7 +39,7 @@ const Cart = () => {
     }
 
     return (
-        <Container className="mx-auto">
+        <Container className="">
             <Helmet>
                 <title>My Cart</title>
             </Helmet>
