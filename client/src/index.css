@@ -72,6 +72,6 @@ main {
 
 .checkout-steps > div.active {
   border-bottom: 0.2rem solid #f06800;
-  color: #f06800;
+  color: #f06800
 }
 

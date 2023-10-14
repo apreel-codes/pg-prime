@@ -73,7 +73,7 @@ const Cart = () => {
                                                 <i className="fas fa-plus-circle"></i>
                                             </Button>{' '}
                                         </Col>
-                                        <Col md={3}>${item.price}</Col>
+                                        <Col md={3}>NGN{item.price}</Col>
                                         <Col md={2}>
                                             <Button onClick={() => removeItemHandler(item)} variant="light">
                                                 <i className="fas fa-trash"></i>
@@ -93,7 +93,7 @@ const Cart = () => {
                                 <ListGroupItem>
                                     <h3 className="text-lg font-bold">
                                         Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                                        items) : $
+                                        items) : NGN
                                         {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                                     </h3>
                                 </ListGroupItem>

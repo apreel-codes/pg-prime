@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import Container from 'react-bootstrap/Container';
+import { toast } from "react-toastify";
 import { Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
 
@@ -21,6 +22,7 @@ const ShippingAddress = () => {
     const[city, setCity] = useState(shippingAddress.city || '');
     const[postalCode, setPostalCode] = useState(shippingAddress.postalCode || '');
     const[country, setCountry] = useState(shippingAddress.country || '');
+    const[phonenumber, setPhoneNumber] = useState(shippingAddress.phonenumber || '');
 
     useEffect(() => {
         if (!userInfo) {
@@ -31,6 +33,10 @@ const ShippingAddress = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
+        if( !(phonenumber.match('[0-9]{10}')) ){
+            toast.error('Please provide valid phone number');
+            return;
+        } 
         ctxDispatch({
             type: 'SAVE_SHIPPING_ADDRESS',
             payload: {
@@ -38,7 +44,8 @@ const ShippingAddress = () => {
                 address,
                 city,
                 postalCode,
-                country
+                country,
+                phonenumber
             }
         });
         localStorage.setItem(
@@ -48,7 +55,8 @@ const ShippingAddress = () => {
                 address,
                 city,
                 postalCode,
-                country
+                country,
+                phonenumber,
             })
         );
         navigate('/payment');
@@ -101,13 +109,21 @@ const ShippingAddress = () => {
                         onChange={(e) => setCountry(e.target.value)}
                         required
                         ></Form.Control>
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="phonenumber">
+                    <Form.Label>Phone Number</Form.Label>
+                        <Form.Control
+                        value={phonenumber}
+                        onChange={(e) => setPhoneNumber(e.target.value)}
+                        type='tel'
+                        required
+                        ></Form.Control>
+                </Form.Group>
                         <div className='mt-4 d-grid'>
                             <Button className='bg-blue-500' variant="primary" type="submit">
                                 Continue
                             </Button>
                         </div>
-                        
-                </Form.Group>
             </Form>
         </Container>
     )

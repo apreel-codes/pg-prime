@@ -19,6 +19,7 @@ import Signin from './screens/Signin';
 import ShippingAddress from './screens/ShippingAddress';
 import Signup from './screens/Signup';
 import Payment from './screens/Payment';
+import PlaceOrder from './screens/PlaceOrder';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -75,7 +76,7 @@ function App() {
           </Container>
         </Navbar>
       </header>
-      <main className='my-32'>
+      <main className='my-24'>
         {/* <Container> */}
         <div className='flex flex-wrap'>
           <Routes>
@@ -87,6 +88,7 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/shipping" element={<ShippingAddress />} />
                 <Route path="/payment" element={<Payment />} />
+                <Route path="/placeorder" element={<PlaceOrder />} />
                 <Route path='/product/:slug' element={<Product />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />

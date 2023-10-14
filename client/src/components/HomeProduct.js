@@ -17,7 +17,7 @@ const HomeProduct = (props) => {
                             <Card.Title className="text-base hover:underline font-bold">{product.name}</Card.Title>
                     </Link>
                     <Rating rating={product.rating} numReviews={product.numReviews}/>
-                    <Card.Text className="text-md">${product.price}</Card.Text>
+                    <Card.Text className="text-md">NGN{product.price}</Card.Text>
                     {/* <Button className="bg-blue-500 mt-3 border-radius-0">Add to Cart</Button> */}
                 </Card.Body>
         </Card>          

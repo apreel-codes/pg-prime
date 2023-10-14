@@ -108,7 +108,7 @@ const Product = () => {
                                     ></Rating>
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-xl text-bold">
-                                    Price: ${product.price}
+                                    Price: NGN{product.price}
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-lg">
                                     Description: {product.description}
@@ -119,7 +119,7 @@ const Product = () => {
                                             <ListGroupItem>
                                                 <Row>
                                                     <Col><strong>Price:</strong></Col>
-                                                    <Col>${product.price}</Col>
+                                                    <Col>NGN{product.price}</Col>
                                                 </Row>
                                             </ListGroupItem>
                                             <ListGroupItem>

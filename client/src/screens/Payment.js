@@ -27,8 +27,6 @@ const Payment = () => {
     }, [shippingAddress, navigate])
 
 
-
-
     const submitHandler = (e) => {
         e.preventDefault();
 
