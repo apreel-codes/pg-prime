@@ -79,27 +79,27 @@ const Product = () => {
 
 
     return (
-        <div className=" mx-48">
+        <div className="border w-[60%] mx-auto">
             <ToastContainer position='top-center' limit={1} />
             {
                 loading ? ( <LoadingBox /> )
                 :
                 error ? ( <MessageBox variant="danger">{error}</MessageBox> ) : (
                     <Row className="mx-20">
-                        <Col className="border" md={6}>
+                        <Col className="" md={6}>
                             <img
                                 className="img-large" 
                                 src={product.image}
                                 alt={product.image}
                             ></img>
                         </Col>
-                        <Col className="border" md={6}>
+                        <Col className="" md={6}>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>
                                     <Helmet>
                                         <title>{product.name}</title>
                                     </Helmet>
-                                    <h1 className="text-6xl font-bold">{product.name}</h1>
+                                    <h1 className="text-5xl font-bold">{product.name}</h1>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                     <Rating
@@ -113,7 +113,7 @@ const Product = () => {
                                 <ListGroup.Item className="text-lg">
                                     Description: {product.description}
                                 </ListGroup.Item>
-                                <Card>
+                                <Card className="border-none">
                                     <Card.Body>
                                         <ListGroup variant="flush">
                                             <ListGroupItem>

@@ -18,6 +18,7 @@ import Cart from './screens/Cart';
 import Signin from './screens/Signin';
 import ShippingAddress from './screens/ShippingAddress';
 import Signup from './screens/Signup';
+import Payment from './screens/Payment';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -27,6 +28,7 @@ function App() {
     ctxDispatch({ type: 'USER_SIGNOUT', });
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
+    localStorage.removeItem('paymentMethod');
   }
   return (
     <BrowserRouter>
@@ -36,7 +38,7 @@ function App() {
         <Navbar className='bg-black' bg="dark" variant="dark">
           <Container className=''>
             <LinkContainer className='' to="/">
-              <Navbar.Brand className=''>PG PRIME</Navbar.Brand>
+              <Navbar.Brand className=''>PGF PRIME</Navbar.Brand>
             </LinkContainer>
             <Nav className="me-auto">
               <Link to="/cart" className="nav-link">
@@ -73,7 +75,7 @@ function App() {
           </Container>
         </Navbar>
       </header>
-      <main className='mt-28'>
+      <main className='my-32'>
         {/* <Container> */}
         <div className='flex flex-wrap'>
           <Routes>
@@ -84,6 +86,7 @@ function App() {
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/shipping" element={<ShippingAddress />} />
+                <Route path="/payment" element={<Payment />} />
                 <Route path='/product/:slug' element={<Product />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />
@@ -91,9 +94,7 @@ function App() {
         </div>
         {/* </Container> */}
       </main>
-      <footer className='text-center'>
-        All rights reserved.
-      </footer>
+      <Footer></Footer>
     </div>
     </BrowserRouter>
   );

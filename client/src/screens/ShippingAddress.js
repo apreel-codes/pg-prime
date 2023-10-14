@@ -55,7 +55,7 @@ const ShippingAddress = () => {
     }
 
     return (
-        <Container className='md:w-[40%] small-container w-[80%] -mt-7'>
+        <Container className='md:w-[40%] small-container w-[80%]'>
             <Helmet>
                 <title>Shipping Address</title>
             </Helmet>
@@ -101,7 +101,7 @@ const ShippingAddress = () => {
                         onChange={(e) => setCountry(e.target.value)}
                         required
                         ></Form.Control>
-                        <div className='my-4 d-grid'>
+                        <div className='mt-4 d-grid'>
                             <Button className='bg-blue-500' variant="primary" type="submit">
                                 Continue
                             </Button>

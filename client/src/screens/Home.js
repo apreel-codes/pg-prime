@@ -50,15 +50,15 @@ const Home = () => {
 
 
     return (
-        <Container>
+        <Container className="">
             <Helmet>
-                <title>PG PRIME</title>
+                <title>PGF PRIME</title>
             </Helmet>
             <h1 className='text-medium text-5xl font-bold'>Featured Products</h1>
             <div className='flex flex-wrap w-full mt-5'>
             { 
                  (
-                    <Row className="mx-14">
+                    <Row className="">
                         {products.map((product, i) => (
                             <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                 <HomeProduct product={product}></HomeProduct>
