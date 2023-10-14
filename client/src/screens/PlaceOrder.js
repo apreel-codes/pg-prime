@@ -80,6 +80,7 @@ const PlaceOrder = () => {
             dispatch({ type: 'CREATE_SUCCESS' });
             localStorage.removeItem('cartItems');
             navigate(`/order/${data.order._id}`);
+            toast.success('Order successfully created.')
 
         } catch (err) {
             dispatch({ type: 'CREATE_FAIL' });
