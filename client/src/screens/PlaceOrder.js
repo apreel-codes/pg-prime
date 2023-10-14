@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
@@ -10,38 +11,81 @@ import Button from 'react-bootstrap/Button';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { Store } from '../Store';
 import CheckoutSteps from '../components/CheckoutSteps';
+import { toast } from "react-toastify";
+import { getError } from '../uttils';
+import LoadingBox from '../components/LoadingBox';
+
+
+const reducer = (state, action) => {
+    switch(action.type) {
+        case 'CREATE_REQUEST':
+            return { ...state, loading: true };
+            case 'CREATE_SUCCESS':
+                return { ...state, loading: false };
+                case 'CREATE_FAIL':
+                    return { ...state, loading: false };
+        default:
+            return state;
+    }
+}
+
 
 const PlaceOrder = () => {
     const navigate = useNavigate();
+
+    const [{ loading }, dispatch] = useReducer(reducer, {
+        loading: false,
+    });
+
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { cart, userInfo } = state;
     
     const [urgency, setUrgency] = useState('I can wait');
 
-
-    const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
-    
+    const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;   
     cart.itemsPrice = round2(
         cart.cartItems.reduce((a, c) => a + c.quantity * c.price, 0)
     );
-
-
    if(urgency === 'I can wait'){
     cart.shippingPrice = 8.5;
    }
-
    if(urgency === 'In 2 - 3 days'){
     cart.shippingPrice = 14;
    }
-
    if(urgency === 'In 5 - 7 days'){
     cart.shippingPrice = 10;
    }
-
     cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
 
     const placeOrderHandler = async () => {
-    }
+        try {
+            dispatch({ type: 'CREATE_REQUEST' });
+            const { data } = await axios.post(
+                '/api/orders',
+                {
+                    orderItems: cart.cartItems,
+                    shippingAddress: cart.shippingAddress,
+                    paymentMethod: cart.paymentMethod,
+                    itemsPrice: cart.itemsPrice,
+                    shippingPrice: cart.shippingPrice,
+                    totalPrice: cart.totalPrice,
+                },
+                {
+                    headers: {
+                        authorization: `Bearer ${userInfo.token}`,
+                    },
+                }
+            );
+            ctxDispatch({ type: 'CART_CLEAR' });
+            dispatch({ type: 'CREATE_SUCCESS' });
+            localStorage.removeItem('cartItems');
+            navigate(`/order/${data.order._id}`);
+
+        } catch (err) {
+            dispatch({ type: 'CREATE_FAIL' });
+            toast.error(getError(err))
+        }
+    };
 
     useEffect(() => {
         if (!cart.paymentMethod) {
@@ -171,6 +215,7 @@ const PlaceOrder = () => {
                                             disabled={cart.cartItems.length === 0}
                                         >Place Order</Button>
                                     </div>
+                                    {loading && <LoadingBox></LoadingBox>}
                                 </ListGroup.Item>
                                 
                             </ListGroup>
