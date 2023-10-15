@@ -1,4 +1,4 @@
-import apiClient from "../api";
+// import apiClient from "../api";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
 import { getError } from "../uttils";
+import axios from "axios";
 
 const Signup = () => {
 
@@ -32,7 +33,7 @@ const Signup = () => {
             return;
         }
         try{
-            const { data } = await apiClient.post('/api/users/signup', {
+            const { data } = await axios.post('/api/users/signup', {
                 name,
                 email,
                 password,

@@ -1,5 +1,5 @@
-// import axios from 'axios';
-import apiClient from '../api';
+import axios from 'axios';
+// import apiClient from '../api';
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
@@ -61,7 +61,7 @@ const PlaceOrder = () => {
     const placeOrderHandler = async () => {
         try {
             dispatch({ type: 'CREATE_REQUEST' });
-            const { data } = await apiClient.post(
+            const { data } = await axios.post(
                 '/api/orders',
                 {
                     orderItems: cart.cartItems,

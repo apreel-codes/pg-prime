@@ -1,5 +1,5 @@
 // import axios from 'axios';
-import apiClient from '../api';
+// import apiClient from '../api';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from "react-helmet-async";
 import LoadingBox from '../components/LoadingBox';
@@ -9,6 +9,7 @@ import { Store } from '../Store';
 import { useNavigate } from 'react-router-dom';
 import { getError } from '../uttils';
 import Button from 'react-bootstrap/Button';
+import axios from 'axios';
 
 
 function reducer(state, action) {
@@ -40,7 +41,7 @@ const OrderHistory = () => {
         const fetchData = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
             try {
-                const { data } = await apiClient.get(`/api/orders/mine`,
+                const { data } = await axios.get(`/api/orders/mine`,
                 { headers: {Authorization: `Bearer ${userInfo.token}` } }
             );
             dispatch({ type: 'FETCH_SUCCESS', payload: data });

@@ -28,7 +28,9 @@ import { getError } from './uttils';
 import SearchBox from './components/SearcchBox';
 import Search from './screens/Search';
 
-import apiClient from './api';
+// import apiClient from './api';
+import axios from 'axios';
+import ProtectedRoute from './components/ProtectedRoute';
 
 
 function App() {
@@ -50,7 +52,7 @@ function App() {
   useEffect(() => {
       const fetchCategories = async () => {
         try{
-          const { data } = await apiClient.get('/api/products/categories');
+          const { data } = await axios.get('/api/products/categories');
           setCategories(data);
         } catch(err) {
           toast.error(getError(err));
@@ -60,7 +62,7 @@ function App() {
 
       const fetchBrands = async () => {
         try{
-          const { data } = await apiClient.get('/api/products/brands');
+          const { data } = await axios.get('/api/products/brands');
           setBrands(data);
         } catch(err) {
           toast.error(getError(err));
@@ -169,12 +171,19 @@ function App() {
                 <Route path="/search" element={<Search />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/signup" element={<Signup />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route 
+                  path="/profile" 
+                  element={
+                    <ProtectedRoute>
+                       <Profile />
+                    </ProtectedRoute>
+                 }
+                 />
                 <Route path="/shipping" element={<ShippingAddress />} />
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/placeorder" element={<PlaceOrder />} />
-                <Route path="/order/:id" element={<Order />} />
-                <Route path="/orderhistory" element={<OrderHistory />} />
+                <Route path="/order/:id" element={<ProtectedRoute><Order /></ProtectedRoute>} />
+                <Route path="/orderhistory" element={<ProtectedRoute><OrderHistory /></ProtectedRoute>} />
                 <Route path='/product/:slug' element={<Product />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />

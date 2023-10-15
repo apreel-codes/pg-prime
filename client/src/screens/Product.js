@@ -1,7 +1,7 @@
 import { Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useReducer, useState } from "react";
 // import axios from 'axios';
-import apiClient from "../api";
+// import apiClient from "../api";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ListGroup from 'react-bootstrap/ListGroup';
@@ -17,6 +17,7 @@ import { getError } from "../uttils";
 import { Store } from "../Store";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 
 
@@ -50,7 +51,7 @@ const Product = () => {
         const fetchData = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
             try{
-                const result = await apiClient.get(`/api/products/slug/${slug}`);
+                const result = await axios.get(`/api/products/slug/${slug}`);
                 dispatch({type: 'FETCH_SUCCESS', payload: result.data})
             } catch(err) {
                 dispatch({ type: 'FETCH_FAIL', payload: getError(err) })
@@ -66,7 +67,7 @@ const Product = () => {
     const addToCartHandler = async () => {
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
-        const { data } = await apiClient.get(`/api/products/${product._id}`);
+        const { data } = await axios.get(`/api/products/${product._id}`);
         if (data.countInStock < quantity ) {
             window.alert('Sorry. Product is out of stock');
         }

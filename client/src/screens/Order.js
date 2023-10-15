@@ -1,5 +1,5 @@
 
-import apiClient from '../api';
+// import apiClient from '../api';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import LoadingBox from '../components/LoadingBox';
@@ -15,6 +15,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/esm/Container';
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
+import axios from 'axios';
 
 function reducer(state, action) {
     switch (action.type) {
@@ -79,7 +80,7 @@ const Order = () => {
         return actions.order.capture().then(async function (details) {
             try {
                 dispatch({ type: 'PAY_REQUEST' });
-                const { data } = await apiClient.put(
+                const { data } = await axios.put(
                     `/api/orders/${order._id}/pay`,
                     details,
                     {
@@ -104,7 +105,7 @@ const Order = () => {
         const fetchOrder = async () => {
             try{
                 dispatch({ type: 'FETCH_REQUEST' });
-                const { data } = await apiClient.get(`/api/orders/${orderId}`, {
+                const { data } = await axios.get(`/api/orders/${orderId}`, {
                     headers: { authorization: `Bearer ${userInfo.token}` },
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -123,7 +124,7 @@ const Order = () => {
             }
         } else {
             const loadPayPalScript = async () => {
-                const { data: clientId } = await apiClient.get('/api/keys/paypal', {
+                const { data: clientId } = await axios.get('/api/keys/paypal', {
                     headers: { authorization: `Bearer ${userInfo.token}` },
                 });
                 paypalDispatch({
