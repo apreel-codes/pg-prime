@@ -25,9 +25,10 @@ import OrderHistory from './screens/OrderHistory';
 import Profile from './screens/Profile';
 import Button from 'react-bootstrap/Button';
 import { getError } from './uttils';
-import axios from 'axios';
 import SearchBox from './components/SearcchBox';
 import Search from './screens/Search';
+
+import apiClient from './api';
 
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
   useEffect(() => {
       const fetchCategories = async () => {
         try{
-          const { data } = await axios.get('/api/products/categories');
+          const { data } = await apiClient.get('/api/products/categories');
           setCategories(data);
         } catch(err) {
           toast.error(getError(err));
@@ -59,7 +60,7 @@ function App() {
 
       const fetchBrands = async () => {
         try{
-          const { data } = await axios.get('/api/products/brands');
+          const { data } = await apiClient.get('/api/products/brands');
           setBrands(data);
         } catch(err) {
           toast.error(getError(err));

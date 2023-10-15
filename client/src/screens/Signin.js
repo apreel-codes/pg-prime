@@ -1,9 +1,10 @@
+import apiClient from "../api";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import { Helmet } from "react-helmet-async";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 import { useContext, useEffect, useState } from "react";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
@@ -25,7 +26,7 @@ const Signin = () => {
     const submitHandler = async (e) => {
         e.preventDefault();
         try{
-            const { data } = await axios.post('/api/users/signin', {
+            const { data } = await apiClient.post('/api/users/signin', {
                 email,
                 password,
             });

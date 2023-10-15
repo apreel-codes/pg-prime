@@ -1,4 +1,5 @@
-import axios from 'axios';
+// import axios from 'axios';
+import apiClient from '../api';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from "react-helmet-async";
 import LoadingBox from '../components/LoadingBox';
@@ -39,7 +40,7 @@ const OrderHistory = () => {
         const fetchData = async () => {
             dispatch({ type: 'FETCH_REQUEST' });
             try {
-                const { data } = await axios.get(`/api/orders/mine`,
+                const { data } = await apiClient.get(`/api/orders/mine`,
                 { headers: {Authorization: `Bearer ${userInfo.token}` } }
             );
             dispatch({ type: 'FETCH_SUCCESS', payload: data });

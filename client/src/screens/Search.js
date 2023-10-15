@@ -1,8 +1,9 @@
-import axios from 'axios';
+// import axios from 'axios';
+import apiClient from '../api';
 import React, { useEffect, useReducer, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { getError } from '../uttils';
-import { ToastContainer } from "react-toastify";
+// import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import { Helmet } from 'react-helmet-async';
 import Row from 'react-bootstrap/Row';
@@ -94,7 +95,7 @@ const Search = () => {
     useEffect(() => {
         const fetchData = async () => {
             try{
-                const { data } = await axios.get(
+                const { data } = await apiClient.get(
                     `/api/products/search?page=${page}&query=${query}&category=${category}&brand=${brand}&price=${price}&rating=${rating}&order=${order}`
                 );
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -113,7 +114,7 @@ const Search = () => {
     useEffect(() => {
         const fetchCategories = async () => {
             try{
-                const { data } = await axios.get(`/api/products/categories`);
+                const { data } = await apiClient.get(`/api/products/categories`);
                 setCategories(data)
             } catch (err) {
                 toast.error(getError(err));
@@ -126,7 +127,7 @@ const Search = () => {
     useEffect(() => {
         const fetchBrands = async () => {
             try{
-                const { data } = await axios.get(`/api/products/brands`);
+                const { data } = await apiClient.get(`/api/products/brands`);
                 setBrands(data)
             } catch (err) {
                 toast.error(getError(err));

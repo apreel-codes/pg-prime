@@ -1,4 +1,5 @@
-import axios from 'axios';
+
+import apiClient from '../api';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import LoadingBox from '../components/LoadingBox';
@@ -78,7 +79,7 @@ const Order = () => {
         return actions.order.capture().then(async function (details) {
             try {
                 dispatch({ type: 'PAY_REQUEST' });
-                const { data } = await axios.put(
+                const { data } = await apiClient.put(
                     `/api/orders/${order._id}/pay`,
                     details,
                     {
@@ -103,7 +104,7 @@ const Order = () => {
         const fetchOrder = async () => {
             try{
                 dispatch({ type: 'FETCH_REQUEST' });
-                const { data } = await axios.get(`/api/orders/${orderId}`, {
+                const { data } = await apiClient.get(`/api/orders/${orderId}`, {
                     headers: { authorization: `Bearer ${userInfo.token}` },
                 });
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
@@ -122,7 +123,7 @@ const Order = () => {
             }
         } else {
             const loadPayPalScript = async () => {
-                const { data: clientId } = await axios.get('/api/keys/paypal', {
+                const { data: clientId } = await apiClient.get('/api/keys/paypal', {
                     headers: { authorization: `Bearer ${userInfo.token}` },
                 });
                 paypalDispatch({

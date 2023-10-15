@@ -1,4 +1,5 @@
-import axios from 'axios';
+// import axios from 'axios';
+import apiClient from '../api';
 import React, { useContext, useReducer, useState } from 'react';
 import { Store } from '../Store';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -49,7 +50,7 @@ const Profile = () => {
             return;
         }
         try{
-            const { data } = await axios.put(
+            const { data } = await apiClient.put(
                 '/api/users/profile',
                 {
                     name,
