@@ -7,7 +7,7 @@ import dotenv from 'dotenv';
 import seedRouter from './routes/seedRouter.js';
 import productRouter from './routes/productRouter.js';
 import userRouter from './routes/userRoute.js';
-import orderRouter from './routes/OrderRoute.js';
+import orderRouter from './routes/orderRoute.js';
 
 dotenv.config();
 
@@ -29,6 +29,7 @@ app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
+
 
 
 app.use((err, req, res, next) => {
