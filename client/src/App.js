@@ -22,6 +22,7 @@ import Payment from './screens/Payment';
 import PlaceOrder from './screens/PlaceOrder';
 import Order from './screens/Order';
 import OrderHistory from './screens/OrderHistory';
+import Profile from './screens/Profile';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
     localStorage.removeItem('userInfo');
     localStorage.removeItem('shippingAddress');
     localStorage.removeItem('paymentMethod');
+    window.location.href='/signin';
   }
   return (
     <BrowserRouter>
@@ -93,6 +95,7 @@ function App() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/profile" element={<Profile />} />
                 <Route path="/shipping" element={<ShippingAddress />} />
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/placeorder" element={<PlaceOrder />} />

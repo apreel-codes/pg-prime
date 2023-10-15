@@ -35,7 +35,7 @@ const Signin = () => {
         } catch (err) {
             toast.error(getError(err));
         }
-    }
+    };
 
     useEffect(() => {
         if(userInfo) {
@@ -45,7 +45,7 @@ const Signin = () => {
 
 
     return (
-       <Container className="small-container">
+       <Container fluid className='md:w-[40%] w-[80%]'>
         <Helmet>
             <title>Sign In</title>
         </Helmet>

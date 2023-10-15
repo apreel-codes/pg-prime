@@ -53,7 +53,7 @@ const Signup = () => {
 
 
     return (
-       <Container className="small-container">
+       <Container fluid className='md:w-[40%] w-[80%]'>
         <Helmet>
             <title>Sign Up</title>
         </Helmet>

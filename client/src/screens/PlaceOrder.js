@@ -152,7 +152,7 @@ const PlaceOrder = () => {
                     </Card>
                 </Col>
                 <Col md={4}>
-                <div> How quick do you want your items delivered to you?</div>
+                <div> How quick do you want your items shipped to you?</div>
                 <Form>
                             <div className='my-3'>
                                 <Form.Check
