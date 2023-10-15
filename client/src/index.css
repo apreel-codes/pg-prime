@@ -33,6 +33,11 @@ html, body, #root {
   justify-content: space-between;
 }
 
+.btn-primary .btn-outline-primary {
+  background-color: #f0c040;
+  color: #000;
+}
+
 
 .image {
   width: 100%;

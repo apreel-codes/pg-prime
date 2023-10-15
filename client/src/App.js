@@ -27,6 +27,7 @@ import Button from 'react-bootstrap/Button';
 import { getError } from './uttils';
 import axios from 'axios';
 import SearchBox from './components/SearcchBox';
+import Search from './screens/Search';
 
 
 function App() {
@@ -164,6 +165,7 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/search" element={<Search />} />
                 <Route path="/signin" element={<Signin />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/profile" element={<Profile />} />
