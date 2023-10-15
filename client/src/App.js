@@ -21,6 +21,8 @@ import Signup from './screens/Signup';
 import Payment from './screens/Payment';
 import PlaceOrder from './screens/PlaceOrder';
 import Order from './screens/Order';
+import OrderHistory from './screens/OrderHistory';
+
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -34,52 +36,56 @@ function App() {
   }
   return (
     <BrowserRouter>
-      <div className="App d-flex flex-column site-container">
+      <div className="App">
       <ToastContainer position='bottom-center' limit={1} />
       <header className=''>
-        <Navbar className='bg-black' bg="dark" variant="dark">
+        <div className='bg-white'><p className='text-xl text-center my-3 font-bold italic'>Confidence in your sole...</p></div>
+        <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
           <Container className=''>
             <LinkContainer className='' to="/">
               <Navbar.Brand className=''>PGF PRIME</Navbar.Brand>
             </LinkContainer>
-            <Nav className="me-auto">
-              <Link to="/cart" className="nav-link">
-                Cart
-                {cart.cartItems.length > 0 && (
-                  <Badge pill bg="danger">
-                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                  </Badge>
-                )}
-              </Link>
-              {userInfo ? (
-                <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>User Profile</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
-                    </LinkContainer>
-                    <NavDropdown.Divider />
-                    <Link 
-                    className='dropdown-item'
-                    to="#signout"
-                    onClick={signoutHandler}
-                    >
-                      Sign Out
-                   </Link>             
-                </NavDropdown>
-              ) : (
-                <Link className="nav-link" to="/signin">
-                  Sign In
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+              <Nav className="me-auto w-100 justify-content-end">
+                <Link to="/cart" className="nav-link">
+                  Cart
+                  {cart.cartItems.length > 0 && (
+                    <Badge pill bg="danger">
+                      {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
+                    </Badge>
+                  )}
                 </Link>
-              )}
-            </Nav>
+                {userInfo ? (
+                  <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                      <LinkContainer to="/profile">
+                        <NavDropdown.Item>User Profile</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/orderhistory">
+                        <NavDropdown.Item>Order History</NavDropdown.Item>
+                      </LinkContainer>
+                      <NavDropdown.Divider />
+                      <Link 
+                      className='dropdown-item'
+                      to="#signout"
+                      onClick={signoutHandler}
+                      >
+                        Sign Out
+                    </Link>             
+                  </NavDropdown>
+                ) : (
+                  <Link className="nav-link" to="/signin">
+                    Sign In
+                  </Link>
+                )}
+              </Nav>
+            </Navbar.Collapse>
           </Container>
         </Navbar>
       </header>
       <main className='my-24'>
         {/* <Container> */}
-        <div className='flex flex-wrap'>
+        <div className=''>
           <Routes>
               <Route>
                 <Route index element={<Home />} />
@@ -91,6 +97,7 @@ function App() {
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/placeorder" element={<PlaceOrder />} />
                 <Route path="/order/:id" element={<Order />} />
+                <Route path="/orderhistory" element={<OrderHistory />} />
                 <Route path='/product/:slug' element={<Product />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />

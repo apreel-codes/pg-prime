@@ -9,7 +9,7 @@ import HomeProduct from "../components/HomeProduct";
 import { Helmet } from 'react-helmet-async';
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-import Container from "react-bootstrap/esm/Container";
+import Container from "react-bootstrap/Container";
 // import data from "../data";
 
 const reducer = (state, action) => {
@@ -54,8 +54,8 @@ const Home = () => {
             <Helmet>
                 <title>PGF PRIME</title>
             </Helmet>
-            <h1 className='text-medium text-5xl font-bold'>Featured Products</h1>
-            <div className='flex flex-wrap w-full mt-5'>
+            <h1 className='text-medium text-3xl font-bold'>Featured Products</h1>
+            <div fluid className='flex flex-wrap mt-5'>
             { 
                  (
                     <Row className="">

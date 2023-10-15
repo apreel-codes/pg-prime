@@ -179,7 +179,7 @@ const Order = () => {
                                 </Card.Text>
                                 {order.isPaid ? (
                                     <MessageBox variant="success">
-                                        Paid at {order.paidAt}
+                                        Paid at {order.paidAt.substring(0, 10)}
                                     </MessageBox>
                                 ): (
                                     <MessageBox variant="danger">Not Paid</MessageBox>
