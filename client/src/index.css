@@ -86,11 +86,11 @@ main {
 }
 
 .side-navbar {
-  width: 240px;
+  width: 180px;
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: #000;
+  background-color: #8a8e8d;
   transition: 0.5s;
 }
 
@@ -99,10 +99,19 @@ main {
 }
 
 .active-cont {
-    margin-left: 240px
+    margin-left: 180px
 }
 
 .active-nav {
   left: 0;
+}
+
+button.thumbnail {
+  padding: 0;
+}
+
+.home-container{
+  overflow: scroll;
+  height: 600px;
 }
 

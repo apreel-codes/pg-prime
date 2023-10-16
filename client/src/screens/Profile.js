@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 // import apiClient from '../api';
 import React, { useContext, useReducer, useState } from 'react';
 import { Store } from '../Store';
@@ -9,7 +9,7 @@ import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
 import { toast } from "react-toastify";
 import { getError } from '../uttils';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 const reducer = (state, action) => {

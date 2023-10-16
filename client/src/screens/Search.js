@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 // import apiClient from '../api';
 import React, { useEffect, useReducer, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -14,7 +14,8 @@ import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/Button';
 import HomeProduct from '../components/HomeProduct';
 import { LinkContainer } from 'react-router-bootstrap';
-import axios from 'axios';
+import Container from 'react-bootstrap/esm/Container';
+// import axios from 'axios';
 
 
 const reducer = (state, action) => {
@@ -94,7 +95,7 @@ const Search = () => {
 
 
     useEffect(() => {
-        const fetchData = async () => {
+        const fetchData = async (skipPathname) => {
             try{
                 const { data } = await axios.get(
                     `/api/products/search?page=${page}&query=${query}&category=${category}&brand=${brand}&price=${price}&rating=${rating}&order=${order}`
@@ -137,140 +138,55 @@ const Search = () => {
         fetchBrands();
     }, [dispatch])
 
-    const getFilterUrl = (filter, skipPathname) => {
-        const filterPage = filter.page || page;
-        const filterCategory = filter.category || category;
-        const filterBrand = filter.brand || brand;
-        const filterQuery = filter.query || query;
-        const filterRating = filter.rating || rating;
-        const filterPrice = filter.price || price;
-        const sortOrder = filter.order || order;
-        return `${
-            skipPathname ? '' : '/search'
-        }categorycategory=${filterCategory}$brand=${filterBrand}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}$page=${filterPage}`;
-    };
+    // const getFilterUrl = (filter, skipPathname) => {
+    //     const filterPage = filter.page || page;
+    //     const filterCategory = filter.category || category;
+    //     const filterBrand = filter.brand || brand;
+    //     const filterQuery = filter.query || query;
+    //     const filterRating = filter.rating || rating;
+    //     const filterPrice = filter.price || price;
+    //     const sortOrder = filter.order || order;
+    //     return `/search&category=${filterCategory}&brand=${filterBrand}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
+    // };
+
 
     return (
         <div>
             <Helmet>
                 <title>Search Products</title>
             </Helmet>
-            <Row>
-                <Col md={3}>
-                    <h3>Category</h3>
-                    <div>
-                        <ul>
-                            <li>
-                                <Link className={'all' === category ? 'text-bold' : ''}
-                                to={getFilterUrl({ category: 'all' })}
-                                >Any</Link>
-                            </li>
-                        {categories.map((c) => (
-                            <li key={c}>
-                                <Link 
-                                className={c === category ? 'text-bold' : ''}
-                                to={getFilterUrl({ category: c })}
-                                >{c}</Link>
-                            </li>
-                        ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Brand</h3>
-                        <ul>
-                            <li>
-                                <Link className={'all' === brand ? 'text-bold' : ''}
-                                to={getFilterUrl({ brand: 'all' })}
-                                >Any</Link>
-                            </li>
-                             {brands.map((b) => (
-                            <li key={b}>
-                                <Link 
-                                className={b === brand ? 'text-bold' : ''}
-                                to={getFilterUrl({ brand: b })}
-                                >{b}</Link>
-                            </li>
-                        ))}
-                        </ul>
-                    </div>
-                    <div>
-                    <h3>Price</h3>
-                        <ul>
-                            <li>
-                                <Link className={'all' === price ? 'text-bold' : ''}
-                                to={getFilterUrl({ price: 'all' })}
-                                >Any</Link>
-                            </li>
-                             {prices.map((p) => (
-                            <li key={p.value}>
-                                <Link 
-                                className={p.value === price ? 'text-bold' : ''}
-                                to={getFilterUrl({ price: p.value })}
-                                >{p.name}</Link>
-                            </li>
-                        ))}
-                        </ul>
-                    </div>
-                    <div>
-                        <h3>Avg. Customer Review</h3>
-                        <ul>
-                            {ratings.map((r) => (
-                                <li key={r.name}>
-                                    <Link
-                                        to={getFilterUrl({ rating: r.rating })}
-                                        className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
-                                    >
-                                        <Rating caption={' & up'} rating={r.rating}></Rating>
-                                    </Link>
-                                </li>
-                            ))}
-                            <li>
-                                <Link
-                                to={getFilterUrl({ rating: 'all' })}
-                                className={rating === 'all' ? 'text-bold' : ''}
-                                >
-                                    <Rating caption={' & up'} rating={0}></Rating>
-                                </Link>                                
-                           </li>
-                        </ul>
-                    </div>
-                </Col>
-                <Col md={9}>
+            <Container className='border'>
+                <Container className='border'>
                     {loading ? (
                         <LoadingBox></LoadingBox>
                     ) : error ? (
                         <MessageBox variant="danger">{error}</MessageBox>
                     ) : (
                         <>
-                        <Row className='justify-content-between mb-3'>
+                        <Row className='justify-content-between mb-3 border mx-auto'>
                             <Col md={6}>
                                 <div>
                                     {countProducts === 0 ? 'No' : countProducts} Results
-                                    {query !== 'all' && ' : ' + query}
-                                    {category !== 'all' && ' : ' + category}
-                                    {brand !== 'all' && ' : ' + brand}
-                                    {price !== 'all' && ' : ' + price}
-                                    {rating !== 'all' && ' : ' + rating}
                                     {query !== 'all' ||
                                     category !== 'all' ||
                                     brand !== 'all' ||
                                     rating !== 'all' ||
                                     price !== 'all' ? (
-                                        <Button
+                                    <Button
                                         variant="light"
-                                        onClick={() => navigate('/search')}
+                                        onClick={() => navigate('/')}
                                         >
                                             <i className='fas fa-times-circle'></i>
-                                        </Button>
+                                    </Button>
                                     ) : null }
                                 </div>
                             </Col>
-                            <Col className='text-end'>
+                            {/* <Col className='text-end border'>
                                 Sort by {' '}
                                     <select
-                                    value={order}
-                                    onChange={(e) => {
-                                    navigate(getFilterUrl({ order: e.target.value }));
+                                        value={order}
+                                        onChange={(e) => {
+                                        navigate(getFilterUrl({ order: e.target.value }));
                                 }}
                             >
                                     <option value="newest">Newest Arrivals</option>
@@ -278,7 +194,7 @@ const Search = () => {
                                     <option value="highest">Price: High to Low</option>
                                     <option value="toprated">Avg. Customer Reviews</option>
                                 </select>
-                            </Col>
+                            </Col> */}
                         </Row>
                         {products.length === 0 && (
                             <MessageBox>No Product Found</MessageBox>
@@ -291,26 +207,26 @@ const Search = () => {
                             ))}
                         </Row>
 
-                        <div>
+                        {/* <div>
                             {[...Array(pages).keys()].map((x) => (
                                 <LinkContainer
-                                key={x + 1}
-                                className='mx-1'
-                                to={getFilterUrl({ page: x + 1 })}
-                                >
-                                    <Button
-                                    className={Number(pages) === x + 1 ? 'text-bold' : ''}
-                                    variant='light'
-                                    >
-                                        {x + 1}
-                                    </Button>
+                                        key={x + 1}
+                                        className='mx-1'
+                                        to={getFilterUrl({ page: x + 1 })}
+                                        >
+                                            <Button
+                                            className={Number(pages) === x + 1 ? 'text-bold' : ''}
+                                            variant='light'
+                                            >
+                                                {x + 1}
+                                            </Button>
                                 </LinkContainer>
                             ))}
-                        </div>
+                        </div> */}
                     </>
                     )}
-                </Col>
-            </Row>
+                </Container>
+            </Container>
         </div>
     );
 }

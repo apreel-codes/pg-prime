@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useReducer, useState } from "react";
 // import axios from 'axios';
@@ -17,7 +18,7 @@ import { getError } from "../uttils";
 import { Store } from "../Store";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
-import axios from "axios";
+
 
 
 
@@ -35,6 +36,8 @@ const reducer = (state, action) => {
 };
 
 const Product = () => {
+    const [selectedImage, setSelectedImage] = useState('');
+
     const navigate = useNavigate();
     const params = useParams();
     console.log(params)
@@ -81,7 +84,7 @@ const Product = () => {
 
 
     return (
-        <div className="border w-[60%] mx-auto">
+        <div className="w-[60%] mx-auto">
             <ToastContainer position='top-center' limit={1} />
             {
                 loading ? ( <LoadingBox /> )
@@ -91,7 +94,8 @@ const Product = () => {
                         <Col className="" md={6}>
                             <img
                                 className="img-large" 
-                                src={product.image}
+                                // 
+                                src={selectedImage || product.image}
                                 alt={product.image}
                             ></img>
                         </Col>
@@ -104,13 +108,31 @@ const Product = () => {
                                     <h1 className="text-5xl font-bold">{product.name}</h1>
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                    <Rating
+                                    {/* <Rating
                                         rating={product.rating}
                                         numReviews={product.numReviews}
-                                    ></Rating>
+                                    ></Rating> */}
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-xl text-bold">
-                                    Price: NGN{product.price}
+                                    Price:&#163;{product.price}
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                <Row xs={1} md={2} className="g-2 w-60">
+                                    {[product.image, ...product.images].map((x) => (
+                                    <Col key={x}>
+                                        <Card>
+                                        <Button
+                                            className="thumbnail"
+                                            type="button"
+                                            variant="light"
+                                            onClick={() => setSelectedImage(x)}
+                                        >
+                                            <Card.Img variant="top" src={x} alt="product" />
+                                        </Button>
+                                        </Card>
+                                    </Col>
+                                    ))}
+                                </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-lg">
                                     Description: {product.description}
@@ -121,7 +143,7 @@ const Product = () => {
                                             <ListGroupItem>
                                                 <Row>
                                                     <Col><strong>Price:</strong></Col>
-                                                    <Col>NGN{product.price}</Col>
+                                                    <Col>&#163;{product.price}</Col>
                                                 </Row>
                                             </ListGroupItem>
                                             <ListGroupItem>

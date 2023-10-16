@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import axios from 'axios';
 // import apiClient from '../api';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { Helmet } from "react-helmet-async";
@@ -9,7 +9,7 @@ import { Store } from '../Store';
 import { useNavigate } from 'react-router-dom';
 import { getError } from '../uttils';
 import Button from 'react-bootstrap/Button';
-import axios from 'axios';
+// import axios from 'axios';
 
 
 function reducer(state, action) {

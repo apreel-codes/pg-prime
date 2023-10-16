@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
@@ -29,8 +30,16 @@ import SearchBox from './components/SearcchBox';
 import Search from './screens/Search';
 
 // import apiClient from './api';
-import axios from 'axios';
+
 import ProtectedRoute from './components/ProtectedRoute';
+import Dashboard from './screens/Dashboard';
+import AdminRoute from './components/AdminRoute';
+import OrderList from './screens/OrderList';
+import ProductList from './screens/ProductList';
+import UserList from './screens/UserList';
+import ProductEdit from './screens/ProductEdit';
+import UserEdit from './screens/UserEdit';
+import CreateProduct from './screens/CreateProduct';
 
 
 function App() {
@@ -46,8 +55,44 @@ function App() {
   }
 
   const [sidebarIsOpen, setSidebarIsOpen ] = useState(false);
+
+  const prices = [
+    {
+        name: '1 to 50',
+        value: '1-50'
+    },
+    {
+        name: '51 to 200',
+        value: '51-200'
+    },
+    {
+        name: '201 to 1000',
+        value: '201-1000'
+    },
+];
+
+// const orderNames = [
+//   {
+//       name: 'Newest',
+//       value: 'newest'
+//   },
+//   {
+//       name: 'Low to High',
+//       value: 'lowest'
+//   },
+//   {
+//       name: 'High to Low',
+//       value: 'Highest'
+//   },
+//   {
+//     name: 'Top rated',
+//     value: 'toprated '
+//   },
+// ];
+  
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
+  // const [orders, setOrder] = useState([]);
 
   useEffect(() => {
       const fetchCategories = async () => {
@@ -69,25 +114,35 @@ function App() {
         }
       }
       fetchBrands();
+
+      // const fetchOrder = async () => {
+      //   try{
+      //     const { data } = await axios.get('/api/products/orders');
+      //     setOrder(data);
+      //   } catch(err) {
+      //     toast.error(getError(err));
+      //   }
+      // }
+      // fetchOrder();
   }, []);
 
   return (
-    <BrowserRouter>
-      <div className={sidebarIsOpen ? "d-flex flex-column site-container active-cont" : "d-flex flex-column site-container" }>
+    <BrowserRouter className="">
+      <div className={sidebarIsOpen ? "d-flex flex-column active-cont" : "d-flex flex-column site-container relative" }>
       <ToastContainer position='bottom-center' limit={1} />
       <header className=''>
-        <div className='bg-white'><p className='text-xl text-center my-3 font-bold italic'>Confidence in your sole...</p></div>
+        <div className='bg-white'><p className='text-lg text-center my-2 font-medium italic'>Confidence in your sole...</p></div>
         <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
-          <Container className=''>
+          <Container fluid className='px-4'>
             <Button className='border-0'
             variant='dark'
             onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
             ><i className='fas fa-bars'></i></Button>
             <LinkContainer className='' to="/">
-              <Navbar.Brand className=''>PGF PRIME</Navbar.Brand>
+              <Navbar.Brand className=''><img src='../images/logo.jpg' className='w-10 h-10'></img></Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
+            <Navbar.Collapse id="basic-navbar-nav" className=''>
               <SearchBox />
               <Nav className="me-auto w-100 justify-content-end">
                 <Link to="/cart" className="nav-link">
@@ -120,6 +175,22 @@ function App() {
                     Sign In
                   </Link>
                 )}
+                {userInfo && userInfo.isAdmin && (
+                  <NavDropdown title="Admin" id="admin-nav-dropdown">
+                    <LinkContainer to='/admin/dashboard'>
+                      <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to='/admin/productlist'>
+                      <NavDropdown.Item>Products</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to='/admin/orderlist'>
+                      <NavDropdown.Item>Orders</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to='/admin/userlist'>
+                      <NavDropdown.Item>Users</NavDropdown.Item>
+                    </LinkContainer>                    
+                  </NavDropdown>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -129,17 +200,17 @@ function App() {
         sidebarIsOpen ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
                       : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
       }>
-        <Nav className='flex-column text-white w-100 p-2 mt-16'>
+        <Nav className='flex-column text-black w-100 p-2 mt-16 ml-2'>
           <Nav.Item>
             <strong>Categories</strong>
           </Nav.Item>
           {categories.map((category) => (
             <Nav.Item key={category}>
-              <LinkContainer
+              <LinkContainer className='text-white'
                 to={{ pathname: '/search', search: `category=${category}`}}
                 onClick={() => setSidebarIsOpen(false)}
               >
-                <Nav.Link>{category}</Nav.Link>
+                <Nav.Link className=''>{category}</Nav.Link>
               </LinkContainer>
             </Nav.Item>
           ))}
@@ -149,18 +220,46 @@ function App() {
             </Nav.Item>
             {brands.map((brand) => (
             <Nav.Item key={brand}>
-              <LinkContainer
+              <LinkContainer className='text-white'
                 to={{ pathname: '/search', search: `brand=${brand}`}}
                 onClick={() => setSidebarIsOpen(false)}
               >
                 <Nav.Link>{brand}</Nav.Link>
               </LinkContainer>
-            </Nav.Item>
+        </Nav.Item>
           ))}
-        </Nav>
+
+        <Nav.Item>
+            <strong>Prices</strong>
+            </Nav.Item>
+            {prices.map((p) => (
+            <Nav.Item key={p.value}>
+              <LinkContainer className='text-white'
+                to={{ pathname: '/search', search: `price=${p.value}`}}
+                onClick={() => setSidebarIsOpen(false)}
+              >
+                <Nav.Link>{p.name}</Nav.Link>
+              </LinkContainer>
+        </Nav.Item>
+          ))}
+{/* 
+        <Nav.Item>
+            <strong>Order</strong>
+        </Nav.Item>
+        {orderNames.map((o) => (
+            <Nav.Item key={o.value}>
+              <LinkContainer
+                to={{ pathname: '/search', search: `order=${o.value}`}}
+                onClick={() => setSidebarIsOpen(false)}
+              >
+                <Nav.Link>{o}</Nav.Link>
+              </LinkContainer>
+            </Nav.Item>
+        ))} */}
+    </Nav>
       
       </div>
-      <main className='my-24'>
+      <Container fluid className='my-14 w-[100%]'>
         {/* <Container> */}
         <div className=''>
           <Routes>
@@ -182,6 +281,15 @@ function App() {
                 <Route path="/shipping" element={<ShippingAddress />} />
                 <Route path="/payment" element={<Payment />} />
                 <Route path="/placeorder" element={<PlaceOrder />} />
+                <Route path="/search" element={<Search />} />
+                {/* Admin Routes */}
+                <Route path="/admin/dashboard" element={<AdminRoute><Dashboard /></AdminRoute>} />
+                <Route path="/admin/orderlist" element={<AdminRoute><OrderList /></AdminRoute>}></Route>
+                <Route path="/admin/productlist" element={<AdminRoute><ProductList /></AdminRoute>}></Route>
+                <Route path="/admin/product/:id" element={<AdminRoute><ProductEdit /></AdminRoute>}></Route>
+                <Route path="/admin/createproduct" element={<AdminRoute><CreateProduct /></AdminRoute>}></Route>
+                <Route path="/admin/user/:id"element={<AdminRoute><UserEdit /></AdminRoute>}></Route>
+                <Route path="/admin/userlist" element={<AdminRoute><UserList /></AdminRoute>}></Route>
                 <Route path="/order/:id" element={<ProtectedRoute><Order /></ProtectedRoute>} />
                 <Route path="/orderhistory" element={<ProtectedRoute><OrderHistory /></ProtectedRoute>} />
                 <Route path='/product/:slug' element={<Product />} />
@@ -190,7 +298,7 @@ function App() {
           </Routes>
         </div>
         {/* </Container> */}
-      </main>
+      </Container>
       <Footer></Footer>
     </div>
     </BrowserRouter>

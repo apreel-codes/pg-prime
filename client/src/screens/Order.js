@@ -1,4 +1,4 @@
-
+import axios from 'axios';
 // import apiClient from '../api';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
@@ -15,7 +15,7 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/esm/Container';
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
-import axios from 'axios';
+
 
 function reducer(state, action) {
     switch (action.type) {

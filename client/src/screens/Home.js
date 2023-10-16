@@ -50,11 +50,12 @@ const Home = () => {
 
 
     return (
-        <Container className="">
+        <Container fluid className="md:w-[80%]">
             <Helmet>
                 <title>PGF PRIME</title>
             </Helmet>
-            <h1 className='text-medium text-3xl font-bold'>Featured Products</h1>
+            <h1 className='text-medium text-3xl font-bold mb-5'>Featured Products</h1>
+            <Container fluid className="home-container">
             <div fluid className='flex flex-wrap mt-5'>
             { 
                  (
@@ -69,6 +70,10 @@ const Home = () => {
                 )
              }
             </div>      
+            </Container>
+            <Container>
+                <h2>Available Brands</h2>
+            </Container>
         </Container>
     )
 }
