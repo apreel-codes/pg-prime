@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
 import React, { useEffect, useReducer, useState } from "react";
-import apiClient from "../api";
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
@@ -12,9 +11,9 @@ import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from "react-router-bootstrap";
 import { getError } from "../uttils";
 import { toast } from "react-toastify";
-import { CarouselCustomArrows } from "../components/Carousel";
-import Button from "react-bootstrap/Button";
-// import data from "../data";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+
 
 const reducer = (state, action) => {
     switch(action.type) {
@@ -34,7 +33,6 @@ const Home = () => {
         products: [],
         loading: true, error: ''
     })
-    // const [products, setProducts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -46,10 +44,22 @@ const Home = () => {
                 dispatch({ type: 'FETCH_FAIL', payload: err.message })
             }
             
-            // setProducts(result.data);
         };
         fetchData();
     }, [])
+
+    function randomizeDataset(products) {
+        const randomizedDataset = products.slice();
+      
+        for (let i = randomizedDataset.length - 1; i > 0; i--) {
+          const randomIndex = Math.floor(Math.random() * (i + 1));
+          [randomizedDataset[i], randomizedDataset[randomIndex]] = [randomizedDataset[randomIndex], randomizedDataset[i]];
+        }
+      
+        return randomizedDataset;
+      }
+
+    const randProducts = randomizeDataset(products);
 
     const prices = [
         {
@@ -93,6 +103,33 @@ const Home = () => {
 
 
 
+      const responsive = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 3
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 2
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1
+        }
+      };
+      <Carousel responsive={responsive}>
+        <div>Item 1</div>
+        <div>Item 2</div>
+        <div>Item 3</div>
+        <div>Item 4</div>
+      </Carousel>;
+
+
     return (
         <Container fluid>
             
@@ -101,6 +138,16 @@ const Home = () => {
                 <title>PGF PRIME</title>
             </Helmet>   
             <h1 className='text-4xl text-black font-medium my-5'>Featured Products</h1>
+
+            <Carousel responsive={responsive}>
+                    {products.map((product, i) => (
+                        <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                            <HomeProduct product={product}></HomeProduct>
+                        </div>
+                    
+                 ))}
+            </Carousel>
+
 
 
             <Row>
@@ -138,9 +185,9 @@ const Home = () => {
                                             >
                                                 <Nav.Link>{p.name}</Nav.Link>
                                             </LinkContainer>
-                                    </Nav.Item>
+                                        </Nav.Item>
                             ))}
-                    </Nav>
+                            </Nav>
                 </Col>
                 <Col md={9}>
                 <Container fluid className="home-container">
@@ -148,7 +195,7 @@ const Home = () => {
                         { 
                             (
                                 <Row className="">
-                                    {products.map((product, i) => (
+                                    {randProducts.map((product, i) => (
                                         <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                             <HomeProduct product={product}></HomeProduct>
                                         </Col>
