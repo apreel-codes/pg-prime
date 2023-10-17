@@ -127,12 +127,12 @@ const Home = () => {
     return (
         <Container fluid className="-mt-14">
         
-            <Container fluid className="md:w-[100%] border carousel-parent">
+            <Container fluid className="md:w-[100%] border">
             <Helmet>
                 <title>PGF PRIME</title>
             </Helmet>   
-            <Container fluid className="border w-[90%]">
-                     <h1 className='text-3xl text-black font-base my-2'>Featured Products</h1>
+            <Container fluid className="border w-[100%] carousel-parent">
+                     <h1 className='text-2xl text-black font-bold mt-3'>Featured Products</h1>
 
                     <Carousel responsive={responsive} className="border">
                         {products.map((product, i) => (

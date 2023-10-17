@@ -116,3 +116,7 @@ button.thumbnail {
   /* height: 600px; */
 }
 
+.carousel-parent {
+  background-color: rgb(236, 243, 240);
+}
+
