@@ -122,32 +122,28 @@ const Home = () => {
           items: 1
         }
       };
-      <Carousel responsive={responsive}>
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
-      </Carousel>;
 
 
     return (
-        <Container fluid>
-            
-            <Container fluid className="md:w-[80%]">
+        <Container fluid className="-mt-14">
+        
+            <Container fluid className="md:w-[100%] border carousel-parent">
             <Helmet>
                 <title>PGF PRIME</title>
             </Helmet>   
-            <h1 className='text-4xl text-black font-medium my-5'>Featured Products</h1>
+            <Container fluid className="border w-[90%]">
+                     <h1 className='text-3xl text-black font-base my-2'>Featured Products</h1>
 
-            <Carousel responsive={responsive}>
-                    {products.map((product, i) => (
-                        <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                            <HomeProduct product={product}></HomeProduct>
-                        </div>
-                    
-                 ))}
-            </Carousel>
+                    <Carousel responsive={responsive} className="border">
+                        {products.map((product, i) => (
+                            <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                                <HomeProduct product={product}></HomeProduct>
+                            </div>
+                        
+                    ))}
+                     </Carousel>
 
+            </Container>
 
 
             <Row>
