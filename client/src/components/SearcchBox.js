@@ -17,7 +17,7 @@ const SearchBox = () => {
     };
 
     return(
-        <Form className="d-flex ml-40  w-[40%]" onSubmit={submitHandler}>
+        <Form className="d-flex mt-2" onSubmit={submitHandler}>
             <InputGroup>
                 <FormControl 
                 type="text" 
