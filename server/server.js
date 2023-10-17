@@ -28,12 +28,6 @@ app.get('/api/keys/paypal', (req, res) => {
 });
 
 
-app.use(
-    cors({
-        origin: ["http://localhost:5000", "https://pgfprime.onrender.com"],
-    })
-);
-
 
 app.use('/api/upload', uploadRouter)
 app.use('/api/seed', seedRouter);

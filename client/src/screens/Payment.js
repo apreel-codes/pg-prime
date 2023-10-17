@@ -57,10 +57,10 @@ const Payment = () => {
                             <div>
                                 <Form.Check
                                 type='radio'
-                                id='Stripe'
-                                label="Stripe"
-                                value="Stripe"
-                                checked={paymentMethodName === "Stripe"}
+                                id='Cash'
+                                label="Cash on Delivery/Transfer"
+                                value="Cash"
+                                checked={paymentMethodName === "Cash"}
                                 onChange={(e) => setPaymentMethod(e.target.value)}
                                 />
                             </div>
