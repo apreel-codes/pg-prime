@@ -53,91 +53,15 @@ function App() {
     localStorage.removeItem('paymentMethod');
     window.location.href='/signin';
   }
-
-  const [sidebarIsOpen, setSidebarIsOpen ] = useState(false);
-
-  const prices = [
-    {
-        name: '1 to 50',
-        value: '1-50'
-    },
-    {
-        name: '51 to 200',
-        value: '51-200'
-    },
-    {
-        name: '201 to 1000',
-        value: '201-1000'
-    },
-];
-
-// const orderNames = [
-//   {
-//       name: 'Newest',
-//       value: 'newest'
-//   },
-//   {
-//       name: 'Low to High',
-//       value: 'lowest'
-//   },
-//   {
-//       name: 'High to Low',
-//       value: 'Highest'
-//   },
-//   {
-//     name: 'Top rated',
-//     value: 'toprated '
-//   },
-// ];
   
-  const [categories, setCategories] = useState([]);
-  const [brands, setBrands] = useState([]);
-  // const [orders, setOrder] = useState([]);
-
-  useEffect(() => {
-      const fetchCategories = async () => {
-        try{
-          const { data } = await axios.get('/api/products/categories');
-          setCategories(data);
-        } catch(err) {
-          toast.error(getError(err));
-        }
-      }
-      fetchCategories();
-
-      const fetchBrands = async () => {
-        try{
-          const { data } = await axios.get('/api/products/brands');
-          setBrands(data);
-        } catch(err) {
-          toast.error(getError(err));
-        }
-      }
-      fetchBrands();
-
-      // const fetchOrder = async () => {
-      //   try{
-      //     const { data } = await axios.get('/api/products/orders');
-      //     setOrder(data);
-      //   } catch(err) {
-      //     toast.error(getError(err));
-      //   }
-      // }
-      // fetchOrder();
-  }, []);
 
   return (
     <BrowserRouter className="">
-      <div className={sidebarIsOpen ? "d-flex flex-column active-cont" : "d-flex flex-column site-container relative" }>
       <ToastContainer position='bottom-center' limit={1} />
-      <header className=''>
-        <div className='bg-white'><p className='text-lg text-center my-2 font-medium italic'>Confidence in your sole...</p></div>
+      <header className='fixed w-full z-10 top-0'>
+        <div className='bg-white'><p className='text-lg text-center py-2 font-base italic'>Confidence in your sole...</p></div>
         <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
           <Container fluid className='px-4'>
-            <Button className='border-0'
-            variant='dark'
-            onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-            ><i className='fas fa-bars'></i></Button>
             <LinkContainer className='' to="/">
               <Navbar.Brand className=''><img src='../images/logo.jpg' className='w-10 h-10'></img></Navbar.Brand>
             </LinkContainer>
@@ -196,71 +120,9 @@ function App() {
           </Container>
         </Navbar>
       </header>
-      <div className={
-        sidebarIsOpen ? 'active-nav side-navbar d-flex justify-content-between flex-wrap flex-column'
-                      : 'side-navbar d-flex justify-content-between flex-wrap flex-column'
-      }>
-        <Nav className='flex-column text-black w-100 p-2 mt-16 ml-2'>
-          <Nav.Item>
-            <strong>Categories</strong>
-          </Nav.Item>
-          {categories.map((category) => (
-            <Nav.Item key={category}>
-              <LinkContainer className='text-white'
-                to={{ pathname: '/search', search: `category=${category}`}}
-                onClick={() => setSidebarIsOpen(false)}
-              >
-                <Nav.Link className=''>{category}</Nav.Link>
-              </LinkContainer>
-            </Nav.Item>
-          ))}
 
-        <Nav.Item>
-            <strong>Brands</strong>
-            </Nav.Item>
-            {brands.map((brand) => (
-            <Nav.Item key={brand}>
-              <LinkContainer className='text-white'
-                to={{ pathname: '/search', search: `brand=${brand}`}}
-                onClick={() => setSidebarIsOpen(false)}
-              >
-                <Nav.Link>{brand}</Nav.Link>
-              </LinkContainer>
-        </Nav.Item>
-          ))}
 
-        <Nav.Item>
-            <strong>Prices</strong>
-            </Nav.Item>
-            {prices.map((p) => (
-            <Nav.Item key={p.value}>
-              <LinkContainer className='text-white'
-                to={{ pathname: '/search', search: `price=${p.value}`}}
-                onClick={() => setSidebarIsOpen(false)}
-              >
-                <Nav.Link>{p.name}</Nav.Link>
-              </LinkContainer>
-        </Nav.Item>
-          ))}
-{/* 
-        <Nav.Item>
-            <strong>Order</strong>
-        </Nav.Item>
-        {orderNames.map((o) => (
-            <Nav.Item key={o.value}>
-              <LinkContainer
-                to={{ pathname: '/search', search: `order=${o.value}`}}
-                onClick={() => setSidebarIsOpen(false)}
-              >
-                <Nav.Link>{o}</Nav.Link>
-              </LinkContainer>
-            </Nav.Item>
-        ))} */}
-    </Nav>
-      
-      </div>
       <Container fluid className='my-14 w-[100%]'>
-        {/* <Container> */}
         <div className=''>
           <Routes>
               <Route>
@@ -300,7 +162,6 @@ function App() {
         {/* </Container> */}
       </Container>
       <Footer></Footer>
-    </div>
     </BrowserRouter>
   );
 }

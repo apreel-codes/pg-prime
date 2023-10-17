@@ -20,13 +20,13 @@ html, body, #root {
   background-color: #ECECEC;
 }
 
-/* .header {
-  background-image: url("../public/images/header.jpg");
-  background-position: center;
+.poster {
+  background-image: url("https://images.unsplash.com/photo-1581017316471-1f6ef7ce6fd3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80");
+  background-size: auto;
   background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 15rem;
-} */
+  min-height: 600px;
+  /* max-width: 100%; */
+}
 
 .nav {
   display: flex;
@@ -86,11 +86,11 @@ main {
 }
 
 .side-navbar {
-  width: 180px;
+  width: 200px;
   height: 100%;
   position: absolute;
   left: -300px;
-  background-color: #8a8e8d;
+  background-color: #212524;
   transition: 0.5s;
 }
 
@@ -99,7 +99,7 @@ main {
 }
 
 .active-cont {
-    margin-left: 180px
+    margin-left: 200px
 }
 
 .active-nav {
@@ -111,7 +111,7 @@ button.thumbnail {
 }
 
 .home-container{
-  overflow: scroll;
-  height: 600px;
+  /* overflow: scroll; */
+  /* height: 600px; */
 }
 

@@ -84,7 +84,7 @@ const Product = () => {
 
 
     return (
-        <div className="w-[60%] mx-auto">
+        <div className="w-[60%] mx-auto mt-48">
             <ToastContainer position='top-center' limit={1} />
             {
                 loading ? ( <LoadingBox /> )

@@ -14,7 +14,7 @@ const HomeProduct = (props) => {
                 </Link>
                 <Card.Body>
                     <Link to={`/product/${product.slug}`}>
-                            <Card.Title className="text-base hover:underline font-bold">{product.name}</Card.Title>
+                            <Card.Title className="text-base underline hover:underline font-bold">{product.name}</Card.Title>
                     </Link>
                     {/* <Rating rating={product.rating} numReviews={product.numReviews}/> */}
                     <Card.Text className="text-sm">{product.brand}</Card.Text>
