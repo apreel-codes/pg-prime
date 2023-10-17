@@ -144,7 +144,7 @@ export default function ProductList() {
   };
 
   return (
-    <div>
+    <div className=''>
       <Row>
         <Col>
           <h1>Products</h1>

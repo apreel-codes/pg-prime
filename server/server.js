@@ -1,6 +1,7 @@
 // require('dotenv').config();
 
 import express from 'express';
+import cors from 'cors';
 import data from './data.js';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
@@ -25,6 +26,13 @@ app.use(express.urlencoded({ extended: true }));
 app.get('/api/keys/paypal', (req, res) => {
     res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
 });
+
+
+app.use(
+    cors({
+        origin: ["http://localhost:5000", "https://pgfprime.onrender.com"],
+    })
+);
 
 
 app.use('/api/upload', uploadRouter)

@@ -17,14 +17,14 @@ const SearchBox = () => {
     };
 
     return(
-        <Form className="d-flex me-auto" onSubmit={submitHandler}>
+        <Form className="d-flex ml-40  w-[40%]" onSubmit={submitHandler}>
             <InputGroup>
                 <FormControl 
                 type="text" 
                 name="q" 
                 id="q" 
                 onChange={(e) => setQuery(e.target.value)} 
-                placeholder="Search Products"
+                placeholder="Search sneakers"
                 aria-label="Search Products"
                 aria-describedby="button-search"
                 

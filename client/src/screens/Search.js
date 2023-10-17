@@ -151,7 +151,7 @@ const Search = () => {
 
 
     return (
-        <div>
+        <div className=''>
             <Helmet>
                 <title>Search Products</title>
             </Helmet>

@@ -58,7 +58,7 @@ function App() {
   return (
     <BrowserRouter className="">
       <ToastContainer position='bottom-center' limit={1} />
-      <header className='fixed w-full z-10 top-0'>
+      <header className=''>
         <div className='bg-white'><p className='text-lg text-center py-2 font-base italic'>Confidence in your sole...</p></div>
         <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
           <Container fluid className='px-4'>
@@ -78,7 +78,9 @@ function App() {
                   )}
                 </Link>
                 {userInfo ? (
+                  
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
+                    
                       <LinkContainer to="/profile">
                         <NavDropdown.Item>User Profile</NavDropdown.Item>
                       </LinkContainer>

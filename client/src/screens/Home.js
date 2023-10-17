@@ -99,7 +99,7 @@ const Home = () => {
                 <img
                 src="https://unsplash.com/photos/Ao1AP2UvVnE/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8NjN8fHNuZWFrZXJ8ZW58MHx8fHwxNjk3NDkwMTc3fDA&force=true&w=640"
                 alt="image 1"
-                className="w-[100%] poster object-cover mt-14"
+                className="w-[100%] poster object-cover -mt-14"
                 />
             </Container>
             
@@ -169,10 +169,10 @@ const Home = () => {
                 </Col>
             </Row>
 
-            <Container>
+            {/* <Container>
                 <h2>Available Brands</h2>
                 
-            </Container>
+            </Container> */}
         </Container>
         </Container>
     

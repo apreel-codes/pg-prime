@@ -84,7 +84,7 @@ const Product = () => {
 
 
     return (
-        <div className="w-[60%] mx-auto mt-48">
+        <div className="w-[60%] mx-auto">
             <ToastContainer position='top-center' limit={1} />
             {
                 loading ? ( <LoadingBox /> )
@@ -107,14 +107,8 @@ const Product = () => {
                                     </Helmet>
                                     <h1 className="text-5xl font-bold">{product.name}</h1>
                                 </ListGroup.Item>
-                                <ListGroup.Item>
-                                    {/* <Rating
-                                        rating={product.rating}
-                                        numReviews={product.numReviews}
-                                    ></Rating> */}
-                                </ListGroup.Item>
-                                <ListGroup.Item className="text-xl text-bold">
-                                    Price:&#163;{product.price}
+                                <ListGroup.Item className="text-lg text-bold">
+                                    Price: &#163;{product.price}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                 <Row xs={1} md={2} className="g-2 w-60">

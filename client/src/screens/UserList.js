@@ -90,7 +90,7 @@ export default function UserList() {
 
 
   return (
-    <div>
+    <div className=''>
       <Helmet>
         <title>Users</title>
       </Helmet>
