@@ -13,6 +13,10 @@ html, body, #root {
   font-size: 1.5rem;
 }
 
+.parent {
+  background-color: #E4F6F8;
+}
+
 .app {
   min-height: 100%;
   min-width: 375px;
@@ -39,7 +43,7 @@ html, body, #root {
   background-image: url("https://images.unsplash.com/photo-1596122787821-95c4255bb936?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1887");
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 650px;
+  min-height: 500px;
   width: 100%;
   margin-top: 1rem;
 }

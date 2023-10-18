@@ -146,7 +146,7 @@ const Home = () => {
 
 
     return (
-            <div className="md:w-[100%] mx-auto bg-gray-100">
+            <div className="md:w-[100%] mx-auto parent">
                 <img src=""></img>
                 <Helmet>
                     <title>PGF PRIME</title>
@@ -237,7 +237,7 @@ const Home = () => {
 
                <Ruler className="my-3" />
                 
-                <Row className="mx-auto w-[80%]">
+                <Row className="mx-auto md:w-[80%]">
                   <Col md={6}>
                     <div className="nike-red md:hidden rounded"/>
                   </Col>
@@ -253,13 +253,14 @@ const Home = () => {
                     </div>
                   </Col>   
                 </Row>  
+                
 
 
                 <div className="store text-center mt-5 pt-40">
                                     
                     <p className="w-[60%] mx-auto text-2xl text-white font-black">Come on in, and let's make some sneaker magic together!</p>
                       <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
-                        <p className="bg-white text-black rounded text-lg font-medium w-44 mx-auto mt-3 py-4">Locate our store</p>
+                        <p className="bg-white text-black rounded text-lg font-bold w-44 mx-auto mt-3 py-3">Locate our store</p>
                       </Link> 
                 </div>                
             </div>
