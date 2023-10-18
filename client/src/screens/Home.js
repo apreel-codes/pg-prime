@@ -245,6 +245,7 @@ const Home = () => {
                         <span className="bg-gray-200  my-auto py-20 rounded">Puma</span>
                         <span className="bg-gray-200 my-auto py-20 rounded">New Balance</span>
                         <span className="bg-gray-200  my-auto py-20 rounded">Yeezy</span>    
+                        <span className="bg-gray-200  my-auto py-20 rounded">Yeezy</span>    
                     </div>
                 </div>
                     
