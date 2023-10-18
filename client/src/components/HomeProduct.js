@@ -14,11 +14,11 @@ const HomeProduct = (props) => {
                 </Link>
                 <Card.Body className="pl-7 -mt-1">
                     <Link to={`/product/${product.slug}`}>
-                            <Card.Title className="text-base underline hover:underline font-bold">{product.name}</Card.Title>
+                            <Card.Title className="text-base hover:underline font-bold">{product.name}</Card.Title>
                     </Link>
                     {/* <Rating rating={product.rating} numReviews={product.numReviews}/> */}
                     <Card.Text className="text-sm">{product.brand}</Card.Text>
-                    <Card.Text className="text-md">From &#163;{product.price}</Card.Text>
+                    <Card.Text className="text-sm bg-gray-200 w-[50%] text-center mt-1 p-2 rounded font-medium">&#163;{product.price}</Card.Text>
                     {/* <Button className="bg-blue-500 mt-3 border-radius-0">Add to Cart</Button> */}
                 </Card.Body>
         </Card>          

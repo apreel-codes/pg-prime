@@ -150,7 +150,7 @@ const Home = () => {
                 <Col md={3} className="">
                    
                     <div className='filter-container px-2 md:block flex flex-row justify-between w-100 p-2 rounded'>
-                        <ul className="text-center md:mb-2"><span className="font-bold">Categories</span>
+                        <ul className="text-center md:mb-2"><span className="text-sm font-bold">Categories</span>
                         {categories.map((category) => (
                                 <li className="my-1 text-sm text-black" key={category}>
                                     <Link className="hover:underline hover:text-blue-600"
@@ -162,7 +162,7 @@ const Home = () => {
                             ))}
                         </ul>
 
-                         <ul className="text-center md:mb-2"><span className="font-bold">Available Brands</span>
+                         <ul className="text-center md:mb-2"><span className="text-sm font-bold">Available Brands</span>
                             {brands.map((brand) => (
                                     <li className="my-1 text-sm text-black" key={brand}>
                                         <Link className="hover:underline hover:text-blue-600"
@@ -174,7 +174,7 @@ const Home = () => {
                                 ))}
                             </ul>
                         
-                            <ul className="text-center md:mb-2"><span className="font-bold">Price Range</span>                               
+                            <ul className="text-center md:mb-2"><span className="text-sm font-bold">Price Range</span>                               
                                         {prices.map((p) => (
                                         <li className="my-1 text-sm text-black" key={p.value}>
                                             <Link className="hover:underline hover:text-blue-600"
