@@ -173,6 +173,8 @@ const Home = () => {
                         </Carousel>
                 </div>
 
+                <Ruler className="my-3" />
+
 
                 <Row className="mx-auto w-[80%]">
                     
@@ -221,7 +223,7 @@ const Home = () => {
                     </Col> 
                     <Col md={9}>
                     <h1 className='text-black font-bold trending md:mt-3 mt-4'>Newest Arrivals</h1>
-                        <Carousel responsive={responsive} className="mt-5">
+                        <Carousel responsive={responsive} className="mt-3">
                                 {products.map((product, i) => (
                                     <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                         <HomeProduct product={product}></HomeProduct>
@@ -233,27 +235,31 @@ const Home = () => {
                </Row>
 
 
+               <Ruler className="my-3" />
                 
-                
-                <Row className=" mx-auto w-[90%]">
+                <Row className="mx-auto w-[80%]">
                   <Col md={6}>
+                    <div className="nike-red md:hidden rounded"/>
                   </Col>
                   <Col md={6} className="mt-5">
+
 
                     <h2 className='text-black font-bold trending mb-3'>Brands</h2>
                     <div fluid className=" grid grid-cols-2 gap-3 text-center">
                         <span className="bg-white my-auto py-20 rounded">Nike</span>
                         <span className="bg-white my-auto py-20 rounded">Puma</span>
                         <span className="bg-white my-auto py-20 rounded">New Balance</span>
-                        <span className="bg-white my-auto py-20 rounded">Yeezy</span>    
-                        <span className="bg-white my-auto py-20 rounded">Yeezy</span>    
+                        <span className="bg-white my-auto py-20 rounded">Yeezy</span>   
                     </div>
                   </Col>   
                 </Row>  
 
-                <div className="store text-center mt-5 pt-56">
+
+                <div className="store text-center mt-5 pt-40">
+                                    
+                    <p className="w-[60%] mx-auto text-2xl text-white font-black">Come on in, and let's make some sneaker magic together!</p>
                       <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
-                        <h2 className="bg-black text-gray-200 rounded text-lg w-44 mx-auto py-4">Locate our store</h2>
+                        <p className="bg-white text-black rounded text-lg font-medium w-44 mx-auto mt-3 py-4">Locate our store</p>
                       </Link> 
                 </div>                
             </div>
@@ -261,3 +267,6 @@ const Home = () => {
 }
 
 export default Home;
+
+
+// https://images.unsplash.com/photo-1596122787821-95c4255bb936?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1887
