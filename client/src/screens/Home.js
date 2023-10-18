@@ -148,16 +148,17 @@ const Home = () => {
 
             <Row>
                 <Col md={3} className="">
-                    <div className='flex-row text-black w-100 p-2 border border rounded'>
-                        <div className="text-black hover:text-blue-600"><strong>Categories</strong></div>
+                    <div className="border">
+                    <Nav className='flex-column text-black w-100 p-2 border border rounded'>
+                        <Nav.Item className="text-black hover:text-blue-600"><strong>Categories</strong></Nav.Item>
                         {categories.map((category) => (
-                                <div key={category}>
+                                <Nav.Item key={category}>
                                     <LinkContainer className='text-black'
                                         to={{ pathname: '/search', search: `category=${category}`}}
                                     >
                                     <Nav.Link className=''>{category}</Nav.Link>
                                     </LinkContainer>
-                            </div>
+                            </Nav.Item>
                             ))}
                         <Nav.Item>
                             <Nav.Item className="text-black"><strong>Available Brands</strong></Nav.Item>
@@ -183,7 +184,9 @@ const Home = () => {
                                             </LinkContainer>
                                         </Nav.Item>
                             ))}
-                            </div>
+                            </Nav>
+                    </div>
+                    
                 </Col>
                 <Col md={9}>
                 <Container fluid className="home-container">
