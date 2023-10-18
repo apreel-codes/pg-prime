@@ -29,6 +29,10 @@ const reducer = (state, action) => {
 };
 
 const Home = () => {
+    const [isCatToggled, setIsCatToggled] = useState(true);
+    const [isPriceToggled, setIsPriceToggled] = useState(true);
+    const [isBrandToggled, setIsBrandToggled] = useState(true);
+    
     const [{ loading, error, products}, dispatch] = useReducer(logger(reducer), {
         products: [],
         loading: true, error: ''
@@ -102,6 +106,21 @@ const Home = () => {
       }, []);
 
 
+      const handleCatClick = () => {
+          setIsCatToggled(!isCatToggled);
+        }
+
+        const handleBrandClick = () => {
+            setIsBrandToggled(!isBrandToggled);
+          }
+
+          const handlePriceClick = () => {
+            setIsPriceToggled(!isPriceToggled);  
+          }
+      
+
+    
+
 
       const responsive = {
         superLargeDesktop: {
@@ -149,10 +168,12 @@ const Home = () => {
             <Row>
                 <Col md={3} className="">
                    
-                    <div className='filter-container px-2 md:block flex flex-row justify-between w-100 p-2 rounded'>
-                        <ul className="text-center md:mb-2"><span className="text-sm font-bold">Categories</span>
+                    <div className='filter-container flex flex-column px-2 w-100 p-2 rounded'>
+
+                        <Link className="mb-2 font-bold" onClick={handleCatClick}>Categories</Link>
+                        <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                         {categories.map((category) => (
-                                <li className="my-1 text-sm text-black" key={category}>
+                                <li className="my-2 text-sm text-black" key={category}>
                                     <Link className="hover:underline hover:text-blue-600"
                                         to={{ pathname: '/search', search: `category=${category}`}}
                                     >
@@ -161,10 +182,11 @@ const Home = () => {
                                 </li>
                             ))}
                         </ul>
-
-                         <ul className="text-center md:mb-2"><span className="text-sm font-bold">Available Brands</span>
+                        
+                        <Link className="mb-2 font-bold" onClick={handleBrandClick}>Available Brands</Link>
+                         <ul className={isBrandToggled ? 'brand-hidden' : 'brand-show"'}>
                             {brands.map((brand) => (
-                                    <li className="my-1 text-sm text-black" key={brand}>
+                                    <li className="my-2 text-sm text-black" key={brand}>
                                         <Link className="hover:underline hover:text-blue-600"
                                             to={{ pathname: '/search', search: `brand=${brand}`}}
                                         >
@@ -173,10 +195,11 @@ const Home = () => {
                                     </li>                             
                                 ))}
                             </ul>
-                        
-                            <ul className="text-center md:mb-2"><span className="text-sm font-bold">Price Range</span>                               
+
+                            <Link className="mb-2 font-bold" onClick={handlePriceClick}>Price</Link>
+                            <ul className={isPriceToggled ? 'price-hidden' : 'price-show"'}>                               
                                         {prices.map((p) => (
-                                        <li className="my-1 text-sm text-black" key={p.value}>
+                                        <li className="my-2 text-sm text-black" key={p.value}>
                                             <Link className="hover:underline hover:text-blue-600"
                                                 to={{ pathname: '/search', search: `price=${p.value}`}}
                                             >
