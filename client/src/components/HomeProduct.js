@@ -2,6 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Rating from "./Rating";
+import Ruler from '../components/Ruler.js';
 
 
 const HomeProduct = (props) => {
@@ -10,7 +11,7 @@ const HomeProduct = (props) => {
     return (
         <Card className="transition border-none ease-in-out delay-100 hover:-translate-y-1 hover:scale-110 duration-300" key={product.slug}>
                 <Link to={`/product/${product.slug}`}>
-                 <img className='image card-img-top mb-5' src={product.image} />
+                 <img className='image card-img-top' src={product.image} />
                 </Link>
                 <Card.Body className="pl-7 -mt-1">
                     <Link to={`/product/${product.slug}`}>

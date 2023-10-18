@@ -13,6 +13,7 @@ import { getError } from "../uttils";
 import { toast } from "react-toastify";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Ruler from '../components/Ruler.js';
 
 
 const reducer = (state, action) => {
@@ -145,16 +146,27 @@ const Home = () => {
 
     return (
         <Container fluid className="-mt-8">
+
+            <Ruler className="my-3" />
         
             <Container fluid className="md:w-[80%]">
             <Helmet>
                 <title>PGF PRIME</title>
             </Helmet>   
             <Container fluid className="w-[100%]">
-                     <h1 className='text-2xl text-black font-bold'>Featured Products</h1>
+                     <h1 className='text-black font-bold trending'>Trending</h1>
 
                     <Carousel responsive={responsive} className="">
-                        {products.map((product, i) => (
+                        {randProducts.map((product, i) => (
+                            <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                                <HomeProduct product={product}></HomeProduct>
+                            </div>
+                        
+                    ))}
+                     </Carousel>
+
+                     <Carousel responsive={responsive} className="">
+                        {randProducts.map((product, i) => (
                             <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                 <HomeProduct product={product}></HomeProduct>
                             </div>
@@ -170,10 +182,10 @@ const Home = () => {
                    
                     <div className='filter-container flex flex-column px-2 w-100 p-2 rounded'>
 
-                        <Link className="mb-2 font-bold" onClick={handleCatClick}>Categories</Link>
+                        <Link className="font-bold" onClick={handleCatClick}>Categories</Link>
                         <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                         {categories.map((category) => (
-                                <li className="my-2 text-sm text-black" key={category}>
+                                <li className="my-2 text-base text-black" key={category}>
                                     <Link className="hover:underline hover:text-blue-600"
                                         to={{ pathname: '/search', search: `category=${category}`}}
                                     >
@@ -183,10 +195,10 @@ const Home = () => {
                             ))}
                         </ul>
                         
-                        <Link className="mb-2 font-bold" onClick={handleBrandClick}>Available Brands</Link>
+                        <Link className="font-bold" onClick={handleBrandClick}>Available Brands</Link>
                          <ul className={isBrandToggled ? 'brand-hidden' : 'brand-show"'}>
                             {brands.map((brand) => (
-                                    <li className="my-2 text-sm text-black" key={brand}>
+                                    <li className="my-2 text-base text-black" key={brand}>
                                         <Link className="hover:underline hover:text-blue-600"
                                             to={{ pathname: '/search', search: `brand=${brand}`}}
                                         >
@@ -196,10 +208,10 @@ const Home = () => {
                                 ))}
                             </ul>
 
-                            <Link className="mb-2 font-bold" onClick={handlePriceClick}>Price</Link>
+                            <Link className="font-bold" onClick={handlePriceClick}>Price</Link>
                             <ul className={isPriceToggled ? 'price-hidden' : 'price-show"'}>                               
                                         {prices.map((p) => (
-                                        <li className="my-2 text-sm text-black" key={p.value}>
+                                        <li className="my-2 text-base text-black" key={p.value}>
                                             <Link className="hover:underline hover:text-blue-600"
                                                 to={{ pathname: '/search', search: `price=${p.value}`}}
                                             >
@@ -211,25 +223,20 @@ const Home = () => {
                         </div>
                     
                 </Col>
+
+
+                
                 <Col md={9}>
-                <Container fluid className="home-container border mt-7">
-                    <div fluid className='flex flex-wrap'>
-                        { 
-                            (
-                                <Row className="">
-                                    {randProducts.map((product, i) => (
-                                        <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                                            <HomeProduct product={product}></HomeProduct>
-                                        </Col>
-                                    
+                    <Carousel responsive={responsive} className="mt-5">
+                            {products.map((product, i) => (
+                                <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                                    <HomeProduct product={product}></HomeProduct>
+                                </div>
+                            
                             ))}
-                                </Row>
-                            )
-                        }
-                    </div>      
-            </Container>
-                </Col>
-            </Row>
+                    </Carousel>                   
+                    </Col>
+                </Row>
 
             {/* <Container>
                 <h2>Available Brands</h2>
