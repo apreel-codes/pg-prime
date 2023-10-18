@@ -147,14 +147,12 @@ const Home = () => {
 
     return (
         <Container fluid className="-mt-8">
-
-            <Ruler className="my-3" />
         
             <Container fluid className="md:w-[90%]">
             <Helmet>
                 <title>PGF PRIME</title>
             </Helmet>   
-            <Container fluid className="w-[100%]  border">
+            <Container fluid className="w-[100%]">
                      <h1 className='text-black font-bold trending'>Trending</h1>
 
                     <Carousel responsive={responsive} className="">
@@ -165,6 +163,8 @@ const Home = () => {
                         
                     ))}
                      </Carousel>
+
+                     <Ruler className="mt-2" />
 
                      <Carousel responsive={responsive} className="">
                         {randProductsTwo.map((product, i) => (
@@ -179,10 +179,11 @@ const Home = () => {
 
 
             <Row>
+                <Ruler className="my-3" /> 
                 <Col md={3} className="">
                    
                     <div className='filter-container flex flex-column px-2 w-100 p-2 rounded mt-2'>
-
+                        <span className="italic text-sm">Filter by</span>
                         <Link className="font-bold mt-2" onClick={handleCatClick}>Categories</Link>
                         <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                         {categories.map((category) => (
@@ -220,13 +221,14 @@ const Home = () => {
                                     </li>                               
                                 ))}
                            </ul>
-                        </div>
-                    
+                        </div>               
                 </Col>
+                <Ruler className="my-4" />
 
 
                 
                 <Col md={9}>
+                <h1 className='text-black font-bold trending'>Newest</h1>
                     <Carousel responsive={responsive} className="mt-5">
                             {products.map((product, i) => (
                                 <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">

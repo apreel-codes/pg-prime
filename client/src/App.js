@@ -124,7 +124,7 @@ function App() {
       </header>
 
 
-      <Container fluid className='my-14 w-[100%]'>
+      <Container fluid className='my-14'>
         <div className=''>
           <Routes>
               <Route>
