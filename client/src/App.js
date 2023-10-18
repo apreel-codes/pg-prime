@@ -59,7 +59,7 @@ function App() {
     <BrowserRouter className="">
       <ToastContainer position='bottom-center' limit={1} />
       <header className=''>
-        <div className='bg-white'><p className='text-lg text-center py-2 font-base italic'>Confidence in your sole...</p></div>
+        <div className='bg-white'><p className='text-base text-center py-2 font-base italic'>Confidence in your sole...</p></div>
         <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
           <Container fluid className='px-4'>
             <LinkContainer className='' to="/">

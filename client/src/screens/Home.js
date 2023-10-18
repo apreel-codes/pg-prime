@@ -125,16 +125,16 @@ const Home = () => {
 
 
     return (
-        <Container fluid className="-mt-14">
+        <Container fluid className="-mt-8">
         
-            <Container fluid className="md:w-[100%] border">
+            <Container fluid className="md:w-[80%]">
             <Helmet>
                 <title>PGF PRIME</title>
             </Helmet>   
-            <Container fluid className="border w-[100%] carousel-parent">
-                     <h1 className='text-2xl text-black font-bold mt-3'>Featured Products</h1>
+            <Container fluid className="w-[100%]">
+                     <h1 className='text-2xl text-black font-bold'>Featured Products</h1>
 
-                    <Carousel responsive={responsive} className="border">
+                    <Carousel responsive={responsive} className="">
                         {products.map((product, i) => (
                             <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                 <HomeProduct product={product}></HomeProduct>
@@ -147,17 +147,17 @@ const Home = () => {
 
 
             <Row>
-                <Col md={3}>
-                    <Nav className='flex-column text-black w-100 p-2 border border rounded'>
-                        <Nav.Item className="text-black hover:text-blue-600"><strong>Categories</strong></Nav.Item>
+                <Col md={3} className="">
+                    <div className='flex-row text-black w-100 p-2 border border rounded'>
+                        <div className="text-black hover:text-blue-600"><strong>Categories</strong></div>
                         {categories.map((category) => (
-                                <Nav.Item key={category}>
+                                <div key={category}>
                                     <LinkContainer className='text-black'
                                         to={{ pathname: '/search', search: `category=${category}`}}
                                     >
                                     <Nav.Link className=''>{category}</Nav.Link>
                                     </LinkContainer>
-                            </Nav.Item>
+                            </div>
                             ))}
                         <Nav.Item>
                             <Nav.Item className="text-black"><strong>Available Brands</strong></Nav.Item>
@@ -183,7 +183,7 @@ const Home = () => {
                                             </LinkContainer>
                                         </Nav.Item>
                             ))}
-                            </Nav>
+                            </div>
                 </Col>
                 <Col md={9}>
                 <Container fluid className="home-container">
