@@ -65,6 +65,7 @@ const Home = () => {
       }
 
     const randProducts = randomizeDataset(products);
+    const randProductsTwo = randomizeDataset(randProducts);
 
     const prices = [
         {
@@ -149,11 +150,11 @@ const Home = () => {
 
             <Ruler className="my-3" />
         
-            <Container fluid className="md:w-[80%]">
+            <Container fluid className="md:w-[90%]">
             <Helmet>
                 <title>PGF PRIME</title>
             </Helmet>   
-            <Container fluid className="w-[100%]">
+            <Container fluid className="w-[100%]  border">
                      <h1 className='text-black font-bold trending'>Trending</h1>
 
                     <Carousel responsive={responsive} className="">
@@ -166,7 +167,7 @@ const Home = () => {
                      </Carousel>
 
                      <Carousel responsive={responsive} className="">
-                        {randProducts.map((product, i) => (
+                        {randProductsTwo.map((product, i) => (
                             <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                 <HomeProduct product={product}></HomeProduct>
                             </div>
@@ -180,9 +181,9 @@ const Home = () => {
             <Row>
                 <Col md={3} className="">
                    
-                    <div className='filter-container flex flex-column px-2 w-100 p-2 rounded'>
+                    <div className='filter-container flex flex-column px-2 w-100 p-2 rounded mt-2'>
 
-                        <Link className="font-bold" onClick={handleCatClick}>Categories</Link>
+                        <Link className="font-bold mt-2" onClick={handleCatClick}>Categories</Link>
                         <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                         {categories.map((category) => (
                                 <li className="my-2 text-base text-black" key={category}>
@@ -195,7 +196,7 @@ const Home = () => {
                             ))}
                         </ul>
                         
-                        <Link className="font-bold" onClick={handleBrandClick}>Available Brands</Link>
+                        <Link className="font-bold mt-2" onClick={handleBrandClick}>Available Brands</Link>
                          <ul className={isBrandToggled ? 'brand-hidden' : 'brand-show"'}>
                             {brands.map((brand) => (
                                     <li className="my-2 text-base text-black" key={brand}>
@@ -208,14 +209,13 @@ const Home = () => {
                                 ))}
                             </ul>
 
-                            <Link className="font-bold" onClick={handlePriceClick}>Price</Link>
+                            <Link className="font-bold mt-2" onClick={handlePriceClick}>Price</Link>
                             <ul className={isPriceToggled ? 'price-hidden' : 'price-show"'}>                               
                                         {prices.map((p) => (
                                         <li className="my-2 text-base text-black" key={p.value}>
                                             <Link className="hover:underline hover:text-blue-600"
                                                 to={{ pathname: '/search', search: `price=${p.value}`}}
-                                            >
-                                        {p.name}
+                                            >&#163;{p.name}
                                         </Link>
                                     </li>                               
                                 ))}
