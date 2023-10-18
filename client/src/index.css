@@ -14,7 +14,7 @@ html, body, #root {
 }
 
 .parent {
-  background-color: #E4F6F8;
+  background-color: #fbffff;
 }
 
 .app {
@@ -44,6 +44,22 @@ html, body, #root {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 500px;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.hero {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+.nike-second {
+  background-image: url("../public/images/nike-red.avif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 600px;
   width: 100%;
   margin-top: 1rem;
 }
@@ -130,15 +146,6 @@ main {
 
 button.thumbnail {
   padding: 0;
-}
-
-.home-container{
-  /* overflow: scroll; */
-  /* height: 600px; */
-}
-
-.filter-container {
-  background-color: rgb(250, 242, 243);
 }
 
 .brand-hidden {
