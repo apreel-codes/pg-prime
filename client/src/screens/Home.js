@@ -146,14 +146,13 @@ const Home = () => {
 
 
     return (
-        // <div className="-mt-8 border">       
-            <div className="md:w-[90%] mx-auto">
+            <div className="md:w-[100%] mx-auto bg-gray-100">
                 <img src=""></img>
                 <Helmet>
                     <title>PGF PRIME</title>
                 </Helmet>   
                 <div className="w-[80%] mx-auto mt-5">
-                        <h1 className='text-black font-bold trending'>Trending</h1>
+                        <h1 className='text-black font-bold trending mb-3'>Trending</h1>
 
                         <Carousel responsive={responsive} className="">
                             {randProducts.map((product, i) => (
@@ -164,9 +163,7 @@ const Home = () => {
                         ))}
                         </Carousel>
 
-                        <Ruler className="mt-2" />
-
-                        <Carousel responsive={responsive} className="">
+                        <Carousel responsive={responsive} className="mt-2">
                             {randProductsTwo.map((product, i) => (
                                 <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                     <HomeProduct product={product}></HomeProduct>
@@ -174,13 +171,12 @@ const Home = () => {
                             
                         ))}
                         </Carousel>
-
                 </div>
 
 
-                <Row className="mx-auto w-[100%]">
-                    <Ruler className="my-3" /> 
-                    <Col md={3}>
+                <Row className="mx-auto w-[80%]">
+                    
+                    <Col md={3} className=" bg-white pt-2 mt-2">
                     
                         <div className='filter-container flex flex-column p-3 rounded mt-2 mb-3'>
                             <span className="italic text-sm">Filter by</span>
@@ -233,24 +229,34 @@ const Home = () => {
                                 
                                 ))}
                         </Carousel>                   
-                        </Col>
-                </Row>
+                    </Col>
+               </Row>
 
-                <Ruler className="mt-2" />
 
-                <div fluid className="md:w-[50%] w-[90%] mt-4 mx-auto">
+                
+                
+                <Row className=" mx-auto w-[90%]">
+                  <Col md={6}>
+                  </Col>
+                  <Col md={6} className="mt-5">
+
                     <h2 className='text-black font-bold trending mb-3'>Brands</h2>
                     <div fluid className=" grid grid-cols-2 gap-3 text-center">
-                        <span className="bg-gray-200  my-auto py-20 rounded">Nike</span>
-                        <span className="bg-gray-200  my-auto py-20 rounded">Puma</span>
-                        <span className="bg-gray-200 my-auto py-20 rounded">New Balance</span>
-                        <span className="bg-gray-200  my-auto py-20 rounded">Yeezy</span>    
-                        <span className="bg-gray-200  my-auto py-20 rounded">Yeezy</span>    
+                        <span className="bg-white my-auto py-20 rounded">Nike</span>
+                        <span className="bg-white my-auto py-20 rounded">Puma</span>
+                        <span className="bg-white my-auto py-20 rounded">New Balance</span>
+                        <span className="bg-white my-auto py-20 rounded">Yeezy</span>    
+                        <span className="bg-white my-auto py-20 rounded">Yeezy</span>    
                     </div>
-                </div>
-                    
+                  </Col>   
+                </Row>  
+
+                <div className="store text-center mt-5 pt-56">
+                      <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
+                        <h2 className="bg-black text-gray-200 rounded text-lg w-44 mx-auto py-4">Locate our store</h2>
+                      </Link> 
+                </div>                
             </div>
-        // </div> 
     )
 }
 

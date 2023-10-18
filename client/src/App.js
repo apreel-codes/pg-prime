@@ -123,10 +123,7 @@ function App() {
         </Navbar>
       </header>
 
-
-      <div fluid className=''>
-        <div className=''>
-          <Routes>
+      <Routes>
               <Route>
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
@@ -159,11 +156,10 @@ function App() {
                 <Route path='/product/:slug' element={<Product />} />
               </Route>
               <Route path="*" element={<ErrorPage />} />
-          </Routes>
-        </div>
-        {/* </Container> */}
-      </div>
-      <Footer></Footer>
+      </Routes>
+
+      <Footer>
+      </Footer>
     </BrowserRouter>
   );
 }
