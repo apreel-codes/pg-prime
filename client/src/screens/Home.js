@@ -146,12 +146,13 @@ const Home = () => {
 
 
     return (
-        <Container fluid className="-mt-8">       
-            <Container fluid className="md:w-[90%]">
+        // <div className="-mt-8 border">       
+            <div className="md:w-[90%] mx-auto">
+                <img src=""></img>
                 <Helmet>
                     <title>PGF PRIME</title>
                 </Helmet>   
-                <Container fluid className="w-[100%]">
+                <div className="w-[80%] mx-auto mt-5">
                         <h1 className='text-black font-bold trending'>Trending</h1>
 
                         <Carousel responsive={responsive} className="">
@@ -174,14 +175,14 @@ const Home = () => {
                         ))}
                         </Carousel>
 
-                </Container>
+                </div>
 
 
-                <Row>
+                <Row className="mx-auto w-[100%]">
                     <Ruler className="my-3" /> 
-                    <Col md={3} className="mb-4">
+                    <Col md={3}>
                     
-                        <div className='filter-container flex flex-column px-2 w-100 p-2 rounded mt-2'>
+                        <div className='filter-container flex flex-column p-3 rounded mt-2 mb-3'>
                             <span className="italic text-sm">Filter by</span>
                             <Link className="font-bold mt-2 underline " onClick={handleCatClick}>Categories</Link>
                             <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
@@ -223,7 +224,7 @@ const Home = () => {
                         </div>               
                     </Col> 
                     <Col md={9}>
-                    <h1 className='text-black font-bold trending md:mt-3'>Newest Arrivals</h1>
+                    <h1 className='text-black font-bold trending md:mt-3 mt-4'>Newest Arrivals</h1>
                         <Carousel responsive={responsive} className="mt-5">
                                 {products.map((product, i) => (
                                     <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
@@ -235,7 +236,9 @@ const Home = () => {
                         </Col>
                 </Row>
 
-                <Container fluid className="md:w-[50%] w-[100%] mt-2">
+                <Ruler className="mt-2" />
+
+                <div fluid className="md:w-[50%] w-[90%] mt-4 mx-auto">
                     <h2 className='text-black font-bold trending mb-3'>Brands</h2>
                     <div fluid className=" grid grid-cols-2 gap-3 text-center">
                         <span className="bg-gray-200  my-auto py-20 rounded">Nike</span>
@@ -243,10 +246,10 @@ const Home = () => {
                         <span className="bg-gray-200 my-auto py-20 rounded">New Balance</span>
                         <span className="bg-gray-200  my-auto py-20 rounded">Yeezy</span>    
                     </div>
-                </Container>
+                </div>
                     
-            </Container>
-        </Container> 
+            </div>
+        // </div> 
     )
 }
 

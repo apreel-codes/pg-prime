@@ -124,7 +124,7 @@ function App() {
       </header>
 
 
-      <Container fluid className='my-14'>
+      <div fluid className=''>
         <div className=''>
           <Routes>
               <Route>
@@ -162,7 +162,7 @@ function App() {
           </Routes>
         </div>
         {/* </Container> */}
-      </Container>
+      </div>
       <Footer></Footer>
     </BrowserRouter>
   );
