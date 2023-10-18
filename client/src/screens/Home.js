@@ -148,48 +148,48 @@ const Home = () => {
 
             <Row>
                 <Col md={3} className="">
-                    <div className="border">
-                    <Nav className='flex-column text-black w-100 p-2 border border rounded'>
-                        <Nav.Item className="text-black hover:text-blue-600"><strong>Categories</strong></Nav.Item>
+                   
+                    <div className='filter-container px-3 md:block flex flex-row justify-between w-100 p-2 rounded'>
+                        <ul className="text-center md:mb-2"><span className="font-medium md:font-bold">Categories</span>
                         {categories.map((category) => (
-                                <Nav.Item key={category}>
-                                    <LinkContainer className='text-black'
+                                <li className="my-1 text-black" key={category}>
+                                    <Link className="hover:underline hover:text-blue-600"
                                         to={{ pathname: '/search', search: `category=${category}`}}
                                     >
-                                    <Nav.Link className=''>{category}</Nav.Link>
-                                    </LinkContainer>
-                            </Nav.Item>
+                                    {category}
+                                    </Link>
+                                </li>
                             ))}
-                        <Nav.Item>
-                            <Nav.Item className="text-black"><strong>Available Brands</strong></Nav.Item>
+                        </ul>
+
+                         <ul className="text-center md:mb-2"><span className="font-medium md:font-bold">Available Brands</span>
                             {brands.map((brand) => (
-                                    <Nav.Item key={brand}>
-                                        <LinkContainer className='text-black'
+                                    <li className="my-1 text-black" key={brand}>
+                                        <Link className="hover:underline hover:text-blue-600"
                                             to={{ pathname: '/search', search: `brand=${brand}`}}
                                         >
-                                        <Nav.Link className=''>{brand}</Nav.Link>
-                                        </LinkContainer>
-                                </Nav.Item>
+                                        {brand}
+                                        </Link>
+                                    </li>                             
                                 ))}
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Item className="text-black"><strong>Price Range</strong></Nav.Item>
-                                    </Nav.Item>
+                            </ul>
+                        
+                            <ul className="text-center md:mb-2"><span className="font-medium md:font-bold">Price Range</span>                               
                                         {prices.map((p) => (
-                                        <Nav.Item key={p.value}>
-                                            <LinkContainer className='text-black'
+                                        <li className="my-1 text-black" key={p.value}>
+                                            <Link className="hover:underline hover:text-blue-600"
                                                 to={{ pathname: '/search', search: `price=${p.value}`}}
                                             >
-                                                <Nav.Link>{p.name}</Nav.Link>
-                                            </LinkContainer>
-                                        </Nav.Item>
-                            ))}
-                            </Nav>
-                    </div>
+                                        {p.name}
+                                        </Link>
+                                    </li>                               
+                                ))}
+                           </ul>
+                        </div>
                     
                 </Col>
                 <Col md={9}>
-                <Container fluid className="home-container">
+                <Container fluid className="home-container border mt-7">
                     <div fluid className='flex flex-wrap'>
                         { 
                             (
