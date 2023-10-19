@@ -146,12 +146,23 @@ const Home = () => {
 
 
     return (
-            <div className="md:w-[100%] mx-auto parent">
-                <img className="hero" src="./images/hero.avif"></img>
+            <div className="md:w-[100%] mx-auto bg-gray-100 relative">
+                <img className="hero mx-auto" src="./images/hero.avif"></img>
                 <Helmet>
                     <title>PGF PRIME</title>
                 </Helmet>   
-                <div className="w-[80%] mx-auto mt-5">
+
+                <div className="w-[60%] mx-auto text-justify mt-5 font-bold italic">
+                Step into style and unleash your inner sneakerhead with our incredible collection of kicks. 
+                From classic designs to the latest trends, 
+                our sneakers are crafted to elevate your shoe game to new heights...
+                </div>
+
+
+                <Ruler className="mt-5" />
+
+
+                <div className="mt-5">
                         <h1 className='text-black font-bold trending mb-3'>Trending</h1>
 
                         <Carousel responsive={responsive} className="">
@@ -175,8 +186,7 @@ const Home = () => {
 
                 <Ruler className="my-3" />
 
-
-                <Row className="mx-auto w-[80%]">
+                <Row className="mx-auto">
                     
                     <Col md={3} className=" bg-white pt-2 mt-2">
                     
@@ -195,7 +205,7 @@ const Home = () => {
                                 ))}
                             </ul>
                             
-                            <Link className="font-bold mt-2 underline " onClick={handleBrandClick}>Available Brands</Link>
+                            <Link className="font-bold mt-2 underline " onClick={handleBrandClick}>Brands</Link>
                             <ul className={isBrandToggled ? 'brand-hidden' : 'brand-show"'}>
                                 {brands.map((brand) => (
                                         <li className="my-2 text-base text-black" key={brand}>
@@ -222,7 +232,7 @@ const Home = () => {
                         </div>               
                     </Col> 
                     <Col md={9}>
-                    <h1 className='text-black font-bold trending md:mt-3 mt-4'>Newest Arrivals</h1>
+                    <h1 className='text-black font-bold trending md:mt-3 mt-10'>Newest Arrivals</h1>
                         <Carousel responsive={responsive} className="mt-3">
                                 {products.map((product, i) => (
                                     <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
@@ -234,7 +244,6 @@ const Home = () => {
                     </Col>
                </Row>
 
-
                <Ruler className="my-3" />
                 
                 <Row className="mx-auto md:w-[80%]">
@@ -244,25 +253,27 @@ const Home = () => {
                   <Col md={6} className="mt-5">
 
 
-                    <h2 className='text-black font-bold trending mb-3'>Brands</h2>
-                    <div fluid className=" grid grid-cols-2 gap-3 text-center">
-                        <span className="bg-white my-auto py-20 rounded">Nike</span>
-                        <span className="bg-white my-auto py-20 rounded">Puma</span>
-                        <span className="bg-white my-auto py-20 rounded">New Balance</span>
-                        <span className="bg-white my-auto py-20 rounded">Yeezy</span>   
+                    <h2 className='text-black font-bold trending mb-5'>Brands</h2>
+                    <div fluid className="grid grid-cols-2 gap-5 text-center px-20">
+                          <img className="nike w-36" src="./images/nike.png"></img>
+                          <img className="nike  w-36" src="./images/puma.png"></img>
+                          <img className="nike  w-36" src="./images/adidas.png"></img> 
+                          <img className="nike  w-36" src="./images/balance.png"></img> 
                     </div>
                   </Col>   
                 </Row>  
                 
-
-
                 <div className="store text-center mt-5 pt-40">
                                     
                     <p className="w-[60%] mx-auto text-2xl text-white font-black">Come on in, and let's make some sneaker magic together!</p>
                       <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
                         <p className="bg-white text-black rounded text-base font-medium w-44 mx-auto mt-3 py-3">Locate our store</p>
                       </Link> 
-                </div>                
+                </div> 
+
+                <Link>
+                  <img className="whatsapp"  src="./images/whatsapp.png"/>               
+                </Link>
             </div>
     )
 }

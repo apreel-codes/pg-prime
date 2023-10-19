@@ -11,10 +11,11 @@ html, body, #root {
   font-family: 'Almendra SC';
   letter-spacing: 0.3rem;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .parent {
-  background-color: #fbffff;
+  background-color: #f5fbf7;
 }
 
 .app {
@@ -53,6 +54,24 @@ html, body, #root {
   height: auto;
 }
 
+.nike {
+  max-width: 100%;
+  height: auto;
+}
+
+/* .whatsapp {
+  position: fixed;
+} */
+
+.whatsapp {
+  max-width: 8rem;
+  height: auto;
+  position:fixed;
+  bottom: 5rem;
+  right: 0;
+  width:100%;
+  z-index:100;
+}
 
 
 .nike-second {
