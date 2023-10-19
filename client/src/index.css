@@ -14,6 +14,11 @@ html, body, #root {
   text-align: center;
 }
 
+.error {
+  font-family: 'Almendra SC';
+  font-size: 2.5rem;
+}
+
 .parent {
   background-color: #f5fbf7;
 }
@@ -59,10 +64,6 @@ html, body, #root {
   height: auto;
 }
 
-/* .whatsapp {
-  position: fixed;
-} */
-
 .whatsapp {
   max-width: 6rem;
   height: auto;
@@ -72,7 +73,6 @@ html, body, #root {
   width:100%;
   z-index:100;
 }
-
 
 .nike-second {
   background-image: url("../public/images/nike-red.avif");
@@ -97,8 +97,6 @@ html, body, #root {
 
 }
 
-
-
 .nav {
   display: flex;
   justify-content: space-between;
@@ -108,7 +106,6 @@ html, body, #root {
   background-color: #f0c040;
   color: #000;
 }
-
 
 .image {
   width: 100%;
@@ -144,11 +141,13 @@ main {
 .checkout-steps > div {
   border-bottom: 0.2rem solid #a0a0a0;
   color: #a0a0a0;
+  font-size: 0.75rem;
 }
 
 .checkout-steps > div.active {
   border-bottom: 0.2rem solid #f06800;
-  color: #f06800
+  color: #f06800;
+  font-size: 0.75rem;
 }
 
 /* sidebar */
@@ -207,6 +206,21 @@ button.thumbnail {
 
 .brand-view {
   max-width: 300px;
-  /* height: 100%; */
   max-height: 400px;
+}
+
+@media screen and (max-width: 600px) {
+  table thead {
+    display: none;
+  }
+  table td {
+    display: flex;
+  }
+  
+  table td::before {
+    content: attr(label);
+    font-weight: bold;
+    width: 120px;
+    min-width: 120px;
+  }
 }

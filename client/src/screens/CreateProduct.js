@@ -141,11 +141,11 @@ const [name, setName] = useState('');
 
 
     return (
-        <Container className="small-container">
+      <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
             <Helmet>
                 <title>Create Product</title>
             </Helmet>
-            <h1>Create A New Product</h1>
+            <h1 className="my-3 text-2xl font-bold">Create A New Product</h1>
 
             <Form 
             onSubmit={submitHandler}
@@ -174,14 +174,6 @@ const [name, setName] = useState('');
                 required
                 />
             </Form.Group>
-            {/* <Form.Group className="mb-3" controlId="image">
-                <Form.Label>Image File</Form.Label>
-                <Form.Control
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
-                required
-                />
-            </Form.Group> */}
 
             <Form.Group className="mb-3" controlId="imageFile">
                 <Form.Label>Upload Image</Form.Label>
@@ -248,8 +240,9 @@ const [name, setName] = useState('');
                 required
                 />
             </Form.Group>
-            <div className="mb-3">
-                <Button 
+            <div className="mb-3 mt-4 d-grid">
+                <Button
+                className="bg-black py-4 text-gray-100 border-none"
                 disabled={loadingCreate} 
                 type="submit">
                 Update
@@ -257,7 +250,7 @@ const [name, setName] = useState('');
                 {loadingCreate && <LoadingBox></LoadingBox>}
             </div>
             </Form>
-        </Container>
+        </div>
     )
 }
 

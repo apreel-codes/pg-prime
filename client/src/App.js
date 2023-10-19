@@ -18,6 +18,7 @@ import { Store } from './Store';
 import Cart from './screens/Cart';
 import Signin from './screens/Signin';
 import ShippingAddress from './screens/ShippingAddress';
+import DashboardScreen from './screens/Dashboard';
 import Signup from './screens/Signup';
 import Payment from './screens/Payment';
 import PlaceOrder from './screens/PlaceOrder';
@@ -148,6 +149,8 @@ function App() {
                 <Route path="/admin/orderlist" element={<AdminRoute><OrderList /></AdminRoute>}></Route>
                 <Route path="/admin/productlist" element={<AdminRoute><ProductList /></AdminRoute>}></Route>
                 <Route path="/admin/product/:id" element={<AdminRoute><ProductEdit /></AdminRoute>}></Route>
+                <Route
+                path="/admin/dashboard" element={<AdminRoute><DashboardScreen /></AdminRoute>}></Route>
                 <Route path="/admin/createproduct" element={<AdminRoute><CreateProduct /></AdminRoute>}></Route>
                 <Route path="/admin/user/:id"element={<AdminRoute><UserEdit /></AdminRoute>}></Route>
                 <Route path="/admin/userlist" element={<AdminRoute><UserList /></AdminRoute>}></Route>

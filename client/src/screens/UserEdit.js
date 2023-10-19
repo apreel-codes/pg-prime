@@ -90,11 +90,11 @@ export default function UserEdit() {
     }
   };
   return (
-    <Container className="small-container">
+    <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
       <Helmet>
         <title>Edit User ${userId}</title>
       </Helmet>
-      <h1>Edit User {userId}</h1>
+      <h1 className="my-3 text-2xl font-bold">Edit User {userId}</h1>
 
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -124,19 +124,21 @@ export default function UserEdit() {
             className="mb-3"
             type="checkbox"
             id="isAdmin"
-            label="isAdmin"
+            label="Give admin role"
             checked={isAdmin}
             onChange={(e) => setIsAdmin(e.target.checked)}
           />
 
-          <div className="mb-3">
-            <Button disabled={loadingUpdate} type="submit">
+          <div className="mb-3 d-grid">
+            <Button disabled={loadingUpdate}
+            className="bg-black py-4 text-gray-100 border-none"
+             type="submit">
               Update
             </Button>
             {loadingUpdate && <LoadingBox></LoadingBox>}
           </div>
         </Form>
       )}
-    </Container>
+    </div>
   );
 }

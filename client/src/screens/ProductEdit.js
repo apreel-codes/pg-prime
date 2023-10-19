@@ -158,11 +158,11 @@ export default function ProductEdit() {
 
 
   return (
-    <Container className="small-container  mt-48">
+    <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
       <Helmet>
         <title>Edit Product ${productId}</title>
       </Helmet>
-      <h1>Edit Product {productId}</h1>
+      <h1 className="my-3 text-2xl font-bold">Edit Product {productId}</h1>
 
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -263,14 +263,16 @@ export default function ProductEdit() {
               required
             />
           </Form.Group>
-          <div className="mb-3">
-            <Button disabled={loadingUpdate} type="submit">
-              Update
+          <div className="mb-3 mt-4 d-grid">
+            <Button 
+            className="bg-black py-4 text-gray-100 border-none"
+            disabled={loadingUpdate} type="submit">
+              Create
             </Button>
             {loadingUpdate && <LoadingBox></LoadingBox>}
           </div>
         </Form>
       )}
-    </Container>
+    </div>
 );
 }

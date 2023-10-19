@@ -148,7 +148,7 @@ const Order = () => {
         )
         :
         (
-            <Container fluid className='md:w-[80%] w-[80%]'>
+            <div className='md:w-[60%] w-[80%] my-7 mx-auto'>
                 <Helmet>
                     <title>Order {orderId}</title>
                 </Helmet>
@@ -164,13 +164,13 @@ const Order = () => {
                                     {order.shippingAddress.city}, {order.shippingAddress.postalCode}, 
                                     {order.shippingAddress.country}, {order.shippingAddress.phonenumber}
                                 </Card.Text>
-                                {order.isDelivered ? (
+                                {/* {order.isDelivered ? (
                                     <MessageBox variant ="success">
                                         delivered at {order.deliveredAt}
                                     </MessageBox>
                                 ) : (
                                     <MessageBox variant="danger">Not Delivered</MessageBox>
-                                )}
+                                )} */}
                             </Card.Body>
                         </Card>
                         <Card className='mb-3'>
@@ -194,8 +194,8 @@ const Order = () => {
                                 <ListGroup variant="flush">
                                     {order.orderItems.map((item) => (
                                         <ListGroup.Item key={item._id}>
-                                            <Row className='align-items-center'>
-                                                <Col md={6}>
+                                            <Row className='align-items-center flex flex-row justify-between'>
+                                                <Col>
                                                     <img
                                                         src={item.image}
                                                         alt={item.name}
@@ -203,10 +203,10 @@ const Order = () => {
                                                     ></img>{' '}
                                                     <Link to={`/product/${item.slug}`}>{item.name}</Link>
                                                 </Col>
-                                                <Col md={3}>
+                                                <Col>
                                                     <span>{item.quantity}</span>
                                                 </Col>
-                                                <Col md={3}>
+                                                <Col>
                                                     NGN{item.price}
                                                 </Col>
                                             </Row>
@@ -261,7 +261,7 @@ const Order = () => {
                         </Card>
                     </Col>
                 </Row>
-            </Container>
+            </div>
         );
 }
 

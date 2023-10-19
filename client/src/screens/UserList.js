@@ -90,11 +90,11 @@ export default function UserList() {
 
 
   return (
-    <div className=''>
+    <div className='md:w-[80%] w-[90%] my-7 mx-auto'>
       <Helmet>
         <title>Users</title>
       </Helmet>
-      <h1>Users</h1>
+      <h1 className='my-3 text-2xl font-bold'>Users</h1>
 
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
@@ -102,7 +102,7 @@ export default function UserList() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <table className="table mt-3 text-sm">
           <thead>
             <tr>
               <th>ID</th>
@@ -115,12 +115,13 @@ export default function UserList() {
           <tbody>
             {users.map((user) => (
               <tr key={user._id}>
-                <td>{user._id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.isAdmin ? 'YES' : 'NO'}</td>
+                <td><span className='md:hidden block font-bold'>ID&nbsp;</span>{user._id}</td>
+                <td><span className='md:hidden block font-bold'>NAME&nbsp;</span>{user.name}</td>
+                <td><span className='md:hidden block font-bold'>EMAIL&nbsp;</span>{user.email}</td>
+                <td><span className='md:hidden block font-bold'>ADMIN&nbsp;</span>{user.isAdmin ? 'YES' : 'NO'}</td>
                 <td>
                   <Button
+                  className='text-blue-800 border-blue-800'
                     type="button"
                     variant="light"
                     onClick={() => navigate(`/admin/user/${user._id}`)}
@@ -128,7 +129,9 @@ export default function UserList() {
                     Edit
                   </Button>
                   &nbsp;
+                  &nbsp;
                   <Button
+                  className='bg-red-600 text-gray-100 border-none'
                     type="button"
                     variant="light"
                     onClick={() => deleteHandler(user)}

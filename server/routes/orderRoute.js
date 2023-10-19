@@ -1,20 +1,26 @@
 import express from 'express';
 import Order from '../models/Order.js';
+import Product from '../models/Product.js';
 import { isAdmin, isAuth } from '../utils.js';
 import expressAsyncHandler from "express-async-handler"
+import User from '../models/User.js';
 
 
 const orderRouter = express.Router();
+
+const PAGE_SIZE = 10;
 
 orderRouter.get(
     '/',
     isAuth,
     isAdmin,
     expressAsyncHandler(async (req, res) => {
-      const orders = await Order.find().populate('user', 'name');
+      const orders = (await Order.find().populate('user', 'name')).reverse();
       res.send(orders);
     })
   );
+
+
 
 orderRouter.post('/', isAuth, expressAsyncHandler(async (req, res) => {
     const newOrder = new Order({
@@ -33,10 +39,79 @@ orderRouter.post('/', isAuth, expressAsyncHandler(async (req, res) => {
 })
 );
 
+
+// summary
+orderRouter.get(
+    '/summary',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+      const orders = await Order.aggregate([
+        {
+          $group: {
+            _id: null,
+            numOrders: { $sum: 1 },
+            totalSales: { $sum: '$totalPrice' },
+          },
+        },
+      ]);
+      const users = await User.aggregate([
+        {
+          $group: {
+            _id: null,
+            numUsers: { $sum: 1 },
+          },
+        },
+      ]);
+      const dailyOrders = await Order.aggregate([
+        {
+          $group: {
+            _id: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
+            orders: { $sum: 1 },
+            sales: { $sum: '$totalPrice' },
+          },
+        },
+        { $sort: { _id: 1 } },
+      ]);
+      const productCategories = await Product.aggregate([
+        {
+          $group: {
+            _id: '$category',
+            count: { $sum: 1 },
+          },
+        },
+      ]);
+      const productBrands = await Product.aggregate([
+        {
+          $group: {
+            _id: '$brand',
+            count: { $sum: 1 },
+          },
+        },
+      ]);
+      res.send({ users, orders, dailyOrders, productCategories, productBrands });
+    })
+  );
+
+
+  
+  orderRouter.get(
+    '/mine',
+    isAuth,
+    expressAsyncHandler(async (req, res) => {
+      const orders = await Order.find({ user: req.user._id });
+      res.send(orders);
+    })
+  );
+
+
+  
+
 orderRouter.get('/mine', isAuth, expressAsyncHandler(async (req, res) => {
     const orders = await Order.find({ user: req.user._id });
     res.send(orders);
 }));
+
 
 orderRouter.get('/:id', isAuth, expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
@@ -47,6 +122,8 @@ orderRouter.get('/:id', isAuth, expressAsyncHandler(async (req, res) => {
     }
 })
 );
+
+
 
 orderRouter.put('/:id/pay', isAuth, expressAsyncHandler(async (req, res) => {
     const order = await Order.findById(req.params.id);
@@ -66,5 +143,20 @@ orderRouter.put('/:id/pay', isAuth, expressAsyncHandler(async (req, res) => {
         res.status(404).send({ message: 'Order Not Found' });
     }
 }))
+
+orderRouter.delete(
+    '/:id',
+    isAuth,
+    isAdmin,
+    expressAsyncHandler(async (req, res) => {
+      const order = await Order.findById(req.params.id);
+      if (order) {
+        await order.deleteOne();
+        res.send({ message: 'Order Deleted' });
+      } else {
+        res.status(404).send({ message: 'Order Not Found' });
+      }
+    })
+  );
 
 export default orderRouter;

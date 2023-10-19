@@ -79,11 +79,11 @@ const Profile = () => {
     }
 
     return (
-        <Container fluid className='md:w-[40%] w-[80%]'>
+        <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
             <Helmet>
                 <title>Profile</title>
             </Helmet>
-            <h1 className='mb-3 text-3xl font-bold'>Profile</h1>
+            <h1 className="my-3 text-2xl font-bold">Profile</h1>
                 <form onSubmit={submitHandler}>
                     <Form.Group className="mb-3" ControlId="name">
                         <Form.Label>Name</Form.Label>
@@ -116,10 +116,10 @@ const Profile = () => {
                         ></Form.Control>
                     </Form.Group>
                     <div className='mb-3 mt-4 d-grid'>
-                        <Button className='bg-blue-600' type="submit">Update</Button>
+                        <Button className='bg-black py-4 text-gray-100 border-none" type="submit"' type="submit">Update</Button>
                     </div>
                 </form>
-        </Container>
+        </div>
     )
 }
 

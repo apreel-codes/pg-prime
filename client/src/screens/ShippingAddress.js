@@ -63,7 +63,7 @@ const ShippingAddress = () => {
     }
 
     return (
-        <Container className='md:w-[40%] small-container w-[80%]'>
+        <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
             <Helmet>
                 <title>Shipping Address</title>
             </Helmet>
@@ -120,12 +120,12 @@ const ShippingAddress = () => {
                         ></Form.Control>
                 </Form.Group>
                         <div className='mt-4 d-grid'>
-                            <Button className='bg-blue-500' variant="primary" type="submit">
+                            <Button className="bg-black py-4 text-gray-100" variant="" type="submit">
                                 Continue
                             </Button>
                         </div>
             </Form>
-        </Container>
+        </div>
     )
 }
 

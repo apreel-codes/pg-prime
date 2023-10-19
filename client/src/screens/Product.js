@@ -82,15 +82,20 @@ const Product = () => {
         // alert("Item added to cart!");
     }
 
+    const buyNowHandler = () => {
+        navigate('/signin?redirect=/shipping');
+    }
+
+
 
     return (
-        <div className="md:w-[60%] mx-auto my-7">
+        <div className="md:w-[60%] mx-4 my-7 mx-auto">
             <ToastContainer position='top-center' limit={1} />
             {
                 loading ? ( <LoadingBox /> )
                 :
                 error ? ( <MessageBox variant="danger">{error}</MessageBox> ) : (
-                    <Row className="md:mx-20">
+                    <Row className="md:mx-20 mx-7">
                         <Col className="" md={6}>
                             <img
                                 className="img-large" 
@@ -105,10 +110,10 @@ const Product = () => {
                                     <Helmet>
                                         <title>{product.name}</title>
                                     </Helmet>
-                                    <h1 className="text-5xl font-bold">{product.name}</h1>
+                                    <h1 className="text-3xl font-bold">{product.name}</h1>
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-lg text-bold">
-                                    Price: &#163;{product.price}
+                                    &#163;{product.price}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                 <Row xs={1} md={7} className="grid grid-cols-3 gap-2 w-100">
@@ -128,18 +133,12 @@ const Product = () => {
                                     ))}
                                 </Row>
                                 </ListGroup.Item>
-                                <ListGroup.Item className="text-lg">
+                                <ListGroup.Item className="text-d">
                                    {product.description}
                                 </ListGroup.Item>
                                 <Card className="border-none">
                                     <Card.Body>
                                         <ListGroup variant="flush">
-                                            <ListGroupItem>
-                                                <Row>
-                                                    <Col><strong>Price:</strong></Col>
-                                                    <Col>&#163;{product.price}</Col>
-                                                </Row>
-                                            </ListGroupItem>
                                             <ListGroupItem>
                                                 <Row>
                                                     <Col><strong>Status:</strong></Col>
@@ -155,10 +154,10 @@ const Product = () => {
                                             {product.countInStock > 0 && (
                                                 <ListGroupItem>
                                                     <div className="d-grid">
-                                                        <Button onClick={addToCartHandler} className="bg-white border-black text-black py-3" variant="primary">
+                                                        <Button onClick={addToCartHandler} className="bg-white border-black text-black py-3" variant="">
                                                             Add to Cart
                                                         </Button>
-                                                        <Button onClick={addToCartHandler} className="bg-black py-4 mt-4" variant="primary">
+                                                        <Button onClick={buyNowHandler} className="bg-black py-4 text-gray-100 mt-4" variant="">
                                                             Buy Now
                                                         </Button>
                                                     </div>

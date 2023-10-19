@@ -41,13 +41,13 @@ const Cart = () => {
     }
 
     return (
-        <Container className="">
+        <Container fluid className="md:w-[80%] mx-auto my-7">
             <Helmet>
                 <title>My Cart</title>
             </Helmet>
-            <h1 className='text-medium text-5xl font-bold'>My Cart</h1>
-            <Row className="mt-5">
-                <Col md={8}>
+            <h1 className='text-2xl font-bold'>My Cart</h1>
+            <Row className="mt-3">
+                <Col md={8} className="">
                     {cartItems.length === 0 ? (
                         <MessageBox>
                             Cart is empty. <Link to="/">Go Shopping</Link>
@@ -56,9 +56,9 @@ const Cart = () => {
                     (
                         <ListGroup>
                             {cartItems.map((item) => (
-                                <ListGroupItem key={item._id}>
-                                    <Row className="align-items-center">
-                                        <Col md={4}>
+                                <ListGroupItem key={item._id} className="mb-3">
+                                    <Row className="align-items-center grid grid-cols-4 gap-0 flex flex-row justify-between">
+                                        <Col className="">
                                             <img
                                                 src={item.image}
                                                 alt={item.name}
@@ -66,18 +66,18 @@ const Cart = () => {
                                             ></img>{' '}
                                             <Link to={`/product/${item.slug}`}>{item.name}</Link>
                                         </Col>
-                                        <Col md={3}>
-                                            <Button variant="light" onClick={ () => updateCartHandler(item, item.quantity - 1 )} disabled={item.quantity === 1}>
+                                        <Col className="flex flex-row justify-between align-items-center text-center">
+                                            <Button variant="" onClick={ () => updateCartHandler(item, item.quantity - 1 )} disabled={item.quantity === 1}>
                                                 <i className="fas fa-minus-circle"></i>
                                             </Button>{' '}
-                                            <span>{item.quantity}</span>{' '}
-                                            <Button variant="light" onClick={ () => updateCartHandler(item, item.quantity + 1 )} disabled={item.quantity === item.countInStock}>
+                                            <span className="">{item.quantity}</span>{' '}
+                                            <Button variant="" onClick={ () => updateCartHandler(item, item.quantity + 1 )} disabled={item.quantity === item.countInStock}>
                                                 <i className="fas fa-plus-circle"></i>
                                             </Button>{' '}
                                         </Col>
-                                        <Col md={3}>NGN{item.price}</Col>
-                                        <Col md={2}>
-                                            <Button onClick={() => removeItemHandler(item)} variant="light">
+                                        <Col className="text-center">NGN{item.price}</Col>
+                                        <Col className="text-center">
+                                            <Button className="" onClick={() => removeItemHandler(item)} variant="light">
                                                 <i className="fas fa-trash"></i>
                                             </Button>
                                         </Col>
@@ -101,9 +101,9 @@ const Cart = () => {
                                 </ListGroupItem>
                                 <ListGroupItem>
                                     <div className="d-grid">
-                                        <Button className="bg-black py-3"
+                                        <Button className="bg-black py-4 text-gray-100"
                                         type="button"
-                                        variant="primary"
+                                        variant=""
                                         onClick={checkoutHandler}
                                         disabled={ cartItems.length === 0 }
                                         >Proceed to Checkout</Button>

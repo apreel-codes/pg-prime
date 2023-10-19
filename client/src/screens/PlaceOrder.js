@@ -96,7 +96,7 @@ const PlaceOrder = () => {
     }, [cart, navigate])
 
     return (
-        <Container fluid className='md:w-[80%] w-[80%]'>
+        <div className='md:w-[60%] w-[80%] my-7 mx-auto'>
             <Helmet>
                 <title>Preview Order</title>
             </Helmet>
@@ -131,17 +131,17 @@ const PlaceOrder = () => {
                             <ListGroup variant='flush'>
                                 {cart.cartItems.map((item) => (
                                     <ListGroup.Item className='border' key={item._id}>
-                                        <Row className='align-items-center'>
-                                            <Col md={6}>
+                                        <Row className='align-items-center flex flex-row justify-between'>
+                                            <Col className=''>
                                                 <img src={item.image} alt={item.name}
                                                 className='img-fluid rounded img-thumbnail'
                                                 ></img> {' '}
                                                 <Link className='font-medium' to={`/product/${item.slug}`}>{item.name}</Link>
                                             </Col>
-                                            <Col md={3}>
+                                            <Col className=''>
                                                 <span>{item.quantity}</span>
                                             </Col>
-                                            <Col md={3}>
+                                            <Col className=''>
                                                 NGN{item.price}
                                             </Col>
                                         </Row>
@@ -211,7 +211,8 @@ const PlaceOrder = () => {
                                 <ListGroup.Item>
                                     <div className='d-grid'>
                                         <Button
-                                            className='bg-blue-500'
+                                            className='bg-black py-4 text-gray-100'
+                                            variant=''
                                             type="button"
                                             onClick={placeOrderHandler}
                                             disabled={cart.cartItems.length === 0}
@@ -225,7 +226,7 @@ const PlaceOrder = () => {
                     </Card>
                 </Col>
             </Row>
-        </Container>
+        </div>
     )
 }
 

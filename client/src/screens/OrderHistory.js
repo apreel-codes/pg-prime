@@ -54,7 +54,7 @@ const OrderHistory = () => {
 
 
     return (
-        <Container fluid className='md:w-[80%] w-[90%]'>
+        <div className='md:w-[80%] w-[90%] my-7 mx-auto'>
             <Helmet>
             <title>Order History</title>
             </Helmet>
@@ -65,32 +65,26 @@ const OrderHistory = () => {
             ) : error ? (
                 <MessageBox variant='danger'>{error}</MessageBox>
             ) : (
-                <table className='table md:text-base text-xs'>
-                    <thead className=''>
-                        <tr className='md:text-base text-xs'>
+                <table className='table text-sm mt-3'>
+                    <thead className="">
+                        <tr className=''>
                             <th>ID</th>
                             <th>DATE</th>
                             <th>TOTAL</th>
                             <th>PAID</th>
-                            <th>DELIVERED</th>
                             <th>ACTIONS</th>
                         </tr>
                     </thead>
                     <tbody>
                         {orders.map((order) => (
                             <tr key={order._id}>
-                                <td>{order._id}</td>
-                                <td>{order.createdAt.substring(0, 10)}</td>
-                                <td>{order.totalPrice.toFixed(2)}</td>
-                                <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No' }</td>
-                                <td>
-                                    {order.isDelivered
-                                    ? order.deliveredAt.substring(0, 10)
-                                : 'No' }
-                                </td>
+                                <td><span className='md:hidden block font-bold'>ID&nbsp;</span>{order._id}</td>
+                                <td><span className='md:hidden block font-bold'>DATE&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
+                                <td><span className='md:hidden block font-bold'>TOTAL&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
+                                <td><span className='md:hidden block font-bold'>PAID&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No' }</td>
                                 <td>
                                     <Button
-                                        className='md:text-base text-xs'
+                                        className='text-blue-800 border-blue-800'
                                         type='button'
                                         variant='light'
                                         onClick={() => {
@@ -103,7 +97,7 @@ const OrderHistory = () => {
                     </tbody>
                 </table>
             )}
-        </Container>
+        </div>
     )
 }
 

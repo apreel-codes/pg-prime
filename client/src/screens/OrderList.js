@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useReducer } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
-import { useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import { Store } from '../Store';
@@ -47,6 +47,8 @@ export default function OrderListScreen() {
       error: '',
     });
 
+
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -78,7 +80,7 @@ export default function OrderListScreen() {
         });
         toast.success('order deleted successfully');
         dispatch({ type: 'DELETE_SUCCESS' });
-      } catch (err) {
+      } catch (error) {
         toast.error(getError(error));
         dispatch({
           type: 'DELETE_FAIL',
@@ -88,18 +90,18 @@ export default function OrderListScreen() {
   };
 
   return (
-    <div className=''>
+    <div className='md:w-[80%] w-[90%] my-7 mx-auto'>
       <Helmet>
         <title>Orders</title>
       </Helmet>
-      <h1>Orders</h1>
+      <h1 className='my-3 text-2xl font-bold'>Orders</h1>
       {loadingDelete && <LoadingBox></LoadingBox>}
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <table className="table text-sm mt-3">
           <thead>
             <tr>
               <th>ID</th>
@@ -107,26 +109,20 @@ export default function OrderListScreen() {
               <th>DATE</th>
               <th>TOTAL</th>
               <th>PAID</th>
-              <th>DELIVERED</th>
               <th>ACTIONS</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
               <tr key={order._id}>
-                <td>{order._id}</td>
-                <td>{order.user ? order.user.name : 'DELETED USER'}</td>
-                <td>{order.createdAt.substring(0, 10)}</td>
-                <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
-
-                <td>
-                  {order.isDelivered
-                    ? order.deliveredAt.substring(0, 10)
-                    : 'No'}
-                </td>
+                <td><span className='md:hidden block font-bold'>ID&nbsp;</span>{order._id}</td>
+                <td><span className='md:hidden block font-bold'>USER&nbsp;</span>{order.user ? order.user.name : 'DELETED USER'}</td>
+                <td><span className='md:hidden block font-bold'>DATE&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
+                <td><span className='md:hidden block font-bold'>TOTAL&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
+                <td><span className='md:hidden block font-bold'>PAID&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
                 <td>
                   <Button
+                    className='text-blue-800 border-blue-800'
                     type="button"
                     variant="light"
                     onClick={() => {
@@ -136,8 +132,10 @@ export default function OrderListScreen() {
                     Details
                   </Button>
                   &nbsp;
+                  &nbsp;
                   <Button
                     type="button"
+                    className='bg-red-600 text-gray-100 border-none'
                     variant="light"
                     onClick={() => deleteHandler(order)}
                   >
@@ -148,6 +146,7 @@ export default function OrderListScreen() {
             ))}
           </tbody>
         </table>
+        
       )}
 </div>
 );

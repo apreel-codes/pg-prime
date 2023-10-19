@@ -57,11 +57,11 @@ const Signup = () => {
 
 
     return (
-       <Container fluid className='md:w-[40%] w-[80%]'>
+       <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
         <Helmet>
             <title>Sign Up</title>
         </Helmet>
-        <h1 className="my-3 text-2xl font-medium">Sign Up</h1>
+        <h1 className="my-3 text-2xl font-bold">Sign Up</h1>
 
         <Form onSubmit={submitHandler}>
         <Form.Group className="mb-3" controlId="name">
@@ -81,14 +81,14 @@ const Signup = () => {
                 <Form.Control type="password" required onChange={(e) => setconfirmPassword(e.target.value)}/>
             </Form.Group>
             <div className="mb-3 mt-4 d-grid">
-                <Button className="bg-blue-600" type="submit">Sign Up</Button>
+                <Button className="bg-black py-4 text-gray-100 border-none" type="submit">Sign Up</Button>
             </div>
             <div>
                 Already have an account?{' '}
                 <Link className="font-bold" to={`/signin?redirect=${redirect}`}>Sign In</Link>
             </div>
         </Form>
-       </Container>
+       </div>
     )
 }
 
