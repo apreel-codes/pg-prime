@@ -253,7 +253,7 @@ const Home = () => {
                   <Col md={6} className="mt-5">
 
 
-                    <h2 className='text-black font-bold trending mb-3 '>Brands</h2>
+                    <h2 className='text-black font-bold trending mb-4'>Brands</h2>
                     <div fluid className="grid grid-cols-2 gap-5 text-center px-20">
                           <img className="nike w-36" src="./images/nike.png"></img>
                           <img className="nike  w-36" src="./images/puma.png"></img>
