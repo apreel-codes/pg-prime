@@ -144,6 +144,14 @@ const Home = () => {
         }
       };
 
+      
+        // Function to specify a particular number of objects from the array
+        const getFourProducts = (arr, num) => {
+          return arr.slice(0, num);
+        };
+      
+        const fourProducts = getFourProducts(products, 4);
+
 
     return (
             <div className="md:w-[100%] mx-auto bg-gray-100 relative">
@@ -152,17 +160,18 @@ const Home = () => {
                     <title>PGF PRIME</title>
                 </Helmet>   
 
-                <div className="w-[70%] mx-auto text-justify text-sm mt-5 font-bold italic">
-                Step into style and unleash your inner sneakerhead with our incredible collection of kicks. 
-                From classic designs to the latest trends, 
-                our sneakers are crafted to elevate your shoe game to new heights...
+                <div className="w-[90%] mx-auto">
+                <h1 className="text-justify text-sm mt-5 font-bold mb-4">Step into style and unleash your inner sneakerhead with our 
+                incredible collection of kicks.</h1>
+
+                <button className="shop-now px-4 py-3 ">Shop now</button> 
                 </div>
 
 
                 <Ruler className="mt-5" />
 
 
-                <div className="mt-5">
+                <div className="mt-5 md:w-[70%] mx-auto">
                         <h1 className='text-black font-bold trending mb-3'>Trending</h1>
 
                         <Carousel responsive={responsive} className="mx-auto">
@@ -191,7 +200,7 @@ const Home = () => {
                     <Col md={3} className=" bg-white pt-2 mt-2">
                     
                         <div className='filter-container flex flex-column p-3 rounded mt-2 mb-3'>
-                            <span className="italic text-sm">Filter by</span>
+                            <span className="italic text-sm">Filter Sneakers by</span>
                             <Link className="font-bold mt-2 p-2 bg-gray-200 rounded" onClick={handleCatClick}>Categories</Link>
                             <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                             {categories.map((category) => (
@@ -236,7 +245,8 @@ const Home = () => {
                         <Carousel responsive={responsive} className="mt-3 mx-auto">
                                 {products.map((product, i) => (
                                     <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                                        <HomeProduct product={product}></HomeProduct>
+                                        <HomeProduct
+                                        product={product}></HomeProduct>
                                     </div>
                                 
                                 ))}
@@ -244,7 +254,19 @@ const Home = () => {
                     </Col>
                </Row>
 
-               <Ruler className="my-3" />
+
+                <div>
+                  <h2>Top Rated</h2>
+                <div className="grid grid-cols-2 gap-0">
+                        {fourProducts.map((product, i) => (
+                                      <div key={product.slug} sm={6} md={4} lg={3} className="">
+                                          <HomeProduct product={product}></HomeProduct>
+                                      </div>                             
+                        ))}
+                  </div>
+
+                </div>
+
                 
                 <Row className="mx-auto md:w-[80%]">
                   <Col md={6}>
@@ -253,13 +275,14 @@ const Home = () => {
                   <Col md={6} className="mt-5">
 
 
-                    <h2 className='text-black font-bold trending mb-4'>Brands</h2>
+                    <h2 className='text-black font-bold trending mb-5'>Brands</h2>
                     <div fluid className="grid grid-cols-2 gap-5 text-center px-20">
                           <img className="nike w-36" src="./images/nike.png"></img>
                           <img className="nike  w-36" src="./images/puma.png"></img>
                           <img className="nike  w-36" src="./images/adidas.png"></img> 
-                          <img className="nike  w-36" src="./images/balance.png"></img> 
+                          <img className="nike  w-36" src="./images/balance.png"></img>
                     </div>
+                        <p className="text-center font-bold">and many more</p>
                   </Col>   
                 </Row>  
                 

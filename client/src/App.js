@@ -124,7 +124,7 @@ function App() {
         </Navbar>
       </header>
 
-      <Routes>
+      <Routes className="">
               <Route>
                 <Route index element={<Home />} />
                 <Route path="/home" element={<Home />} />
