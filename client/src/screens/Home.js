@@ -160,18 +160,18 @@ const Home = () => {
                     <title>PGF PRIME</title>
                 </Helmet>   
 
-                <div className="w-[90%] mx-auto">
+                <div className="w-[90%] md:w-[50%] mx-auto">
                 <h1 className="text-justify text-sm mt-5 font-bold mb-4">Step into style and unleash your inner sneakerhead with our 
                 incredible collection of kicks.</h1>
 
-                <button className="shop-now px-4 py-3 ">Shop now</button> 
+                <Link to="/signin"><button className="shop-now px-5 py-3 ">Shop now</button> </Link>
                 </div>
 
 
                 <Ruler className="mt-5" />
 
 
-                <div className="mt-5 md:w-[70%] mx-auto">
+                <div className="mt-5 w-[90%] md:w-[70%] mx-auto">
                         <h1 className='text-black font-bold trending mb-3'>Trending</h1>
 
                         <Carousel responsive={responsive} className="mx-auto">
@@ -183,7 +183,7 @@ const Home = () => {
                         ))}
                         </Carousel>
 
-                        <Carousel responsive={responsive} className="mt-3 mx-auto">
+                        <Carousel responsive={responsive} className="mx-auto ">
                             {randProductsTwo.map((product, i) => (
                                 <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                     <HomeProduct product={product}></HomeProduct>
@@ -193,18 +193,18 @@ const Home = () => {
                         </Carousel>
                 </div>
 
-                <Ruler className="my-3" />
 
-                <Row className="mx-auto">
+                <Row className="mx-auto md:w-[80%]">
                     
-                    <Col md={3} className=" bg-white pt-2 mt-2">
+                    <Col md={3} className="bg-white pt-1 mt-2">
                     
-                        <div className='filter-container flex flex-column p-3 rounded mt-2 mb-3'>
-                            <span className="italic text-sm">Filter Sneakers by</span>
-                            <Link className="font-bold mt-2 p-2 bg-gray-200 rounded" onClick={handleCatClick}>Categories</Link>
+                        <div className='filter-container flex flex-column p-3 rounded mb-3'>
+                            <span className="filter w-54">STEP UP YOUR SNEAKER GAME.</span>
+                            <span className="text-base">Discover your perfect pair with our cutting-edge filter feature.</span>
+                            <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleCatClick}>Categories</Link>
                             <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                             {categories.map((category) => (
-                                    <li className="my-2 text-base text-black" key={category}>
+                                    <li className="my-2 text-base text-black ml-6" key={category}>
                                         <Link className="hover:text-blue-600"
                                             to={{ pathname: '/search', search: `category=${category}`}}
                                         >
@@ -214,10 +214,10 @@ const Home = () => {
                                 ))}
                             </ul>
                             
-                            <Link className="font-bold mt-2 p-2 bg-gray-200 rounded " onClick={handleBrandClick}>Brands</Link>
+                            <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleBrandClick}>Brands</Link>
                             <ul className={isBrandToggled ? 'brand-hidden' : 'brand-show"'}>
                                 {brands.map((brand) => (
-                                        <li className="my-2 text-base text-black" key={brand}>
+                                        <li className="my-2 text-base text-black ml-6" key={brand}>
                                             <Link className="hover:text-blue-600"
                                                 to={{ pathname: '/search', search: `brand=${brand}`}}
                                             >
@@ -227,10 +227,10 @@ const Home = () => {
                                     ))}
                                 </ul>
 
-                                <Link className="font-bold mt-2 p-2 bg-gray-200 rounded " onClick={handlePriceClick}>Price</Link>
+                                <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handlePriceClick}>Price</Link>
                                 <ul className={isPriceToggled ? 'price-hidden' : 'price-show"'}>                               
                                             {prices.map((p) => (
-                                            <li className="my-2 text-base text-black" key={p.value}>
+                                            <li className="my-2 text-base text-black ml-6" key={p.value}>
                                                 <Link className="hover:text-blue-600"
                                                     to={{ pathname: '/search', search: `price=${p.value}`}}
                                                 >&#163;{p.name}
@@ -240,8 +240,9 @@ const Home = () => {
                             </ul>
                         </div>               
                     </Col> 
-                    <Col md={9}>
-                    <h1 className='text-black font-bold trending md:mt-3 mt-10'>Newest Arrivals</h1>
+                    <Col md={9} className="w-[95%] md:w-[70%] mx-auto">
+                    <h1 className='text-black font-bold trending mb-3 mt-5'>Newest Arrivals</h1>
+                    <span>Introducing the freshest kicks to level up your footwear collection!</span>
                         <Carousel responsive={responsive} className="mt-3 mx-auto">
                                 {products.map((product, i) => (
                                     <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
@@ -255,9 +256,10 @@ const Home = () => {
                </Row>
 
 
-                <div>
-                  <h2>Top Rated</h2>
-                <div className="grid grid-cols-2 gap-0">
+                <div className="w-[90%] md:w-[50%] mx-auto">
+                  <h2 className='text-black font-bold trending mb-3 mt-5'>Top Rated</h2>
+                  <span>Discover the sneakers that have stolen the hearts of sneakerheads worldwide.</span>
+                <div className="grid grid-cols-2 gap-0 mt-3">
                         {fourProducts.map((product, i) => (
                                       <div key={product.slug} sm={6} md={4} lg={3} className="">
                                           <HomeProduct product={product}></HomeProduct>
@@ -268,19 +270,19 @@ const Home = () => {
                 </div>
 
                 
-                <Row className="mx-auto md:w-[80%]">
-                  <Col md={6}>
+                <Row className="mx-auto w-[95%] md:w-[80%]">
+                  <Col md={6} className="mt-3">
                     <div className="nike-red md:nike-second rounded"/>
                   </Col>
                   <Col md={6} className="mt-5">
 
 
                     <h2 className='text-black font-bold trending mb-5'>Brands</h2>
-                    <div fluid className="grid grid-cols-2 gap-5 text-center px-20">
-                          <img className="nike w-36" src="./images/nike.png"></img>
-                          <img className="nike  w-36" src="./images/puma.png"></img>
-                          <img className="nike  w-36" src="./images/adidas.png"></img> 
-                          <img className="nike  w-36" src="./images/balance.png"></img>
+                    <div fluid className="grid grid-cols-2 gap-4 text-center px-20">
+                          <img className="nike w-28" src="./images/nike.png"></img>
+                          <img className="nike  w-28" src="./images/puma.png"></img>
+                          <img className="nike  w-28" src="./images/adidas.png"></img> 
+                          <img className="nike  w-28" src="./images/balance.png"></img>
                     </div>
                         <p className="text-center font-bold">and many more</p>
                   </Col>   
