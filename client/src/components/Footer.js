@@ -1,7 +1,10 @@
 // import Container from "./Container";
+import { Link } from "react-router-dom";
 import Ruler from "./Ruler";
 
+
 import Container from 'react-bootstrap/Container';
+
 
 const Footer = () => {
   console.log(window.location.host);
@@ -23,7 +26,14 @@ const Footer = () => {
           <span className="font-semibold text-lg ">About Us</span>
           <ul className="flex flex-col gap-y-2">
             <li>About</li>
-            <li>Contact</li>
+            
+            {/* <li>Contact</li> */}
+            <li>
+              <div className="flex flex-flow">
+                <Link><img className="socials-instagram"  src="../images/instagram.png"/></Link>
+                <Link><img className="socials ml-3"  src="./images/facebook.png"/></Link>
+              </div>
+            </li>
           </ul>
         </div>
 

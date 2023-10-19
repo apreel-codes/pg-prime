@@ -19,7 +19,7 @@ const HomeProduct = (props) => {
                     </Link>
                     {/* <Rating rating={product.rating} numReviews={product.numReviews}/> */}
                     <Card.Text className="text-sm">{product.brand}</Card.Text>
-                    <Card.Text className="text-sm bg-gray-200 w-[50%] text-center mt-1 p-2 rounded font-medium">&#163;{product.price}</Card.Text>
+                    <Card.Text className="text-sm bg-gray-200 w-[50%] text-center mt-1 p-3 rounded font-medium">&#163;{product.price}</Card.Text>
                     {/* <Button className="bg-blue-500 mt-3 border-radius-0">Add to Cart</Button> */}
                 </Card.Body>
         </Card>          

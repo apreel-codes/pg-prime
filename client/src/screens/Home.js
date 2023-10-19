@@ -152,7 +152,7 @@ const Home = () => {
                     <title>PGF PRIME</title>
                 </Helmet>   
 
-                <div className="w-[60%] mx-auto text-justify mt-5 font-bold italic">
+                <div className="w-[70%] mx-auto text-justify text-sm mt-5 font-bold italic">
                 Step into style and unleash your inner sneakerhead with our incredible collection of kicks. 
                 From classic designs to the latest trends, 
                 our sneakers are crafted to elevate your shoe game to new heights...
@@ -165,7 +165,7 @@ const Home = () => {
                 <div className="mt-5">
                         <h1 className='text-black font-bold trending mb-3'>Trending</h1>
 
-                        <Carousel responsive={responsive} className="">
+                        <Carousel responsive={responsive} className="mx-auto">
                             {randProducts.map((product, i) => (
                                 <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                     <HomeProduct product={product}></HomeProduct>
@@ -174,7 +174,7 @@ const Home = () => {
                         ))}
                         </Carousel>
 
-                        <Carousel responsive={responsive} className="mt-2">
+                        <Carousel responsive={responsive} className="mt-3 mx-auto">
                             {randProductsTwo.map((product, i) => (
                                 <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                     <HomeProduct product={product}></HomeProduct>
@@ -192,7 +192,7 @@ const Home = () => {
                     
                         <div className='filter-container flex flex-column p-3 rounded mt-2 mb-3'>
                             <span className="italic text-sm">Filter by</span>
-                            <Link className="font-bold mt-2 underline " onClick={handleCatClick}>Categories</Link>
+                            <Link className="font-bold mt-2 p-2 bg-gray-200 rounded" onClick={handleCatClick}>Categories</Link>
                             <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                             {categories.map((category) => (
                                     <li className="my-2 text-base text-black" key={category}>
@@ -205,7 +205,7 @@ const Home = () => {
                                 ))}
                             </ul>
                             
-                            <Link className="font-bold mt-2 underline " onClick={handleBrandClick}>Brands</Link>
+                            <Link className="font-bold mt-2 p-2 bg-gray-200 rounded " onClick={handleBrandClick}>Brands</Link>
                             <ul className={isBrandToggled ? 'brand-hidden' : 'brand-show"'}>
                                 {brands.map((brand) => (
                                         <li className="my-2 text-base text-black" key={brand}>
@@ -218,7 +218,7 @@ const Home = () => {
                                     ))}
                                 </ul>
 
-                                <Link className="font-bold mt-2 underline " onClick={handlePriceClick}>Price</Link>
+                                <Link className="font-bold mt-2 p-2 bg-gray-200 rounded " onClick={handlePriceClick}>Price</Link>
                                 <ul className={isPriceToggled ? 'price-hidden' : 'price-show"'}>                               
                                             {prices.map((p) => (
                                             <li className="my-2 text-base text-black" key={p.value}>
@@ -233,7 +233,7 @@ const Home = () => {
                     </Col> 
                     <Col md={9}>
                     <h1 className='text-black font-bold trending md:mt-3 mt-10'>Newest Arrivals</h1>
-                        <Carousel responsive={responsive} className="mt-3">
+                        <Carousel responsive={responsive} className="mt-3 mx-auto">
                                 {products.map((product, i) => (
                                     <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                         <HomeProduct product={product}></HomeProduct>
@@ -253,7 +253,7 @@ const Home = () => {
                   <Col md={6} className="mt-5">
 
 
-                    <h2 className='text-black font-bold trending mb-5'>Brands</h2>
+                    <h2 className='text-black font-bold trending mb-3 '>Brands</h2>
                     <div fluid className="grid grid-cols-2 gap-5 text-center px-20">
                           <img className="nike w-36" src="./images/nike.png"></img>
                           <img className="nike  w-36" src="./images/puma.png"></img>
@@ -271,7 +271,7 @@ const Home = () => {
                       </Link> 
                 </div> 
 
-                <Link>
+                <Link to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">
                   <img className="whatsapp"  src="./images/whatsapp.png"/>               
                 </Link>
             </div>
