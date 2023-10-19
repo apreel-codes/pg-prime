@@ -84,13 +84,13 @@ const Product = () => {
 
 
     return (
-        <div className="w-[60%] mx-auto">
+        <div className="md:w-[60%] mx-auto my-7">
             <ToastContainer position='top-center' limit={1} />
             {
                 loading ? ( <LoadingBox /> )
                 :
                 error ? ( <MessageBox variant="danger">{error}</MessageBox> ) : (
-                    <Row className="mx-20">
+                    <Row className="md:mx-20">
                         <Col className="" md={6}>
                             <img
                                 className="img-large" 
@@ -111,7 +111,7 @@ const Product = () => {
                                     Price: &#163;{product.price}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                <Row xs={1} md={2} className="g-2 w-60">
+                                <Row xs={1} md={7} className="grid grid-cols-3 gap-2 w-100">
                                     {[product.image, ...product.images].map((x) => (
                                     <Col key={x}>
                                         <Card>
@@ -129,7 +129,7 @@ const Product = () => {
                                 </Row>
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-lg">
-                                    Description: {product.description}
+                                   {product.description}
                                 </ListGroup.Item>
                                 <Card className="border-none">
                                     <Card.Body>
@@ -145,7 +145,7 @@ const Product = () => {
                                                     <Col><strong>Status:</strong></Col>
                                                     <Col>
                                                     { product.countInStock > 0 ? 
-                                                    <Badge className="py-3 px-5 text-sm" bg="success">In Stock</Badge>
+                                                    <Badge className="py-3 px-5 text-sm text-green-500 bg-white border">In Stock</Badge>
                                                      : 
                                                     <Badge className="py-3 px-5 text-sm" bg="danger">Out Of Stock</Badge>
                                                     }  </Col>
@@ -155,8 +155,11 @@ const Product = () => {
                                             {product.countInStock > 0 && (
                                                 <ListGroupItem>
                                                     <div className="d-grid">
-                                                        <Button onClick={addToCartHandler} className="bg-black py-3" variant="primary">
+                                                        <Button onClick={addToCartHandler} className="bg-white border-black text-black py-3" variant="primary">
                                                             Add to Cart
+                                                        </Button>
+                                                        <Button onClick={addToCartHandler} className="bg-black py-4 mt-4" variant="primary">
+                                                            Buy Now
                                                         </Button>
                                                     </div>
                                                 </ListGroupItem>

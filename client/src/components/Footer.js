@@ -33,7 +33,7 @@ const Footer = () => {
                 <Link to="https://instagram.com/pgf_prime?igshid=MzRIODBiNWFIZA=="
                 ><img className="socials-instagram"  src="../images/instagram.png"/></Link>
                 <Link
-                ><img className="socials ml-3"  src="./images/facebook.png"/></Link>
+                ><img className="socials ml-3"  src="../images/facebook.png"/></Link>
               </div>
             </li>
           </ul>
