@@ -32,6 +32,7 @@ small {
 .filter {
   font-family: "Anton";
   font-size: 3rem;
+  line-height: 3rem;
 }
 
 .filter-content {

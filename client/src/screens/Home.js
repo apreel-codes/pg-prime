@@ -227,7 +227,7 @@ const Home = () => {
                     
                         <div className='filter-container flex flex-column p-3 rounded mb-3'>
                             <span className="filter w-54">STEP UP YOUR SNEAKER GAME.</span>
-                            <span className="text-base">Discover your perfect pair with our cutting-edge filter feature.</span>
+                            <span className="text-base text-gray-500">Discover your perfect pair with our cutting-edge filter feature.</span>
                             <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleCatClick}>Categories</Link>
                             <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                             {categories.map((category) => (
@@ -282,7 +282,7 @@ const Home = () => {
                     </Col> 
                     <Col md={9} className="w-[95%] md:w-[70%] mx-auto">
                     <h1 className='text-black font-bold trending mb-3 mt-5'>Newest Arrivals</h1>
-                    <span>Introducing the freshest kicks to level up your footwear collection!</span>
+                    <span className="text-base text-gray-500">Introducing the freshest kicks to level up your footwear collection!</span>
                         <Carousel responsive={responsive} className="mt-3 mx-auto">
                                 {products.map((product, i) => (
                                     <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
@@ -298,7 +298,7 @@ const Home = () => {
 
                 <div className="w-[90%] md:w-[50%] mx-auto">
                   <h2 className='text-black font-bold trending mb-3 mt-5'>Top Rated</h2>
-                  <span>Discover the sneakers that have stolen the hearts of sneakerheads worldwide.</span>
+                  <span className="text-base text-gray-500">Discover the sneakers that have stolen the hearts of sneakerheads worldwide.</span>
                 <div className="grid grid-cols-2 gap-0 mt-3">
                         {fourProducts.map((product, i) => (
                                       <div key={product.slug} sm={6} md={4} lg={3} className="">
@@ -324,7 +324,7 @@ const Home = () => {
                           <img className="nike  w-28" src="./images/adidas.png"></img> 
                           <img className="nike  w-28" src="./images/balance.png"></img>
                     </div>
-                        <p className="text-center font-medium">and many more</p>
+                        <p className="text-center text-sm font-medium">and many more</p>
                   </Col>   
                 </Row>  
                 

@@ -186,11 +186,11 @@ export default function ProductList() {
             <tbody>
               {products.map((product) => (
                 <tr key={product._id}>
-                  <td><span className='md:hidden block font-medium'>ID:&nbsp;</span>{product._id}</td>
-                  <td><span className='md:hidden block font-medium'>NAME:&nbsp;</span>{product.name}</td>
-                  <td><span className='md:hidden block font-medium'>PRICE:&nbsp;</span>&#163;{product.price}</td>
-                  <td><span className='md:hidden block font-medium'>CATEGORY:&nbsp;</span>{product.category}</td>
-                  <td><span className='md:hidden block font-medium'>BRAND:&nbsp;</span>{product.brand}</td>
+                  <td><span className='md:hidden block font-semibold'>ID:&nbsp;</span>{product._id}</td>
+                  <td><span className='md:hidden block font-semibold'>NAME:&nbsp;</span>{product.name}</td>
+                  <td><span className='md:hidden block font-semibold'>PRICE:&nbsp;</span>&#163;{product.price}</td>
+                  <td><span className='md:hidden block font-semibold'>CATEGORY:&nbsp;</span>{product.category}</td>
+                  <td><span className='md:hidden block font-semibold'>BRAND:&nbsp;</span>{product.brand}</td>
                   <td>
                     <Button
                       className='text-blue-800 border-blue-800'

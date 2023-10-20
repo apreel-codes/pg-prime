@@ -14,6 +14,9 @@ const SearchBox = () => {
     const submitHandler = (e) => {
         e.preventDefault();
         navigate(query ? `/search/?query=${query}` : '/search')
+
+        
+        setQuery("");
     };
 
     return(
@@ -24,7 +27,8 @@ const SearchBox = () => {
                 name="q" 
                 id="q" 
                 onChange={(e) => setQuery(e.target.value)} 
-                placeholder="Search name, brand, size, category.."
+                className="text-sm"
+                placeholder="Search name"
                 aria-label="Search Products"
                 aria-describedby="button-search"
                 

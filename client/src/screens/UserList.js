@@ -115,10 +115,10 @@ export default function UserList() {
           <tbody>
             {users.map((user) => (
               <tr key={user._id}>
-                <td><span className='md:hidden block font-medium'>ID:&nbsp;</span>{user._id}</td>
-                <td><span className='md:hidden block font-medium'>NAME:&nbsp;</span>{user.name}</td>
-                <td><span className='md:hidden block font-medium'>EMAIL:&nbsp;</span>{user.email}</td>
-                <td><span className='md:hidden block font-medium'>ADMIN:&nbsp;</span>{user.isAdmin ? 'YES' : 'NO'}</td>
+                <td><span className='md:hidden block font-semibold'>ID:&nbsp;</span>{user._id}</td>
+                <td><span className='md:hidden block font-semibold'>NAME:&nbsp;</span>{user.name}</td>
+                <td><span className='md:hidden block font-semibold'>EMAIL:&nbsp;</span>{user.email}</td>
+                <td><span className='md:hidden block font-semibold'>ADMIN:&nbsp;</span>{user.isAdmin ? 'YES' : 'NO'}</td>
                 <td>
                   <Button
                   className='text-blue-800 border-blue-800'

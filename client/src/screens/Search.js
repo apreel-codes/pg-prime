@@ -138,19 +138,19 @@ const Search = () => {
    
 
     return (
-        <div className=''>
+        <div className='md:w-[40%] w-[90%] my-14 mx-auto'>
             <Helmet>
                 <title>Search Products</title>
             </Helmet>
-            <Container className='border'>
-                <Container className='border'>
+            <div className=''>
+                <div className=''>
                     {loading ? (
                         <LoadingBox></LoadingBox>
                     ) : error ? (
                         <MessageBox variant="danger">{error}</MessageBox>
                     ) : (
                         <>
-                        <Row className='justify-content-between mb-3 border mx-auto'>
+                        <Row className='justify-content-between mb-3 mx-auto'>
                             <Col md={6}>
                                 <div>
                                     {countProducts === 0 ? 'No' : countProducts} Results
@@ -173,17 +173,17 @@ const Search = () => {
                         {products.length === 0 && (
                             <MessageBox>No Product Found</MessageBox>
                         )}
-                        <Row>
+                        <Row className='grid grid-cols-2 gap-1 md:w-[100%]'>
                             {products.map((product) => (
-                                <Col sm={6} lg={4} className='mb-3' key={product._id}>
+                                <Col sm={6} lg={12} className='mb-3' key={product._id}>
                                 <HomeProduct product={product}></HomeProduct>
                                 </Col>
                             ))}
                         </Row>
                     </>
                     )}
-                </Container>
-            </Container>
+                </div>
+            </div>
         </div>
     );
 }

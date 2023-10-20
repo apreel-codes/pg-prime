@@ -78,10 +78,10 @@ const OrderHistory = () => {
                     <tbody>
                         {orders.map((order) => (
                             <tr key={order._id}>
-                                <td><span className='md:hidden block font-medium'>ID:&nbsp;</span>{order._id}</td>
-                                <td><span className='md:hidden block font-medium'>DATE:&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
-                                <td><span className='md:hidden block font-medium'>TOTAL:&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
-                                <td><span className='md:hidden block font-medium'>PAID:&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No' }</td>
+                                <td><span className='md:hidden block font-semibold'>ID:&nbsp;</span>{order._id}</td>
+                                <td><span className='md:hidden block font-semibold'>DATE:&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
+                                <td><span className='md:hidden block font-semibold'>TOTAL:&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
+                                <td><span className='md:hidden block font-semibold'>PAID:&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No' }</td>
                                 <td>
                                     <Button
                                         className='text-blue-800 border-blue-800'
