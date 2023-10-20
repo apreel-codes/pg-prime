@@ -96,7 +96,7 @@ const Cart = () => {
                                 <ListGroupItem>
                                     <h3 className="text-lg font-bold">
                                         Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}
-                                        items) : &#163
+                                        items) : &#163;
                                         {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
                                     </h3>
                                 </ListGroupItem>
