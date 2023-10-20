@@ -96,7 +96,7 @@ const PlaceOrder = () => {
     }, [cart, navigate])
 
     return (
-        <div className='md:w-[60%] w-[80%] my-7 mx-auto'>
+        <div className='md:w-[60%] w-[90%] my-10 mx-auto'>
             <Helmet>
                 <title>Preview Order</title>
             </Helmet>
@@ -107,22 +107,22 @@ const PlaceOrder = () => {
                     <Card className="mb-3">
                         <Card.Body>
                             <Card.Title>Shipping</Card.Title>
-                            <Card.Text>
+                            <Card.Text className='text-sm mb-2'>
                                 <strong>Name:</strong> {cart.shippingAddress.fullName} <br />
-                                <strong>Address:</strong> {cart.shippingAddress.address}, 
-                                {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}, 
+                                <strong>Address:</strong> {cart.shippingAddress.address}, {''}
+                                {cart.shippingAddress.city}, {cart.shippingAddress.postalCode}, {''}
                                 {cart.shippingAddress.country}, {cart.shippingAddress.phonenumber}
                             </Card.Text>
-                            <Link className='font-bold text-red-600' to="/shipping">Change Address</Link>
+                            <Link className='font-medium text-red-600' to="/shipping">Change Address</Link>
                         </Card.Body>
                     </Card>
                     <Card className='mb-3'>
                         <Card.Body>
                             <Card.Title>Payment</Card.Title>
-                            <Card.Text>
+                            <Card.Text className='text-sm mb-2'>
                                 <strong>Method:</strong> {cart.paymentMethod}
-                            </Card.Text>
-                            <Link className='font-bold text-red-600' to="/payment">Change Payment Method</Link>
+                            </Card.Text >
+                            <Link className='font-medium text-red-600' to="/payment">Change Payment Method</Link>
                         </Card.Body>
                     </Card>
                     <Card className='mb-3'>
@@ -130,32 +130,32 @@ const PlaceOrder = () => {
                             <Card.Title>Items</Card.Title>
                             <ListGroup variant='flush'>
                                 {cart.cartItems.map((item) => (
-                                    <ListGroup.Item className='border' key={item._id}>
+                                    <ListGroup.Item className='' key={item._id}>
                                         <Row className='align-items-center flex flex-row justify-between'>
                                             <Col className=''>
                                                 <img src={item.image} alt={item.name}
                                                 className='img-fluid rounded img-thumbnail'
                                                 ></img> {' '}
-                                                <Link className='font-medium' to={`/product/${item.slug}`}>{item.name}</Link>
+                                                <Link className='font-medium text-sm' to={`/product/${item.slug}`}>{item.name}</Link>
                                             </Col>
                                             <Col className=''>
                                                 <span>{item.quantity}</span>
                                             </Col>
                                             <Col className=''>
-                                                NGN{item.price}
+                                             &#163;{item.price}
                                             </Col>
                                         </Row>
                                     </ListGroup.Item>
                                 ))}
                             </ListGroup>
-                            <Link className='font-bold text-red-600' to="/cart">Change Items</Link>
+                            <Link className='font-medium text-red-600' to="/cart">Change Items</Link>
                         </Card.Body>
                     </Card>
                 </Col>
-                <Col md={4}>
-                <div> How quick do you want your items shipped to you?</div>
+                <Col md={4} className='text-sm'>
+                <div className='my-2'> How quick do you want your items shipped to you?</div>
                 <Form>
-                            <div className='my-3'>
+                            <div className='my-2'>
                                 <Form.Check
                                 type='radio'
                                 id='icanwait'
@@ -165,7 +165,7 @@ const PlaceOrder = () => {
                                 onChange={(e) => setUrgency(e.target.value)}
                                 />
                             </div>
-                            <div className='my-3'>
+                            <div className='my-2'>
                                 <Form.Check
                                 type='radio'
                                 id='2-3days'
@@ -175,7 +175,7 @@ const PlaceOrder = () => {
                                 onChange={(e) => setUrgency(e.target.value)}
                                 />
                             </div>
-                            <div className='my-3'>
+                            <div className='my-2'>
                                 <Form.Check
                                 type='radio'
                                 id='5-7days'
@@ -186,7 +186,7 @@ const PlaceOrder = () => {
                                 />
                             </div>
                     </Form>
-                    <Card>
+                    <Card className='mt-2 text-sm'>
                         <Card.Body>
                             <Card.Title>Order Summary</Card.Title>
                             <ListGroup variant='flush'>
@@ -211,8 +211,8 @@ const PlaceOrder = () => {
                                 <ListGroup.Item>
                                     <div className='d-grid'>
                                         <Button
-                                            className='bg-black py-4 text-gray-100'
-                                            variant=''
+                                            className='bg-black mt-1 py-3 text-gray-100 border-none rounded-full'
+                                            
                                             type="button"
                                             onClick={placeOrderHandler}
                                             disabled={cart.cartItems.length === 0}

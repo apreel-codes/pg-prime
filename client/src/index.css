@@ -7,11 +7,19 @@ html, body, #root {
   font-family: Verdana, Geneva, Tahoma, sans-serif,
 }
 
+.product {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 .trending {
   font-family: 'Almendra SC';
   letter-spacing: 0.2rem;
   font-size: 1.8rem;
   /* text-align: center; */
+}
+
+small {
+  color: rgb(100, 98, 98);
 }
 
 .shop-now {
@@ -146,9 +154,10 @@ main {
   flex: 1;
 }
 
+/* 
 .rating span {
   color: #080807;
-}
+} */
 
 .img-thumbnail {
   height: 80px;
@@ -221,6 +230,14 @@ button.thumbnail {
 }
 
 .price-show {
+  display: block;
+}
+
+.size-hidden {
+  display: none;
+}
+
+.size-show {
   display: block;
 }
 

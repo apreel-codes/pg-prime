@@ -43,7 +43,7 @@ const reducer = (state, action) => {
 };
 export default function ProductEdit() {
   const navigate = useNavigate();
-  const params = useParams(); // /product/:id
+  const params = useParams();
   const { id: productId } = params;
 
   const { state } = useContext(Store);
@@ -57,6 +57,7 @@ export default function ProductEdit() {
   const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
   const [price, setPrice] = useState('');
+  const [size, setSize] = useState('');
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
@@ -72,6 +73,7 @@ export default function ProductEdit() {
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
+        setSize(data.size);
         setImage(data.image);
         setImages(data.images);
         setCategory(data.category);
@@ -100,6 +102,7 @@ export default function ProductEdit() {
           name,
           slug,
           price,
+          size,
           image,
           images,
           category,
@@ -158,11 +161,11 @@ export default function ProductEdit() {
 
 
   return (
-    <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
+    <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
       <Helmet>
         <title>Edit Product ${productId}</title>
       </Helmet>
-      <h1 className="my-3 text-2xl font-bold">Edit Product {productId}</h1>
+      <h1 className="my-3 text-lg font-bold">Edit Product <span className='text-red-500'>{productId}</span></h1>
 
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -191,6 +194,14 @@ export default function ProductEdit() {
             <Form.Control
               value={price}
               onChange={(e) => setPrice(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="name">
+            <Form.Label>Size</Form.Label>
+            <Form.Control
+              value={size}
+              onChange={(e) => setSize(e.target.value)}
               required
             />
           </Form.Group>
@@ -265,9 +276,9 @@ export default function ProductEdit() {
           </Form.Group>
           <div className="mb-3 mt-4 d-grid">
             <Button 
-            className="bg-black py-4 text-gray-100 border-none"
+            className="bg-black py-3 rounded-full text-gray-100 border-none"
             disabled={loadingUpdate} type="submit">
-              Create
+              Update
             </Button>
             {loadingUpdate && <LoadingBox></LoadingBox>}
           </div>

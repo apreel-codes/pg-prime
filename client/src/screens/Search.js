@@ -32,7 +32,7 @@ const reducer = (state, action) => {
                     loading: false
                 };
                 case 'FETCH_FAIL':
-                    return { ...state, loading: false, error: action.action.payload };
+                    return { ...state, loading: false, error: action.payload };
 
             default:
                 return state;
@@ -54,24 +54,7 @@ const prices = [
     },
 ];
 
-export const ratings = [
-    {
-        name: '4stars & up',
-        rating: 4,
-    },
-    {
-        name: '3stars & up',
-        rating: 3,
-    },
-    {
-        name: '2stars & up',
-        rating: 2,
-    },
-    {
-        name: '1star & up',
-        rating: 1,
-    },
-];
+
 
 const Search = () => {
     const navigate = useNavigate();
@@ -83,7 +66,7 @@ const Search = () => {
     const brand = sp.get('brand') || 'all';
     const query = sp.get('query') || 'all';
     const price = sp.get('price') || 'all';
-    const rating = sp.get('rating') || 'all';
+    const size = sp.get('size') || 'all';
     const order = sp.get('order') || 'newest';
     const page = sp.get('page') || 1; // for pagination
 
@@ -98,7 +81,7 @@ const Search = () => {
         const fetchData = async (skipPathname) => {
             try{
                 const { data } = await axios.get(
-                    `/api/products/search?page=${page}&query=${query}&category=${category}&brand=${brand}&price=${price}&rating=${rating}&order=${order}`
+                    `/api/products/search?page=${page}&query=${query}&category=${category}&brand=${brand}&price=${price}&size=${size}&order=${order}`
                 );
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
             } catch (error){
@@ -109,7 +92,7 @@ const Search = () => {
             }
         }
         fetchData();
-    }, [brand, category, error, order, page, price, query, rating])
+    }, [brand, category, error, order, page, price, size, query])
 
 
     const [categories, setCategories] = useState([]);
@@ -138,17 +121,21 @@ const Search = () => {
         fetchBrands();
     }, [dispatch])
 
-    // const getFilterUrl = (filter, skipPathname) => {
-    //     const filterPage = filter.page || page;
-    //     const filterCategory = filter.category || category;
-    //     const filterBrand = filter.brand || brand;
-    //     const filterQuery = filter.query || query;
-    //     const filterRating = filter.rating || rating;
-    //     const filterPrice = filter.price || price;
-    //     const sortOrder = filter.order || order;
-    //     return `/search&category=${filterCategory}&brand=${filterBrand}&query=${filterQuery}&price=${filterPrice}&rating=${filterRating}&order=${sortOrder}&page=${filterPage}`;
-    // };
 
+    const [sizes, setSizes] = useState([]);
+    useEffect(() => {
+        const fetchSizes = async () => {
+            try{
+                const { data } = await axios.get(`/api/products/sizes`);
+                setSizes(data)
+            } catch (err) {
+                toast.error(getError(err));
+            }
+        };
+        fetchSizes();
+    }, [dispatch])
+
+   
 
     return (
         <div className=''>
@@ -170,7 +157,7 @@ const Search = () => {
                                     {query !== 'all' ||
                                     category !== 'all' ||
                                     brand !== 'all' ||
-                                    rating !== 'all' ||
+                                    size !== 'all' ||
                                     price !== 'all' ? (
                                     <Button
                                         variant="light"
@@ -181,20 +168,7 @@ const Search = () => {
                                     ) : null }
                                 </div>
                             </Col>
-                            {/* <Col className='text-end border'>
-                                Sort by {' '}
-                                    <select
-                                        value={order}
-                                        onChange={(e) => {
-                                        navigate(getFilterUrl({ order: e.target.value }));
-                                }}
-                            >
-                                    <option value="newest">Newest Arrivals</option>
-                                    <option value="lowest">Price: Low to High</option>
-                                    <option value="highest">Price: High to Low</option>
-                                    <option value="toprated">Avg. Customer Reviews</option>
-                                </select>
-                            </Col> */}
+                           
                         </Row>
                         {products.length === 0 && (
                             <MessageBox>No Product Found</MessageBox>
@@ -206,23 +180,6 @@ const Search = () => {
                                 </Col>
                             ))}
                         </Row>
-
-                        {/* <div>
-                            {[...Array(pages).keys()].map((x) => (
-                                <LinkContainer
-                                        key={x + 1}
-                                        className='mx-1'
-                                        to={getFilterUrl({ page: x + 1 })}
-                                        >
-                                            <Button
-                                            className={Number(pages) === x + 1 ? 'text-bold' : ''}
-                                            variant='light'
-                                            >
-                                                {x + 1}
-                                            </Button>
-                                </LinkContainer>
-                            ))}
-                        </div> */}
                     </>
                     )}
                 </Container>

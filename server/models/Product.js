@@ -44,7 +44,11 @@ const productSchema = new mongoose.Schema(
         numReviews: {
             type: Number,
             required: true,
-        },       
+        },
+        size: {
+            type: Number,
+            required: true,
+        }       
     },
     {
         timestamps: true

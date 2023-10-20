@@ -37,7 +37,7 @@ const Payment = () => {
 
 
     return (           
-            <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
+            <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
                         <Helmet>
                             <title>Payment Method</title>
                         </Helmet>
@@ -65,7 +65,7 @@ const Payment = () => {
                                 />
                             </div>
                             <div className='mt-4 d-grid'>
-                                <Button className='bg-black py-4 text-gray-100' variant="" type="submit">
+                                <Button className='bg-black rounded-full py-3 text-gray-100 border-none'  type="submit">
                                     Continue
                                 </Button>
                             </div>

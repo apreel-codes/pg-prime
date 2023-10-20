@@ -48,7 +48,7 @@ const Signin = () => {
 
 
     return (
-       <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
+       <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
         <Helmet>
             <title>Sign In</title>
         </Helmet>
@@ -64,7 +64,7 @@ const Signin = () => {
                 <Form.Control type="password" required onChange={(e) => setPassword(e.target.value)}/>
             </Form.Group>
             <div className="mb-3 mt-4 d-grid">
-                <Button className="bg-black py-4 border-none text-gray-100" type="submit">Sign In</Button>
+                <Button className="bg-black py-3 rounded-full border-none text-gray-100" type="submit">Sign In</Button>
             </div>
             <div>
                 New Customer?{' '}

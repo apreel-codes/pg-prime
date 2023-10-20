@@ -24,6 +24,7 @@ productRouter.post(
         image: req.body.image,
         images: req.body.images,
         price: req.body.price,
+        size: req.body.size,
         category: req.body.category,
         brand: req.body.brand,
         countInStock: req.body.countInStock,
@@ -49,6 +50,7 @@ productRouter.post(
         product.name = req.body.name;
         product.slug = req.body.slug;
         product.price = req.body.price;
+        product.size = req.body.size,
         product.image = req.body.image;
         product.images = req.body.images;
         product.category = req.body.category;
@@ -114,7 +116,7 @@ productRouter.get('/search', expressAsyncHandler(async (req, res) => {
     const category = query.category || '';
     const brand = query.brand || '';
     const price = query.price || '';
-    const rating = query.rating || '';
+    const size = query.size || '';
     const order = query.order || '';
     const searchQuery = query.query || '';  
 
@@ -128,14 +130,15 @@ productRouter.get('/search', expressAsyncHandler(async (req, res) => {
     }
     : {};
     const categoryFilter = category && category !== 'all' ? { category }  : {};
+    const sizeFilter = size && size !== 'all' ? { size }  : {};
     const brandFilter = brand && brand !== 'all' ? { brand }  : {};
-    const ratingFilter = rating && rating !== 'all' 
-    ? {
-        rating: {
-            $gte: Number(rating),
-        },
-    }
-    : {}
+    // const ratingFilter = rating && rating !== 'all' 
+    // ? {
+    //     rating: {
+    //         $gte: Number(rating),
+    //     },
+    // }
+    // : {}
 
     const priceFilter = price && price !== 'all' 
     ? {
@@ -153,8 +156,6 @@ productRouter.get('/search', expressAsyncHandler(async (req, res) => {
         ? { price: 1 }
         : order === 'highest'
         ? {price: -1 }
-        : order === 'toprated'
-        ? {rating: -1 }
         : order === 'newest'
         ? { createdAt: -1 }
         : { _id: -1 };
@@ -165,7 +166,8 @@ productRouter.get('/search', expressAsyncHandler(async (req, res) => {
         ...categoryFilter,
         ...brandFilter,
         ...priceFilter,
-        ...ratingFilter,
+        ...sizeFilter,
+        // ...ratingFilter,
     })
 
     .sort(sortOrder)
@@ -177,7 +179,8 @@ productRouter.get('/search', expressAsyncHandler(async (req, res) => {
         ...categoryFilter,
         ...brandFilter,
         ...priceFilter,
-        ...ratingFilter,
+        ...sizeFilter,
+        // ...ratingFilter,
     });
     res.send({
         products,
@@ -189,25 +192,6 @@ productRouter.get('/search', expressAsyncHandler(async (req, res) => {
 }));
 
 
-// productRouter.get('/orders', expressAsyncHandler(async (req, res) => {
-//     const order = query.order || '';
-//     const sortOrder = 
-//         order === 'featured'
-//         ? { featured: -1 }
-//         : order === 'lowest'
-//         ? { price: 1 }
-//         : order === 'highest'
-//         ? {price: -1 }
-//         : order === 'toprated'
-//         ? {rating: -1 }
-//         : order === 'newest'
-//         ? { createdAt: -1 }
-//         : { _id: -1 };
-
-//     const products = await Product.find().sort(sortOrder)
-//     res.send(products);
-//     })
-// );
 
 productRouter.get('/categories', expressAsyncHandler(async (req, res) => {
         const categories = await Product.find().distinct('category');
@@ -218,6 +202,12 @@ productRouter.get('/categories', expressAsyncHandler(async (req, res) => {
 productRouter.get('/brands', expressAsyncHandler(async (req, res) => {
     const brands = await Product.find().distinct('brand');
     res.send(brands);
+})
+);
+
+productRouter.get('/sizes', expressAsyncHandler(async (req, res) => {
+  const sizes = await Product.find().distinct('size');
+  res.send(sizes);
 })
 );
 

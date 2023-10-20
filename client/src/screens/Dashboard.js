@@ -52,7 +52,7 @@ export default function DashboardScreen() {
   }, [userInfo]);
 
   return (
-    <div className='md:w-[40%] w-[90%] my-7 mx-auto'>
+    <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
         <Helmet>
             <title>Dashboard</title>
         </Helmet>
@@ -67,7 +67,7 @@ export default function DashboardScreen() {
             <Col md={4}>
               <Card>
                 <Card.Body>
-                  <Card.Title>
+                  <Card.Title className='text-red-600'>
                     {summary.users && summary.users[0]
                       ? summary.users[0].numUsers
                       : 0}
@@ -79,7 +79,7 @@ export default function DashboardScreen() {
             <Col md={4}>
               <Card>
                 <Card.Body>
-                  <Card.Title>
+                  <Card.Title className='text-green-600'>
                     {summary.orders && summary.users[0]
                       ? summary.orders[0].numOrders
                       : 0}
@@ -91,8 +91,8 @@ export default function DashboardScreen() {
             <Col md={4}>
               <Card>
                 <Card.Body>
-                  <Card.Title>
-                    $
+                  <Card.Title className='text-blue-600'>
+                  &#163;
                     {summary.orders && summary.users[0]
                       ? summary.orders[0].totalSales.toFixed(2)
                       : 0}

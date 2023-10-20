@@ -89,7 +89,7 @@ const Product = () => {
 
 
     return (
-        <div className="md:w-[60%] mx-4 my-7 mx-auto">
+        <div className="md:w-[60%] mx-4 mt-10 mb-32 mx-auto">
             <ToastContainer position='top-center' limit={1} />
             {
                 loading ? ( <LoadingBox /> )
@@ -98,25 +98,28 @@ const Product = () => {
                     <Row className="md:mx-20 mx-7">
                         <Col className="" md={6}>
                             <img
-                                className="img-large" 
+                                className="img-large -mt-3" 
                                 // 
                                 src={selectedImage || product.image}
                                 alt={product.image}
                             ></img>
                         </Col>
-                        <Col className="" md={6}>
+                        <Col className="border py-2 rounded" md={6}>
                             <ListGroup variant="flush">
                                 <ListGroup.Item>
                                     <Helmet>
                                         <title>{product.name}</title>
                                     </Helmet>
-                                    <h1 className="text-3xl font-bold">{product.name}</h1>
+                                    <h1 className="text-2xl font-bold">{product.name}</h1>
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-lg text-bold">
-                                    &#163;{product.price}
+                                &#163;{product.price}
+                                </ListGroup.Item>
+                                <ListGroup.Item className="text-base text-bold">
+                                <span className="font-medium">Size</span> {product.size}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
-                                <Row xs={1} md={7} className="grid grid-cols-3 gap-2 w-100">
+                                <Row xs={1} md={7} className="grid grid-cols-3 gap-1 w-100">
                                     {[product.image, ...product.images].map((x) => (
                                     <Col key={x}>
                                         <Card>
@@ -136,38 +139,27 @@ const Product = () => {
                                 <ListGroup.Item className="text-d">
                                    {product.description}
                                 </ListGroup.Item>
-                                <Card className="border-none">
-                                    <Card.Body>
-                                        <ListGroup variant="flush">
-                                            <ListGroupItem>
-                                                <Row>
-                                                    <Col><strong>Status:</strong></Col>
-                                                    <Col>
-                                                    { product.countInStock > 0 ? 
-                                                    <Badge className="py-3 px-5 text-sm text-green-500 bg-white border">In Stock</Badge>
+                                <ListGroup.Item className="">
+                                        { product.countInStock > 0 ? 
+                                                    <p className="py-1 text-sm font-bold text-green-500">In Stock</p>
                                                      : 
-                                                    <Badge className="py-3 px-5 text-sm" bg="danger">Out Of Stock</Badge>
-                                                    }  </Col>
-                                                </Row>   
-                                            </ListGroupItem>
-
-                                            {product.countInStock > 0 && (
-                                                <ListGroupItem>
+                                                    <p className="py-1 text-sm font-bold" bg="danger">Out Of Stock</p>
+                                        }
+                                </ListGroup.Item>                                      
+                                {product.countInStock > 0 && (
+                                                <ListGroupItem className="mt-3">
                                                     <div className="d-grid">
-                                                        <Button onClick={addToCartHandler} className="bg-white border-black text-black py-3" variant="">
+                                                        <Button onClick={addToCartHandler} className="bg-white rounded-full border-black text-black py-2">
                                                             Add to Cart
                                                         </Button>
-                                                        <Button onClick={buyNowHandler} className="bg-black py-4 text-gray-100 mt-4" variant="">
+                                                        <Button onClick={buyNowHandler} className="bg-black py-3 rounded-full border-none text-gray-100 mt-4" >
                                                             Buy Now
                                                         </Button>
                                                     </div>
                                                 </ListGroupItem>
-                                            )}
-
-                                        </ListGroup>
-                                    </Card.Body>
-                                </Card>
+                                )}   
                             </ListGroup>
+
                         </Col>
                     </Row>
                     )

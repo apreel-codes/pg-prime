@@ -24,7 +24,7 @@ const SearchBox = () => {
                 name="q" 
                 id="q" 
                 onChange={(e) => setQuery(e.target.value)} 
-                placeholder="Search sneakers"
+                placeholder="Search name, brand, size, category.."
                 aria-label="Search Products"
                 aria-describedby="button-search"
                 

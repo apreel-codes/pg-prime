@@ -148,43 +148,36 @@ const Order = () => {
         )
         :
         (
-            <div className='md:w-[60%] w-[80%] my-7 mx-auto'>
+            <div className='md:w-[60%] w-[90%] my-10 mx-auto'>
                 <Helmet>
                     <title>Order {orderId}</title>
                 </Helmet>
-                <h1 className='mb-3 text-center text-2xl font-bold'>Order {orderId}</h1>
+                <h1 className='mb-3 text-center text-xl font-bold'>Order {orderId}</h1>
                 <Row>
                     <Col md={8}>
                         <Card className='mb-3'>
                             <Card.Body>
                                 <Card.Title>Shipping</Card.Title>
-                                <Card.Text className='mb-3'>
+                                <Card.Text className='text-sm mb-2'>
                                     <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                                    <strong>Address:</strong> {order.shippingAddress.address}, 
-                                    {order.shippingAddress.city}, {order.shippingAddress.postalCode}, 
+                                    <strong>Address:</strong> {order.shippingAddress.address}, {''}
+                                    {order.shippingAddress.city}, {order.shippingAddress.postalCode}, {''}
                                     {order.shippingAddress.country}, {order.shippingAddress.phonenumber}
                                 </Card.Text>
-                                {/* {order.isDelivered ? (
-                                    <MessageBox variant ="success">
-                                        delivered at {order.deliveredAt}
-                                    </MessageBox>
-                                ) : (
-                                    <MessageBox variant="danger">Not Delivered</MessageBox>
-                                )} */}
                             </Card.Body>
                         </Card>
                         <Card className='mb-3'>
                             <Card.Body>
                                 <Card.Title>Payment</Card.Title>
-                                <Card.Text className='mb-3'>
+                                <Card.Text className='text-sm mb-2'>
                                     <strong>Method: </strong> {order.paymentMethod}
                                 </Card.Text>
                                 {order.isPaid ? (
-                                    <MessageBox variant="success">
+                                    <MessageBox className="text-sm" variant="success">
                                         Paid at {order.paidAt.substring(0, 10)}
                                     </MessageBox>
                                 ): (
-                                    <MessageBox variant="danger">Not Paid</MessageBox>
+                                    <MessageBox className="text-sm" variant="danger">Not Paid</MessageBox>
                                 )}
                             </Card.Body>
                         </Card>
@@ -201,13 +194,13 @@ const Order = () => {
                                                         alt={item.name}
                                                         className='img-fluid rounded img-thumbnail'
                                                     ></img>{' '}
-                                                    <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                                                    <Link className='font-medium text-sm' to={`/product/${item.slug}`}>{item.name}</Link>
                                                 </Col>
                                                 <Col>
                                                     <span>{item.quantity}</span>
                                                 </Col>
                                                 <Col>
-                                                    NGN{item.price}
+                                                    &#163;{item.price}
                                                 </Col>
                                             </Row>
                                         </ListGroup.Item>
@@ -224,23 +217,23 @@ const Order = () => {
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Items</Col>
-                                            <Col>NGN{order.itemsPrice.toFixed(2)}</Col>
+                                            <Col>&#163;{order.itemsPrice.toFixed(2)}</Col>
                                         </Row>
                                     </ListGroup.Item>
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Shipping</Col>
-                                            <Col>NGN{order.shippingPrice.toFixed(2)}</Col>
+                                            <Col>&#163;{order.shippingPrice.toFixed(2)}</Col>
                                         </Row>
                                     </ListGroup.Item>
                                     <ListGroup.Item>
                                         <Row>
                                             <Col>Order Total</Col>
-                                            <Col>NGN{order.totalPrice.toFixed(2)}</Col>
+                                            <Col>&#163;{order.totalPrice.toFixed(2)}</Col>
                                         </Row>
                                     </ListGroup.Item>
                                     {!order.isPaid && (
-                                        <ListGroup.Item>
+                                        <ListGroup.Item className='mt-1'>
                                             { isPending ? (
                                                 <LoadingBox />
                                             ) : 

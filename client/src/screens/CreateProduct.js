@@ -54,6 +54,7 @@ const CreateProduct = () => {
 const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
   const [price, setPrice] = useState('');
+  const [size, setSize] = useState('');
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
@@ -79,6 +80,7 @@ const [name, setName] = useState('');
           name,
           slug,
           price,
+          size,
           image,
           images,
           category,
@@ -141,7 +143,7 @@ const [name, setName] = useState('');
 
 
     return (
-      <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
+      <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
             <Helmet>
                 <title>Create Product</title>
             </Helmet>
@@ -153,6 +155,8 @@ const [name, setName] = useState('');
             <Form.Group className="mb-3" controlId="name">
                 <Form.Label>Name</Form.Label>
                 <Form.Control
+                className='text-sm'
+                placeholder='e.g AJ Legacy 312 Low'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -161,6 +165,8 @@ const [name, setName] = useState('');
             <Form.Group className="mb-3" controlId="slug">
                 <Form.Label>Slug</Form.Label>
                 <Form.Control
+                className='text-sm'
+                placeholder='e.g AJ-Legacy-312-Low'
                 value={slug}
                 onChange={(e) => setSlug(e.target.value)}
                 required
@@ -169,8 +175,20 @@ const [name, setName] = useState('');
             <Form.Group className="mb-3" controlId="name">
                 <Form.Label>Price</Form.Label>
                 <Form.Control
+                className='text-sm'
+                placeholder='e.g 200'
                 value={price}
                 onChange={(e) => setPrice(e.target.value)}
+                required
+                />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="name">
+                <Form.Label>Size</Form.Label>
+                <Form.Control
+                className='text-sm'
+                placeholder='e.g 43'
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
                 required
                 />
             </Form.Group>
@@ -211,6 +229,8 @@ const [name, setName] = useState('');
             <Form.Group className="mb-3" controlId="category">
                 <Form.Label>Category</Form.Label>
                 <Form.Control
+                className='text-sm'
+                placeholder='e.g Men'
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required
@@ -219,6 +239,8 @@ const [name, setName] = useState('');
             <Form.Group className="mb-3" controlId="brand">
                 <Form.Label>Brand</Form.Label>
                 <Form.Control
+                className='text-sm'
+                placeholder='e.g Nike'
                 value={brand}
                 onChange={(e) => setBrand(e.target.value)}
                 required
@@ -227,6 +249,8 @@ const [name, setName] = useState('');
             <Form.Group className="mb-3" controlId="countInStock">
                 <Form.Label>Count In Stock</Form.Label>
                 <Form.Control
+                className='text-sm'
+                placeholder='e.g 10'
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
                 required
@@ -235,6 +259,8 @@ const [name, setName] = useState('');
             <Form.Group className="mb-3" controlId="description">
                 <Form.Label>Description</Form.Label>
                 <Form.Control
+                className='text-sm'
+                placeholder='e.g Classic at its best'
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 required
@@ -242,10 +268,10 @@ const [name, setName] = useState('');
             </Form.Group>
             <div className="mb-3 mt-4 d-grid">
                 <Button
-                className="bg-black py-4 text-gray-100 border-none"
+                className="bg-black py-3 rounded-full border-none text-gray-100"
                 disabled={loadingCreate} 
                 type="submit">
-                Update
+                Create
                 </Button>
                 {loadingCreate && <LoadingBox></LoadingBox>}
             </div>

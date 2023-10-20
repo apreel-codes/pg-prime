@@ -145,7 +145,7 @@ export default function ProductList() {
 
 
   return (
-    <div className='md:w-[80%] w-[90%] my-7 mx-auto'>
+    <div className='md:w-[80%] w-[90%] my-10 mx-auto'>
       <Row>
         <Col>
           <h1 className='my-3 text-2xl font-bold'>Products</h1>
@@ -153,7 +153,7 @@ export default function ProductList() {
         <Col className="col text-end">
           <div>
             <Button type="button" 
-            className='bg-green-700 py-3 text-gray-100 border hover:bg-white hover:border hover:border-black-200 hover:text-green-500 '
+            className='bg-green-700 py-3 px-4 text-gray-100 border-none rounded-full text-sm'
             onClick={() => navigate(`/admin/createproduct`)}
             // onClick={createHandler}
             >
@@ -186,27 +186,28 @@ export default function ProductList() {
             <tbody>
               {products.map((product) => (
                 <tr key={product._id}>
-                  <td><span className='md:hidden block font-bold'>ID&nbsp;</span>{product._id}</td>
-                  <td><span className='md:hidden block font-bold'>NAME&nbsp;</span>{product.name}</td>
-                  <td><span className='md:hidden block font-bold'>PRICE&nbsp;</span>{product.price}</td>
-                  <td><span className='md:hidden block font-bold'>CATEGORY&nbsp;</span>{product.category}</td>
-                  <td><span className='md:hidden block font-bold'>BRAND&nbsp;</span>{product.brand}</td>
+                  <td><span className='md:hidden block font-medium'>ID:&nbsp;</span>{product._id}</td>
+                  <td><span className='md:hidden block font-medium'>NAME:&nbsp;</span>{product.name}</td>
+                  <td><span className='md:hidden block font-medium'>PRICE:&nbsp;</span>&#163;{product.price}</td>
+                  <td><span className='md:hidden block font-medium'>CATEGORY:&nbsp;</span>{product.category}</td>
+                  <td><span className='md:hidden block font-medium'>BRAND:&nbsp;</span>{product.brand}</td>
                   <td>
                     <Button
                       className='text-blue-800 border-blue-800'
                       type="button"
-                      variant="light"
+                      
                       onClick={() => navigate(`/admin/product/${product._id}`)}
                     >
                       Edit
                     </Button>
                     &nbsp;
                     &nbsp;
+                    &nbsp;
                     <Button
                     
                       type="button"
                       className='bg-red-600 text-gray-100 border-none'
-                      variant="light"
+                      
                       onClick={() => deleteHandler(product)}
                     >
                       Delete

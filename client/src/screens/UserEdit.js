@@ -90,11 +90,11 @@ export default function UserEdit() {
     }
   };
   return (
-    <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
+    <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
       <Helmet>
         <title>Edit User ${userId}</title>
       </Helmet>
-      <h1 className="my-3 text-2xl font-bold">Edit User {userId}</h1>
+      <h1 className="my-3 text-lg font-bold">Update user <span className='text-red-500'>{userId}</span></h1>
 
       {loading ? (
         <LoadingBox></LoadingBox>
@@ -131,7 +131,7 @@ export default function UserEdit() {
 
           <div className="mb-3 d-grid">
             <Button disabled={loadingUpdate}
-            className="bg-black py-4 text-gray-100 border-none"
+            className="bg-black py-3 rounded-full text-gray-100 border-none"
              type="submit">
               Update
             </Button>

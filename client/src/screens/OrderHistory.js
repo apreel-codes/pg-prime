@@ -54,7 +54,7 @@ const OrderHistory = () => {
 
 
     return (
-        <div className='md:w-[80%] w-[90%] my-7 mx-auto'>
+        <div className='md:w-[80%] w-[90%] my-10 mx-auto'>
             <Helmet>
             <title>Order History</title>
             </Helmet>
@@ -78,15 +78,15 @@ const OrderHistory = () => {
                     <tbody>
                         {orders.map((order) => (
                             <tr key={order._id}>
-                                <td><span className='md:hidden block font-bold'>ID&nbsp;</span>{order._id}</td>
-                                <td><span className='md:hidden block font-bold'>DATE&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
-                                <td><span className='md:hidden block font-bold'>TOTAL&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
-                                <td><span className='md:hidden block font-bold'>PAID&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No' }</td>
+                                <td><span className='md:hidden block font-medium'>ID:&nbsp;</span>{order._id}</td>
+                                <td><span className='md:hidden block font-medium'>DATE:&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
+                                <td><span className='md:hidden block font-medium'>TOTAL:&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
+                                <td><span className='md:hidden block font-medium'>PAID:&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No' }</td>
                                 <td>
                                     <Button
                                         className='text-blue-800 border-blue-800'
                                         type='button'
-                                        variant='light'
+                                        
                                         onClick={() => {
                                             navigate(`/order/${order._id}`);
                                         }}

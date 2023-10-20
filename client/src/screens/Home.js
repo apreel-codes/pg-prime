@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Routes, Route, Link } from "react-router-dom";
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useReducer, useRef, useState } from "react";
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
@@ -33,6 +33,7 @@ const Home = () => {
     const [isCatToggled, setIsCatToggled] = useState(true);
     const [isPriceToggled, setIsPriceToggled] = useState(true);
     const [isBrandToggled, setIsBrandToggled] = useState(true);
+    const [isSizeToggled, setIsSizeToggled] = useState(true);
     
     const [{ loading, error, products}, dispatch] = useReducer(logger(reducer), {
         products: [],
@@ -83,7 +84,9 @@ const Home = () => {
     ];
       
       const [categories, setCategories] = useState([]);
-      const [brands, setBrands] = useState([]);
+      const [brands, setBrands] = useState([])
+      const [sizes, setSizes] = useState([]);
+      
     
       useEffect(() => {
           const fetchCategories = async () => {
@@ -105,7 +108,29 @@ const Home = () => {
             }
           }
           fetchBrands();
+
+          const fetchSizes = async () => {
+            try{
+              const { data } = await axios.get('/api/products/sizes');
+              setSizes(data);
+            } catch(err) {
+              toast.error(getError(err));
+            }
+          }
+          fetchSizes();
+
       }, []);
+
+      
+
+
+
+      //set scroll to section
+      const sectionRef = useRef(null);
+       
+      const handleButtonClick = () => {
+          sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        };
 
 
       const handleCatClick = () => {
@@ -119,9 +144,10 @@ const Home = () => {
           const handlePriceClick = () => {
             setIsPriceToggled(!isPriceToggled);  
           }
-      
-
-    
+          
+          const handleSizeClick = () => {
+            setIsSizeToggled(!isSizeToggled);  
+          }
 
 
       const responsive = {
@@ -153,6 +179,7 @@ const Home = () => {
         const fourProducts = getFourProducts(products, 4);
 
 
+
     return (
             <div className="md:w-[100%] mx-auto bg-gray-100 relative">
                 <img className="hero mx-auto" src="./images/hero.avif"></img>
@@ -164,14 +191,14 @@ const Home = () => {
                 <h1 className="text-justify text-sm mt-5 font-bold mb-4">Step into style and unleash your inner sneakerhead with our 
                 incredible collection of kicks.</h1>
 
-                <Link to="/signin"><button className="shop-now px-5 py-3 ">Shop now</button> </Link>
+                <Link><button onClick={handleButtonClick} className="shop-now px-5 py-3 ">Shop now</button> </Link>
                 </div>
 
 
                 <Ruler className="mt-5" />
 
 
-                <div className="mt-5 w-[90%] md:w-[70%] mx-auto">
+                <div ref={sectionRef} className="mt-5 w-[90%] md:w-[70%] mx-auto">
                         <h1 className='text-black font-bold trending mb-3'>Trending</h1>
 
                         <Carousel responsive={responsive} className="mx-auto">
@@ -209,6 +236,19 @@ const Home = () => {
                                             to={{ pathname: '/search', search: `category=${category}`}}
                                         >
                                         {category}
+                                        </Link>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleSizeClick}>Sizes</Link>
+                            <ul className={isSizeToggled ? 'size-hidden' : 'size-show"'}>
+                            {sizes.map((size) => (
+                                    <li className="my-2 text-base text-black ml-6" key={size}>
+                                        <Link className="hover:text-blue-600"
+                                            to={{ pathname: '/search', search: `size=${size}`}}
+                                        >
+                                        {size}
                                         </Link>
                                     </li>
                                 ))}
@@ -278,21 +318,21 @@ const Home = () => {
 
 
                     <h2 className='text-black font-bold trending mb-5'>Brands</h2>
-                    <div fluid className="grid grid-cols-2 gap-4 text-center px-20">
+                    <div fluid className="grid grid-cols-2 gap-5 text-center px-20">
                           <img className="nike w-28" src="./images/nike.png"></img>
                           <img className="nike  w-28" src="./images/puma.png"></img>
                           <img className="nike  w-28" src="./images/adidas.png"></img> 
                           <img className="nike  w-28" src="./images/balance.png"></img>
                     </div>
-                        <p className="text-center font-bold">and many more</p>
+                        <p className="text-center font-medium">and many more</p>
                   </Col>   
                 </Row>  
                 
                 <div className="store text-center mt-5 pt-40">
                                     
-                    <p className="w-[60%] mx-auto text-2xl text-white font-black">Come on in, and let's make some sneaker magic together!</p>
+                    <p className="w-[70%] mx-auto text-xl text-white font-black">Come on in, and let's make some sneaker magic together!</p>
                       <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
-                        <p className="bg-white text-black rounded text-base font-medium w-44 mx-auto mt-3 py-3">Locate our store</p>
+                        <p className="bg-white text-black rounded-full text-base font-medium w-44 mx-auto mt-3 py-3">Locate our store</p>
                       </Link> 
                 </div> 
 

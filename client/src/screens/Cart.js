@@ -32,6 +32,7 @@ const Cart = () => {
         ctxDispatch({type: 'CART_ADD_ITEM', payload: {...item, quantity }});
     }
 
+    
     const removeItemHandler = (item) => {
         ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item }); 
     }
@@ -41,7 +42,7 @@ const Cart = () => {
     }
 
     return (
-        <Container fluid className="md:w-[80%] mx-auto my-7">
+        <Container fluid className="md:w-[80%] w-[95%] my-20">
             <Helmet>
                 <title>My Cart</title>
             </Helmet>
@@ -75,10 +76,10 @@ const Cart = () => {
                                                 <i className="fas fa-plus-circle"></i>
                                             </Button>{' '}
                                         </Col>
-                                        <Col className="text-center">NGN{item.price}</Col>
+                                        <Col className="text-center">&#163;{item.price}</Col>
                                         <Col className="text-center">
                                             <Button className="" onClick={() => removeItemHandler(item)} variant="light">
-                                                <i className="fas fa-trash"></i>
+                                                <i className="fas fa-trash text-red-600"></i>
                                             </Button>
                                         </Col>
                                     </Row>
@@ -101,9 +102,9 @@ const Cart = () => {
                                 </ListGroupItem>
                                 <ListGroupItem>
                                     <div className="d-grid">
-                                        <Button className="bg-black py-4 text-gray-100"
+                                        <Button className="border-none bg-black rounded-full py-3 text-gray-100"
                                         type="button"
-                                        variant=""
+                                        
                                         onClick={checkoutHandler}
                                         disabled={ cartItems.length === 0 }
                                         >Proceed to Checkout</Button>

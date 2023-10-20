@@ -13,17 +13,17 @@ const Footer = () => {
       <Container className="flex flex-col gap-y-12 justify-between pt-4 md:flex-row">
         {/* quick links */}
         <div className="flex flex-col gap-y-6">
-          <span className="font-semibold text-lg">Quick Links</span>
+          <span className="font-semibold text-base">Quick Links</span>
           <ul className="flex flex-col gap-y-2">
-            <li>Home</li>
-            <li>Shop</li>
+            <Link to='#'>Home</Link>
+            <Link to='#'>Shop</Link>
             <li>Blog</li>
           </ul>
         </div>
 
         {/* about us */}
         <div className="flex flex-col gap-y-6">
-          <span className="font-semibold text-lg ">About Us</span>
+          <span className="font-semibold text-base">About Us</span>
           <ul className="flex flex-col gap-y-2">
             <li>About</li>
             
@@ -41,7 +41,7 @@ const Footer = () => {
 
         {/* payment methods */}
         <div className="flex flex-col gap-y-6">
-          <span className="font-semibold text-lg">
+          <span className="font-semibold text-base">
             Supported payment methods
           </span>
           <ul className="grid grid-cols-4 gap-3 max-w-[15rem]">

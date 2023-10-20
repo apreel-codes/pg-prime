@@ -57,7 +57,7 @@ const Signup = () => {
 
 
     return (
-       <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
+       <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
         <Helmet>
             <title>Sign Up</title>
         </Helmet>
@@ -81,7 +81,7 @@ const Signup = () => {
                 <Form.Control type="password" required onChange={(e) => setconfirmPassword(e.target.value)}/>
             </Form.Group>
             <div className="mb-3 mt-4 d-grid">
-                <Button className="bg-black py-4 text-gray-100 border-none" type="submit">Sign Up</Button>
+                <Button className="bg-black py-3 rounded-full text-gray-100 border-none" type="submit">Sign Up</Button>
             </div>
             <div>
                 Already have an account?{' '}

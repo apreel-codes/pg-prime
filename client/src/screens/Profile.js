@@ -79,7 +79,7 @@ const Profile = () => {
     }
 
     return (
-        <div className='md:w-[40%] w-[80%] my-7 mx-auto'>
+        <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
             <Helmet>
                 <title>Profile</title>
             </Helmet>
@@ -116,7 +116,7 @@ const Profile = () => {
                         ></Form.Control>
                     </Form.Group>
                     <div className='mb-3 mt-4 d-grid'>
-                        <Button className='bg-black py-4 text-gray-100 border-none" type="submit"' type="submit">Update</Button>
+                        <Button className='bg-black py-3 rounded-full text-gray-100 border-none' type="submit">Update</Button>
                     </div>
                 </form>
         </div>

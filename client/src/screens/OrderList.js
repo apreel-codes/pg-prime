@@ -90,7 +90,7 @@ export default function OrderListScreen() {
   };
 
   return (
-    <div className='md:w-[80%] w-[90%] my-7 mx-auto'>
+    <div className='md:w-[80%] w-[90%] my-10 mx-auto'>
       <Helmet>
         <title>Orders</title>
       </Helmet>
@@ -115,16 +115,16 @@ export default function OrderListScreen() {
           <tbody>
             {orders.map((order) => (
               <tr key={order._id}>
-                <td><span className='md:hidden block font-bold'>ID&nbsp;</span>{order._id}</td>
-                <td><span className='md:hidden block font-bold'>USER&nbsp;</span>{order.user ? order.user.name : 'DELETED USER'}</td>
-                <td><span className='md:hidden block font-bold'>DATE&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
-                <td><span className='md:hidden block font-bold'>TOTAL&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
-                <td><span className='md:hidden block font-bold'>PAID&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
+                <td><span className='md:hidden block font-medium'>ID:&nbsp;</span>{order._id}</td>
+                <td><span className='md:hidden block font-medium'>USER:&nbsp;</span>{order.user ? order.user.name : 'DELETED USER'}</td>
+                <td><span className='md:hidden block font-medium'>DATE:&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
+                <td><span className='md:hidden block font-medium'>TOTAL:&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
+                <td><span className='md:hidden block font-medium'>PAID:&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
                 <td>
                   <Button
                     className='text-blue-800 border-blue-800'
                     type="button"
-                    variant="light"
+                    
                     onClick={() => {
                       navigate(`/order/${order._id}`);
                     }}
@@ -133,10 +133,11 @@ export default function OrderListScreen() {
                   </Button>
                   &nbsp;
                   &nbsp;
+                  &nbsp;
                   <Button
                     type="button"
                     className='bg-red-600 text-gray-100 border-none'
-                    variant="light"
+                    
                     onClick={() => deleteHandler(order)}
                   >
                     Delete
