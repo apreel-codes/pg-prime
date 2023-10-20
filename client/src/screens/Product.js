@@ -143,7 +143,7 @@ const Product = () => {
                                         { product.countInStock > 0 ? 
                                                     <p className="py-1 text-sm font-bold text-green-500">In Stock</p>
                                                      : 
-                                                    <p className="py-1 text-sm font-bold" bg="danger">Out Of Stock</p>
+                                                    <p className="py-1 text-sm font-bold text-red=500">Out Of Stock</p>
                                         }
                                 </ListGroup.Item>                                      
                                 {product.countInStock > 0 && (
