@@ -16,7 +16,7 @@ const SearchBox = () => {
         navigate(query ? `/search/?query=${query}` : '/search')
 
         
-        setQuery("");
+        setQuery('');
     };
 
     return(
@@ -24,7 +24,8 @@ const SearchBox = () => {
             <InputGroup>
                 <FormControl 
                 type="text" 
-                name="q" 
+                name="q"
+                value={query} 
                 id="q" 
                 onChange={(e) => setQuery(e.target.value)} 
                 className="text-sm"
@@ -33,7 +34,7 @@ const SearchBox = () => {
                 aria-describedby="button-search"
                 
                  ></FormControl>
-                 <Button variant="outline-primary" type="submit" id="button-search">
+                 <Button variant="outline-primary" type="submit" id="button-search" disabled={!query}>
                     <i className="fas fa-search"></i>
                  </Button>
             </InputGroup>
