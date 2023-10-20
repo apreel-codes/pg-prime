@@ -226,7 +226,7 @@ const Home = () => {
                     <Col md={3} className="bg-white pt-1 mt-2">
                     
                         <div className='filter-container flex flex-column p-3 rounded mb-3'>
-                            <span className="filter w-54">STEP UP YOUR SNEAKER GAME.</span>
+                            <span className="filter w-54 mb-3">STEP UP YOUR SNEAKER GAME.</span>
                             <span className="text-base text-gray-500">Discover your perfect pair with our cutting-edge filter feature.</span>
                             <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleCatClick}>Categories</Link>
                             <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
@@ -319,10 +319,10 @@ const Home = () => {
 
                     <h2 className='text-black font-bold trending mb-5'>Brands</h2>
                     <div fluid className="grid grid-cols-2 gap-5 text-center px-20">
-                          <img className="nike w-28" src="./images/nike.png"></img>
-                          <img className="nike  w-28" src="./images/puma.png"></img>
-                          <img className="nike  w-28" src="./images/adidas.png"></img> 
-                          <img className="nike  w-28" src="./images/balance.png"></img>
+                          <Link to="/search?brand=Nike"><img className="nike w-28" src="./images/nike.png"></img></Link>
+                          <Link to="/search?brand=Puma"><img className="nike  w-28" src="./images/puma.png"></img></Link>
+                          <Link to="/search?brand=Adidas"><img className="nike  w-28" src="./images/adidas.png"></img></Link>
+                          <Link to="/search?brand=New%20Balance"><img className="nike  w-28" src="./images/balance.png"></img></Link>
                     </div>
                         <p className="text-center text-sm font-medium">and many more</p>
                   </Col>   
