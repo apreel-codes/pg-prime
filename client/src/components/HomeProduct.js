@@ -11,7 +11,7 @@ const HomeProduct = (props) => {
     return (
         <Card className="product pt-1" key={product.slug}>
                 <Link to={`/product/${product.slug}`}>
-                <small className="ml-3 ">{product.brand}</small>
+                <small className="ml-3">{product.brand}</small>
                  <img className='image card-img-top mx-3 mx-auto' src={product.image} />
                 </Link>
                 <Card.Body className="-mt-3 w-[80%] left">
@@ -19,7 +19,7 @@ const HomeProduct = (props) => {
                             <p className="text-base font-medium">{product.name}</p>
                     </Link>
                     {/* <Rating rating={product.rating} numReviews={product.numReviews}/> */}
-                    <small className="text-sm text-gray-500">Size {product.size}</small>
+                    <small className="text-gray-400">Size {product.size}</small>
                     <p className="text-base font-medium mt-1">&#163;{product.price}</p>
                 </Card.Body>
         </Card>          

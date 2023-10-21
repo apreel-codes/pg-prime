@@ -188,7 +188,7 @@ const Home = () => {
                 </Helmet>   
 
                 <div className="w-[90%] md:w-[50%] mx-auto">
-                <h1 className="text-justify text-sm mt-5 font-bold mb-4">Step into style and unleash your inner sneakerhead with our 
+                <h1 className="text-justify text-sm mt-4 font-semibold mb-4 md:text-3xl">Step into style and unleash your inner sneakerhead with our 
                 incredible collection of kicks.</h1>
 
                 <Link><button onClick={handleButtonClick} className="shop-now px-5 py-3 ">Shop now</button> </Link>
@@ -221,13 +221,13 @@ const Home = () => {
                 </div>
 
 
-                <Row className="mx-auto md:w-[80%]">
+                <Row className="mx-auto md:w-[100%] mt-2">
                     
-                    <Col md={3} className="bg-white pt-1 mt-2">
+                    <Col md={3} className="bg-white pt-1 mt-3">
                     
                         <div className='filter-container flex flex-column p-3 rounded mb-3'>
-                            <span className="filter w-54 mb-3">STEP UP YOUR SNEAKER GAME.</span>
-                            <span className="text-base text-gray-500">Discover your perfect pair with our cutting-edge filter feature.</span>
+                            <span className="filter w-54 mb-3">STEP UP YOUR <span className="text-red-600">SNEAKER</span> GAME.</span>
+                            <span className="text-sm text-gray-500">Discover your perfect pair with our cutting-edge filter feature.</span>
                             <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleCatClick}>Categories</Link>
                             <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
                             {categories.map((category) => (
@@ -282,7 +282,7 @@ const Home = () => {
                     </Col> 
                     <Col md={9} className="w-[95%] md:w-[70%] mx-auto">
                     <h1 className='text-black font-bold trending mb-3 mt-5'>Newest Arrivals</h1>
-                    <span className="text-base text-gray-500">Introducing the freshest kicks to level up your footwear collection!</span>
+                    <span className="text-sm text-gray-500">Introducing the freshest kicks to level up your footwear collection!</span>
                         <Carousel responsive={responsive} className="mt-3 mx-auto">
                                 {products.map((product, i) => (
                                     <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
@@ -296,9 +296,9 @@ const Home = () => {
                </Row>
 
 
-                <div className="w-[90%] md:w-[50%] mx-auto">
+                <div className="w-[90%] md:w-[60%] mx-auto">
                   <h2 className='text-black font-bold trending mb-3 mt-5'>Top Rated</h2>
-                  <span className="text-base text-gray-500">Discover the sneakers that have stolen the hearts of sneakerheads worldwide.</span>
+                  <span className="text-sm text-gray-500">Discover the sneakers that have stolen the hearts of sneakerheads worldwide.</span>
                 <div className="grid grid-cols-2 gap-0 mt-3">
                         {fourProducts.map((product, i) => (
                                       <div key={product.slug} sm={6} md={4} lg={3} className="">
@@ -310,27 +310,27 @@ const Home = () => {
                 </div>
 
                 
-                <Row className="mx-auto w-[95%] md:w-[80%]">
+                <Row className="mx-auto w-[95%] md:w-[80%] md:mt-5">
                   <Col md={6} className="mt-3">
                     <div className="nike-red md:nike-second rounded"/>
                   </Col>
-                  <Col md={6} className="mt-5">
-
-
-                    <h2 className='text-black font-bold trending mb-5'>Brands</h2>
-                    <div fluid className="grid grid-cols-2 gap-5 text-center px-20">
+                  
+                  
+                  <Col md={6} className="mt-5 md:w-[45%]">
+                    <h2 className='text-black font-bold trending mb-5 md:-ml-20 md:text-center'>Brands</h2>
+                    <div fluid className="grid grid-cols-2 gap-5 px-20">
                           <Link to="/search?brand=Nike"><img className="nike w-28" src="./images/nike.png"></img></Link>
                           <Link to="/search?brand=Puma"><img className="nike  w-28" src="./images/puma.png"></img></Link>
                           <Link to="/search?brand=Adidas"><img className="nike  w-28" src="./images/adidas.png"></img></Link>
                           <Link to="/search?brand=New%20Balance"><img className="nike  w-28" src="./images/balance.png"></img></Link>
                     </div>
-                        <p className="text-center text-sm font-medium">and many more</p>
+                        <p className="text-center text-sm md:-ml-20 font-medium">and many more</p>
                   </Col>   
                 </Row>  
                 
                 <div className="store text-center mt-5 pt-40">
                                     
-                    <p className="w-[70%] mx-auto text-xl text-white font-black">Come on in, and let's make some sneaker magic together!</p>
+                    <p className="w-[70%] mx-auto text-xl text-white font-semibold">Come on in, and let's make some sneaker magic together!</p>
                       <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
                         <p className="bg-white text-black rounded-full text-base font-medium w-44 mx-auto mt-3 py-3">Locate our store</p>
                       </Link> 
