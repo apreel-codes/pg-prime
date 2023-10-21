@@ -166,7 +166,7 @@ const [name, setName] = useState('');
                 <Form.Label>Slug</Form.Label>
                 <Form.Control
                 className='text-sm'
-                placeholder='e.g AJ-Legacy-312-Low'
+                placeholder='e.g aj-legacy-312-low'
                 value={slug}
                 onChange={(e) => setSlug(e.target.value)}
                 required
