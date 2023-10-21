@@ -80,7 +80,6 @@ small {
   background-repeat: no-repeat;
   min-height: 500px;
   width: 100%;
-  margin-top: 1rem;
 }
 
 .hero {
@@ -240,6 +239,10 @@ button.thumbnail {
 
 .size-show {
   display: block;
+}
+
+.brands {
+  align-items: center;
 }
 
 .brand-view {

@@ -310,23 +310,23 @@ const Home = () => {
                 </div>
 
                 
-                <Row className="mx-auto w-[95%] md:w-[80%] md:mt-5">
-                  <Col md={6} className="mt-3">
+                <Row className="mx-auto w-[95%] md:w-[80%] my-12">
+                  <Col md={6} className="">
                     <div className="nike-red md:nike-second rounded"/>
                   </Col>
                   
                   
                   <Col md={6} className="">
-                    <div fluid className="grid grid-cols-2 gap-2 px-20 pt-20  md:pt-44">
-                          <Link to="/search?brand=Nike"><img className="nike w-28" src="./images/nike.png"></img></Link>
-                          <Link to="/search?brand=Puma"><img className="nike  w-28" src="./images/puma.png"></img></Link>
-                          <Link to="/search?brand=Adidas"><img className="nike  w-28" src="./images/adidas.png"></img></Link>
-                          <Link to="/search?brand=New%20Balance"><img className="nike  w-28" src="./images/balance.png"></img></Link>
+                    <div fluid className="brands grid grid-cols-2 gap-4 px-20 pt-16 md:pt-44">
+                          <Link to="/search?brand=Nike"><img className="nike w-20 mx-auto" src="./images/nike.png"></img></Link>
+                          <Link to="/search?brand=Puma"><img className="nike w-20 mx-auto" src="./images/puma.png"></img></Link>
+                          <Link to="/search?brand=Adidas"><img className="nike w-20 mx-auto" src="./images/adidas.png"></img></Link>
+                          <Link to="/search?brand=New%20Balance"><img className="nike w-20 mx-auto" src="./images/balance.png"></img></Link>
                     </div>
                   </Col>   
                 </Row>  
                 
-                <div className="store text-center mt-5 pt-40">
+                <div className="store text-center pt-40">
                                     
                     <p className="w-[70%] mx-auto text-xl text-white font-semibold">Come on in, and let's make some sneaker magic together!</p>
                       <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
