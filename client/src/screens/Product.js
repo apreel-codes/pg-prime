@@ -82,10 +82,6 @@ const Product = () => {
         // alert("Item added to cart!");
     }
 
-    const buyNowHandler = () => {
-        navigate('/signin?redirect=/shipping');
-    }
-
 
 
     return (
@@ -149,11 +145,8 @@ const Product = () => {
                                 {product.countInStock > 0 && (
                                                 <ListGroupItem className="mt-3">
                                                     <div className="d-grid">
-                                                        <Button onClick={addToCartHandler} className="bg-white rounded-full border-black text-black py-2">
+                                                        <Button onClick={addToCartHandler} className="bg-black py-3 rounded-full border-none text-gray-100 mt-4">
                                                             Add to Cart
-                                                        </Button>
-                                                        <Button onClick={buyNowHandler} className="bg-black py-3 rounded-full border-none text-gray-100 mt-4" >
-                                                            Buy Now
                                                         </Button>
                                                     </div>
                                                 </ListGroupItem>
