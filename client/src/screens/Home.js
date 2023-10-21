@@ -316,15 +316,13 @@ const Home = () => {
                   </Col>
                   
                   
-                  <Col md={6} className="mt-5 md:w-[45%]">
-                    <h2 className='text-black font-bold trending mb-5 md:-ml-20 md:text-center'>Brands</h2>
-                    <div fluid className="grid grid-cols-2 gap-5 px-20">
+                  <Col md={6} className="">
+                    <div fluid className="grid grid-cols-2 gap-2 px-20 pt-20  md:pt-44">
                           <Link to="/search?brand=Nike"><img className="nike w-28" src="./images/nike.png"></img></Link>
                           <Link to="/search?brand=Puma"><img className="nike  w-28" src="./images/puma.png"></img></Link>
                           <Link to="/search?brand=Adidas"><img className="nike  w-28" src="./images/adidas.png"></img></Link>
                           <Link to="/search?brand=New%20Balance"><img className="nike  w-28" src="./images/balance.png"></img></Link>
                     </div>
-                        <p className="text-center text-sm md:-ml-20 font-medium">and many more</p>
                   </Col>   
                 </Row>  
                 
