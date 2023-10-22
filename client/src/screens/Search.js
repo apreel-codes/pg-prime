@@ -138,7 +138,7 @@ const Search = () => {
    
 
     return (
-        <div className='md:w-[40%] w-[90%] my-14 mx-auto'>
+        <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
             <Helmet>
                 <title>Search Products</title>
             </Helmet>

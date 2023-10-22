@@ -11,10 +11,10 @@ const HomeProduct = (props) => {
     return (
         <Card className="product pt-1" key={product.slug}>
                 <Link to={`/product/${product.slug}`}>
-                <small className="ml-4">{product.brand}</small>
+                <small className="ml-2">{product.brand}</small>
                  <img className='image card-img-top mx-3 mx-auto my-2' src={product.image} />
                 </Link>
-                <Card.Body className="-mt-3 w-[100%] left">
+                <Card.Body className="-mt-3 w-[100%] -ml-2 left">
                     <Link to={`/product/${product.slug}`}>
                             <p className="text-sm card-text">{product.name}</p>
                     </Link>
