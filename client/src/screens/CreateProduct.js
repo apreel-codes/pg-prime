@@ -186,7 +186,7 @@ const [name, setName] = useState('');
                 <Form.Label>Size</Form.Label>
                 <Form.Control
                 className='text-sm'
-                placeholder='e.g 43'
+                placeholder='e.g All sizes available'
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
                 required

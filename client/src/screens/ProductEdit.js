@@ -118,7 +118,7 @@ export default function ProductEdit() {
         type: 'UPDATE_SUCCESS',
       });
       toast.success('Product updated successfully');
-      navigate('/admin/products');
+      navigate('/admin/productlist');
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPDATE_FAIL' });

@@ -70,16 +70,16 @@ const Home = () => {
 
     const prices = [
         {
-            name: '1 to 50',
-            value: '1-50'
+            name: '90 to 120',
+            value: '90-120'
         },
         {
-            name: '51 to 200',
-            value: '51-200'
+            name: '121 to 150',
+            value: '121-150'
         },
         {
-            name: '201 to 1000',
-            value: '201-1000'
+            name: '151 to 200',
+            value: '151-200'
         },
     ];
       
@@ -109,15 +109,15 @@ const Home = () => {
           }
           fetchBrands();
 
-          const fetchSizes = async () => {
-            try{
-              const { data } = await axios.get('/api/products/sizes');
-              setSizes(data);
-            } catch(err) {
-              toast.error(getError(err));
-            }
-          }
-          fetchSizes();
+          // const fetchSizes = async () => {
+          //   try{
+          //     const { data } = await axios.get('/api/products/sizes');
+          //     setSizes(data);
+          //   } catch(err) {
+          //     toast.error(getError(err));
+          //   }
+          // }
+          // fetchSizes();
 
       }, []);
 
@@ -241,7 +241,7 @@ const Home = () => {
                                 ))}
                             </ul>
 
-                            <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleSizeClick}>Sizes</Link>
+                            {/* <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleSizeClick}>Sizes</Link>
                             <ul className={isSizeToggled ? 'size-hidden' : 'size-show"'}>
                             {sizes.map((size) => (
                                     <li className="my-2 text-base text-black ml-6" key={size}>
@@ -252,7 +252,7 @@ const Home = () => {
                                         </Link>
                                     </li>
                                 ))}
-                            </ul>
+                            </ul> */}
                             
                             <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleBrandClick}>Brands</Link>
                             <ul className={isBrandToggled ? 'brand-hidden' : 'brand-show"'}>

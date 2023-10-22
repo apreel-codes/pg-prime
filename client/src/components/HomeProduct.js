@@ -19,7 +19,7 @@ const HomeProduct = (props) => {
                             <p className="text-base font-medium">{product.name}</p>
                     </Link>
                     {/* <Rating rating={product.rating} numReviews={product.numReviews}/> */}
-                    <small className="text-gray-400">Size {product.size}</small>
+                    <small className="text-gray-400">{product.size}</small>
                     <p className="text-base font-medium mt-1">&#163;{product.price}</p>
                 </Card.Body>
         </Card>          
