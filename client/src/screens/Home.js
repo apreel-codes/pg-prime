@@ -310,14 +310,14 @@ const Home = () => {
                 </div>
 
                 
-                <Row className="mx-auto w-[95%] md:w-[80%] my-20">
+                <Row className="mx-auto w-[95%] md:w-[80%] my-24">
                   <Col md={6} className="">
                     <div className="nike-red md:nike-second rounded"/>
                   </Col>
                   
                   
                   <Col md={6} className="">
-                    <div fluid className="brands flex flex-row justify-between pt-16 md:grid md:grid-cols-2 md:gap-5 md:px-24 md:pt-44">
+                    <div fluid className="brands flex flex-row justify-between pt-16 md:grid md:grid-cols-2 md:gap-5 md:px-40 md:pt-44">
                           <Link to="/search?brand=Nike"><img className="nike w-16 mx-auto" src="./images/nike.png"></img></Link>
                           <Link to="/search?brand=Puma"><img className="nike w-12 mx-auto" src="./images/puma.png"></img></Link>
                           <Link to="/search?brand=Adidas"><img className="nike w-12 mx-auto" src="./images/adidas.png"></img></Link>
