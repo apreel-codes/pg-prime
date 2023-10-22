@@ -86,7 +86,6 @@ const [name, setName] = useState('');
           category,
           brand,
           countInStock,
-          description,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -253,16 +252,6 @@ const [name, setName] = useState('');
                 placeholder='e.g 10'
                 value={countInStock}
                 onChange={(e) => setCountInStock(e.target.value)}
-                required
-                />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="description">
-                <Form.Label>Description</Form.Label>
-                <Form.Control
-                className='text-sm'
-                placeholder='e.g Classic at its best'
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
                 required
                 />
             </Form.Group>

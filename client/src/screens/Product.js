@@ -133,9 +133,6 @@ const Product = () => {
                                     ))}
                                 </Row>
                                 </ListGroup.Item>
-                                <ListGroup.Item className="text-d">
-                                   {product.description}
-                                </ListGroup.Item>
                                 <ListGroup.Item className="">
                                         { product.countInStock > 0 ? (
                                                     // <p className="py-1 text-sm font-bold text-green-500">In Stock</p>

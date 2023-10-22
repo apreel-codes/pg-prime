@@ -85,8 +85,7 @@ export default function ProductList() {
   const [category, setCategory] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
-  const [description, setDescription] = useState('');
-
+  
   useEffect(() => {
     const fetchData = async () => {
       try {

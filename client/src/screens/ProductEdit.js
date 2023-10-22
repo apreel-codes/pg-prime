@@ -108,7 +108,6 @@ export default function ProductEdit() {
           category,
           brand,
           countInStock,
-          description,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -263,14 +262,6 @@ export default function ProductEdit() {
             <Form.Control
               value={countInStock}
               onChange={(e) => setCountInStock(e.target.value)}
-              required
-            />
-          </Form.Group>
-          <Form.Group className="mb-3" controlId="description">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
               required
             />
           </Form.Group>
