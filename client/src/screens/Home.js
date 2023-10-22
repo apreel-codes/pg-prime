@@ -317,11 +317,11 @@ const Home = () => {
                   
                   
                   <Col md={6} className="">
-                    <div fluid className="brands grid grid-cols-2 gap-4 px-20 pt-16 md:pt-44">
-                          <Link to="/search?brand=Nike"><img className="nike w-20 mx-auto" src="./images/nike.png"></img></Link>
-                          <Link to="/search?brand=Puma"><img className="nike w-20 mx-auto" src="./images/puma.png"></img></Link>
-                          <Link to="/search?brand=Adidas"><img className="nike w-20 mx-auto" src="./images/adidas.png"></img></Link>
-                          <Link to="/search?brand=New%20Balance"><img className="nike w-20 mx-auto" src="./images/balance.png"></img></Link>
+                    <div fluid className="brands flex flex-row justify-between border pt-16 md:grid md:grid-cols-2 md:gap-5 md:px-24 md:pt-44">
+                          <Link to="/search?brand=Nike"><img className="nike w-16 mx-auto" src="./images/nike.png"></img></Link>
+                          <Link to="/search?brand=Puma"><img className="nike w-12 mx-auto" src="./images/puma.png"></img></Link>
+                          <Link to="/search?brand=Adidas"><img className="nike w-12 mx-auto" src="./images/adidas.png"></img></Link>
+                          <Link to="/search?brand=New%20Balance"><img className="nike w-16 mx-auto" src="./images/balance.png"></img></Link>
                     </div>
                   </Col>   
                 </Row>  
