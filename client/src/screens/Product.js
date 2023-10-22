@@ -73,6 +73,7 @@ const Product = () => {
         const { data } = await axios.get(`/api/products/${product._id}`);
         if (data.countInStock < quantity ) {
             window.alert('Sorry. Product is out of stock');
+            return;
         }
 
 
@@ -137,15 +138,17 @@ const Product = () => {
                                 </ListGroup.Item>
                                 <ListGroup.Item className="">
                                         { product.countInStock > 0 ? (
-                                                    <p className="py-1 text-sm font-bold text-green-500">In Stock</p>
+                                                    // <p className="py-1 text-sm font-bold text-green-500">In Stock</p>
+                                                    <Badge bg="success">In Stock</Badge>
                                            )   :  (
-                                                    <p className="py-1 text-sm font-bold text-red=500">Unavailable</p>
+                                                    // <p className="py-1 text-sm font-bold text-red=500">Unavailable</p>
+                                                    <Badge bg="danger">Unavailable</Badge>
                                         )}
                                 </ListGroup.Item>                                      
                                 {product.countInStock > 0 && (
                                                 <ListGroupItem className="mt-3">
                                                     <div className="d-grid">
-                                                        <Button onClick={addToCartHandler} className="bg-black py-3 rounded-full border-none text-gray-100 mt-4">
+                                                        <Button onClick={addToCartHandler} variant="primary" className="bg-black py-3 rounded-full border-none text-gray-100 mt-4">
                                                             Add to Cart
                                                         </Button>
                                                     </div>
