@@ -113,7 +113,7 @@ const Product = () => {
                                 &#163;{product.price}
                                 </ListGroup.Item>
                                 <ListGroup.Item className="text-base text-bold">
-                                <span className="font-medium">Size</span> {product.size}
+                                <span className="font-medium"></span> {product.size}
                                 </ListGroup.Item>
                                 <ListGroup.Item>
                                 <Row xs={1} md={7} className="grid grid-cols-3 gap-1 w-100">
