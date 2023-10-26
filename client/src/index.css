@@ -8,12 +8,12 @@ html, body, #root {
 }
 
 .product {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: 'Bebas Neue', sans-serif;
 }
 
 .trending {
   /* font-family: 'Bebas Neue', sans-serif; */
-  font-family: 'Almendra SC';
+  font-family: 'Bebas Neue', sans-serif;
   letter-spacing: 0.2rem;
   font-size: 1.8rem;
   /* text-align: center; */

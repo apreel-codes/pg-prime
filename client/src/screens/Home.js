@@ -135,15 +135,15 @@ const Home = () => {
         },
         desktop: {
           breakpoint: { max: 3000, min: 1024 },
-          items: 3
+          items: 4
         },
         tablet: {
-          breakpoint: { max: 1024, min: 464 },
+          breakpoint: { max: 1024, min: 600 },
           items: 2
         },
         mobile: {
-          breakpoint: { max: 464, min: 0 },
-          items: 1
+          breakpoint: { max: 600, min: 0 },
+          items: 2
         }
       };
 
@@ -233,10 +233,10 @@ const Home = () => {
                     </div>
 
 
-                <div ref={sectionRef} className="mt-5 w-[90%] md:w-[70%] mx-auto">
-                        <h1 className='text-black font-bold trending mb-3'>Trending</h1>
+                <div ref={sectionRef} className="mx-auto w-[90%] ">
+                        <h1 className='text-black font-bold md:text-6xl trending mb-4 mt-5'>Trending</h1>
 
-                        <Carousel responsive={responsive} className="mx-auto">
+                        <Carousel responsive={responsive} className="">
                             {randProducts.map((product, i) => (
                                 <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                     <HomeProduct product={product}></HomeProduct>
