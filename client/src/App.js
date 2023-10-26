@@ -3,7 +3,6 @@ import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import Home from './screens/Home';
 import Product from './screens/Product';
 import Navbar from 'react-bootstrap/Navbar';
@@ -29,9 +28,6 @@ import Button from 'react-bootstrap/Button';
 import { getError } from './uttils';
 import SearchBox from './components/SearcchBox';
 import Search from './screens/Search';
-
-// import apiClient from './api';
-
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './screens/Dashboard';
 import AdminRoute from './components/AdminRoute';
@@ -54,6 +50,48 @@ function App() {
     localStorage.removeItem('paymentMethod');
     window.location.href='/signin';
   }
+
+  const [categories, setCategories] = useState([]);
+  const [brands, setBrands] = useState([]);
+  const prices = [
+    {
+        name: '90 to 120',
+        value: '90-120'
+    },
+    {
+        name: '121 to 150',
+        value: '121-150'
+    },
+    {
+        name: '151 to 200',
+        value: '151-200'
+    },
+];
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try{
+        const { data } = await axios.get('/api/products/categories');
+        setCategories(data);
+      } catch(err) {
+        toast.error(getError(err));
+      }
+    }
+    fetchCategories();
+
+    const fetchBrands = async () => {
+      try{
+        const { data } = await axios.get('/api/products/brands');
+        setBrands(data);
+      } catch(err) {
+        toast.error(getError(err));
+      }
+    }
+    fetchBrands();
+
+   }, []); 
+
+
   
 
   return (
@@ -64,7 +102,7 @@ function App() {
         <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
           <Container fluid className='px-4'>
             <LinkContainer className='' to="/">
-              <Navbar.Brand className=''><img src='../images/logo.jpg' className='w-10 h-10'></img></Navbar.Brand>
+              <Navbar.Brand className=''><img src='../images/logo.png' className='w-6 h-7'></img></Navbar.Brand>
             </LinkContainer>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className=''>
@@ -78,6 +116,27 @@ function App() {
                     </Badge>
                   )}
                 </Link>
+                <NavDropdown title="Categories" id="basic-nav-dropdown">
+                    {categories.map((category) => (
+                      <LinkContainer to={{ pathname: '/search', search: `category=${category}`}}>
+                          <NavDropdown.Item>{category}</NavDropdown.Item>
+                      </LinkContainer>
+                    ))}
+                </NavDropdown>
+                <NavDropdown title="Brands" id="basic-nav-dropdown">
+                    {brands.map((brand) => (
+                      <LinkContainer to={{ pathname: '/search', search: `brand=${brand}`}}>
+                          <NavDropdown.Item>{brand}</NavDropdown.Item>
+                      </LinkContainer>
+                    ))}
+                </NavDropdown>
+                <NavDropdown title="Price" id="basic-nav-dropdown">
+                    {prices.map((p) => (
+                      <LinkContainer to={{ pathname: '/search', search: `price=${p.value}`}}>
+                          <NavDropdown.Item>From &#163;{p.name}</NavDropdown.Item>
+                      </LinkContainer>
+                    ))}
+                </NavDropdown>
                 {userInfo ? (
                   
                   <NavDropdown title={userInfo.name} id="basic-nav-dropdown">

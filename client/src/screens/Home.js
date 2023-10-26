@@ -66,20 +66,7 @@ const Home = () => {
     const randProducts = randomizeDataset(products);
     const randProductsTwo = randomizeDataset(randProducts);
 
-    const prices = [
-        {
-            name: '90 to 120',
-            value: '90-120'
-        },
-        {
-            name: '121 to 150',
-            value: '121-150'
-        },
-        {
-            name: '151 to 200',
-            value: '151-200'
-        },
-    ];
+    
       
       const [categories, setCategories] = useState([]);
       const [brands, setBrands] = useState([])
@@ -139,7 +126,7 @@ const Home = () => {
         },
         tablet: {
           breakpoint: { max: 1024, min: 600 },
-          items: 2
+          items: 3
         },
         mobile: {
           breakpoint: { max: 600, min: 0 },
@@ -233,8 +220,9 @@ const Home = () => {
                     </div>
 
 
-                <div ref={sectionRef} className="mx-auto w-[90%] ">
-                        <h1 className='text-black font-bold md:text-6xl trending mb-4 mt-5'>Trending</h1>
+                <div ref={sectionRef} className="mx-auto w-[90%]">
+                        <h1 className='text-black md:text-6xl trending mb-4 mt-5'><span className="text-red-600">Trend</span>ing</h1>
+                        <hr className="trending-line -mt-6 mb-4"/>
 
                         <Carousel responsive={responsive} className="">
                             {randProducts.map((product, i) => (
@@ -245,7 +233,7 @@ const Home = () => {
                         ))}
                         </Carousel>
 
-                        <Carousel responsive={responsive} className="mx-auto ">
+                        <Carousel responsive={responsive} className="mx-auto mt-4">
                             {randProductsTwo.map((product, i) => (
                                 <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                     <HomeProduct product={product}></HomeProduct>
@@ -253,82 +241,22 @@ const Home = () => {
                             
                         ))}
                         </Carousel>
-                </div>
-
-
-                <Row className="mx-auto md:w-[100%] mt-2">
-                    
-                    <Col md={3} className="bg-white pt-1 mt-3">
-                    
-                        <div className='filter-container flex flex-column p-3 rounded mb-3'>
-                            <span className="filter w-54 mb-3">STEP UP YOUR <span className="text-red-600">SNEAKER</span> GAME.</span>
-                            <span className="text-sm text-gray-500">Discover your perfect pair with our cutting-edge filter feature.</span>
-                            <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleCatClick}>Categories</Link>
-                            <ul className={isCatToggled ? 'category-hidden' : 'category-show"'}>
-                            {categories.map((category) => (
-                                    <li className="my-2 text-base text-black ml-6" key={category}>
-                                        <Link className="hover:text-blue-600"
-                                            to={{ pathname: '/search', search: `category=${category}`}}
-                                        >
-                                        {category}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            {/* <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleSizeClick}>Sizes</Link>
-                            <ul className={isSizeToggled ? 'size-hidden' : 'size-show"'}>
-                            {sizes.map((size) => (
-                                    <li className="my-2 text-base text-black ml-6" key={size}>
-                                        <Link className="hover:text-blue-600"
-                                            to={{ pathname: '/search', search: `size=${size}`}}
-                                        >
-                                        {size}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul> */}
-                            
-                            <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handleBrandClick}>Brands</Link>
-                            <ul className={isBrandToggled ? 'brand-hidden' : 'brand-show"'}>
-                                {brands.map((brand) => (
-                                        <li className="my-2 text-base text-black ml-6" key={brand}>
-                                            <Link className="hover:text-blue-600"
-                                                to={{ pathname: '/search', search: `brand=${brand}`}}
-                                            >
-                                            {brand}
-                                            </Link>
-                                        </li>                             
-                                    ))}
-                                </ul>
-
-                                <Link className="filter-content font-medium mt-3 py-3 px-4" onClick={handlePriceClick}>Price</Link>
-                                <ul className={isPriceToggled ? 'price-hidden' : 'price-show"'}>                               
-                                            {prices.map((p) => (
-                                            <li className="my-2 text-base text-black ml-6" key={p.value}>
-                                                <Link className="hover:text-blue-600"
-                                                    to={{ pathname: '/search', search: `price=${p.value}`}}
-                                                >&#163;{p.name}
-                                            </Link>
-                                        </li>                               
-                                    ))}
-                            </ul>
-                        </div>               
-                    </Col> 
-                    <Col md={9} className="w-[95%] md:w-[70%] mx-auto">
-                    <h1 className='text-black font-bold trending mb-3 mt-5'>Newest Arrivals</h1>
-                    <span className="text-sm text-gray-500">Introducing the freshest kicks to level up your footwear collection!</span>
-                        <Carousel responsive={responsive} className="mt-3 mx-auto">
-                                {products.map((product, i) => (
-                                    <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                                        <HomeProduct
-                                        product={product}></HomeProduct>
-                                    </div>
-                                
-                                ))}
-                        </Carousel>                   
-                    </Col>
-               </Row>
+                </div>               
+                      
+                    <div className="mx-auto w-[90%] mt-5">
+                      <h1 className='text-black md:text-6xl trending mb-3'><span className="text-red-600">Newest</span> Arrivals</h1>
+                      <hr className="trending-line -mt-6 mb-3"/>
+                          <Carousel responsive={responsive} className="mt-3 mx-auto">
+                                  {products.map((product, i) => (
+                                      <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                                          <HomeProduct
+                                          product={product}></HomeProduct>
+                                      </div>
+                                  
+                                  ))}
+                          </Carousel>                   
+                    </div>
+             
 
 
                 <div className="w-[90%] md:w-[60%] mx-auto">

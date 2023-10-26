@@ -12,11 +12,9 @@ html, body, #root {
 }
 
 .trending {
-  /* font-family: 'Bebas Neue', sans-serif; */
   font-family: 'Bebas Neue', sans-serif;
   letter-spacing: 0.2rem;
   font-size: 1.8rem;
-  /* text-align: center; */
 }
 
 small {
@@ -336,6 +334,12 @@ button.thumbnail {
       width: 50%;
   }
 
+  .trending-line {
+      height: 2px;
+      background: rgb(186, 4, 4);
+      width: 20%;
+  }
+
   button {
       background-color: rgb(255, 25, 25);
       border-radius: .2rem;
@@ -406,6 +410,12 @@ button.thumbnail {
       background: rgb(48, 48, 48);
       width: 30%;
   }
+
+  .trending-line {
+    height: 2px;
+    background-color: rgb(221, 0, 0);
+    width: 30%;
+}
 
   button {
       background-color: rgb(255, 25, 25);

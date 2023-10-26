@@ -20,7 +20,7 @@ const SearchBox = () => {
     };
 
     return(
-        <Form className="d-flex mt-2" onSubmit={submitHandler}>
+        <Form className="d-flex" onSubmit={submitHandler}>
             <InputGroup>
                 <FormControl 
                 type="text" 
@@ -34,7 +34,7 @@ const SearchBox = () => {
                 aria-describedby="button-search"
                 
                  ></FormControl>
-                 <Button variant="outline-primary" type="submit" id="button-search" disabled={!query}>
+                 <Button className="border-white bg-black" type="submit" id="button-search" disabled={!query}>
                     <i className="fas fa-search"></i>
                  </Button>
             </InputGroup>

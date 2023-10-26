@@ -11,7 +11,6 @@ const HomeProduct = (props) => {
     return (
         <div className="product pt-1 pl-3" key={product.slug}>
                 <Link to={`/product/${product.slug}`}>
-                <small className="text-sm">{product.brand}</small>
                  <img className='image card-img-top mx-3 mx-auto' src={product.image} />
                 </Link>
                 <div className="mt-2 w-[100%] left">
