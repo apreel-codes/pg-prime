@@ -4,7 +4,8 @@
 
 html, body, #root {
   height: 100%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif,
+  font-family: 'Bebas Neue', sans-serif;
+  background-color: rgb(243, 244, 246);
 }
 
 .product {
@@ -217,29 +218,14 @@ button.thumbnail {
   display: block;
 }
 
-.category-hidden {
+.filter-hidden {
   display: none;
 }
 
-.category-show {
+.filter-show {
   display: block;
 }
 
-.price-hidden {
-  display: none;
-}
-
-.price-show {
-  display: block;
-}
-
-.size-hidden {
-  display: none;
-}
-
-.size-show {
-  display: block;
-}
 
 .brands {
   align-items: center;
@@ -265,6 +251,11 @@ button.thumbnail {
     width: 120px;
     min-width: 120px;
   }
+}
+
+.filter-search {
+  padding: 0.4rem 1rem;
+  width: 10rem;
 }
 
 

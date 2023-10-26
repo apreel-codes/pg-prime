@@ -150,6 +150,21 @@ const Home = () => {
           };
 
 
+          const [allProducts, setAllProducts] = useState([]);
+
+          useEffect(() => {
+            const fetchAllProducts = async () => {
+              try{
+                const { data } = await axios.get('/api/products/allProducts');
+                setAllProducts(data);
+              } catch(err) {
+                toast.error(getError(err));
+              }
+            }
+            fetchAllProducts();
+          }, []);
+
+
 
     return (
             <div className="md:w-[100%] mx-auto bg-gray-100 relative">
@@ -207,7 +222,7 @@ const Home = () => {
 
                 </div>               
                       
-                    <div className="mx-auto w-[90%] mt-5">
+                    <div className="mx-auto w-[90%] mt-20">
                       <h1 className='text-black md:text-4xl trending mb-3 underline'><span className="text-red-600">Newest</span> Arrivals</h1>
                       {/* <hr className="trending-line -mt-4 mb-3 w-[50%]"/> */}
                           <Carousel responsive={responsive} className="mt-3 mx-auto">
@@ -237,7 +252,7 @@ const Home = () => {
                 </div>
 
 
-                <div className="mx-auto w-[90%] mt-5">
+                <div className="mx-auto w-[90%] mt-20">
                       <h1 className='text-black md:text-4xl trending mb-3 underline'><span className="text-red-600">Shop</span> Now</h1>
                       {/* <hr className="trending-line -mt-4 mb-3 w-[50%]"/> */}
                           <Carousel responsive={responsive} className="mt-3 mx-auto">
@@ -249,9 +264,11 @@ const Home = () => {
                                   
                                   ))}
                           </Carousel>
-                          {/* <div className="text-center mt-5">
+                          <div className="text-center mt-5">
+                          <Link to={{ pathname: '/search', search: `allProducts`}}>
                             <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
-                          </div>                   */}
+                          </Link>
+                          </div>                  
                     </div>
 
 

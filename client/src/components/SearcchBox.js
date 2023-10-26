@@ -13,7 +13,7 @@ const SearchBox = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-        navigate(query ? `/search/?query=${query}` : '/search')
+        navigate(query ? `/search/?query=${query}` : '/search');
 
         
         setQuery('');
@@ -34,7 +34,11 @@ const SearchBox = () => {
                 aria-describedby="button-search"
                 
                  ></FormControl>
-                 <Button className="border-white bg-black" type="submit" id="button-search" disabled={!query}>
+                 <Button 
+                    className="border-white bg-black" 
+                    type="submit" id="button-search" 
+                    disabled={!query}
+                    >
                     <i className="fas fa-search"></i>
                  </Button>
             </InputGroup>
