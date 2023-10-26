@@ -221,8 +221,8 @@ const Home = () => {
 
 
                 <div ref={sectionRef} className="mx-auto w-[90%]">
-                        <h1 className='text-black md:text-6xl trending mb-4 mt-5'><span className="text-red-600">Trend</span>ing</h1>
-                        <hr className="trending-line -mt-6 mb-4"/>
+                        <h1 className='text-black md:text-5xl trending mb-4 mt-5 underline'><span className="text-red-600">Trend</span>ing</h1>
+                        {/* <hr className="trending-line -mt-6 mb-4"/> */}
 
                         <Carousel responsive={responsive} className="">
                             {randProducts.map((product, i) => (
@@ -244,8 +244,8 @@ const Home = () => {
                 </div>               
                       
                     <div className="mx-auto w-[90%] mt-5">
-                      <h1 className='text-black md:text-6xl trending mb-3'><span className="text-red-600">Newest</span> Arrivals</h1>
-                      <hr className="trending-line -mt-6 mb-3"/>
+                      <h1 className='text-black md:text-5xl trending mb-3 underline'><span className="text-red-600">Newest</span> Arrivals</h1>
+                      {/* <hr className="trending-line -mt-4 mb-3 w-[50%]"/> */}
                           <Carousel responsive={responsive} className="mt-3 mx-auto">
                                   {products.map((product, i) => (
                                       <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
