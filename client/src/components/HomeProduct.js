@@ -18,6 +18,7 @@ const HomeProduct = (props) => {
                             <p className="text-base card-text">{product.name}</p>
                     </Link>
                     {/* <Rating rating={product.rating} numReviews={product.numReviews}/> */}
+                    <small className="text-gray-400 text-sm">{product.brand}</small> <br />
                     <small className="text-gray-400 text-sm">{product.size}</small>
                     <p className="text-base font-medium mt-1">&#163;{product.price}</p>
                 </div>

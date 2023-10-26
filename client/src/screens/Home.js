@@ -12,6 +12,7 @@ import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { sliderData } from "../components/slider/sliderData";
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
+import { indexOf } from "core-js/es/array";
 
 
 const reducer = (state, action) => {
@@ -62,56 +63,27 @@ const Home = () => {
       
         return randomizedDataset;
       }
-
+    
     const randProducts = randomizeDataset(products);
-    const randProductsTwo = randomizeDataset(randProducts);
-
-    
-      
-      const [categories, setCategories] = useState([]);
-      const [brands, setBrands] = useState([])
-      const [sizes, setSizes] = useState([]);
-      
-    
-      useEffect(() => {
-          const fetchCategories = async () => {
-            try{
-              const { data } = await axios.get('/api/products/categories');
-              setCategories(data);
-            } catch(err) {
-              toast.error(getError(err));
-            }
-          }
-          fetchCategories();
-    
-          const fetchBrands = async () => {
-            try{
-              const { data } = await axios.get('/api/products/brands');
-              setBrands(data);
-            } catch(err) {
-              toast.error(getError(err));
-            }
-          }
-          fetchBrands();
-
-      }, []);
 
 
-      const handleCatClick = () => {
-          setIsCatToggled(!isCatToggled);
-        }
+    const reverseArray = (products) => {
+      // Function to reverse an array
+      let reversedArray = [];
+      for (let i = products.length - 1; i >= 0; i--) {
+        reversedArray.push(products[i]);
+      }
+      return reversedArray;
+    };
 
-        const handleBrandClick = () => {
-            setIsBrandToggled(!isBrandToggled);
-          }
+    const newestProducts =reverseArray(products);
 
-          const handlePriceClick = () => {
-            setIsPriceToggled(!isPriceToggled);  
-          }
-          
-          const handleSizeClick = () => {
-            setIsSizeToggled(!isSizeToggled);  
-          }
+    // Function to specify a particular number of objects from the array
+    const getFourProducts = (arr, num) => {
+      return arr.slice(0, num);
+    };
+  
+    const fourProducts = getFourProducts(products, 4);
 
 
       const responsive = {
@@ -135,13 +107,6 @@ const Home = () => {
       };
 
       
-        // Function to specify a particular number of objects from the array
-        const getFourProducts = (arr, num) => {
-          return arr.slice(0, num);
-        };
-      
-        const fourProducts = getFourProducts(products, 4);
-
 
         //autoscroll
         const [ currentSlide, setCurrentSlide ] = useState(0);
@@ -204,13 +169,19 @@ const Home = () => {
                                                   <img src={slide.image} alt='slide'/>
                                                   <div className='content'>
                                                       <h2>{slide.heading}</h2>
-                                                      <p>{slide.desc}</p>
                                                       <hr />
-                                                      <Link>
-                                                        <button onClick={handleButtonClick} className='md:mt-3 md:text-lg text-white text-base'>
-                                                            Shop Now
-                                                        </button>
-                                                      </Link>
+                                                      {
+                                                        sliderData.indexOf(slide) === 2 && (
+                                                          <div>
+                                                            <Link>
+                                                              <button onClick={handleButtonClick} className='md:mt-3 md:text-lg text-white text-base'>
+                                                                  Shop Now
+                                                              </button>
+                                                            </Link>
+                                                          </div>
+                                                        )
+                                                      }
+                                                      
                                                   </div>
                                               </>
                                           )}
@@ -221,7 +192,7 @@ const Home = () => {
 
 
                 <div ref={sectionRef} className="mx-auto w-[90%]">
-                        <h1 className='text-black md:text-5xl trending mb-4 mt-5 underline'><span className="text-red-600">Trend</span>ing</h1>
+                        <h1 className='text-black text- md:text-4xl trending mb-4 mt-5 underline'><span className="text-red-600">Best</span>Sellers</h1>
                         {/* <hr className="trending-line -mt-6 mb-4"/> */}
 
                         <Carousel responsive={responsive} className="">
@@ -233,21 +204,14 @@ const Home = () => {
                         ))}
                         </Carousel>
 
-                        <Carousel responsive={responsive} className="mx-auto mt-4">
-                            {randProductsTwo.map((product, i) => (
-                                <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                                    <HomeProduct product={product}></HomeProduct>
-                                </div>
-                            
-                        ))}
-                        </Carousel>
+
                 </div>               
                       
                     <div className="mx-auto w-[90%] mt-5">
-                      <h1 className='text-black md:text-5xl trending mb-3 underline'><span className="text-red-600">Newest</span> Arrivals</h1>
+                      <h1 className='text-black md:text-4xl trending mb-3 underline'><span className="text-red-600">Newest</span> Arrivals</h1>
                       {/* <hr className="trending-line -mt-4 mb-3 w-[50%]"/> */}
                           <Carousel responsive={responsive} className="mt-3 mx-auto">
-                                  {products.map((product, i) => (
+                                  {newestProducts.map((product, i) => (
                                       <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                           <HomeProduct
                                           product={product}></HomeProduct>
@@ -259,18 +223,38 @@ const Home = () => {
              
 
 
-                <div className="w-[90%] md:w-[60%] mx-auto">
-                  <h2 className='text-black font-bold trending mb-3 mt-5'>Top Rated</h2>
-                  <span className="text-sm text-gray-500">Discover the sneakers that have stolen the hearts of sneakerheads worldwide.</span>
-                <div className="grid grid-cols-2 gap-0 mt-3">
+                <div className="mx-auto w-[90%] mt-5">
+                  <h2 className='text-black text- md:text-4xl trending mb-4 mt-5 underline'><span className="text-red-600">Top</span> Rated</h2>
+                  {/* <span className="text-sm text-gray-500">Discover the sneakers that have stolen the hearts of sneakerheads worldwide.</span> */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mt-3">
                         {fourProducts.map((product, i) => (
-                                      <div key={product.slug} sm={6} md={4} lg={3} className="">
+                                      <div key={product.slug} className="">
                                           <HomeProduct product={product}></HomeProduct>
                                       </div>                             
                         ))}
                   </div>
 
                 </div>
+
+
+                <div className="mx-auto w-[90%] mt-5">
+                      <h1 className='text-black md:text-4xl trending mb-3 underline'><span className="text-red-600">Shop</span> Now</h1>
+                      {/* <hr className="trending-line -mt-4 mb-3 w-[50%]"/> */}
+                          <Carousel responsive={responsive} className="mt-3 mx-auto">
+                                  {products.map((product, i) => (
+                                      <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+                                          <HomeProduct
+                                          product={product}></HomeProduct>
+                                      </div>
+                                  
+                                  ))}
+                          </Carousel>
+                          {/* <div className="text-center mt-5">
+                            <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
+                          </div>                   */}
+                    </div>
+
+
 
                 
                 <Row className="mx-auto w-[95%] md:w-[80%] my-24">

@@ -13,8 +13,8 @@ html, body, #root {
 
 .trending {
   font-family: 'Bebas Neue', sans-serif;
-  letter-spacing: 0.2rem;
-  font-size: 1.8rem;
+  letter-spacing: 0.1rem;
+  font-size: 1.3rem;
 }
 
 small {
@@ -307,7 +307,7 @@ button.thumbnail {
       /* background: white; */
       animation: slide-up 1s ease .5s;
       animation-fill-mode: forwards;
-      /* visibility: hidden; */
+      visibility: hidden;
   }
 
   h2 {
@@ -384,7 +384,7 @@ button.thumbnail {
       /* background: white; */
       animation: slide-up 1s ease .5s;
       animation-fill-mode: forwards;
-      /* visibility: hidden; */    
+      visibility: hidden;    
   }
 
   h2 {
@@ -438,9 +438,6 @@ button.thumbnail {
   
 }
 
-
-
-
 .content > * {
   color: black;
   margin-bottom: 1rem;
@@ -454,7 +451,6 @@ button.thumbnail {
 .current .content {
   opacity: 1;
 }
-
 
 .arrow:hover {
   background-color: white;

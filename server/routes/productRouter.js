@@ -7,10 +7,8 @@ const productRouter = express.Router();
 
 
 productRouter.get('/', async (req, res) => {
-    const products = (await Product.find()).reverse(); //get all products
-    // const randProducts = products[Math.floor(Math.random() * products.length)];
+    const products = await Product.find();
     res.send(products);
-    
 });
 
 productRouter.post(
