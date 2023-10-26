@@ -6,14 +6,12 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
 import HomeProduct from "../components/HomeProduct";
 import { Helmet } from 'react-helmet-async';
-import Container from "react-bootstrap/Container";
-import Nav from 'react-bootstrap/Nav';
-import { LinkContainer } from "react-router-bootstrap";
 import { getError } from "../uttils";
 import { toast } from "react-toastify";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Ruler from '../components/Ruler.js';
+import { sliderData } from "../components/slider/sliderData";
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 
 
 const reducer = (state, action) => {
@@ -109,28 +107,7 @@ const Home = () => {
           }
           fetchBrands();
 
-          // const fetchSizes = async () => {
-          //   try{
-          //     const { data } = await axios.get('/api/products/sizes');
-          //     setSizes(data);
-          //   } catch(err) {
-          //     toast.error(getError(err));
-          //   }
-          // }
-          // fetchSizes();
-
       }, []);
-
-      
-
-
-
-      //set scroll to section
-      const sectionRef = useRef(null);
-       
-      const handleButtonClick = () => {
-          sectionRef.current.scrollIntoView({ behavior: 'smooth' });
-        };
 
 
       const handleCatClick = () => {
@@ -179,23 +156,81 @@ const Home = () => {
         const fourProducts = getFourProducts(products, 4);
 
 
+        //autoscroll
+        const [ currentSlide, setCurrentSlide ] = useState(0);
+        const slideLength = sliderData.length;
+
+        const autoScroll = true;
+        let slideInterval;
+        let intervalTime = 5000;
+
+        const nextSlide = () => {
+            setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
+        }
+
+        const prevSlide = () => {
+            setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
+        }
+
+        function auto() {
+            slideInterval = setInterval(nextSlide, intervalTime)
+        }
+
+        useEffect(() => {
+            // puts the current slide to slide 0 on page refresh
+            setCurrentSlide(0)
+        }, [])
+
+        // useEffect(() => {
+        //     // if autoScroll is true, then call auto function
+        //     if(autoScroll) {
+        //         auto();
+        //     }
+        //     // this clears the slideInterval variable to avoid conflicts
+        //     return () => clearInterval(slideInterval)
+        // }, [currentSlide]) //autoScroll should fire when currenSlide changes
+
+         //set scroll to section
+        const sectionRef = useRef(null);
+        
+        const handleButtonClick = () => {
+            sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+          };
+
+
 
     return (
             <div className="md:w-[100%] mx-auto bg-gray-100 relative">
-                <img className="hero mx-auto" src="./images/hero.avif"></img>
                 <Helmet>
                     <title>PGF PRIME</title>
-                </Helmet>   
+                </Helmet> 
 
-                <div className="w-[90%] md:w-[50%] mx-auto">
-                <h1 className="text-justify text-sm mt-4 font-semibold mb-4 md:text-3xl">Step into style and unleash your inner sneakerhead with our 
-                incredible collection of kicks.</h1>
+                    <div className='slider'>
+                              <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide}/>
+                              <AiOutlineArrowRight className="arrow next" onClick={nextSlide}/>
 
-                <Link><button onClick={handleButtonClick} className="shop-now px-5 py-3 ">Shop now</button> </Link>
-                </div>
-
-
-                <Ruler className="mt-5" />
+                              {
+                                  sliderData.map((slide, index) => (
+                                      <div className={index === currentSlide ? "slide current" : "slide"} key={index}>
+                                          {index === currentSlide && (
+                                              <>
+                                                  <img src={slide.image} alt='slide'/>
+                                                  <div className='content'>
+                                                      <h2>{slide.heading}</h2>
+                                                      <p>{slide.desc}</p>
+                                                      <hr />
+                                                      <Link>
+                                                        <button onClick={handleButtonClick} className='md:mt-3 md:text-lg text-white text-base'>
+                                                            Shop Now
+                                                        </button>
+                                                      </Link>
+                                                  </div>
+                                              </>
+                                          )}
+                                      </div>
+                                  ))
+                              }
+                    </div>
 
 
                 <div ref={sectionRef} className="mt-5 w-[90%] md:w-[70%] mx-auto">
