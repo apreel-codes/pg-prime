@@ -35,6 +35,10 @@ const Signup = () => {
             toast.error('Passwords do not match');
             return;
         }
+        if (password.length <= 8) {
+            toast.error('Password must be atleast 8 characters');
+            return;
+        }
         try{
             const { data } = await axios.post('/api/users/signup', {
                 name,
