@@ -54,7 +54,7 @@ const CreateProduct = () => {
 const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
   const [price, setPrice] = useState('');
-  const [size, setSize] = useState('');
+  // const [size, setSize] = useState('');
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
@@ -80,7 +80,7 @@ const [name, setName] = useState('');
           name,
           slug,
           price,
-          size,
+          // size,
           image,
           images,
           category,
@@ -181,7 +181,7 @@ const [name, setName] = useState('');
                 required
                 />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="name">
+            {/* <Form.Group className="mb-3" controlId="name">
                 <Form.Label>Size</Form.Label>
                 <Form.Control
                 className='text-sm'
@@ -190,7 +190,7 @@ const [name, setName] = useState('');
                 onChange={(e) => setSize(e.target.value)}
                 required
                 />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group className="mb-3" controlId="imageFile">
                 <Form.Label>Upload Image</Form.Label>

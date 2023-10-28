@@ -1,6 +1,4 @@
 
-
-
 const Rating = (props) => {
     const { rating, numReviews, caption } = props;
     return (

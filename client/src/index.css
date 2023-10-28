@@ -3,17 +3,23 @@
 @tailwind utilities;
 
 html, body, #root {
-  height: 100%;
-  font-family: 'Bebas Neue', sans-serif;
-  background-color: rgb(243, 244, 246);
+  /* height: 100%; */
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
+
+#root {
+  min-height: 100vh;
+  position: relative;
+}
+
+
 .product {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .trending {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   letter-spacing: 0.1rem;
   font-size: 1.3rem;
 }
@@ -44,7 +50,7 @@ small {
 }
 
 .error {
-  font-family: 'Almendra SC';
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   font-size: 2.5rem;
 }
 
@@ -155,10 +161,10 @@ main {
   flex: 1;
 }
 
-/* 
+
 .rating span {
-  color: #080807;
-} */
+  color: #cd8903;
+}
 
 .img-thumbnail {
   height: 80px;
@@ -302,7 +308,7 @@ button.thumbnail {
   }
 
   h2 {
-      font-family: 'Bebas Neue', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: 4rem;
   }
 
@@ -335,7 +341,7 @@ button.thumbnail {
       background-color: rgb(255, 25, 25);
       border-radius: .2rem;
       padding: 1.5rem 3rem;
-      font-family: 'Bebas Neue', sans-serif; 
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
 
   @keyframes slide-up {
@@ -379,7 +385,7 @@ button.thumbnail {
   }
 
   h2 {
-      font-family: 'Bebas Neue', sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
       font-size: 2.4rem;
   }
 
@@ -412,7 +418,7 @@ button.thumbnail {
       background-color: rgb(255, 25, 25);
       border-radius: .2rem;
       padding: 0.5rem 1rem;  
-      font-family: 'Bebas Neue', sans-serif;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
 
   @keyframes slide-up {

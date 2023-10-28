@@ -58,6 +58,8 @@ const PlaceOrder = () => {
    }
     cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
 
+    console.log(cart)
+
     const placeOrderHandler = async () => {
         try {
             dispatch({ type: 'CREATE_REQUEST' });

@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import { sliderData } from "../components/slider/sliderData";
-import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { indexOf } from "core-js/es/array";
 
 
@@ -171,7 +170,7 @@ const Home = () => {
                 <Helmet>
                     <title>PGF PRIME</title>
                 </Helmet> 
-
+{/* 
                     <div className='slider'>
                               <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide}/>
                               <AiOutlineArrowRight className="arrow next" onClick={nextSlide}/>
@@ -203,7 +202,7 @@ const Home = () => {
                                       </div>
                                   ))
                               }
-                    </div>
+                    </div> */}
 
 
                 <div ref={sectionRef} className="mx-auto w-[90%]">

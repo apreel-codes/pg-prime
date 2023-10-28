@@ -73,7 +73,7 @@ export default function ProductEdit() {
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
-        setSize(data.size);
+        // setSize(data.size);
         setImage(data.image);
         setImages(data.images);
         setCategory(data.category);
@@ -102,7 +102,7 @@ export default function ProductEdit() {
           name,
           slug,
           price,
-          size,
+          // size,
           image,
           images,
           category,
@@ -196,14 +196,14 @@ export default function ProductEdit() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="name">
+          {/* <Form.Group className="mb-3" controlId="name">
             <Form.Label>Size</Form.Label>
             <Form.Control
               value={size}
               onChange={(e) => setSize(e.target.value)}
               required
             />
-          </Form.Group>
+          </Form.Group> */}
           <Form.Group className="mb-3" controlId="image">
             <Form.Label>Image File</Form.Label>
             <Form.Control

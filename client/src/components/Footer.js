@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 const Footer = () => {
   console.log(window.location.host);
   return (
-    <footer className="mt-auto bg-black text-gray-400">
+    <footer className="bg-black text-gray-400">
       <Container className="flex flex-col gap-y-12 justify-between pt-4 md:flex-row">
         {/* quick links */}
         <div className="flex flex-col gap-y-6">
