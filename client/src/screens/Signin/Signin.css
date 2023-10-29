@@ -62,6 +62,10 @@
     margin-left: 0.6rem;
 }
 
+.form .remember-me-group {
+    width: 132px;
+}
+
 .form .have-account{
     color: #1a1a1aa7;;
     font-family: 'Inter', sans-serif;
