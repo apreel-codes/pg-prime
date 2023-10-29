@@ -1,0 +1,72 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import './Footer.css';
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button";
+
+
+const Footer = () => {
+  const [email, setEmail] = useState('');
+
+
+  console.log(window.location.host);
+  return (
+    <footer className="md:px-32 md:py-20 p-8">
+    <div className="flex flex-col gap-y-12 justify-between md:flex-row md:items-center">
+      <div className="footer-form">
+          <div className="">
+              <h1 className="font-bold">Let's keep in touch</h1>
+                      <p>Be the first to know when we start sales and have new arrivals.</p>
+          </div>
+          <Form className="flex flex-row justify-between items-center">
+              <Form.Group className="" controlId="email">
+                <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
+              </Form.Group>
+              <div className="">
+                  <Button className="button py-2 border-none text-white" type="submit">SHOP NOW</Button>
+              </div>
+          </Form>
+      </div>
+
+        <div className="link-contact flex flex-col md:gap-x-48 gap-y-12 md:flex-row justify-between">
+          {/* quick links */}
+            <div className="flex flex-col gap-y-3">
+              <span className="font-semibold text-base">Quick Links</span>
+                <ul className="flex flex-col gap-y-2">
+                  <li><Link to='#'>Best Sellers</Link></li>
+                  <li><Link to='#'>Discount Sales</Link></li>
+                  <li><Link to='#'>New Arrivals</Link></li>
+                  <li><Link to='#'>Gallery</Link></li>
+                  <li><Link to='/refundpolicy'>Refund Policy</Link></li>
+                </ul>
+              </div>
+
+              {/* about us */}
+              <div className="flex flex-col gap-y-3">
+                <span className="font-semibold text-base text-right">Contacts</span>
+                <ul className="flex flex-col gap-y-2">
+                  {/* <li>Contact</li> */}
+                  <li>
+                    <div className="flex flex-flow gap-x-5">
+                      <Link
+                      ><img className="socials-twitter"  src="../images/twitter.png"/></Link>
+                      <Link
+                      ><img className="socials-facebook"  src="../images/facebook.png"/></Link>
+                      <Link 
+                      to="https://instagram.com/pgf_prime?igshid=MzRIODBiNWFIZA=="
+                      ><img className="socials-instagram"  src="../images/instagram.png"/></Link>
+                      
+                    </div>
+                  </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    </footer>
+  );
+};
+
+export default Footer;

@@ -66,6 +66,10 @@ export default function ResetPassword() {
       toast.error('Passwords do not match');
       return;
     }
+    if (password.length < 8) {
+      toast.error('Password must be atleast 8 characters');
+      return;
+    }
     try {
       await axios.post('/api/users/reset-password', {
         password,

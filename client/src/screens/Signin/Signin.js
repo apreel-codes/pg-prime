@@ -92,7 +92,7 @@ const Signin = () => {
                             <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
 
-                            <Form.Group className="grid" controlId="password">
+                            <Form.Group className="grid mb-3" controlId="password">
                                 <Form.Label className="label" >Password</Form.Label>
                                 <div className="flex">
                                     <input 
@@ -108,14 +108,14 @@ const Signin = () => {
                                 </div>          
                             </Form.Group>
                     
-                        <div className="flex flex-row justify-between items-center mb-2">
+                        <div className="flex flex-row justify-between items-center mb-3">
                             <div className="remember-me-group flex flex-row items-center justify-between">
                                 <input className="box w-5 h-5" type="checkbox" id="remember-me" name="remember-me" value="remember-me" />
                                 <label className="remember-me" for="remember-me"> Remember me</label>
                             </div>
                             <Link className="forgot-password" to={`/forget-password`}>Forgot Password? </Link>
                         </div>
-                        <div className="mb-3  d-grid">
+                        <div className="mb-3 d-grid">
                             <Button className="button py-2 border-none text-white" type="submit">Sign in</Button>
                         </div>
                         <div className="have-account text-center">

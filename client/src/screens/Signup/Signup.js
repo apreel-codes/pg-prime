@@ -62,7 +62,7 @@ const Signup = () => {
             toast.error('Passwords do not match');
             return;
         }
-        if (password.length <= 8) {
+        if (password.length < 8) {
             toast.error('Password must be atleast 8 characters');
             return;
         }
@@ -119,20 +119,20 @@ const Signup = () => {
                                 <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
                         <Form.Group className="mb-2 grid" controlId="password">
-                        <Form.Label className="label" >Password</Form.Label>
-                                <div className="mb-2 flex">
-                                    <input 
-                                        type={passwordtype}
-                                        value={password} 
-                                        placeholder="********" 
-                                        required 
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                    <span class="flex justify-around items-center" onClick={handleToggle}>
-                                        <Icon class="absolute mr-10" icon={passwordIcon} size={20}/>
-                                    </span>
-                                </div>          
-                                <p className="">Must be atleast 8 characters</p>
+                            <Form.Label className="label" >Password</Form.Label>
+                                    <div className="mb-2 flex">
+                                        <input 
+                                            type={passwordtype}
+                                            value={password} 
+                                            placeholder="********" 
+                                            required 
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                        <span class="flex justify-around items-center" onClick={handleToggle}>
+                                            <Icon class="absolute mr-10" icon={passwordIcon} size={20}/>
+                                        </span>
+                                    </div>          
+                                    <p className="">Must be atleast 8 characters</p>
                         </Form.Group>
                         <Form.Group className="grid" controlId="confirmpassword">
                         <Form.Label className="label" >Confirm Password</Form.Label>

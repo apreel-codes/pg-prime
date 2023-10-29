@@ -8,7 +8,6 @@ import Product from './screens/Product';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import {LinkContainer} from 'react-router-bootstrap';
-import Footer from './components/Footer';
 import ErrorPage from './screens/NoPage';
 import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
@@ -41,6 +40,8 @@ import Header from './components/Header';
 import ForgotPassword from './screens/ForgotPassword/ForgotPassword';
 import ResetPassword from './screens/ResetPassword/ResetPassword';
 import CheckEmail from './screens/CheckEmail/CheckEmail';
+import RefundPolicy from './screens/RefundPolicy/RefundPolicy';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
                   <Route path="/forget-password" element={<ForgotPassword />}/>
                   <Route path="/reset-password/:token" element={<ResetPassword />}/>
                   <Route path="/check-email" element={<CheckEmail />}/>
+                  <Route path="/refundpolicy" element={<RefundPolicy />}/>
                   <Route path="/profile" element={ <ProtectedRoute> <Profile /> </ProtectedRoute> }/>
                   <Route path="/shipping" element={<ShippingAddress />} />
                   <Route path="/payment" element={<Payment />} />

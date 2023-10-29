@@ -1,0 +1,17 @@
+.refund h1 {
+    color: #1a1a1a;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.7rem;
+}
+
+.refund p {
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.7rem;
+}
+
+
+.refund ul li {
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+}

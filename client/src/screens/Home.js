@@ -207,6 +207,7 @@ const Home = () => {
 
                 <div ref={sectionRef} className="mx-auto w-[90%]">
                         <h1 className='text-black text- md:text-4xl trending mb-4 mt-5 underline'><span className="text-red-600">Best</span>Sellers</h1>
+                        <Link to="/refundpolicy">Refund Policy</Link>
                         {/* <hr className="trending-line -mt-6 mb-4"/> */}
 
                         <Carousel responsive={responsive} className="">

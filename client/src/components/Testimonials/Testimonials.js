@@ -35,7 +35,7 @@ const Testimonials = (props) => {
                                     <Rating className="rating" rating={slide.rating} caption=" "></Rating>
                                     <p className='text'>{slide.text}</p>
                                     <img src={slide.image} alt='slide'/>
-                                    <p>{slide.name}</p>
+                                    <p className='name'>{slide.name}</p>
                                     <small>{slide.location}</small>
                             </div>
                         )}
