@@ -1,8 +1,10 @@
 import express from 'express';
 import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
-import { generateToken, isAdmin, isAuth } from '../utils.js';
+import jwt from 'jsonwebtoken';
+import { baseUrl, generateToken, isAdmin, isAuth, mailgun } from '../utils.js';
 import expressAsyncHandler from "express-async-handler"
+import nodemailer from 'nodemailer';
 
 
 const userRouter = express.Router();
@@ -124,5 +126,82 @@ userRouter.put('/profile', isAuth, expressAsyncHandler(async (req, res) => {
         res.status(404).send({message: 'User Not Found'})
     }
 }))
+
+
+userRouter.post(
+  '/forget-password',
+  expressAsyncHandler(async (req, res) => {
+    const user = await User.findOne({ email: req.body.email });
+
+    if (user) {
+      const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+        expiresIn: '3h',
+      });
+      user.resetToken = token;
+      await user.save();
+
+      //reset link
+      // console.log(`${baseUrl()}/reset-password/${token}`);
+      console.log(`http://localhost:3000/reset-password/${token}`);
+
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'idrisopeyemi06@gmail.com',
+          pass: 'ayecifqsrlyjqask'
+        }
+      });
+      
+      var mailOptions = {
+        from: 'PGF Prime <me@mg.pgfprime.com>',
+        to: `${user.name} <${user.email}>`,
+        subject: `Reset Password`,
+        // text: ` 
+        //     Please Click the following link to reset your password:
+        //     http://localhost:3000/reset-password/${token}`,
+        text: ` 
+            Please Click the following link to reset your password:
+            http://pgfprime.com/reset-password/${token}`,
+      };
+      
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.log(error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+      res.send({ message: 'We sent reset password link to your email.' });
+    } else {
+      res.status(404).send({ message: 'User not found' });
+    }
+  })
+);
+
+
+userRouter.post(
+  '/reset-password/',
+  expressAsyncHandler(async (req, res) => {
+    // console.log(req.body.token)
+    jwt.verify(req.body.token, process.env.JWT_SECRET, async (err, decode) => {
+      if (err) {
+        res.status(401).send({ message: 'Invalid Token' });
+      } else {
+        const user = await User.findOne({ resetToken: req.body.token });
+        if (user) {
+          if (req.body.password) {
+            user.password = bcrypt.hashSync(req.body.password, 8);
+            await user.save();
+            res.send({
+              message: 'Password updated successfully',
+            });
+          }
+        } else {
+          res.status(404).send({ message: 'User not found' });
+        }
+      }
+    });
+  })
+);
 
 export default userRouter;

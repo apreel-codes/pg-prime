@@ -38,6 +38,9 @@ import ProductEdit from './screens/ProductEdit';
 import UserEdit from './screens/UserEdit';
 import CreateProduct from './screens/CreateProduct';
 import Header from './components/Header';
+import ForgotPassword from './screens/ForgotPassword/ForgotPassword';
+import ResetPassword from './screens/ResetPassword/ResetPassword';
+import CheckEmail from './screens/CheckEmail/CheckEmail';
 
 
 function App() {
@@ -67,14 +70,10 @@ function App() {
                   <Route path="/search" element={<Search />} />
                   <Route path="/signin" element={<Signin />} />
                   <Route path="/signup" element={<Signup />} />
-                  <Route 
-                    path="/profile" 
-                    element={
-                      <ProtectedRoute>
-                        <Profile />
-                      </ProtectedRoute>
-                  }
-                  />
+                  <Route path="/forget-password" element={<ForgotPassword />}/>
+                  <Route path="/reset-password/:token" element={<ResetPassword />}/>
+                  <Route path="/check-email" element={<CheckEmail />}/>
+                  <Route path="/profile" element={ <ProtectedRoute> <Profile /> </ProtectedRoute> }/>
                   <Route path="/shipping" element={<ShippingAddress />} />
                   <Route path="/payment" element={<Payment />} />
                   <Route path="/placeorder" element={<PlaceOrder />} />

@@ -3,6 +3,7 @@ import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { TestimonialData } from './TestimonialData';
 import "./Testimonials.css";
 import Rating from '../Rating';
+import { Link } from 'react-router-dom';
 
 const Testimonials = (props) => {
     const [ currentSlide, setCurrentSlide ] = useState(0);
@@ -23,7 +24,7 @@ const Testimonials = (props) => {
 
     return (
         <div className='slider'>
-            <img className="" src='../images/sign-in-logo.png'/>
+            <Link to="/"><img className="" src='../images/sign-in-logo.png'/></Link>
             <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide}/>
             <AiOutlineArrowRight className="arrow next" onClick={nextSlide}/>
             {

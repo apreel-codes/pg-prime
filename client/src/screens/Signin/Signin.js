@@ -12,6 +12,9 @@ import Col from "react-bootstrap/Col";
 import "./Signin.css";
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import Testimonials from "../../components/Testimonials/Testimonials";
+import {Icon} from 'react-icons-kit';
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import {eye} from 'react-icons-kit/feather/eye';
 
 
 const Signin = () => {
@@ -23,8 +26,19 @@ const Signin = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [type, setType] = useState('password');
+    const [icon, setIcon] = useState(eyeOff);
 
-    
+    const handleToggle = () => {
+        if (type==='password'){
+           setIcon(eye);
+           setType('text')
+        } else {
+           setIcon(eyeOff)
+           setType('password')
+        }
+     }
+
     const {state, dispatch: ctxDispatch} = useContext(Store);
     const { userInfo } = state;
 
@@ -77,20 +91,31 @@ const Signin = () => {
                             <Form.Label className="label">Email</Form.Label>
                             <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
                         </Form.Group>
-                        <div>
-                            <Form.Group className="mb-3 grid" controlId="password">
-                                <Form.Label className="label">Password</Form.Label>
-                                <input type="password" value={password} placeholder="********" required onChange={(e) => setPassword(e.target.value)}/>
+
+                            <Form.Group className="grid" controlId="password">
+                                <Form.Label className="label" >Password</Form.Label>
+                                <div className="flex">
+                                    <input 
+                                        type={type}
+                                        value={password} 
+                                        placeholder="********" 
+                                        required 
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    />
+                                    <span class="flex justify-around items-center" onClick={handleToggle}>
+                                        <Icon class="absolute mr-10" icon={icon} size={20}/>
+                                    </span>
+                                </div>          
                             </Form.Group>
-                        </div>
-                        <div className="flex flex-row justify-between items-center">
-                            <div className="flex flex-row items-center justify-between">
+                    
+                        <div className="flex flex-row justify-between items-center mb-2">
+                            <div className="flex flex-row items-center justify-between w-[30%]">
                                 <input className="box w-5 h-5" type="checkbox" id="remember-me" name="remember-me" value="remember-me" />
                                 <label className="remember-me" for="remember-me"> Remember me</label>
                             </div>
-                            <p className="forgot-password">Forgot Password</p>
+                            <Link className="forgot-password" to={`/forget-password`}>Forgot Password? </Link>
                         </div>
-                        <div className="mb-3 mt-4 d-grid">
+                        <div className="mb-3  d-grid">
                             <Button className="button py-2 border-none text-white" type="submit">Sign in</Button>
                         </div>
                         <div className="have-account text-center">

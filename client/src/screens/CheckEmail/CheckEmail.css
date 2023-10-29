@@ -1,26 +1,7 @@
-@media screen and (min-width: 600px) {
-    .sign {
-        margin-top: 2rem;
-    }
-    
-}
-
-/* small screen */
-@media screen and (max-width: 600px) {
-    .sign {
-        margin-top: 2rem;
-    }
-    
-}
-
-.sign-in {
-    height: 100vh;
-}
 
 .testimonials {
     background-color: #00162B;
     height: 100vh;
-    max-height: 100%;
 }
 
 .form {
@@ -40,7 +21,7 @@
 }
 
 .form p {
-    color: #1a1a1a7c;
+    color: #1a1a1a8d;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 400;
@@ -59,13 +40,11 @@
     border-radius: .3rem;
     padding-left: 1rem;
     font-size: 0.9rem;
-    width: 100%;
 }
 
 .form .box {
     outline: none;
     border-radius: .92rem;
-    width: 15%;
 }
 
 .form .forgot-password {
@@ -121,3 +100,17 @@
 
 
 /* wide screen */
+@media screen and (min-width: 600px) {
+    .sign {
+        margin-top: 12rem;
+    }
+    
+}
+
+/* small screen */
+@media screen and (max-width: 600px) {
+    .sign {
+        margin-top: 2rem;
+    }
+    
+}

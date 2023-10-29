@@ -3,14 +3,8 @@
 @tailwind utilities;
 
 html, body, #root {
-  /* height: 100%; */
+  height: 100%;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-
-
-#root {
-  min-height: 100vh;
-  position: relative;
 }
 
 
@@ -163,7 +157,7 @@ main {
 
 
 .rating span {
-  color: #cd8903;
+  color: #b87c03;
 }
 
 .img-thumbnail {
@@ -461,4 +455,129 @@ button.thumbnail {
 .prev {
   left: 1rem;
 }
+
+@media screen and (min-width: 600px) {
+    .sign {
+        margin-top: 2rem;
+        bottom: 2rem;
+    }
+    
+}
+
+/* small screen */
+@media screen and (max-width: 600px) {
+    .sign {
+        margin-top: 2rem;
+    }
+    
+}
+
+.sign-in {
+    height: 100vh;
+}
+
+.testimonials {
+    background-color: #00162B;
+    height: 100vh;
+    max-height: 100%;
+}
+
+.form {
+    padding: 2rem 1.3rem;
+    border-radius: 1rem;
+    background-color: #f4f4f5;
+}
+
+.form .main-form {
+    margin-top: 1.7rem;
+}
+
+.form h1 {
+    color: #1a1a1a;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.7rem;
+}
+
+.form p {
+    color: #1a1a1a7c;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.form .label {
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.form input {
+    outline: 2.3px #27272747 solid;
+    height: 2.5rem;
+    border-radius: .3rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.form .box {
+    outline: none;
+    border-radius: .92rem;
+    width: 15%;
+}
+
+.form .forgot-password {
+    color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form .remember-me {
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-left: 0.6rem;
+}
+
+.form .have-account{
+    color: #1a1a1aa7;;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.form .button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+
+.back-arrow {
+    position: absolute;
+    border: 2px solid black;
+    top: 0.2rem;
+    border-radius: 50%;
+}
+
+.back {
+    margin-left: 1.7rem;
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+}
+
+.testimonials .text{
+    color: #e4e4e4;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 1.7rem;
+}
+
+
+/* wide screen */
 
