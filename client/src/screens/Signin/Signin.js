@@ -109,7 +109,7 @@ const Signin = () => {
                             </Form.Group>
                     
                         <div className="flex flex-row justify-between items-center mb-2">
-                            <div className="flex flex-row items-center justify-between w-[46%]">
+                            <div className="flex flex-row items-center justify-between w-[40%]">
                                 <input className="box w-5 h-5" type="checkbox" id="remember-me" name="remember-me" value="remember-me" />
                                 <label className="remember-me" for="remember-me"> Remember me</label>
                             </div>
