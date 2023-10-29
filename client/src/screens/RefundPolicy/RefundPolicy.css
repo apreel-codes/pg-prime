@@ -4,14 +4,32 @@
     font-size: 1.7rem;
 }
 
-.refund p {
-    color: #1a1a1a;
-    font-family: 'Inter', sans-serif;
-    line-height: 1.7rem;
-}
 
 
 .refund ul li {
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+/* large screen */
+@media screen and (min-width: 600px) {
+    .refund p {
+        color: #1a1a1a;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.7rem;
+        font-size: 1rem;
+    }
+}
+
+/* small screen */
+@media screen and (max-width: 600px) {
+    .refund p {
+        color: #1a1a1a;
+        font-family: 'Inter', sans-serif;
+        line-height: 1.7rem;
+        text-align: justify;
+        font-size: 1rem;
+    }
+    
 }
