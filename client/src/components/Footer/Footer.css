@@ -14,25 +14,32 @@ footer span {
 }
 
 .footer-form p {
-    color: #1a1a1a7c;
+    color: #1a1a1a68;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 400;
     margin-bottom: 1rem;
 }
 
 footer .link-contact ul {
-    color: #1a1a1a;
+    color: #1a1a1a68;
     font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 400;
 
 }
 
 footer .link-contact ul li {
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    margin-top: 1.3rem;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+
+input::placeholder {
+    color: #1a1a1a50;
+    font-size: 0.85rem;
 }
 
 
@@ -49,6 +56,7 @@ footer .link-contact ul li {
         font-size: 1rem;
         width: 380px;
     }
+
     .footer-form .button {
         background-color: #003466;
         font-family: 'Inter', sans-serif;
