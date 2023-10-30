@@ -62,7 +62,7 @@ app.post(
         url: 'https://us21.api.mailchimp.com/3.0/lists/6499f4b028',
         method: 'POST',
         headers: {
-            Authorization: 'auth 33eb7c212fc5df2a75313a838a2a93d2-us21'
+            Authorization: `auth ${process.env.MAILCHIMP_API_KEY}`
         },
         body: postData
     };
