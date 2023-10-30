@@ -1,5 +1,4 @@
 // require('dotenv').config();
-
 import express from 'express';
 import path from 'path';
 import data from './data.js';
@@ -10,6 +9,11 @@ import productRouter from './routes/productRouter.js';
 import userRouter from './routes/userRoute.js';
 import orderRouter from './routes/orderRoute.js';
 import uploadRouter from './routes/uploadRouter.js';
+import expressAsyncHandler from "express-async-handler"
+import request from 'request';
+// import bodyParser, { json } from 'body-parser';
+
+
 
 dotenv.config();
 
@@ -28,13 +32,56 @@ app.get('/api/keys/paypal', (req, res) => {
 });
 
 // favicon.ico
-
-
 app.use('/api/upload', uploadRouter)
 app.use('/api/seed', seedRouter);
 app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
+
+app.post(
+    '/subscribe',
+    expressAsyncHandler(async (req, res) => {
+    const { email } = req.body;
+    // validation
+    if(!email){
+        res.status(401).send({ message: 'Kindly provide an email address' });
+    }
+    //construct req data
+    const data = {
+        members: [
+            {
+                email_address: email,
+                status: 'subscribed'
+            }
+        ]
+    }
+
+    const postData = JSON.stringify(data);
+
+    const options = {
+        url: 'https://us21.api.mailchimp.com/3.0/lists/6499f4b028',
+        method: 'POST',
+        headers: {
+            Authorization: 'auth 33eb7c212fc5df2a75313a838a2a93d2-us21'
+        },
+        body: postData
+    };
+
+  request(options, (err, response, body) => {
+        if(err){
+            res.status(401).send({ message: 'An error occured' });
+        } else {
+            if(response.statusCode === 200 ) {
+                res.status(200).send({ message: 'You have successfully subscribed to our newsletter' });
+            } else {
+                res.status(401).send({ message: 'An error occured' });
+            }
+        }
+
+    });
+    })
+  )
+  
 
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, '/client/build')));

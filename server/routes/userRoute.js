@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { application } from 'express';
 import bcrypt from 'bcryptjs';
 import User from '../models/User.js';
 import jwt from 'jsonwebtoken';

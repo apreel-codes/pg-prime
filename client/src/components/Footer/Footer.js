@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './Footer.css';
@@ -5,10 +6,33 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { getError } from "../../uttils";
+import { toast } from "react-toastify";
+
 
 
 const Footer = () => {
   const [email, setEmail] = useState('');
+
+ 
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    if(!email){
+      toast.error("Kindly provide an email address");
+      return;
+    }
+    try {
+      await axios.post('/subscribe', {
+        email
+      });
+      toast.success('Successfully subscribed.');
+    } catch (err) {
+      toast.error(getError(err));
+    }
+    setEmail('');
+  }
+
 
 
   console.log(window.location.host);
@@ -20,9 +44,9 @@ const Footer = () => {
               <h1 className="font-bold">Let's keep in touch</h1>
                       <p>Be the first to know when we start sales and have new arrivals.</p>
           </div>
-          <Form className="flex flex-col md:flex-row justify-between md:items-center">
+          <Form className="flex flex-col md:flex-row justify-between md:items-center" onSubmit={submitHandler}>
               <Form.Group className="" controlId="email">
-                <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
+                <input type="email" value={email} placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)}/>
               </Form.Group>
               <div className="">
                   <Button className="button py-2 border-none text-white" type="submit">SHOP NOW</Button>
