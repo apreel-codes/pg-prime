@@ -42,7 +42,7 @@ const ForgotPassword = () =>  {
   };
 
   return (
-    <div className='sign-in mx-auto'>
+    <div className='sign-in'>
       <Helmet>
         <title>Forget Password</title>
       </Helmet>
@@ -50,7 +50,7 @@ const ForgotPassword = () =>  {
         <Col md={4} className="testimonials hidden md:block">
                 <Testimonials />
         </Col>
-        <Col md={5} className="sign mx-auto w-[90%] md:w-[30%] md:mt-7">
+        <Col md={5} className="mx-auto pt-8 md:pt-32 px-10 md:px-14">
                 <div className="relative mb-3">
                     <Link to="/signin">
                         <AiOutlineArrowLeft className="back-arrow"/>

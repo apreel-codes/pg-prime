@@ -71,9 +71,12 @@
     font-family: 'Inter', sans-serif;
 }
 
-
-
 .testimonials {
+    color: #c5c5c5d9;
+    font-family: 'Inter', sans-serif;
+}
+
+small {
     color: #c5c5c5d9;
     font-family: 'Inter', sans-serif;
 }
