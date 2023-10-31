@@ -55,7 +55,7 @@ function App() {
   //   localStorage.removeItem('paymentMethod');
   //   window.location.href='/signin';
   // }
- 
+
 
   return (
     <BrowserRouter className="">
@@ -95,8 +95,6 @@ function App() {
                 <Route path="*" element={<ErrorPage />} />
         </Routes>
       </main>
-      {/* <Footer>
-      </Footer> */}
     </BrowserRouter>
   );
 }

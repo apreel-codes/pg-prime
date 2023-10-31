@@ -245,9 +245,9 @@ const Product = () => {
                                             <Form.Group className="mb-3" controlId="rating">
                                                 <Form.Label>Rating</Form.Label>
                                                 <Form.Select
-                                                aria-label="Rating"
-                                                value={rating}
-                                                onChange={(e) => setRating(e.target.value)}
+                                                    aria-label="Rating"
+                                                    value={rating}
+                                                    onChange={(e) => setRating(e.target.value)}
                                                 >
                                                 <option value="">Select...</option>
                                                 <option value="1">1- Poor</option>

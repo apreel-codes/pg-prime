@@ -8,9 +8,10 @@
     max-width: 8rem;
 }
 
+
+
 .gallery-refund {
     font-size: 0.9rem;
-    width: 12rem;
 }
 
 
@@ -26,7 +27,7 @@
 }
 
 .search-cart-ham {
-    width: 11rem;
+    width: 7rem;
 }
 
 .dropdown-toggle::after {
@@ -44,5 +45,53 @@
 }
 
 .mobile-second {
-    padding: 1rem 2rem;
+    padding: 0.7rem 1.2rem;
 }
+
+.page-navs {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+.brands {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobile-brands {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.mobile-side-nav {
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        padding: 0 2rem 2rem;
+        display: block;
+        height: 100vh;
+}
+    
+.hide-mobile-side-nav {
+        display: none;
+ }
+
+
+.mobile-side-nav ul li {
+    margin-top: 1.1rem;
+}
+
+.close {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+}
+
+.hamburger {
+    display: none;  
+}
+
