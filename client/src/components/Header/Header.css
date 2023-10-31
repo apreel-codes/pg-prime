@@ -80,6 +80,33 @@
         display: none;
  }
 
+ .mobile-side-nav .button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    border: 1px #003466 solid;
+ }
+
+ .mobile-side-nav .signup .button{
+    background-color: #f4f4f5;
+    border: 1px #003466 solid;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #003466;
+    font-weight: bold;
+    margin-top: 1rem;
+ }
+
+ .mobile-side-nav .signout .button{
+    background-color: #f4f4f5;
+    border: 1px #003466 solid;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #003466;
+    font-weight: bold;
+    margin-top: 1rem;
+ }
+
 
 .mobile-side-nav ul li {
     margin-top: 1.1rem;

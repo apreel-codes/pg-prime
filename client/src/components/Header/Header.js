@@ -172,6 +172,37 @@ const Header = () => {
                             <div className='mobile-brands'><li>Jordan</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
                             <div className='mobile-brands'><li>New Balance</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
                         </ul>
+                        {userInfo ? (
+                            <div className='profile-signout flex flex-col mt-12'>
+                                <Link 
+                                    className='' 
+                                    to="/profile"
+                                >
+                                    My Account
+                                </Link>
+                                <Link 
+                                    className='signout'
+                                    to="#signout"
+                                    onClick={signoutHandler}
+                                >
+                                    <Button className='button w-full'>Sign Out</Button>
+                                </Link>             
+                            </div>
+                        ) : (
+                            <div className='flex flex-col mt-14'>
+                                <Link 
+                                    className='signin'
+                                    to="/signin">
+                                    <Button className='button w-full py-2'>Sign in</Button>
+                                </Link>
+                                <Link 
+                                    className='signup'
+                                    to="/signup">
+                                    <Button className='button w-full py-2'>Sign up</Button>
+                                </Link>
+                            </div>
+                            
+                        )}
                 </div>
                 {/* <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
                     <Container fluid className='px-4'>
