@@ -55,8 +55,8 @@ const Header = () => {
   const profile = <img src='../images/user.png'/>
 
   const [isToggled, setIsToggled] = useState(true);
-  const [isNavBarToggled, setIsNavBarToggled] = useState(true);
-  const [isCloseToggled, setIsCloseToggled] = useState(true);
+  const [isNavBarToggled, setIsNavBarToggled] = useState(false);
+  const [isCloseToggled, setIsCloseToggled] = useState(false);
 
   const showSearchBar = () => {
         setIsToggled(!isToggled);    
