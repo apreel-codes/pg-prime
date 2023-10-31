@@ -1,11 +1,14 @@
 import React from "react";
 import './RefundPolicy.css'
 import Footer from "../../components/Footer/Footer";
+import { Link } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 
 const RefundPolicy = () => {
     return (
         <div className="refund">
+            <Header />
             <div className="w-[85%] md:w-[80%] mx-auto my-20">
                 <h1 className="text-center">Refund Policy</h1>
                 <div className="mt-5">
@@ -16,7 +19,7 @@ const RefundPolicy = () => {
                         <p><strong>1.) Faulty Items: </strong>In the rare event that you receive a faulty or damaged item, we apologize for any inconvenience caused. 
                         Rest assured, we're here to make it right. Please follow these steps:</p>
                         <ul>
-                            <li>- Contact our customer support team within 24 hours of receiving the item.</li>
+                            <li>- Contact our <Link className="underline" to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">customer support team</Link> within 24 hours of receiving the item.</li>
                             <li>- Provide clear images or descriptions of the fault.</li>
                             <li>- We will evaluate the issue promptly and offer a replacement or a full refund, including any associated shipping costs.</li>
                         </ul>
@@ -27,7 +30,7 @@ const RefundPolicy = () => {
                         <ul>
                             <li>- Size exchanges are eligible within 7 days of receiving your order.</li>
                             <li>- The sneakers must be unworn, in their original condition, and with all packaging.</li>
-                            <li>- Contact our support team to initiate the exchange process.</li>
+                            <li>- Contact our <Link className="underline" to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">support team</Link> to initiate the exchange process.</li>
                             <li>- Once we receive the item, we'll send you the correct size, and you may be responsible for any shipping costs.</li>
                         </ul>
                     </div>
@@ -39,7 +42,7 @@ const RefundPolicy = () => {
                                         We strive to process refunds and exchanges swiftly, ensuring a hassle-free experience for our valued customers. 
                                         Please note that the timeline for refunds may vary depending on your payment method and financial institution.</p>
                     </div>
-                    <p className="mt-4">If you have any questions or need further assistance, please don't hesitate to contact our dedicated customer support team. 
+                    <p className="mt-4">If you have any questions or need further assistance, please don't hesitate to contact our dedicated <Link className="underline" to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">customer support team</Link>. 
                         Your satisfaction is our commitment, and we're here to make your shopping experience with PGF Prime exceptional. 
                         Thank you for choosing us for your sneaker needs!</p>
                 </div>

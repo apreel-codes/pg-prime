@@ -26,7 +26,7 @@ const Footer = () => {
       await axios.post('/subscribe', {
         email
       });
-      toast.success('Successfully subscribed.');
+      toast.success('You have successfully subscribed to our newsletter.');
     } catch (err) {
       toast.error(getError(err));
     }

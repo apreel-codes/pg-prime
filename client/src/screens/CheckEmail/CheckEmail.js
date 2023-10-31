@@ -33,7 +33,7 @@ const CheckEmail = () =>  {
                     <div className="">
                         <h1 className="mb-1 font-bold">Check your email</h1>
                         <p> We have sent a password reset link to your email address. 
-                            Kindly check your inbox and copy the code to reset your password. 
+                            Kindly check your inbox and click on the link to reset your password. 
                             Don’t forget to check your spam folder, if you can’t find the mail.</p>
                     </div>
                     <Form className="main-form">

@@ -1,4 +1,9 @@
+/* @font-face{
+    font-family: cabinet;
+    src:url(cabinet.ttf);
+  } */
 
+  
 .testimonials {
     background-color: #00162B;
     height: 100vh;
@@ -17,21 +22,22 @@
 .form h1 {
     color: #1a1a1a;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.7rem;
+    /* font-family: myFont; */
+    font-size: 1.6rem;
 }
 
 .form p {
     color: #1a1a1a7c;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 400;
 }
 
 .form .label {
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 0.8rem;
+    font-weight: 400;
 }
 
 .form input {
@@ -50,15 +56,15 @@
 .form .forgot-password {
     color: #003466;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
 .form .remember-me {
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 400;
+    font-size: 0.8rem;
+    font-weight: 300;
     margin-left: 0.5rem;
 }
 
@@ -91,7 +97,7 @@
     margin-left: 1.7rem;
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 500;
 }
 
@@ -100,21 +106,4 @@
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.7rem;
-}
-
-
-/* wide screen */
-@media screen and (min-width: 600px) {
-    .sign {
-        margin-top: 12rem;
-    }
-    
-}
-
-/* small screen */
-@media screen and (max-width: 600px) {
-    .sign {
-        margin-top: 2rem;
-    }
-    
 }

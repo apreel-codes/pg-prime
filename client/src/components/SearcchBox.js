@@ -20,29 +20,20 @@ const SearchBox = () => {
     };
 
     return(
-        <Form className="d-flex" onSubmit={submitHandler}>
-            <InputGroup>
-                <FormControl 
-                type="text" 
-                name="q"
-                value={query} 
-                id="q" 
-                onChange={(e) => setQuery(e.target.value)} 
-                className="text-sm"
-                placeholder="Search name"
-                aria-label="Search Products"
-                aria-describedby="button-search"
-                
-                 ></FormControl>
-                 <Button 
-                    className="border-white bg-black" 
-                    type="submit" id="button-search" 
-                    disabled={!query}
-                    >
-                    <i className="fas fa-search"></i>
-                 </Button>
-            </InputGroup>
-        </Form>
+        <div class="search-box">
+            <form method="GET" onSubmit={submitHandler}>
+                <div class="relative text-gray focus-within:text-gray">
+                <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <button type="submit" disabled={!query} class="p-1 focus:outline-none focus:shadow-outline">
+                    <svg fill="none" stroke="gray" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-5 h-5"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    </button>
+                </span>
+                <input onChange={(e) => setQuery(e.target.value)} id="q" value={query}  type="text" name="q" class="py-2 text-sm text-gray-400 bg-white rounded-md pl-10 focus:outline-gray-500 focus:bg-white focus:text-gray-900" placeholder="Type product name..." autocomplete="off" />
+                </div>
+            </form>
+        </div>
+       
     )
 }
 export default SearchBox;
+

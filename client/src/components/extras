@@ -1,0 +1,40 @@
+ // <Form className="d-flex" onSubmit={submitHandler}>
+        //     <InputGroup className="input">
+        //             <Button 
+        //                 className="button border-none bg-white" 
+        //                 type="submit" id="button-search" 
+        //                 disabled={!query}
+        //                 >
+        //                 <i className="search fas fa-search text-gray-500 border-white"></i>
+        //             </Button>
+        //         <FormControl 
+        //             type="text" 
+        //             name="q"
+        //             value={query} 
+        //             id="q" 
+        //             onChange={(e) => setQuery(e.target.value)} 
+        //             className="text text-sm"
+        //             placeholder="Type product name..."
+        //             aria-label="Search Products"
+        //             aria-describedby="button-search"
+        //          ></FormControl>
+        //         {/* <FormControl 
+        //             type="text" 
+        //             name="q"
+        //             value={query} 
+        //             id="q" 
+        //             onChange={(e) => setQuery(e.target.value)} 
+        //             className="text-sm"
+        //             placeholder="Type product name"
+        //             aria-label="Search Products"
+        //             aria-describedby="button-search"
+        //          ></FormControl>
+        //          <Button 
+        //             className="border-white bg-black" 
+        //             type="submit" id="button-search" 
+        //             disabled={!query}
+        //             >
+        //             <i className="fas fa-search"></i>
+        //          </Button> */}
+        //     </InputGroup>
+        // </Form>

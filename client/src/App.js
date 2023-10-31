@@ -3,7 +3,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Home from './screens/Home';
+import Home from './screens/Home/Home';
 import Product from './screens/Product';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
@@ -36,12 +36,12 @@ import UserList from './screens/UserList';
 import ProductEdit from './screens/ProductEdit';
 import UserEdit from './screens/UserEdit';
 import CreateProduct from './screens/CreateProduct';
-import Header from './components/Header';
 import ForgotPassword from './screens/ForgotPassword/ForgotPassword';
 import ResetPassword from './screens/ResetPassword/ResetPassword';
 import CheckEmail from './screens/CheckEmail/CheckEmail';
 import RefundPolicy from './screens/RefundPolicy/RefundPolicy';
 import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
 
 
 function App() {
@@ -60,8 +60,6 @@ function App() {
   return (
     <BrowserRouter className="">
       <ToastContainer position='bottom-center' limit={1} />
-      <Header>
-      </Header>
       <main>
         <Routes className="">
                 <Route>

@@ -1,0 +1,48 @@
+.top-nav {
+    color: #ffffff;
+    background-color: #00162B;
+    font-family: 'Inter', sans-serif;
+}
+
+.socials {
+    max-width: 8rem;
+}
+
+.gallery-refund {
+    font-size: 0.9rem;
+    width: 12rem;
+}
+
+
+.search-box input::placeholder {
+    color: #1a1a1a82;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    padding-left: 0.1rem;
+}
+
+.search-profile-cart {
+    width: 33rem;
+}
+
+.search-cart-ham {
+    width: 11rem;
+}
+
+.dropdown-toggle::after {
+    display: none !important; 
+}
+
+.signin {
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+}
+
+.web-second {
+    border-bottom: 1px #4a4a4a28 solid;
+}
+
+.mobile-second {
+    padding: 1rem 2rem;
+}

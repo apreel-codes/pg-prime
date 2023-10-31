@@ -4,14 +4,15 @@ import React, { useEffect, useReducer, useRef, useState } from "react";
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
-import HomeProduct from "../components/HomeProduct";
+import HomeProduct from "../../components/HomeProduct";
 import { Helmet } from 'react-helmet-async';
-import { getError } from "../uttils";
+import { getError } from "../../uttils";
 import { toast } from "react-toastify";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import { sliderData } from "../components/slider/sliderData";
+import { sliderData } from "../../components/slider/sliderData";
 import { indexOf } from "core-js/es/array";
+import Header from "../../components/Header/Header";
 
 
 const reducer = (state, action) => {
@@ -166,10 +167,11 @@ const Home = () => {
 
 
     return (
-            <div className="md:w-[100%] mx-auto bg-gray-100 relative">
+            <div className="md:w-[100%] mx-auto relative">
                 <Helmet>
                     <title>PGF PRIME</title>
-                </Helmet> 
+                </Helmet>
+                <Header />
 {/* 
                     <div className='slider'>
                               <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide}/>
