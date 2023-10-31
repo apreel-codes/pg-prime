@@ -73,7 +73,7 @@ const Signin = () => {
             <Col md={4} className="testimonials hidden md:block">
                 <Testimonials />
             </Col>
-            <Col md={5} className="mx-auto pt-8 md:pt-32 px-10">
+            <Col md={5} className="mx-auto pt-8 md:pt-32 w-[55%]">
                 <div className="relative mb-3">
                     <Link to="/">
                         <AiOutlineArrowLeft className="back-arrow"/>
