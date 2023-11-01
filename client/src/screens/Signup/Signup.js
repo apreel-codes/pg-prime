@@ -93,11 +93,12 @@ const Signup = () => {
         <Helmet>
             <title>Sign Up</title>
         </Helmet>
-        <Row className="">
-            <Col md={4} className="testimonials hidden md:block">
+        <div className="flex flex-row">
+            <div className="web-test hidden md:block ">
                 <Testimonials />
-            </Col>
-            <Col md={5} className="mx-auto pt-8 md:pt-2 px-10 md:px-44 md:w-[60%]">
+            </div>
+            <div className="sign-up md:w-[60%] mx-auto">
+                <div className="sign-up-content md:w-[50%] mx-auto py-14 w-[100%] px-3">
                 <div className="relative mb-3">
                         <Link to="/">
                             <AiOutlineArrowLeft className="back-arrow"/>
@@ -158,8 +159,9 @@ const Signup = () => {
                         </div>
                     </Form>
                 </div>
-            </Col>
-        </Row>
+                </div>
+            </div>
+        </div>
        </div>
     )
 }

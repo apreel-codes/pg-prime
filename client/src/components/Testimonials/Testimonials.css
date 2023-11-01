@@ -1,8 +1,10 @@
+
 .slide {
     margin-top: 9rem;
     text-align: center;
     /* transition: all 0.5s ease; */ 
 }
+
 
 .slide img {
     margin: auto;
@@ -60,18 +62,18 @@
     opacity: 1;
   }
 
-.testimonials .text{
+.slider .text{
     font-size: 1rem;
     line-height: 1.7rem;
     margin-bottom: 1.5rem;
 }
 
-.testimonials .name{
+.slider .name{
     color: #c5c5c5d9;
     font-family: 'Inter', sans-serif;
 }
 
-.testimonials {
+.slider {
     color: #c5c5c5d9;
     font-family: 'Inter', sans-serif;
 }

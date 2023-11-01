@@ -1,3 +1,9 @@
+.web-test {
+    background-color: #00162B;
+    width: 40%;
+}
+
+
 .form {
     padding: 2rem 1.3rem;
     border-radius: 1rem;
@@ -73,9 +79,9 @@
     font-weight: 500;
 }
 
-.testimonials .text{
+/* .testimonials .text{
     color: #e4e4e4;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 1.7rem;
-}
+} */
