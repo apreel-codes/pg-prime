@@ -54,7 +54,7 @@ const Footer = () => {
           </Form>
       </div>
 
-        <div className="link-contact flex flex-col md:gap-x-48 gap-y-12 md:flex-row justify-between">
+        <div className="link-contact flex flex-col md:gap-x-40 gap-y-12 md:flex-row justify-between">
           {/* quick links */}
             <div className="flex flex-col gap-y-3">
               <span className="font-semibold text-base">Quick Links</span>
