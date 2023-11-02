@@ -76,7 +76,7 @@ const Footer = () => {
                     <div className="flex flex-flow gap-x-5">
                       <Link
                       ><img className="socials-twitter"  src="../images/twitter.png"/></Link>
-                      <Link
+                      <Link to="https://www.facebook.com/profile.php?id=61551700054426&mibextid=LQQJ4d"
                       ><img className="socials-facebook"  src="../images/facebook.png"/></Link>
                       <Link 
                       to="https://instagram.com/pgf_prime?igshid=MzRIODBiNWFIZA=="

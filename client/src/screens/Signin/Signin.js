@@ -69,64 +69,66 @@ const Signin = () => {
         <Helmet>
             <title>Sign In</title>
         </Helmet>
-        <Row className="">
-            <Col md={4} className="testimonials hidden md:block">
+        <div className="flex flex-row">
+            <div className="web-test hidden md:block">
                 <Testimonials />
-            </Col>
-            <Col md={5} className="mx-auto pt-8 md:pt-32 px-10 md:px-44">
-                <div className="relative mb-3">
-                    <Link to="/">
-                        <AiOutlineArrowLeft className="back-arrow"/>
-                    </Link>
-                    <p className="back">Back to Home page</p>
-                </div>
-                <div className="form">
-                    <div className="">
-                        <h1 className="mb-1 font-bold">Sign in to your account</h1>
-                        <p>Welcome back! Kindly enter your details.</p>
+            </div>
+            <div className="sign-in md:w-[60%] mx-auto">
+                <div className="sign-in-content md:w-[50%] mx-auto py-14 w-[100%] px-3">
+                    <div className="relative mb-3">
+                        <Link to="/">
+                            <AiOutlineArrowLeft className="back-arrow"/>
+                        </Link>
+                        <p className="back">Back to Home page</p>
                     </div>
+                    <div className="form">
+                        <div className="">
+                            <h1 className="mb-1 font-bold">Sign in to your account</h1>
+                            <p>Welcome back! Kindly enter your details.</p>
+                        </div>
 
-                    <Form className="main-form" onSubmit={submitHandler}>
-                        <Form.Group className="mb-3 grid" controlId="email">
-                            <Form.Label className="label">Email</Form.Label>
-                            <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
-                        </Form.Group>
-
-                            <Form.Group className="grid mb-3" controlId="password">
-                                <Form.Label className="label" >Password</Form.Label>
-                                <div className="flex">
-                                    <input 
-                                        type={type}
-                                        value={password} 
-                                        placeholder="********" 
-                                        required 
-                                        onChange={(e) => setPassword(e.target.value)}
-                                    />
-                                    <span class="flex justify-around items-center" onClick={handleToggle}>
-                                        <Icon class="absolute mr-10" icon={icon} size={20}/>
-                                    </span>
-                                </div>          
+                        <Form className="main-form" onSubmit={submitHandler}>
+                            <Form.Group className="mb-3 grid" controlId="email">
+                                <Form.Label className="label">Email</Form.Label>
+                                <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
                             </Form.Group>
-                    
-                        <div className="flex flex-row justify-between items-center mb-3">
-                            <div className="remember-me-group flex flex-row items-center justify-between">
-                                <input className="box w-5 h-5" type="checkbox" id="remember-me" name="remember-me" value="remember-me" />
-                                <label className="remember-me" for="remember-me"> Remember me</label>
+
+                                <Form.Group className="grid mb-3" controlId="password">
+                                    <Form.Label className="label" >Password</Form.Label>
+                                    <div className="flex">
+                                        <input 
+                                            type={type}
+                                            value={password} 
+                                            placeholder="********" 
+                                            required 
+                                            onChange={(e) => setPassword(e.target.value)}
+                                        />
+                                        <span class="flex justify-around items-center" onClick={handleToggle}>
+                                            <Icon class="absolute mr-10" icon={icon} size={20}/>
+                                        </span>
+                                    </div>          
+                                </Form.Group>
+                        
+                            <div className="flex flex-row justify-between items-center mb-3">
+                                <div className="remember-me-group flex flex-row items-center justify-between">
+                                    <input className="box w-5 h-5" type="checkbox" id="remember-me" name="remember-me" value="remember-me" />
+                                    <label className="remember-me" for="remember-me"> Remember me</label>
+                                </div>
+                                <Link className="forgot-password" to={`/forget-password`}>Forgot Password? </Link>
                             </div>
-                            <Link className="forgot-password" to={`/forget-password`}>Forgot Password? </Link>
-                        </div>
-                        <div className="mb-3 d-grid">
-                            <Button className="button py-2 border-none text-white" type="submit">Sign in</Button>
-                        </div>
-                        <div className="have-account text-center">
-                            Don't have an account?{' '}
-                            <Link className="forgot-password" to={`/signup?redirect=${redirect}`}>Sign up</Link>
-                        </div>
-                    </Form>
+                            <div className="mb-3 d-grid">
+                                <Button className="button py-2 border-none text-white" type="submit">Sign in</Button>
+                            </div>
+                            <div className="have-account text-center">
+                                Don't have an account?{' '}
+                                <Link className="forgot-password" to={`/signup?redirect=${redirect}`}>Sign up</Link>
+                            </div>
+                        </Form>
+                    </div>
+                    
                 </div>
-                
-            </Col>
-        </Row>
+            </div>
+        </div>
        </div>
     )
 }

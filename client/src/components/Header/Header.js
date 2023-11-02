@@ -69,12 +69,14 @@ const Header = () => {
 
 
     return (
-            <header className=''>
+            <header className='relative'>
                 <div className='top-nav flex flex-row justify-between items-center py-2 px-6 md:px-20 md:py-2'>
                     <div className='socials flex flex-row justify-between'>
                         <Link><img className='h-8 w-18 mt-0.5 mr-1' src='../images/nav-twitter.png'/></Link>
-                        <Link><img className='h-10 w-22' src='../images/nav-facebook.png'/></Link>
-                        <Link><img className='h-10 w-22' src='../images/nav-insta.png'/></Link>
+                        <Link to="https://www.facebook.com/profile.php?id=61551700054426&mibextid=LQQJ4d"
+                        ><img className='h-10 w-22' src='../images/nav-facebook.png'/></Link>
+                        <Link to="https://instagram.com/pgf_prime?igshid=MzRIODBiNWFIZA=="
+                        ><img className='h-10 w-22' src='../images/nav-insta.png'/></Link>
                     </div>
                     <div className='flex flex-row justify-between gallery-refund md:w-48'>
                         <Link className='hidden md:block'>Gallery</Link>
@@ -91,7 +93,7 @@ const Header = () => {
                                     className='dropdown-item' 
                                     to="/profile"
                                 >
-                                    Account
+                                    My Account
                                 </Link>
                                 <Link 
                                     className='dropdown-item'
@@ -149,7 +151,7 @@ const Header = () => {
                 </div>
                 <div className='hidden md:block page-navs border'>
                     <ul className='flex flex-row justify-between items-center w-[55%] my-3 ml-20'>
-                        <Link><li>Home</li></Link>
+                        <Link to="/"><li>Home</li></Link>
                         <Link><li>New Arrivals</li></Link>
                         <Link><li>Best Sellers</li></Link>
                         <div className='brands w-16'><li>Nike</li><img className='h-2' src='../images/arrow-down.png'/></div>
@@ -159,51 +161,51 @@ const Header = () => {
                     </ul>
                 </div>
 
-
-
-
-                <div className= { isNavBarToggled ? 'mobile-side-nav' : 'hide-mobile-side-nav'} >
-                        <ul className='flex flex-col py-1'>
-                            <Link><li>Home</li></Link>
-                            <Link><li>New Arrivals</li></Link>
-                            <Link><li>Best Sellers</li></Link>
-                            <div className='mobile-brands'><li>Nike</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
-                            <div className='mobile-brands'><li>Adidas</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
-                            <div className='mobile-brands'><li>Jordan</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
-                            <div className='mobile-brands'><li>New Balance</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
-                        </ul>
-                        {userInfo ? (
-                            <div className='profile-signout flex flex-col mt-12'>
-                                <Link 
-                                    className='' 
-                                    to="/profile"
-                                >
-                                    My Account
-                                </Link>
-                                <Link 
-                                    className='signout'
-                                    to="#signout"
-                                    onClick={signoutHandler}
-                                >
-                                    <Button className='button w-full mt'>Sign Out</Button>
-                                </Link>             
-                            </div>
-                        ) : (
-                            <div className='flex flex-col mt-14'>
-                                <Link 
-                                    className='signin'
-                                    to="/signin">
-                                    <Button className='button w-full py-2'>Sign in</Button>
-                                </Link>
-                                <Link 
-                                    className='signup'
-                                    to="/signup">
-                                    <Button className='button w-full py-2'>Sign up</Button>
-                                </Link>
-                            </div>
-                            
-                        )}
+                <div className='side-body'>
+                    <div className= { isNavBarToggled ? 'mobile-side-nav' : 'hide-mobile-side-nav'} >
+                            <ul className='flex flex-col py-1'>
+                                <Link to="/"><li>Home</li></Link>
+                                <Link><li>New Arrivals</li></Link>
+                                <Link><li>Best Sellers</li></Link>
+                                <div className='mobile-brands'><li>Nike</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
+                                <div className='mobile-brands'><li>Adidas</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
+                                <div className='mobile-brands'><li>Jordan</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
+                                <div className='mobile-brands'><li>New Balance</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
+                            </ul>
+                            {userInfo ? (
+                                <div className='profile-signout flex flex-col mt-14'>
+                                    <Link 
+                                        className='' 
+                                        to="/profile"
+                                    >
+                                        My Account
+                                    </Link>
+                                    <Link 
+                                        className='signout'
+                                        to="#signout"
+                                        onClick={signoutHandler}
+                                    >
+                                        <Button className='button w-full mt'>Sign Out</Button>
+                                    </Link>             
+                                </div>
+                            ) : (
+                                <div className='flex flex-col mt-14'>
+                                    <Link 
+                                        className='signin'
+                                        to="/signin">
+                                        <Button className='button w-full py-2'>Sign in</Button>
+                                    </Link>
+                                    <Link 
+                                        className='signup'
+                                        to="/signup">
+                                        <Button className='button w-full py-2'>Sign up</Button>
+                                    </Link>
+                                </div>
+                                
+                            )}
+                    </div>
                 </div>
+                
                 {/* <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
                     <Container fluid className='px-4'>
                         <LinkContainer className='' to="/">

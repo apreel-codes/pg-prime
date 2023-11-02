@@ -4,7 +4,7 @@ import React, { useEffect, useReducer, useRef, useState } from "react";
 import logger from 'use-reducer-logger';
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col';
-import HomeProduct from "../../components/HomeProduct";
+import HomeProduct from "../../components/HomeProduct/HomeProduct";
 import { Helmet } from 'react-helmet-async';
 import { getError } from "../../uttils";
 import { toast } from "react-toastify";
@@ -14,6 +14,7 @@ import { sliderData } from "../../components/slider/sliderData";
 import { indexOf } from "core-js/es/array";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import NewArrivals from "../../components/NewArrivals/NewArrivals";
 
 
 const reducer = (state, action) => {
@@ -78,7 +79,7 @@ const Home = () => {
       return reversedArray;
     };
 
-    const newestProducts =reverseArray(products);
+    const newestProducts = reverseArray(products);
 
     // Function to specify a particular number of objects from the array
     const getFourProducts = (arr, num) => {
@@ -170,66 +171,27 @@ const Home = () => {
 
 
     return (
-            <div className="md:w-[100%] mx-auto relative">
+            <div className="">
                 <Helmet>
                     <title>PGF PRIME</title>
                 </Helmet>
                 <Header />
-{/* 
-                    <div className='slider'>
-                              <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide}/>
-                              <AiOutlineArrowRight className="arrow next" onClick={nextSlide}/>
-
-                              {
-                                  sliderData.map((slide, index) => (
-                                      <div className={index === currentSlide ? "slide current" : "slide"} key={index}>
-                                          {index === currentSlide && (
-                                              <>
-                                                  <img src={slide.image} alt='slide'/>
-                                                  <div className='content'>
-                                                      <h2>{slide.heading}</h2>
-                                                      <hr />
-                                                      {
-                                                        sliderData.indexOf(slide) === 2 && (
-                                                          <div>
-                                                            <Link>
-                                                              <button onClick={handleButtonClick} className='md:mt-3 md:text-lg text-white text-base'>
-                                                                  Shop Now
-                                                              </button>
-                                                            </Link>
-                                                          </div>
-                                                        )
-                                                      }
-                                                      
-                                                  </div>
-                                              </>
-                                          )}
-                                      </div>
-                                  ))
-                              }
-                    </div> */}
+                <NewArrivals />
 
 
-                <div ref={sectionRef} className="mx-auto w-[90%]">
+                {/* <div ref={sectionRef} className="mx-auto w-[90%]">
                         <h1 className='text-black text- md:text-4xl trending mb-4 mt-5 underline'><span className="text-red-600">Best</span>Sellers</h1>
-                        <Link to="/refundpolicy">Refund Policy</Link>
-                        {/* <hr className="trending-line -mt-6 mb-4"/> */}
-
                         <Carousel responsive={responsive} className="">
                             {randProducts.map((product, i) => (
                                 <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                                     <HomeProduct product={product}></HomeProduct>
-                                </div>
-                            
+                                </div>     
                         ))}
                         </Carousel>
-
-
-                </div>               
+                </div>                */}
                       
-                    <div className="mx-auto w-[90%] mt-20">
+                    {/* <div className="mx-auto w-[90%] mt-20">
                       <h1 className='text-black md:text-4xl trending mb-3 underline'><span className="text-red-600">Newest</span> Arrivals</h1>
-                      {/* <hr className="trending-line -mt-4 mb-3 w-[50%]"/> */}
                           <Carousel responsive={responsive} className="mt-3 mx-auto">
                                   {newestProducts.map((product, i) => (
                                       <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
@@ -239,13 +201,12 @@ const Home = () => {
                                   
                                   ))}
                           </Carousel>                   
-                    </div>
+                    </div> */}
              
 
 
-                <div className="mx-auto w-[90%] mt-5">
+                {/* <div className="mx-auto w-[90%] mt-5">
                   <h2 className='text-black text- md:text-4xl trending mb-4 mt-5 underline'><span className="text-red-600">Top</span> Rated</h2>
-                  {/* <span className="text-sm text-gray-500">Discover the sneakers that have stolen the hearts of sneakerheads worldwide.</span> */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mt-3">
                         {fourProducts.map((product, i) => (
                                       <div key={product.slug} className="">
@@ -254,12 +215,11 @@ const Home = () => {
                         ))}
                   </div>
 
-                </div>
+                </div> */}
 
 
-                <div className="mx-auto w-[90%] mt-20">
+                {/* <div className="mx-auto w-[90%] mt-20">
                       <h1 className='text-black md:text-4xl trending mb-3 underline'><span className="text-red-600">Shop</span> Now</h1>
-                      {/* <hr className="trending-line -mt-4 mb-3 w-[50%]"/> */}
                           <Carousel responsive={responsive} className="mt-3 mx-auto">
                                   {products.map((product, i) => (
                                       <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
@@ -274,12 +234,12 @@ const Home = () => {
                             <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
                           </Link>
                           </div>                  
-                    </div>
+                </div> */}
 
 
 
                 
-                <Row className="mx-auto w-[95%] md:w-[80%] my-24">
+                {/* <Row className="mx-auto w-[95%] md:w-[80%] my-24">
                   <Col md={6} className="">
                     <div className="nike-red md:nike-second rounded"/>
                   </Col>
@@ -293,15 +253,15 @@ const Home = () => {
                           <Link to="/search?brand=New%20Balance"><img className="nike w-16 mx-auto" src="./images/balance.png"></img></Link>
                     </div>
                   </Col>   
-                </Row>  
+                </Row>   */}
                 
-                <div className="store text-center pt-40">
+                {/* <div className="store text-center pt-40">
                                     
                     <p className="w-[70%] mx-auto text-xl text-white font-semibold">Come on in, and let's make some sneaker magic together!</p>
                       <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
                         <p className="bg-white text-black rounded-full text-base font-medium w-44 mx-auto mt-3 py-3">Locate our store</p>
                       </Link> 
-                </div> 
+                </div>  */}
 
                 <Link to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">
                   <img className="whatsapp"  src="./images/whatsapp.png"/>               

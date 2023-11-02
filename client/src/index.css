@@ -2,37 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @font-face{
-  font-family: cabinet;
-  src:url(cabinet.ttf);
-} */
 
 html, body, #root {
+  position: relative;
   height: 100%;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
-
-.product {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.trending {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  letter-spacing: 0.1rem;
-  font-size: 1.3rem;
-}
-
-small {
-  color: rgb(100, 98, 98);
-}
-
-.shop-now {
-  background-color: rgb(19, 19, 19);
-  color: rgb(234, 229, 229);
-  font-size: 0.9rem;
-  border-radius: 3rem;
-}
 
 .filter {
   font-family: "Anton";
@@ -124,12 +100,6 @@ small {
   color: #000;
 }
 
-.image {
-  width: 100%;
-  max-width: 200px;
-  height: 100%;
-  max-height: 300px;
-}
 
 .img-large {
   max-width: 100%;

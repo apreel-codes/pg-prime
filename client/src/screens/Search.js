@@ -12,7 +12,7 @@ import Rating from '../components/Rating';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Button from 'react-bootstrap/Button';
-import HomeProduct from '../components/HomeProduct';
+import HomeProduct from '../components/HomeProduct/HomeProduct';
 import { LinkContainer } from 'react-router-bootstrap';
 import Container from 'react-bootstrap/esm/Container';
 

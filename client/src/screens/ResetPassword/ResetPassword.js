@@ -87,62 +87,64 @@ export default function ResetPassword() {
       <Helmet>
         <title>Reset Password</title>
       </Helmet>
-      <Row className="">
-            <Col md={4} className="testimonials hidden md:block">
+      <div className="flex flex-row">
+            <div className="web-test hidden md:block">
                 <Testimonials />
-            </Col>
-            <Col md={5} className="mx-auto pt-8 md:pt-32 px-10 md:px-44">
-                <div className="relative mb-3">
-                        <Link to="/signin">
-                            <AiOutlineArrowLeft className="back-arrow"/>
-                        </Link>
-                        <p className="back">Back to Sign in</p>
-                </div>
-                <div className="form">
-                    <div className="">
-                        <h1 className="mb-1 font-bold">Set up a new password</h1>
-                        <p>Your new password should be different from any of your previous passwords.</p>
-                    </div>
-                    <Form className="main-form" onSubmit={submitHandler}>
-                    <Form.Group className="mb-2 grid" controlId="password">
-                          <Form.Label className="label" >Password</Form.Label>
-                                    <div className="mb-2 flex">
-                                        <input 
-                                            type={passwordtype}
-                                            value={password} 
-                                            placeholder="********" 
-                                            required 
-                                            onChange={(e) => setPassword(e.target.value)}
-                                        />
-                                        <span class="flex justify-around items-center" onClick={handleToggle}>
-                                            <Icon class="absolute mr-10" icon={passwordIcon} size={20}/>
-                                        </span>
-                                    </div>          
-                                    <p className="">Must be atleast 8 characters</p>
-                      </Form.Group>
-                      <Form.Group className="grid" controlId="confirmpassword">
-                          <Form.Label className="label" >Confirm Password</Form.Label>
-                                <div className="mb-4 flex">
-                                    <input 
-                                        type={confirmPasswordtype}
-                                        value={confirmPassword} 
-                                        placeholder="********" 
-                                        required 
-                                        onChange={(e) => setconfirmPassword(e.target.value)}
-                                    />
-                                    <span class="flex justify-around items-center" onClick={handleConfirmToggle}>
-                                        <Icon class="absolute mr-10" icon={confirmPasswordIcon} size={20}/>
-                                    </span>
-                                </div>          
+            </div>
+            <div className="md:w-[60%] mx-auto">
+            <div className="md:w-[50%] mx-auto py-14 w-[100%] px-3">
+                  <div className="relative mb-3">
+                          <Link to="/signin">
+                              <AiOutlineArrowLeft className="back-arrow"/>
+                          </Link>
+                          <p className="back">Back to Sign in</p>
+                  </div>
+                  <div className="form">
+                      <div className="">
+                          <h1 className="mb-1 font-bold">Set up a new password</h1>
+                          <p>Your new password should be different from any of your previous passwords.</p>
+                      </div>
+                      <Form className="main-form" onSubmit={submitHandler}>
+                      <Form.Group className="mb-2 grid" controlId="password">
+                            <Form.Label className="label" >Password</Form.Label>
+                                      <div className="mb-2 flex">
+                                          <input 
+                                              type={passwordtype}
+                                              value={password} 
+                                              placeholder="********" 
+                                              required 
+                                              onChange={(e) => setPassword(e.target.value)}
+                                          />
+                                          <span class="flex justify-around items-center" onClick={handleToggle}>
+                                              <Icon class="absolute mr-10" icon={passwordIcon} size={20}/>
+                                          </span>
+                                      </div>          
+                                      <p className="">Must be atleast 8 characters</p>
                         </Form.Group>
+                        <Form.Group className="grid" controlId="confirmpassword">
+                            <Form.Label className="label" >Confirm Password</Form.Label>
+                                  <div className="mb-4 flex">
+                                      <input 
+                                          type={confirmPasswordtype}
+                                          value={confirmPassword} 
+                                          placeholder="********" 
+                                          required 
+                                          onChange={(e) => setconfirmPassword(e.target.value)}
+                                      />
+                                      <span class="flex justify-around items-center" onClick={handleConfirmToggle}>
+                                          <Icon class="absolute mr-10" icon={confirmPasswordIcon} size={20}/>
+                                      </span>
+                                  </div>          
+                          </Form.Group>
 
-                        <div className="mb-3 mt-4 d-grid">
-                            <Button className="button py-2 border-none text-white" type="submit">Reset Password</Button>
-                        </div>
-                    </Form>
-                </div>
-            </Col>
-      </Row>
+                          <div className="mb-3 mt-4 d-grid">
+                              <Button className="button py-2 border-none text-white" type="submit">Reset Password</Button>
+                          </div>
+                      </Form>
+                  </div>
+            </div>
+            </div>
+      </div>
     </div>
   );
 }
