@@ -10,7 +10,7 @@
     width: 100%;
     max-width: 400px;
     height: 100%;
-    max-height: 320px;
+    max-height: 350px;
   }
 
   .product .name {
@@ -22,7 +22,8 @@
 
   .product .brand {
     font-weight: 200;
-    color: rgb(41, 41, 41);
+    font-size: 0.8rem;
+    color: rgb(97, 97, 97);
   }
   
   .product .price {
@@ -31,6 +32,8 @@
     font-size: 1rem;
     margin-top: 0.4rem;
   }
+
+
   
  
   

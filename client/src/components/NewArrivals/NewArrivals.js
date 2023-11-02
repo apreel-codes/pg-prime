@@ -108,9 +108,9 @@ const NewArrivals = () => {
             {/* mobile */}
             <div className= 'mobile-slider md:hidden block'>
                 <div className="">
-                    <div className='flex flex-row justify-between items-center my-5'>
+                    <div className='flex flex-row justify-between items-center my-4'>
                         <h1 className='new-arrivals'>New arrivals for you</h1>
-                        <Button variant='' className='border button flex flex-row justify-between items-center'>
+                        <Button variant='' className='slider-button flex flex-row justify-between items-center'>
                             View More
                             <img src="../images/more.png" />
                         </Button>
@@ -132,7 +132,7 @@ const NewArrivals = () => {
                             }
                     {/* </Carousel>                    */}
                 </div>
-                <div className='flex flex-row justify-between w-[80%] h-4 mt-16 mx-auto'>
+                <div className='flex flex-row justify-between w-[80%] h-4 mt-14 mx-auto'>
                     <img src="../images/mobile-left.png" className="mobile-arrow mobile-prev" onClick={prevSlide} />
                     <small className='indication'>{currentSlide + 1} of {productsData.length}</small>
                     <img src="../images/mobile-right.png" className="mobile-arrow mobile-next" onClick={nextSlide}/>

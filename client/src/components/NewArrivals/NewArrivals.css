@@ -26,12 +26,12 @@
 }
   
 
-.button {
+.slider-button {
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     color: black;
-    outline: 1px #003466 solid;
+    border: 1px #003466 solid;
     width: 7.3rem;
 }
 
