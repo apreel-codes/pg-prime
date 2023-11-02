@@ -15,6 +15,7 @@ import { indexOf } from "core-js/es/array";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import NewArrivals from "../../components/NewArrivals/NewArrivals";
+import BgImage from "../../components/BgImage/BgImage";
 
 
 const reducer = (state, action) => {
@@ -176,7 +177,8 @@ const Home = () => {
                     <title>PGF PRIME</title>
                 </Helmet>
                 <Header />
-                <NewArrivals />
+                <BgImage />
+                {/* <NewArrivals /> */}
 
 
                 {/* <div ref={sectionRef} className="mx-auto w-[90%]">

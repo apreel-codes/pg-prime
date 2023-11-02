@@ -105,8 +105,22 @@ const NewArrivals = () => {
 
     return (
         <div className='md:w-[80%] w-[85%] mx-auto'>
+            <div>
+            {
+                                productsData.map((product, index) => (
+                                    <div key={index}>
+                                            <>
+                                                <div key={product.slug} sm={6} md={4} lg={3} className="mobile-content">
+                                                    <HomeProduct
+                                                    product={product}></HomeProduct>
+                                                </div>
+                                            </>
+                                    </div>      
+                                ))
+                            }
+            </div>
             {/* mobile */}
-            <div className= 'mobile-slider md:hidden block'>
+            {/* <div className= 'mobile-slider md:hidden block'>
                 <div className="">
                     <div className='flex flex-row justify-between items-center my-4'>
                         <h1 className='new-arrivals'>New arrivals for you</h1>
@@ -115,7 +129,6 @@ const NewArrivals = () => {
                             <img src="../images/more.png" />
                         </Button>
                     </div>
-                    {/* <Carousel responsive={responsive} className=""> */}
                             {
                                 productsData.map((product, index) => (
                                     <div className={index === currentSlide ? "mobile-slide mobile-current" : "mobile-slide"} key={index}>
@@ -130,21 +143,22 @@ const NewArrivals = () => {
                                     </div>      
                                 ))
                             }
-                    {/* </Carousel>                    */}
                 </div>
-                <div className='flex flex-row justify-between w-[80%] h-4 mt-14 mx-auto'>
+                <div className='mobile-carousel flex flex-row justify-between w-[70%] h-4 mx-auto'>
                     <img src="../images/mobile-left.png" className="mobile-arrow mobile-prev" onClick={prevSlide} />
                     <small className='indication'>{currentSlide + 1} of {productsData.length}</small>
                     <img src="../images/mobile-right.png" className="mobile-arrow mobile-next" onClick={nextSlide}/>
                 </div>
-                {/* <AiOutlineArrowLeft className="mobile-arrow mobile-prev" onClick={prevSlide}/>
-                <AiOutlineArrowRight className="mobile-arrow mobile-next" onClick={nextSlide}/> */}
-            </div>
+            </div> */}
 
             {/* web */}
-            <div className="web-slider md:block hidden">
-                <div>
-                    <h1 className=''>New arrivals for you</h1>
+            {/* <div className="web-slider md:block hidden">
+                <div className='flex flex-row justify-between items-center my-4'>
+                    <h1 className='web-new-arrivals'>New arrivals for you</h1>
+                    <Button variant='' className='slider-button flex flex-row justify-between items-center'>
+                            View More
+                            <img src="../images/more.png" />
+                    </Button>
                 </div>
                 <Carousel responsive={responsive} className="">
                         {productsData.map((product, i) => (
@@ -155,7 +169,7 @@ const NewArrivals = () => {
                                   
                         ))}
                 </Carousel>                   
-            </div>
+            </div> */}
         </div>
     )
 }
