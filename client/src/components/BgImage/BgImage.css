@@ -2,7 +2,6 @@
     font-family: 'Inter', sans-serif;
     height: 100%;
     width: 100%;
-    /* height: 400px; */
   }
 
 .mobile-bg-image {
@@ -11,18 +10,12 @@
 	background-repeat: no-repeat;
 	background-size: cover;
     height: 400px;
-    /* max-height: 350px; */
-    /* background-image: url("./mobile-bg.png");
-    width: 100%;
-    max-width: 300px;
-    height: 100%;
-    max-height: 350px; */
   }
 
 .mobile-bg-content {
     width: 92%;
     font-family: 'Inter', sans-serif;
-    margin-top: 6rem;
+    padding-top: 6rem;
 }
 
 .mobile-bg-content h1{
@@ -49,6 +42,53 @@
     font-size: 0.9rem;
     color: #ffffff;
     width: 30%;
+    cursor: pointer;
 }
 
-/* font-family: 'Inter', sans-serif; */
+
+.web-bg {
+    font-family: 'Inter', sans-serif;
+    height: 100%;
+    width: 100%;
+  }
+
+.web-bg-image {
+    background-image: linear-gradient(rgba(3, 3, 3, 0.529), rgba(13, 13, 16, 0.6)), url("./web-bg.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 600px;
+  }
+
+  .web-bg-content {
+    width: 87%;
+    font-family: 'Inter', sans-serif;
+    padding-top: 10rem;
+}
+
+.web-bg-content h1{
+    font-size: 2.4rem;
+    line-height: 3rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: #ffffff;
+    width: 50%;
+    margin-bottom: 1.5rem;
+}
+
+.web-bg-content p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #ffffffcf;
+    width: 55%;
+    margin-bottom: 2rem;
+}
+
+.web-bg-button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #ffffff;
+    width: 10rem;
+    cursor: pointer;
+}

@@ -43,6 +43,7 @@
 
 .mobile-second {
     padding: 0.7rem 1.2rem;
+    border-bottom: 1px #4a4a4a28 solid;
 }
 
 .page-navs {
@@ -63,7 +64,6 @@
     justify-content: space-between;
     align-items: center;
 }
-
 
 
 .mobile-side-nav {

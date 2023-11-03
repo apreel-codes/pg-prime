@@ -1,0 +1,19 @@
+.best-sellers-button {
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    color: rgb(0, 0, 0);
+    border: 1px #003466 solid;
+    width: 7.55rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.3rem;
+}
+
+.best-sellers {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+}
+
+/* font-family: 'Inter', sans-serif; */
