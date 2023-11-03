@@ -1,0 +1,49 @@
+.store {
+    font-family: 'Inter', sans-serif;
+    height: 100%;
+    margin: 7rem 0;
+  }
+
+.store-img {
+    background-image: url("./web-store.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 700px;
+  }
+
+.store .store-content {
+    background-color: #00162b;
+    text-align: center;
+    border-radius: 1.3rem;
+    padding: 3rem 0;
+    margin-top: -10%;
+}
+
+.store .store-content h2 {
+    color: #ffffff;
+    font-size: 1.8rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    margin-bottom: 1.9rem;
+}
+
+.store .store-content p {
+    font-size: 1.1rem;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 1.9rem;
+}
+
+.store .store-content button {
+    background-color: #00162b;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    color: #ffffff;
+    width: 22%;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.8rem;
+    border: 1px #ffffff solid;
+    border-radius: 0.5rem;
+}

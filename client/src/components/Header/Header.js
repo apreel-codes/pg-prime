@@ -115,7 +115,7 @@ const Header = () => {
                                 <img className='w-7 h-7' src='../images/shopping-cart.png'/>
                             </Link>
                             {cart.cartItems.length > 0 && (
-                                <small className='text-lg'>
+                                <small className='cart-text'>
                                     {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                                 </small>
                             )}
@@ -133,7 +133,7 @@ const Header = () => {
                                         <img className='w-5 h-5' src='../images/shopping-cart.png'/>
                                     </Link>
                                     {cart.cartItems.length > 0 && (
-                                        <small className='text-base'>
+                                        <small className='cart-text'>
                                             {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                                         </small>
                                     )}
@@ -167,10 +167,10 @@ const Header = () => {
                                 <Link to="/"><li>Home</li></Link>
                                 <Link><li>New Arrivals</li></Link>
                                 <Link><li>Best Sellers</li></Link>
-                                <div className='mobile-brands'><li>Nike</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
-                                <div className='mobile-brands'><li>Adidas</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
-                                <div className='mobile-brands'><li>Jordan</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
-                                <div className='mobile-brands'><li>New Balance</li><img className='w-3 h-4' src='../images/angle-right.png'/></div>
+                                <div className='mobile-brands'><li>Nike</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
+                                <div className='mobile-brands'><li>Adidas</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
+                                <div className='mobile-brands'><li>Jordan</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
+                                <div className='mobile-brands'><li>New Balance</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
                             </ul>
                             {userInfo ? (
                                 <div className='profile-signout flex flex-col mt-14'>

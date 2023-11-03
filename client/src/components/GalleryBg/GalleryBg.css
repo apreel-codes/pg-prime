@@ -1,0 +1,78 @@
+/* .mobile-bg {
+    font-family: 'Inter', sans-serif;
+    height: 100%;
+    width: 100%;
+  } */
+
+.mobile-gallery-image {
+    background-image: url("./mobile-gallery.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 800px;
+  }
+
+  .web-gallery-image {
+    background-image: url("./web-gallery.png");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+    height: 500px;
+  }
+
+  .mobile-gallery {
+    height: 100%;
+    width: 100%;
+  }
+
+  .web-gallery {
+    height: 100%;
+    width: 100%;
+  }
+
+.gallery .title {
+    margin-top: 10rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.gallery .title h2 {
+    font-size: 1.65rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
+    color: #000000;
+    /* width: 70%; */
+    margin-bottom: 1rem;
+}
+
+.gallery .title p {
+    font-size: 1rem;
+    line-height: 1.4rem;
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+}
+
+
+.gallery .shop-now-button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #ffffff;
+    width: 48%;
+    cursor: pointer;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+}
+
+.gallery .explore-button {
+    background-color: #f4f4f5;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: #1a1a1a;
+    width: 48%;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 0.8rem;
+    border: 1px #003466 solid;
+    border-radius: 0.5rem;
+}

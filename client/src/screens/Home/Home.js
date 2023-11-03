@@ -17,6 +17,8 @@ import Footer from "../../components/Footer/Footer";
 import NewArrivals from "../../components/NewArrivals/NewArrivals";
 import BgImage from "../../components/BgImage/BgImage";
 import BestSellers from "../../components/BestSellers/BestSellers";
+import GalleryBg from "../../components/GalleryBg/GalleryBg";
+import  Store from "../../components/Store/Store";
 
 
 const reducer = (state, action) => {
@@ -181,6 +183,8 @@ const Home = () => {
                 <BgImage />
                 {/* <NewArrivals /> */}
                 <BestSellers />
+                <GalleryBg />
+                <Store />
 
 
                 {/* <div ref={sectionRef} className="mx-auto w-[90%]">

@@ -1,9 +1,5 @@
 import React from 'react';
 import './BgImage.css'
-import Button from 'react-bootstrap/Button';
-
-
-
 
 const BgImage = () => {
     return (

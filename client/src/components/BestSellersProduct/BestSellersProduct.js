@@ -52,11 +52,11 @@ const BestSellersProduct = (props) => {
     }
 
     return  ( 
-            <div className="mobile-best-seller-product best-seller-product md:web-best-seller-product relative" key={product.slug}>
+            <div className="best-seller-product relative" key={product.slug}>
             <ToastContainer position='top-center' limit={1} />
             
                 <Link to={`/product/${product.slug}`}>
-                    <img className='mobile-image md:web-image' src={product.image} />
+                    <img className='image' src={product.image} />
                     </Link>
                     <div className="content">
                         <p className="price">&#163;{product.price}</p>

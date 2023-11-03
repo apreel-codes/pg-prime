@@ -47,13 +47,6 @@ html, body, #root {
   background-color: #c8bfbf;
 }
 
-.store {
-  background-image: linear-gradient(to right, rgba(89, 29, 15, 0.783), rgba(81, 10, 25, 0.6)), url("https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&q=80&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&w=1740");
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 500px;
-  width: 100%;
-}
 
 .hero {
   max-width: 100%;
