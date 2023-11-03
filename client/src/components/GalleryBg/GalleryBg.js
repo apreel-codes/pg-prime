@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 
 const GalleryBg = () => {
     return (
-        <div className='gallery'>
+        <div className='gallery mt-20 mb-5'>
             <div className='title'>
                 <h2 className=''>Our Gallery</h2>
                 <p className=''>Explore the world of PGF Prime through our captivating media contents.</p>

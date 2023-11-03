@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 const Store = () => {
     return (
         <div>
-            <div className='store w-[94%] mx-auto'>
-                <div className='store-img md:block hidden'>
+            <div className='store w-[94%] md:block hidden mx-auto'>
+                <div className='store-img'>
                 </div>
                 <div className='store-content w-[60%] mx-auto'>
                     <h2>Visit Our Store Today</h2>
