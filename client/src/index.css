@@ -9,6 +9,10 @@ html, body, #root {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.message-box-text {
+  font-size: 0.9rem;
+}
+
 
 .filter {
   font-family: "Anton";

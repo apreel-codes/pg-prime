@@ -43,7 +43,7 @@ const Rating = (props) => {
         {caption ? (
             <span>{caption}</span>
         ) : (
-            <span className="star-reviews">{rating + '.0'}</span>
+            <span className="star-reviews"></span>
         )}
         </div>
     )

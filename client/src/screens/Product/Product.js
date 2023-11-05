@@ -161,7 +161,7 @@ const Product = () => {
       const [isDescriptionToggled, setIsDescriptionToggled] = useState(false);
       const [isPolicyToggled, setIsPolicyToggled] = useState(false);
       const [isReviewToggled, setIsReviewToggled] = useState(false);
-      const [isButtonToggled, setIsButtonToggled] = useState(false);
+    
 
         const showDescription = () => {
             setIsDescriptionToggled(!isDescriptionToggled);    
@@ -344,6 +344,7 @@ const Product = () => {
                                                     >
                                                         <Form.Control
                                                         as="textarea"
+                                                        className="comment-text"
                                                         placeholder="Leave a comment here"
                                                         value={comment}
                                                         onChange={(e) => setComment(e.target.value)}
@@ -359,8 +360,8 @@ const Product = () => {
                                                 </form>
                                                 ) : (
                                                     <MessageBox>
-                                                    Please{' '}
-                                                    <Link to={`/signin?redirect=/product/${product.slug}`}>
+                                                    Please,{' '}
+                                                    <Link className="font-bold" to={`/signin?redirect=/product/${product.slug}`}>
                                                                 Sign In
                                                     </Link>{' '}
                                                     to write a review

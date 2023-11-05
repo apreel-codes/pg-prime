@@ -1,11 +1,12 @@
 import Spinner from 'react-bootstrap/Spinner';
 
 const LoadingBox = () => {
-    return (
-        
-            <Spinner className='mx-auto' animation="border" role="status">
-                <span className="visually-hidden mx-auto">Loading...</span>
+    return (     
+        <div className='order w-[10%] mx-auto mt-56'>
+            <Spinner className='' animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
             </Spinner>
+        </div>  
       
     )
 }
