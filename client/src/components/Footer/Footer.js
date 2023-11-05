@@ -37,7 +37,7 @@ const Footer = () => {
 
   console.log(window.location.host);
   return (
-    <footer className="md:px-32 md:py-20 p-8">
+    <footer className="md:px-12 md:py-14 p-8">
     <div className="flex flex-col gap-y-12 justify-between md:flex-row md:items-center">
       <div className="footer-form">
           <div className="">
@@ -54,7 +54,7 @@ const Footer = () => {
           </Form>
       </div>
 
-        <div className="link-contact flex flex-col md:gap-x-40 gap-y-12 md:flex-row justify-between">
+        <div className="link-contact flex flex-col md:gap-x-32 gap-y-12 md:flex-row justify-between">
           {/* quick links */}
             <div className="flex flex-col gap-y-3">
               <span className="font-semibold text-base">Quick Links</span>

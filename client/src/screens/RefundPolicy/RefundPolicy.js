@@ -7,9 +7,9 @@ import Header from "../../components/Header/Header";
 
 const RefundPolicy = () => {
     return (
-        <div className="refund">
+        <div className="">
             <Header />
-            <div className="w-[85%] md:w-[80%] mx-auto my-8">
+            <div className="refund w-[85%] md:w-[80%] mx-auto my-8">
                 <h1 className="text-center">Refund Policy</h1>
                 <div className="mt-5">
                     <p>At PGF Prime, your satisfaction is our top priority. 

@@ -54,6 +54,7 @@ const Signin = () => {
             navigate(redirect || '/');
         } catch (err) {
             toast.error(getError(err));
+            return;
         }
     };
 

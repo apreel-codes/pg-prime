@@ -1,7 +1,7 @@
 .store {
     font-family: 'Inter', sans-serif;
     height: 100%;
-    margin: 7rem 0;
+    margin: 9rem 0 7rem;
   }
 
 .store-img {
@@ -29,7 +29,7 @@
 }
 
 .store .store-content p {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #ffffff;
     font-family: 'Inter', sans-serif;
     margin-bottom: 1.9rem;
@@ -38,9 +38,9 @@
 .store .store-content button {
     background-color: #00162b;
     font-family: 'Inter', sans-serif;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     color: #ffffff;
-    width: 22%;
+    /* width: 22%; */
     font-weight: 500;
     cursor: pointer;
     padding: 0.8rem;

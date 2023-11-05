@@ -78,7 +78,6 @@ productRouter.post(
 })
   );
 
-
   productRouter.post(
     '/:id/reviews',
     isAuth,

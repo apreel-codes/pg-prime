@@ -39,7 +39,7 @@ const Cart = () => {
         ctxDispatch({ type: 'CART_REMOVE_ITEM', payload: item }); 
     }
 
-    const checkoutHandler = () => {
+    const checkOutHandler = () => {
         navigate('/signin?redirect=/shipping');
     }
 
@@ -107,7 +107,7 @@ const Cart = () => {
                                         <Button className="border-none bg-black rounded-full py-3 text-gray-100"
                                         type="button"
                                         
-                                        onClick={checkoutHandler}
+                                        onClick={checkOutHandler}
                                         disabled={ cartItems.length === 0 }
                                         >Proceed to Checkout</Button>
                                     </div>

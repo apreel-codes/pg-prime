@@ -47,14 +47,12 @@ const BestSellersProduct = (props) => {
 
 
         ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity }});
-        navigate('/cart');
+        navigate('/');
         toast.success('Item added to cart')
     }
 
     return  ( 
             <div className="best-seller-product relative" key={product.slug}>
-            <ToastContainer position='top-center' limit={1} />
-            
                 <Link to={`/product/${product.slug}`}>
                     <img className='image' src={product.image} />
                     </Link>
@@ -68,7 +66,6 @@ const BestSellersProduct = (props) => {
                     </div>
                     <div className="d-grid">
                         <button className="button" onClick={addToCartHandler}>
-                            {/* <img src="../images/cart.png"/> */}
                             Add to cart
                         </button>
                     </div>

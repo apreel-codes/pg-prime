@@ -5,7 +5,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DropdownMenu from 'react-bootstrap/DropdownMenu';
 import Home from '../../screens/Home/Home';
-import Product from '../../screens/Product';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import {LinkContainer} from 'react-router-bootstrap';
@@ -163,8 +162,8 @@ const Header = () => {
 
                 <div className='side-body'>
                     <div className= { isNavBarToggled ? 'mobile-side-nav' : 'hide-mobile-side-nav'} >
-                            <ul className='flex flex-col py-1'>
-                                <Link to="/"><li>Home</li></Link>
+                            <ul className='content flex flex-col py-1'>
+                                <Link to="/"><li >Home</li></Link>
                                 <Link><li>New Arrivals</li></Link>
                                 <Link><li>Best Sellers</li></Link>
                                 <div className='mobile-brands'><li>Nike</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>

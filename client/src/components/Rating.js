@@ -2,7 +2,7 @@
 const Rating = (props) => {
     const { rating, numReviews, caption } = props;
     return (
-        <div className="rating flex flex-row justify-between">
+        <div className="product-rating flex flex-row justify-between items-center">
         <div>
             <span>
                 <i className={rating >= 1 
@@ -43,7 +43,7 @@ const Rating = (props) => {
         {caption ? (
             <span>{caption}</span>
         ) : (
-            <span>{' ' + numReviews + ' reviews'}</span>
+            <span className="star-reviews">{rating + '.0'}</span>
         )}
         </div>
     )

@@ -106,9 +106,20 @@ main {
   flex: 1;
 }
 
+.product-rating {
+  width: 120px;
+}
 
-.rating span {
-  color: #b87c03;
+
+.product-rating span {
+  color: #ffaf0e;
+}
+
+.product-rating .star-reviews {
+  color: #000;
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
 }
 
 .img-thumbnail {
