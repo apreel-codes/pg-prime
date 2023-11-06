@@ -142,7 +142,7 @@ userRouter.post(
 
       //reset link
       // console.log(`${baseUrl()}/reset-password/${token}`);
-      console.log(`http://localhost:3000/reset-password/${token}`);
+      console.log(`https://localhost:3000/reset-password/${token}`);
 
       var transporter = nodemailer.createTransport({
         service: 'gmail',
