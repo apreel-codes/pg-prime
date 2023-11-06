@@ -202,7 +202,7 @@ button.thumbnail {
   max-height: 400px;
 }
 
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   table thead {
     display: none;
   }
@@ -216,7 +216,7 @@ button.thumbnail {
     width: 120px;
     min-width: 120px;
   }
-}
+} */
 
 .filter-search {
   padding: 0.4rem 1rem;

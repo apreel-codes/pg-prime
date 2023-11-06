@@ -13,7 +13,6 @@ import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Store } from '../../Store';
-import CartComponent from '../Cart/CartComponent';
 import Signin from '../../screens/Signin/Signin.js';
 import ShippingAddress from '../../screens/ShippingAddress';
 import DashboardScreen from '../../screens/Dashboard';
