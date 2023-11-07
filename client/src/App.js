@@ -42,6 +42,7 @@ import CheckEmail from './screens/CheckEmail/CheckEmail';
 import RefundPolicy from './screens/RefundPolicy/RefundPolicy';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
+import Gallery from './screens/Gallery/Gallery';
 
 
 function App() {
@@ -69,6 +70,7 @@ function App() {
                   <Route path="/search" element={<Search />} />
                   <Route path="/signin" element={<Signin />} />
                   <Route path="/signup" element={<Signup />} />
+                  <Route path="/gallery" element={<Gallery />} />
                   <Route path="/forget-password" element={<ForgotPassword />}/>
                   <Route path="/reset-password/:token" element={<ResetPassword />}/>
                   <Route path="/check-email" element={<CheckEmail />}/>

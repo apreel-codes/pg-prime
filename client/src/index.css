@@ -119,6 +119,10 @@ main {
   color: #ffaf0e;
 }
 
+.entry-rating span {
+  color: #ffaf0e;
+}
+
 .product-rating .star-reviews {
   color: #000;
   font-size: 0.8rem;

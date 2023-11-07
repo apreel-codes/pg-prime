@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import { TestimonialData } from './TestimonialData';
 import "./Testimonials.css";
-import Rating from '../Rating';
 import { Link } from 'react-router-dom';
+import EntryRating from '../EntryRating';
 
 const Testimonials = (props) => {
     const [ currentSlide, setCurrentSlide ] = useState(0);
@@ -32,7 +32,7 @@ const Testimonials = (props) => {
                     <div className={index === currentSlide ? "slide current" : "slide"} key={index}>
                         {index === currentSlide && (
                             <div>
-                                    <Rating className="rating" rating={slide.rating} caption=" "></Rating>
+                                    <EntryRating className="entry-rating" rating={slide.rating} caption=" "></EntryRating>
                                     <p className='text'>{slide.text}</p>
                                     <img src={slide.image} alt='slide'/>
                                     <p className='name'>{slide.name}</p>

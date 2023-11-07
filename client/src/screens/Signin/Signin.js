@@ -70,7 +70,7 @@ const Signin = () => {
         <Helmet>
             <title>Sign In</title>
         </Helmet>
-        <div className="flex flex-row">
+        <div className=" flex flex-row">
             <div className="web-test hidden md:block">
                 <Testimonials />
             </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import './GalleryBg.css'
-import Button from 'react-bootstrap/Button';
+import { Link } from "react-router-dom";
 
 
 const GalleryBg = () => {
@@ -20,16 +20,17 @@ const GalleryBg = () => {
                 </div>
             </div>
 
-            <div className='flex flex-row justify-between md:w-[28%] w-[89%] mx-auto mt-5'>
+            <div className='flex flex-row justify-between md:w-[30%] w-[89%] mx-auto mt-5 space-x-3'>
                 <button className='shop-now-button'>
                     Shop now
                 </button>
-                <button className='explore-button flex flex-row justify-between items-center px-4'>
-                    Explore Gallery
+                  <button className='explore-button flex flex-row justify-between items-center px-4'>
+                     <Link className='' to="/gallery">Explore Gallery </Link>
                     <img className='h-3 w-3' src="../images/more.png" />
-                </button>
+                  </button>
             </div>
         </div>
     )
 }
+
 export default GalleryBg;
