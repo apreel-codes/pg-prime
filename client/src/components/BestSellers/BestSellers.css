@@ -17,3 +17,16 @@
 }
 
 /* font-family: 'Inter', sans-serif; */
+
+@media screen and (min-width: 600px) {
+    .box {
+        width: 1350px;
+        border: 1px red solid;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .box {
+        width: 88%;
+    }
+}

@@ -1,38 +1,38 @@
 export const FirstData = [
     {
-        image: "./images/one.jpg",
+        image: "./images/one.png",
     },
     {
-        image: "./images/two.jpg",
+        image: "./images/two.png",
     },
     {
-        image: "./images/three.jpg",
+        image: "./images/three.png",
     },
     {
-        image: "./images/four.jpg",
+        image: "./images/four.png",
     },
     {
-        image: "./images/five.jpg",
+        image: "./images/five.png",
     },
     {
-        image: "./images/six.jpg",
+        image: "./images/six.png",
     },
     {
-        image: "./images/seven.jpg",
+        image: "./images/seven.png",
     },
     {
-        image: "./images/eight.jpg",
+        image: "./images/eight.png",
     },
     {
-        image: "./images/nine.jpg",
+        image: "./images/nine.png",
     },
     {
-        image: "./images/ten.jpg",
+        image: "./images/ten.png",
     },
     {
-        image: "./images/eleven.jpg",
+        image: "./images/eleven.png",
     },
     {
-        image: "./images/twelve.jpg",
+        image: "./images/twelve.png",
     },
 ]

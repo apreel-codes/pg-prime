@@ -43,7 +43,7 @@ const BestSellers = () => {
 
 
     return (
-        <div className='md:w-[95%] w-[88%] mx-auto mt-10 mb-10'>
+        <div className='box mx-auto mt-10 mb-10'>
             <div className='flex flex-row justify-between items-center my-4'>
                 <h1 className='best-sellers'>Best Sellers</h1>
                  <button className='best-sellers-button flex flex-row justify-between items-center'>

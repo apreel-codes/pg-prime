@@ -159,17 +159,17 @@ const Home = () => {
 
           const [allProducts, setAllProducts] = useState([]);
 
-          useEffect(() => {
-            const fetchAllProducts = async () => {
-              try{
-                const { data } = await axios.get('/api/products/allProducts');
-                setAllProducts(data);
-              } catch(err) {
-                toast.error(getError(err));
-              }
-            }
-            fetchAllProducts();
-          }, []);
+          // useEffect(() => {
+          //   const fetchAllProducts = async () => {
+          //     try{
+          //       const { data } = await axios.get('/api/products/allProducts');
+          //       setAllProducts(data);
+          //     } catch(err) {
+          //       toast.error(getError(err));
+          //     }
+          //   }
+          //   fetchAllProducts();
+          // }, []);
 
 
 
