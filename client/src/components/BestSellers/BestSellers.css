@@ -20,8 +20,7 @@
 
 @media screen and (min-width: 600px) {
     .box {
-        width: 1350px;
-        border: 1px red solid;
+        width: 90%;
     }
 }
 
