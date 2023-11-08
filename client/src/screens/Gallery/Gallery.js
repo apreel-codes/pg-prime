@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet-async";
 import './Gallery.css';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import { SecondtData } from './SecondData';
+
 
 const Gallery = () => {
     return (
@@ -13,22 +15,32 @@ const Gallery = () => {
             </Helmet>
         <Header />
            <div className='mobile-gallery-bg' />
+           <div className='web-gallery-bg' />
            <div className='gallery-page mx-auto'>
-             <div className='our-gallery'>
-              <h1 className='h1'>Our Gallery</h1>
+             <div className='our-gallery text-center'>
+              <h1>Our Gallery</h1>
               <p>At PGF PRIME, we offer a diverse selection of high-quality sneakers for all tastes and occasions, at affordable prices.</p>
-            {
-              FirstData.map((show, index) => (
+              <div className='md:grid md:grid-cols-4 md:gap-4 md:mx-auto md:w-[90%]'>
+               {
+                FirstData.map((show, index) => (
                 <img className='gallery-image' src={show.image} key={index} />
-              ))
-           }
+                ))
+               }
+              </div>
              <div className='d-grid'>
               <button className='gallery-button'>SHOP NOW</button>
              </div>
              </div>
-             <div className='happy-customers border'>
+             <div className='happy-customers text-center'>
               <h2>Our Happy Customers</h2>
               <p>Check out these snapshots of our satisfied customers</p>
+              <div className='md:grid md:grid-cols-4 md:gap-4 md:mx-auto md:w-[90%]'>
+               {
+                SecondtData.map((display, index) => (
+                <img className='gallery-image' src={display.image} key={index} />
+                ))
+               }
+              </div>
              </div>
           </div>
         <Footer />

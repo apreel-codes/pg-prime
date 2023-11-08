@@ -8,7 +8,7 @@ import Home from '../../screens/Home/Home';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import {LinkContainer} from 'react-router-bootstrap';
-import ErrorPage from '../../screens/NoPage';
+// import ErrorPage from '../../screens/NotFound/NoPage';
 import Badge from 'react-bootstrap/Badge';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';

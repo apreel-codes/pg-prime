@@ -21,9 +21,6 @@ import { Store } from "../../Store";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import './Product.css';
-import Reviews from "../../components/Reviews/Reviews";
-import ReactPaginate from 'react-paginate';
-
 
 
 
@@ -72,7 +69,6 @@ const Product = () => {
       
 
     const handleSizeChange = (event) => {
-    // console.log(event.target.value)
     setSize(event.target.value);
     setActive(!active);
   }
