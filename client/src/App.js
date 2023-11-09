@@ -26,7 +26,7 @@ import Profile from './screens/Profile';
 import Button from 'react-bootstrap/Button';
 import { getError } from './uttils';
 import SearchBox from './components/SearcchBox';
-import Search from './screens/Search';
+import Search from './screens/Search/Search';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './screens/Dashboard';
 import AdminRoute from './components/AdminRoute';

@@ -14,7 +14,7 @@ html, body, #root {
 }
 
 
-.filter {
+/* .filter {
   font-family: "Anton";
   font-size: 2.8rem;
   line-height: 3rem;
@@ -26,7 +26,7 @@ html, body, #root {
   font-size: 0.8rem;
   border-radius: 5rem;
   font-size: 1rem;
-}
+} */
 
 .error {
   font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -111,12 +111,15 @@ main {
 }
 
 .product-rating {
-  width: 120px;
+  width: 130px;
 }
-
 
 .product-rating span {
   color: #ffaf0e;
+}
+
+.product-rating .caption {
+  color: #000;
 }
 
 .entry-rating span {
@@ -188,13 +191,6 @@ button.thumbnail {
   display: block;
 }
 
-.filter-hidden {
-  display: none;
-}
-
-.filter-show {
-  display: block;
-}
 
 
 .brands {
@@ -221,11 +217,6 @@ button.thumbnail {
     min-width: 120px;
   }
 } */
-
-.filter-search {
-  padding: 0.4rem 1rem;
-  width: 10rem;
-}
 
 
 /* autoscroll */

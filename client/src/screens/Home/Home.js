@@ -159,17 +159,17 @@ const Home = () => {
 
           const [allProducts, setAllProducts] = useState([]);
 
-          // useEffect(() => {
-          //   const fetchAllProducts = async () => {
-          //     try{
-          //       const { data } = await axios.get('/api/products/allProducts');
-          //       setAllProducts(data);
-          //     } catch(err) {
-          //       toast.error(getError(err));
-          //     }
-          //   }
-          //   fetchAllProducts();
-          // }, []);
+          useEffect(() => {
+            const fetchAllProducts = async () => {
+              try{
+                const { data } = await axios.get('/api/products/allProducts');
+                setAllProducts(data);
+              } catch(err) {
+                toast.error(getError(err));
+              }
+            }
+            fetchAllProducts();
+          }, []);
 
 
 
@@ -182,9 +182,13 @@ const Home = () => {
                 <Header />
                 <BgImage />
                 {/* <NewArrivals /> */}
+                <Link to={{ pathname: '/search', search: `allProducts`}}>
+                      <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
+                </Link>
                 <BestSellers />
                 <GalleryBg />
                 <Store />
+
 
 
                 {/* <div ref={sectionRef} className="mx-auto w-[90%]">
