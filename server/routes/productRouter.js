@@ -139,7 +139,7 @@ productRouter.get(
   })
 );
 
-const SEARCH_PAGE_SIZE = 12;
+const SEARCH_PAGE_SIZE = 10;
 
 productRouter.get(
   '/search',

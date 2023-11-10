@@ -121,8 +121,6 @@ const Search = (e) => {
         fetchData();
     }, [brand, category, error, order, page, price, size, query, rating])
 
-    console.log(brand)
-
     const [categories, setCategories] = useState([]);
     useEffect(() => {
         const fetchCategories = async () => {
@@ -181,7 +179,31 @@ const Search = (e) => {
       const handleFilterClick = () => {
         setIsFilterToggled(!isFilterToggled);
       }
-   
+
+      const [isBrandToggled, setIsBrandToggled] = useState(false);
+      const [isCategoryToggled, setIsCategoryToggled] = useState(false);
+      const [isPriceToggled, setIsPriceToggled] = useState(false);
+      const [isRatingToggled, setIsRatingToggled] = useState(false);
+    
+
+    const showBrand = () => {
+        setIsBrandToggled(!isBrandToggled);    
+    }
+
+    const showCategory = () => {
+        setIsCategoryToggled(!isCategoryToggled);    
+    }
+
+    const showPrice = () => {
+        setIsPriceToggled(!isPriceToggled);    
+    }
+
+    const showRating = () => {
+        setIsRatingToggled(!isRatingToggled);    
+    }
+
+
+
 
     return (
         <div className=''>
@@ -189,294 +211,355 @@ const Search = (e) => {
                 <title>Search Products</title>
             </Helmet>
             <Header />
-            <div className='search-page'>
-                <div className='filter-search flex flex-row justify-between mt-4'>
-                    <div className=''>
-                        <div onClick={handleFilterClick}  className='filter-drop-down flex flex-row justify-between items-center'>
-                         <p className='cursor-pointer'>Filter</p>
-                         <img  src="./images/down-arrow.png"/>
-                        </div>
-                        {/* <div className='filter-group'>
-                            <div  className={isFilterToggled ? 'filter-hidden' : 'filter-show"'}>                   
-                                <div className=''>
-                                    <h3>Category</h3>
-                                    <ul>
-                                    <li>
-                                        <Link
-                                        className={'all' === category ? 'text-bold' : ''}
-                                        to={getFilterUrl({ category: 'all' })}
-                                        >
-                                        Any
-                                        </Link>
-                                    </li>
-                                    {categories.map((c) => (
-                                        <li key={c}>
-                                        <Link
-                                            className={c === category ? 'text-bold' : ''}
-                                            to={getFilterUrl({ category: c })}
-                                        >
-                                            {c}
-                                        </Link>
-                                        </li>
-                                    ))}
-                                    </ul>
-                                </div>
-                                <div className=''>
-                                    <h3>Brand</h3>
-                                    <ul>
-                                    <li>
-                                        <Link
-                                        className={'all' === brand ? 'text-bold' : ''}
-                                        to={getFilterUrl({ brand: 'all' })}
-                                        >
-                                        Any
-                                        </Link>
-                                    </li>
-                                    {brands.map((b) => (
-                                        <li key={b}>
-                                        <Link
-                                            className={b === brand ? 'text-bold' : ''}
-                                            to={getFilterUrl({ brand: b })}
-                                        >
-                                            {b}
-                                        </Link>
-                                        </li>
-                                    ))}
-                                    </ul>
-                                </div>
-                                <div className=''>
-                                    <h3>Price</h3>
-                                    <ul>
-                                    <li>
-                                        <Link
-                                        className={'all' === price ? 'text-bold' : ''}
-                                        to={getFilterUrl({ price: 'all' })}
-                                        >
-                                        Any
-                                        </Link>
-                                    </li>
-                                    {prices.map((p) => (
-                                        <li key={p.value}>
-                                        <Link
-                                            to={getFilterUrl({ price: p.value })}
-                                            className={p.value === price ? 'text-bold' : ''}
-                                        >
-                                            {p.name}
-                                        </Link>
-                                        </li>
-                                    ))}
-                                    </ul>
-                                </div>
-                                <div className=''>
-                                    <h3>Avg. Customer Review</h3>
-                                    <ul>
-                                    {ratings.map((r) => (
-                                        <li key={r.name} className=''>
-                                        <Link
-                                            to={getFilterUrl({ rating: r.rating })}
-                                            className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
-                                        >
-                                            <Rating caption={' & up'} rating={r.rating}></Rating>
-                                        </Link>
-                                        </li>
-                                    ))}
-                                    <li className=''>
-                                        <Link
-                                        to={getFilterUrl({ rating: 'all' })}
-                                        className={rating === 'all' ? 'text-bold' : ''}
-                                        >
-                                        <Rating caption={' & up'} rating={0}></Rating>
-                                        </Link>
-                                    </li>
-                                    </ul>
+            <div className='search-page md:mt-20 mx-auto md:w-[50%] mb-4 md:flex md:flex-row md:justify-between md:mt-10'>
+                <div className='hidden md:block filter-content md:w-[25%]'> 
+                                    <h1>Filter</h1>
+                                            <div className='brand'>
+                                            <div className='flex flex-row justify-between items-center'>
+                                                    <h3 className=''>Brand</h3>
+                                                    <div className='fa-stack' onClick={showBrand}>
+                                                        <img className= { isBrandToggled ? "downBrand fa-stack-1x h-3 w-4" : "upBrand" } src="../images/down-arrow.png"/>
+                                                        <img className= { isBrandToggled ? "upBrand fa-stack-1x h-3 w-4" : "downBrand" } src="../images/up-arrow.png"/>
+                                                    </div> 
+                                                </div>
+                                            
+                                            <div className= {isBrandToggled ? "block" : 'hidden'}>
+                                                <ul className=''>
+                                                            { brands.map((b) => (
+                                                                <li key={b}>
+                                                                <Link
+                                                                        className={brand === b ? 'text-bold' : ''}
+                                                                        to={getFilterUrl({ brand: b })}
+                                                                    >
+                                                                        {b}
+                                                                </Link>
+                                                            </li>
+                                                    ))}
+                                                    </ul>
+                                            </div>
+                                                
+                                            </div>
+                                            <div className='category'>
+                                                <div className='flex flex-row justify-between items-center'>
+                                                    <h3>Category</h3>
+                                                    <div className='fa-stack' onClick={showCategory}>
+                                                        <img className= { isCategoryToggled ? "downCategory fa-stack-1x h-3 w-4" : "upCategory" } src="../images/down-arrow.png"/>
+                                                        <img className= { isCategoryToggled ? "upCategory fa-stack-1x h-3 w-4" : "downCategory" } src="../images/up-arrow.png"/>
+                                                    </div> 
+                                                </div>
+                                            
+                                            <div className= {isCategoryToggled ? "block" : 'hidden'}>
+                                                    <ul>
+                                                        { categories.map((c) => (
+                                                            <li key={c}>
+                                                            <Link
+                                                                className={c === category ? 'text-bold' : ''}
+                                                                to={getFilterUrl({ category: c })}
+                                                            >
+                                                                {c}
+                                                            </Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                            </div>
+                                                
+                                            </div>
+                                            <div className='price'>
+                                                <div className='flex flex-row justify-between items-center'>
+                                                    <h3>Price</h3>
+                                                    <div className='fa-stack' onClick={showPrice}>
+                                                        <img className= { isPriceToggled ? "downPrice fa-stack-1x h-3 w-4" : "upPrice" } src="../images/down-arrow.png"/>
+                                                        <img className= { isPriceToggled ? "upPrice fa-stack-1x h-3 w-4" : "downPrice" } src="../images/up-arrow.png"/>
+                                                    </div> 
+                                                </div>
+            
+                                                <div className= {isPriceToggled ? "block" : 'hidden'}>
+                                                    <ul>
+                                                    { prices.map((p) => (
+                                                        <li key={p.value}>
+                                                        <Link
+                                                            to={getFilterUrl({ price: p.value })}
+                                                            className={p.value === price ? 'text-bold' : ''}
+                                                        >
+                                                            {p.name}
+                                                        </Link>
+                                                        </li>
+                                                    ))}
+                                                    </ul>
+                                                </div>
+                                                
+                                            </div>
+                                            <div className='filter-rating'>
+                                                <div className='flex flex-row justify-between items-center'>
+                                                    <h3>Rating</h3>
+                                                    <div className='fa-stack' onClick={showRating}>
+                                                        <img className= { isRatingToggled ? "downRating fa-stack-1x h-3 w-4" : "upRating" } src="../images/down-arrow.png"/>
+                                                        <img className= { isRatingToggled ? "upRating fa-stack-1x h-3 w-4" : "downRating" } src="../images/up-arrow.png"/>
+                                                    </div> 
+                                                </div>
+            
+                                                <div className= {isRatingToggled ? "block" : 'hidden'}>
+                                                    <ul>
+                                                    {ratings.map((r) => (
+                                                        <li key={r.name} className='rating-list'>
+                                                        <Link
+                                                            to={getFilterUrl({ rating: r.rating })}
+                                                            className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
+                                                        >
+                                                            <Rating caption={' & up'} rating={r.rating}></Rating>
+                                                        </Link>
+                                                        </li>
+                                                    ))}
+                                                    <li className=''>
+                                                        <Link
+                                                        to={getFilterUrl({ rating: 'all' })}
+                                                        className={rating === 'all' ? 'text-bold' : ''}
+                                                        >
+                                                        <Rating caption={' & up'} rating={0}>& up</Rating>
+                                                        </Link>
+                                                    </li>
+                                                    </ul>
+                                                </div>
+                                                
+                                            </div>
+                </div>
+                <div className='md:w-[75%]'>
+                    <div className='filter-search flex flex-row justify-between mt-4'>
+                        <div className=''>
+                            <div className='md:hidden filter-drop-down flex flex-row justify-between items-center'>
+                                <p className='cursor-pointer'>Filter</p>
+                                <div className='fa-stack -mt-0.5' onClick={handleFilterClick}>
+                                    <img className= { isFilterToggled ? "upFilter fa-stack-1x h-3 w-4" : "downFilter" } src="../images/down-arrow.png"/>
+                                    <img className= { isFilterToggled ? "downFilter fa-stack-1x h-3 w-4" : "upFilter" } src="../images/up-arrow.png"/>
                                 </div>
                             </div>
-                        </div> */}
-                    </div>
+                            <p className='all-products hidden md:block'>All Products</p>
+                        </div>
 
 
-                    <div className="sort">
-                                    <span>Sort{' '}<br /></span>
-                                    <select
-                                        className='sort-box border border-black-200 mt-1'
-                                        value={order}
-                                        onChange={(e) => {
-                                        navigate(getFilterUrl({ order: e.target.value }));
-                                        }}
-                                    >
-                                        <option value="newest">Newest Arrivals</option>
-                                        <option value="lowest">Price: Low to High</option>
-                                        <option value="highest">Price: High to Low</option>
-                                        <option value="toprated">Avg. Customer Reviews</option>
-                                    </select>
-                    </div>
-                </div>
-                <div className= { isFilterToggled ? 'search-page-body' : 'search-page-body-filter' }>
-                        {loading ? (
-                            <LoadingBox></LoadingBox>
-                        ) : error ? (
-                            <MessageBox variant="danger">{error}</MessageBox>
-                        ) : (
-                        <div>
-                                <div className="justify-content-between my-3">
-                                        <div>
-                                            <div>
-                                                {countProducts === 0 ? 'No' : countProducts} Results
-                                                {query !== 'all' && ' : ' + query}
-                                                {category !== 'all' && ' : ' + category}
-                                                {brand !== 'all' && ' : ' + brand}
-                                                {price !== 'all' && ' : Price ' + price}
-                                                {rating !== 'all' && ' : Rating ' + rating + ' & up'}
-                                                {query !== 'all' ||
-                                                category !== 'all' ||
-                                                brand !== 'all' ||
-                                                rating !== 'all' ||
-                                                price !== 'all' ? (
-                                                <Button
-                                                    variant="light"
-                                                    onClick={() => navigate('/search')}
-                                                >
-                                                    <i className="fas fa-times-circle"></i>
-                                                </Button>
-                                                ) : null}
-                                            </div>
-                                        </div>
-                                </div>
-                                {products.length === 0 && (
-                                    <MessageBox>No Product Found</MessageBox>
-                                )}
-
-                                <div className=''>
-                                    {products.map((product) => (
-                                    <div className="mb-3" key={product._id}>
-                                        <BestSellersProduct product={product}></BestSellersProduct>
-                                    </div>
-                                    ))}
-                                </div>
-
-                                <div>
-                                    {[...Array(pages).keys()].map((x) => (
-                                        <LinkContainer
-                                            key={x + 1}
-                                            className="mx-1"
-                                            to={{
-                                            pathname: '/search',
-                                            search: getFilterUrl({ page: x + 1 }, true),
+                        <div className="sort">
+                                        <span>Sort{' '}<br /></span>
+                                        <select
+                                            className='sort-box border border-black-200 mt-1'
+                                            value={order}
+                                            onChange={(e) => {
+                                            navigate(getFilterUrl({ order: e.target.value }));
                                             }}
                                         >
-                                            <Button
-                                                className={Number(page) === x + 1 ? 'text-bold' : ''}
-                                                variant="light"
-                                                >
-                                                {x + 1}
-                                            </Button>
-                                        </LinkContainer>
-                                    ))}
-                                </div>
+                                            <option value="newest">Newest Arrivals</option>
+                                            <option value="lowest">Price: Low to High</option>
+                                            <option value="highest">Price: High to Low</option>
+                                            <option value="toprated">Avg. Customer Reviews</option>
+                                        </select>
                         </div>
-                        )}
+                    </div>
+                    <div className= { isFilterToggled ? 'search-page-body' : 'search-page-body-filter' }>
+                            {loading ? (
+                                <LoadingBox></LoadingBox>
+                            ) : error ? (
+                                <MessageBox variant="danger">{error}</MessageBox>
+                            ) : (
+                            <div>
+                                    <div className="justify-content-between my-3">
+                                            <div>
+                                                <div>
+                                                    {countProducts === 0 ? 'No' : countProducts} Results
+                                                    {query !== 'all' && ' : ' + query}
+                                                    {category !== 'all' && ' : ' + category}
+                                                    {brand !== 'all' && ' : ' + brand}
+                                                    {price !== 'all' && ' : Price ' + price}
+                                                    {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+                                                    {query !== 'all' ||
+                                                    category !== 'all' ||
+                                                    brand !== 'all' ||
+                                                    rating !== 'all' ||
+                                                    price !== 'all' ? (
+                                                    <Button
+                                                        variant="light"
+                                                        onClick={() => navigate('/search')}
+                                                    >
+                                                        <i className="fas fa-times-circle"></i>
+                                                    </Button>
+                                                    ) : null}
+                                                </div>
+                                            </div>
+                                    </div>
+                                    {products.length === 0 && (
+                                        <MessageBox>No Product Found</MessageBox>
+                                    )}
+
+                                    <div className='md:grid md:grid-cols-3 md:gap-12'>
+                                        {products.map((product) => (
+                                        <div className="mb-3" key={product._id}>
+                                            <BestSellersProduct product={product}></BestSellersProduct>
+                                        </div>
+                                        ))}
+                                    </div>
+
+                                    <div className='mt-4'>
+                                        {[...Array(pages).keys()].map((x) => (
+                                            <LinkContainer
+                                                key={x + 1}
+                                                className="mx-1"
+                                                to={{
+                                                pathname: '/search',
+                                                search: getFilterUrl({ page: x + 1 }, true),
+                                                }}
+                                            >
+                                                <Button
+                                                    className={Number(page) === x + 1 ? 'text-bold' : ''}
+                                                    variant="light"
+                                                    >
+                                                    {x + 1}
+                                                </Button>
+                                            </LinkContainer>
+                                        ))}
+                                    </div>
+                            </div>
+                            )}
+                    </div>
                 </div>
             </div>
-
-
-
-            <div className={isFilterToggled ? 'filter-hidden' : 'filter-group'}>
+            
+            <div className='md:hidden'>
+                <div className={isFilterToggled ? 'filter-hidden' : 'filter-group'}>
+                                    
                         <div className='filter-content'> 
-                                <h1>Filter</h1>
-                                <div className='brand'>
-                                    <h3>Brand</h3>
-                                    <ul>
-                                    <li className='flex flex-row justify-between items-center'>
-                                        <Link
-                                            className={'all' === brand ? 'text-bold' : ''}
-                                            to={getFilterUrl({ brand: 'all' })}
-                                            >
-                                            Any
-                                        </Link>
-                                    </li>
-                                    {brands.map((b) => (
-                                        <li key={b}>
-                                        <Link
-                                            className={b === brand ? 'text-bold' : ''}
-                                            to={getFilterUrl({ brand: b })}
-                                        >
-                                            {b}
-                                        </Link>
-                                        </li>
-                                    ))}
-                                    </ul>
-                                </div>
-                                <div className='category'>
-                                    <h3>Category</h3>
-                                    <ul>
-                                    <li>
-                                        <Link
-                                        className={'all' === category ? 'text-bold' : ''}
-                                        to={getFilterUrl({ category: 'all' })}
-                                        >
-                                        Any
-                                        </Link>
-                                    </li>
-                                    {categories.map((c) => (
-                                        <li key={c}>
-                                        <Link
-                                            className={c === category ? 'text-bold' : ''}
-                                            to={getFilterUrl({ category: c })}
-                                        >
-                                            {c}
-                                        </Link>
-                                        </li>
-                                    ))}
-                                    </ul>
-                                </div>
-                                <div className='price'>
-                                    <h3>Price</h3>
-                                    <ul>
-                                    <li>
-                                        <Link
-                                        className={'all' === price ? 'text-bold' : ''}
-                                        to={getFilterUrl({ price: 'all' })}
-                                        >
-                                        Any
-                                        </Link>
-                                    </li>
-                                    {prices.map((p) => (
-                                        <li key={p.value}>
-                                        <Link
-                                            to={getFilterUrl({ price: p.value })}
-                                            className={p.value === price ? 'text-bold' : ''}
-                                        >
-                                            {p.name}
-                                        </Link>
-                                        </li>
-                                    ))}
-                                    </ul>
-                                </div>
-                                <div className='filter-rating'>
-                                    <h3>Rating</h3>
-                                    <ul>
-                                    {ratings.map((r) => (
-                                        <li key={r.name} className='rating-list'>
-                                        <Link
-                                            to={getFilterUrl({ rating: r.rating })}
-                                            className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
-                                        >
-                                            <Rating caption={' & up'} rating={r.rating}></Rating>
-                                        </Link>
-                                        </li>
-                                    ))}
-                                    <li className=''>
-                                        <Link
-                                        to={getFilterUrl({ rating: 'all' })}
-                                        className={rating === 'all' ? 'text-bold' : ''}
-                                        >
-                                        <Rating caption={' & up'} rating={0}>& up</Rating>
-                                        </Link>
-                                    </li>
-                                    </ul>
-                                </div>
+                                    <h1>Filter</h1>
+                                            <div className="justify-content-between my-3">
+                                                    <div>
+                                                        <div>
+                                                            {query !== 'all' && ' : ' + query}
+                                                            {category !== 'all' && ' : ' + category}
+                                                            {brand !== 'all' && ' : ' + brand}
+                                                            {price !== 'all' && ' : Price ' + price}
+                                                            {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+                                                            {query !== 'all' ||
+                                                            category !== 'all' ||
+                                                            brand !== 'all' ||
+                                                            rating !== 'all' ||
+                                                            price !== 'all' ? (
+                                                            <Button
+                                                                variant="light"
+                                                                onClick={() => navigate('/search')}
+                                                            >
+                                                                <i className="fas fa-times-circle"></i>
+                                                            </Button>
+                                                            ) : null}
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div className='brand'>
+                                            <div className='flex flex-row justify-between items-center'>
+                                                    <h3>Brand</h3>
+                                                    <div className='fa-stack' onClick={showBrand}>
+                                                        <img className= { isBrandToggled ? "downBrand fa-stack-1x h-3 w-4" : "upBrand" } src="../images/down-arrow.png"/>
+                                                        <img className= { isBrandToggled ? "upBrand fa-stack-1x h-3 w-4" : "downBrand" } src="../images/up-arrow.png"/>
+                                                    </div> 
+                                                </div>
+                                            
+                                            <div className= {isBrandToggled ? "block" : 'hidden'}>
+                                                <ul className=''>
+                                                            { brands.map((b) => (
+                                                                <li key={b}>
+                                                                <Link
+                                                                        className={brand === b ? 'text-bold' : ''}
+                                                                        to={getFilterUrl({ brand: b })}
+                                                                    >
+                                                                        {b}
+                                                                </Link>
+                                                            </li>
+                                                    ))}
+                                                    </ul>
+                                            </div>
+                                                
+                                            </div>
+                                            <div className='category'>
+                                                <div className='flex flex-row justify-between items-center'>
+                                                    <h3>Category</h3>
+                                                    <div className='fa-stack' onClick={showCategory}>
+                                                        <img className= { isCategoryToggled ? "downCategory fa-stack-1x h-3 w-4" : "upCategory" } src="../images/down-arrow.png"/>
+                                                        <img className= { isCategoryToggled ? "upCategory fa-stack-1x h-3 w-4" : "downCategory" } src="../images/up-arrow.png"/>
+                                                    </div> 
+                                                </div>
+                                            
+                                            <div className= {isCategoryToggled ? "block" : 'hidden'}>
+                                                    <ul>
+                                                        { categories.map((c) => (
+                                                            <li key={c}>
+                                                            <Link
+                                                                className={c === category ? 'text-bold' : ''}
+                                                                to={getFilterUrl({ category: c })}
+                                                            >
+                                                                {c}
+                                                            </Link>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                            </div>
+                                                
+                                            </div>
+                                            <div className='price'>
+                                                <div className='flex flex-row justify-between items-center'>
+                                                    <h3>Price</h3>
+                                                    <div className='fa-stack' onClick={showPrice}>
+                                                        <img className= { isPriceToggled ? "downPrice fa-stack-1x h-3 w-4" : "upPrice" } src="../images/down-arrow.png"/>
+                                                        <img className= { isPriceToggled ? "upPrice fa-stack-1x h-3 w-4" : "downPrice" } src="../images/up-arrow.png"/>
+                                                    </div> 
+                                                </div>
+            
+                                                <div className= {isPriceToggled ? "block" : 'hidden'}>
+                                                    <ul>
+                                                    { prices.map((p) => (
+                                                        <li key={p.value}>
+                                                        <Link
+                                                            to={getFilterUrl({ price: p.value })}
+                                                            className={p.value === price ? 'text-bold' : ''}
+                                                        >
+                                                            {p.name}
+                                                        </Link>
+                                                        </li>
+                                                    ))}
+                                                    </ul>
+                                                </div>
+                                                
+                                            </div>
+                                            <div className='filter-rating'>
+                                                <div className='flex flex-row justify-between items-center'>
+                                                    <h3>Rating</h3>
+                                                    <div className='fa-stack' onClick={showRating}>
+                                                        <img className= { isRatingToggled ? "downRating fa-stack-1x h-3 w-4" : "upRating" } src="../images/down-arrow.png"/>
+                                                        <img className= { isRatingToggled ? "upRating fa-stack-1x h-3 w-4" : "downRating" } src="../images/up-arrow.png"/>
+                                                    </div> 
+                                                </div>
+            
+                                                <div className= {isRatingToggled ? "block" : 'hidden'}>
+                                                    <ul>
+                                                    {ratings.map((r) => (
+                                                        <li key={r.name} className='rating-list'>
+                                                        <Link
+                                                            to={getFilterUrl({ rating: r.rating })}
+                                                            className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
+                                                        >
+                                                            <Rating caption={' & up'} rating={r.rating}></Rating>
+                                                        </Link>
+                                                        </li>
+                                                    ))}
+                                                    <li className=''>
+                                                        <Link
+                                                        to={getFilterUrl({ rating: 'all' })}
+                                                        className={rating === 'all' ? 'text-bold' : ''}
+                                                        >
+                                                        <Rating caption={' & up'} rating={0}>& up</Rating>
+                                                        </Link>
+                                                    </li>
+                                                    </ul>
+                                                </div>
+                                                
+                                            </div>
                         </div>
-
+            
+                </div>
             </div>
             <Footer />
         </div>
