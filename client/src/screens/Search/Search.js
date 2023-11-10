@@ -211,7 +211,7 @@ const Search = (e) => {
                 <title>Search Products</title>
             </Helmet>
             <Header />
-            <div className='search-page md:mt-20 mx-auto md:w-[50%] mb-4 md:flex md:flex-row md:justify-between md:mt-10'>
+            <div className='search-page md:mt-20 mx-auto md:w-[50%] mb-4 md:flex md:flex-row md:justify-between md:mt-6'>
                 <div className='hidden md:block filter-content md:w-[25%]'> 
                                     <h1>Filter</h1>
                                             <div className='brand'>
@@ -388,7 +388,7 @@ const Search = (e) => {
                                         <MessageBox>No Product Found</MessageBox>
                                     )}
 
-                                    <div className='md:grid md:grid-cols-3 md:gap-12'>
+                                    <div className='md:grid md:grid-cols-3 md:gap-6'>
                                         {products.map((product) => (
                                         <div className="mb-3" key={product._id}>
                                             <BestSellersProduct product={product}></BestSellersProduct>
