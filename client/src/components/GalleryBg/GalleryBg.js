@@ -20,7 +20,7 @@ const GalleryBg = () => {
                 </div>
             </div>
 
-            <div className='flex flex-row justify-between md:w-[30%] w-[89%] mx-auto mt-5 space-x-3'>
+            <div className='gallery-buttons flex flex-row justify-between md:w-[30%] w-[89%] mx-auto mt-5 space-x-3'>
                 <button className='shop-now-button'>
                     <Link to={{ pathname: '/search', search: `allProducts`}}>
                         Shop now

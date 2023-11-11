@@ -42,7 +42,7 @@ const Testimonials = (props) => {
                     </div>
                 ))
             }
-                </div>
+        </div>
     )
 }
 

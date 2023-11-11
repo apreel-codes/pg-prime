@@ -8,6 +8,7 @@ import Carousel from 'react-multi-carousel';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
+import { Link } from 'react-router-dom';
 
 
 
@@ -167,7 +168,9 @@ const NewArrivals = () => {
               <div className='flex flex-row justify-between items-center'>
                           <h1 className='new-arrivals'>New arrivals for you</h1>
                           <button variant='' className='slider-button flex flex-row justify-between items-center'>
+                            <Link to={{ pathname: '/search', search: `allProducts`}}> 
                               View More
+                            </Link>
                               <img src="../images/more.png" />
                           </button>
               </div>

@@ -17,7 +17,7 @@
     text-align: center;
     border-radius: 1.3rem;
     padding: 3rem 0;
-    margin-top: -10%;
+    /* margin-top: -50px; */
 }
 
 .store .store-content h2 {
@@ -40,10 +40,24 @@
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     color: #ffffff;
-    /* width: 22%; */
+    width: 150px;
     font-weight: 500;
     cursor: pointer;
     padding: 0.8rem;
     border: 1px #ffffff solid;
     border-radius: 0.5rem;
+}
+
+@media screen and (min-width: 600px) {
+    .store .store-content {
+        background-color: #00162b;
+        text-align: center;
+        border-radius: 1.3rem;
+        padding: 3rem 0;
+        margin-top: -150px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    
 }

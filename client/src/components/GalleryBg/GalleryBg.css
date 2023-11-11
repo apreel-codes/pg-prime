@@ -69,3 +69,13 @@
     border-radius: 0.5rem;
     margin: 0;
 }
+
+@media screen and (min-width: 600px) {
+  .gallery-buttons {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  
+}

@@ -149,12 +149,13 @@ const Home = () => {
         //     return () => clearInterval(slideInterval)
         // }, [currentSlide]) //autoScroll should fire when currenSlide changes
 
+
          //set scroll to section
-        const sectionRef = useRef(null);
+        // const sectionRef = useRef(null);
         
-        const handleButtonClick = () => {
-            sectionRef.current.scrollIntoView({ behavior: 'smooth' });
-          };
+        // const handleButtonClick = () => {
+        //     sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+        //   };
 
 
           const [allProducts, setAllProducts] = useState([]);
@@ -171,6 +172,16 @@ const Home = () => {
             fetchAllProducts();
           }, []);
 
+          const sectionRef = useRef(null);
+
+          useEffect(() => {
+               console.log(sectionRef.current);
+             }, []);
+
+             const handleButtonClick = () => {
+              sectionRef.current.scrollIntoView({ behavior: 'smooth' });
+          };
+      
 
 
 
@@ -180,100 +191,14 @@ const Home = () => {
                     <title>PGF PRIME</title>
                 </Helmet>
                 <Header />
-                <BgImage />
+                <BgImage props={handleButtonClick} />
                 <NewArrivals />
                 <Link to={{ pathname: '/search', search: `allProducts`}}>
                       <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
                 </Link>
-                <BestSellers />
+                <BestSellers ref={sectionRef}/>
                 <GalleryBg />
                 <Store />
-
-
-
-                {/* <div ref={sectionRef} className="mx-auto w-[90%]">
-                        <h1 className='text-black text- md:text-4xl trending mb-4 mt-5 underline'><span className="text-red-600">Best</span>Sellers</h1>
-                        <Carousel responsive={responsive} className="">
-                            {randProducts.map((product, i) => (
-                                <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                                    <HomeProduct product={product}></HomeProduct>
-                                </div>     
-                        ))}
-                        </Carousel>
-                </div>                */}
-                      
-                    {/* <div className="mx-auto w-[90%] mt-20">
-                      <h1 className='text-black md:text-4xl trending mb-3 underline'><span className="text-red-600">Newest</span> Arrivals</h1>
-                          <Carousel responsive={responsive} className="mt-3 mx-auto">
-                                  {newestProducts.map((product, i) => (
-                                      <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                                          <HomeProduct
-                                          product={product}></HomeProduct>
-                                      </div>
-                                  
-                                  ))}
-                          </Carousel>                   
-                    </div> */}
-             
-
-
-                {/* <div className="mx-auto w-[90%] mt-5">
-                  <h2 className='text-black text- md:text-4xl trending mb-4 mt-5 underline'><span className="text-red-600">Top</span> Rated</h2>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-0 mt-3">
-                        {fourProducts.map((product, i) => (
-                                      <div key={product.slug} className="">
-                                          <HomeProduct product={product}></HomeProduct>
-                                      </div>                             
-                        ))}
-                  </div>
-
-                </div> */}
-
-
-                {/* <div className="mx-auto w-[90%] mt-20">
-                      <h1 className='text-black md:text-4xl trending mb-3 underline'><span className="text-red-600">Shop</span> Now</h1>
-                          <Carousel responsive={responsive} className="mt-3 mx-auto">
-                                  {products.map((product, i) => (
-                                      <div key={product.slug} sm={6} md={4} lg={3} className="mb-3">
-                                          <HomeProduct
-                                          product={product}></HomeProduct>
-                                      </div>
-                                  
-                                  ))}
-                          </Carousel>
-                          <div className="text-center mt-5">
-                          <Link to={{ pathname: '/search', search: `allProducts`}}>
-                            <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
-                          </Link>
-                          </div>                  
-                </div> */}
-
-
-
-                
-                {/* <Row className="mx-auto w-[95%] md:w-[80%] my-24">
-                  <Col md={6} className="">
-                    <div className="nike-red md:nike-second rounded"/>
-                  </Col>
-                  
-                  
-                  <Col md={6} className="">
-                    <div fluid className="brands flex flex-row justify-between pt-16 md:grid md:grid-cols-2 md:gap-5 md:px-40 md:pt-44">
-                          <Link to="/search?brand=Nike"><img className="nike w-16 mx-auto" src="./images/nike.png"></img></Link>
-                          <Link to="/search?brand=Puma"><img className="nike w-12 mx-auto" src="./images/puma.png"></img></Link>
-                          <Link to="/search?brand=Adidas"><img className="nike w-12 mx-auto" src="./images/adidas.png"></img></Link>
-                          <Link to="/search?brand=New%20Balance"><img className="nike w-16 mx-auto" src="./images/balance.png"></img></Link>
-                    </div>
-                  </Col>   
-                </Row>   */}
-                
-                {/* <div className="store text-center pt-40">
-                                    
-                    <p className="w-[70%] mx-auto text-xl text-white font-semibold">Come on in, and let's make some sneaker magic together!</p>
-                      <Link to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">
-                        <p className="bg-white text-black rounded-full text-base font-medium w-44 mx-auto mt-3 py-3">Locate our store</p>
-                      </Link> 
-                </div>  */}
 
                 <Link to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">
                   <img className="whatsapp"  src="./images/whatsapp.png"/>               
