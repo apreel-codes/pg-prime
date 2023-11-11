@@ -51,7 +51,7 @@ const BestSellers = () => {
                             <img src="../images/more.png" />
                 </button>
             </div>
-            <div className='md:grid md:grid-cols-4 md:gap-6 md:space-y-0 space-y-12 mx-auto border'>
+            <div className='md:grid md:grid-cols-4 md:gap-6 md:space-y-0 space-y-12 mx-auto'>
                 {
                     products.map((product, i) => (
                             <div key={product.slug} className=''>
