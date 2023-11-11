@@ -21,6 +21,7 @@ import { Store } from "../../Store";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import './Product.css';
+import NewArrivals from "../../components/NewArrivals/NewArrivals";
 
 
 
@@ -365,6 +366,9 @@ const Product = () => {
                                                 )
                             }
                 </div>
+            </div>
+            <div className="mt-6 mb-20">
+                <NewArrivals />
             </div>
             <Footer />
         </div>
