@@ -43,7 +43,7 @@ const BestSellers = () => {
 
 
     return (
-        <div className='box mx-auto mt-10 mb-10'>
+        <div className='box mx-auto my-24'>
             <div className='flex flex-row justify-between items-center my-4'>
                 <h1 className='best-sellers'>Best Sellers</h1>
                  <button className='best-sellers-button flex flex-row justify-between items-center'>
@@ -51,7 +51,7 @@ const BestSellers = () => {
                             <img src="../images/more.png" />
                 </button>
             </div>
-            <div className='md:grid md:grid-cols-4 md:gap-6 md:space-y-0 space-y-12 mx-auto'>
+            <div className='md:grid md:grid-cols-4 md:gap-6 md:space-y-0 space-y-12 mx-auto border'>
                 {
                     products.map((product, i) => (
                             <div key={product.slug} className=''>

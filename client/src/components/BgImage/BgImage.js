@@ -12,7 +12,7 @@ const BgImage = () => {
                         <p>Discover a world of stylish and comfortable sneakers that redefine your every step.</p>
                         <button className=' mobile-bg-button py-2.5 rounded'>
                             <Link to={{ pathname: '/search', search: `allProducts`}}> 
-                                Shop Now
+                                SHOP NOW
                             </Link>
                         </button>
                     </div>
@@ -25,7 +25,7 @@ const BgImage = () => {
                         <p>Discover a world of stylish and comfortable sneakers that redefine your every step.</p>
                         <button className='web-bg-button py-2.5 rounded'>
                             <Link to={{ pathname: '/search', search: `allProducts`}}>
-                                Shop Now
+                                SHOP NOW
                             </Link>
                         </button>
                     </div>

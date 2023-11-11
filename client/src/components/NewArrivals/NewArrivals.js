@@ -1,14 +1,12 @@
 import axios from 'axios';
 import React, { useEffect, useReducer, useState } from 'react';
+import { AiOutlineArrowLeft, AiOutlineArrowRight } from 'react-icons/ai';
 import logger from 'use-reducer-logger';
 import './NewArrivals.css';
 import HomeProduct from '../HomeProduct/HomeProduct';
 import Carousel from 'react-multi-carousel';
-import Button from 'react-bootstrap/Button';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-// import "./slick.css"; 
-// import "./slick-theme.css";
 import Slider from 'react-slick';
 
 
@@ -126,19 +124,27 @@ const NewArrivals = () => {
         }
       };
 
-    const [ currentSlide, setCurrentSlide ] = useState(0);
-
-
-    useEffect(() => {
-        // puts the current slide to slide 0 on page refresh
-        setCurrentSlide(0)
-    }, [])
+      const [ currentSlide, setCurrentSlide ] = useState(0);
+      const slideLength = mobileProductsData.length;
+  
+      const nextSlide = () => {
+          setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
+      }
+  
+      const prevSlide = () => {
+          setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
+      }
+     
+      useEffect(() => {
+          // puts the current slide to slide 0 on page refresh
+          setCurrentSlide(0)
+      }, [])
 
 
     return (
         <div>
-            <div className='web-carousel hidden md:block'>
-            <div className='flex flex-row justify-between items-center my-4'>
+            <div className='web-carousel hidden md:block mb-4 mt-24'>
+            <div className='flex flex-row justify-between items-center my-4 w-[90%] mx-auto'>
                         <h1 className='new-arrivals'>New arrivals for you</h1>
                         <button variant='' className='slider-button flex flex-row justify-between items-center'>
                             View More
@@ -157,25 +163,49 @@ const NewArrivals = () => {
               </Slider>
             </div>
 
-            <div className='mobile-carousel md:hidden block mx-auto'>
-            <div className='flex flex-row justify-between items-center my-4'>
-                        <h1 className='new-arrivals'>New arrivals for you</h1>
-                        <button variant='' className='slider-button flex flex-row justify-between items-center'>
-                            View More
-                            <img src="../images/more.png" />
-                        </button>
+            <div className="mx-auto w-[90%] mt-20 md:hidden block">
+              <div className='flex flex-row justify-between items-center'>
+                          <h1 className='new-arrivals'>New arrivals for you</h1>
+                          <button variant='' className='slider-button flex flex-row justify-between items-center'>
+                              View More
+                              <img src="../images/more.png" />
+                          </button>
+              </div>
+              {/* <Carousel responsive={responsive} className="new-arrival-carousel">
+                      { 
+                          webProductsData.map((product, i) => (
+                                      <div key={product.slug} className="mb-3">
+                                          <HomeProduct
+                                          product={product}></HomeProduct>
+                                      </div>
+                                  
+                        ))
+                      }
+              </Carousel>   */}
+
+              
+              <div className='new-arrival-slider'>
+              {
+                mobileProductsData.map((product, index) => (
+                    <div className={index === currentSlide ? "new-arrival-slide new-arrival-current" : "new-arrival-slide"} key={index}>
+                        {index === currentSlide && (
+                            <div key={product.slug} className="new-arrival-content">
+                              <HomeProduct
+                              product={product}></HomeProduct>
+                          </div>
+                        )}
+                    </div>
+                    
+                ))
+              }
+              </div>
+              <div className='flex flex-row justify-between items-center mt-3'>
+                    <AiOutlineArrowLeft className="new-arrival-arrow new-arrival-prev" onClick={prevSlide}/>
+                    <span>{currentSlide + 1}/{slideLength}</span>
+                    <AiOutlineArrowRight className="new-arrival-arrow new-arrival-next" onClick={nextSlide}/>
+              </div>
             </div>
-              <Slider {...settings} className='slider'>
-                  {
-                      mobileProductsData.map((product, i) => (
-                              <div key={product.slug} className='carousel-product'>
-                                      <HomeProduct product={product}></HomeProduct>
-                              </div>
-                              
-                      ))
-                  }
-              </Slider>
-            </div>
+
         </div>
     )
 }

@@ -181,7 +181,7 @@ const Home = () => {
                 </Helmet>
                 <Header />
                 <BgImage />
-                {/* <NewArrivals /> */}
+                <NewArrivals />
                 <Link to={{ pathname: '/search', search: `allProducts`}}>
                       <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
                 </Link>

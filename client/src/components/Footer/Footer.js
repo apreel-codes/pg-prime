@@ -49,7 +49,7 @@ const Footer = () => {
                 <input type="email" value={email} placeholder="Enter your email" onChange={(e) => setEmail(e.target.value)}/>
               </Form.Group>
               <div className="">
-                  <Button className="button py-2 border-none text-white" type="submit">SHOP NOW</Button>
+                  <Button className="button py-2 border-none text-white" type="submit">SUBSCRIBE NOW</Button>
               </div>
           </Form>
       </div>

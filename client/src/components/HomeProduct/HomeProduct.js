@@ -12,7 +12,7 @@ const HomeProduct = (props) => {
                     </Link>
                     <div className="mt-4">
                         <Link to={`/product/${product.slug}`}>
-                                <p className="name">{product.name}</p>
+                                <p className="product-name">{product.name}</p>
                         </Link>
                         {/* <Rating rating={product.rating} numReviews={product.numReviews}/> */}
                         <small className="brand">{product.brand}</small>

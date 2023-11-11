@@ -11,7 +11,6 @@ import orderRouter from './routes/orderRoute.js';
 import uploadRouter from './routes/uploadRouter.js';
 import expressAsyncHandler from "express-async-handler"
 import request from 'request';
-// import bodyParser, { json } from 'body-parser';
 
 
 

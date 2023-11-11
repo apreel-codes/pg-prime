@@ -5,6 +5,7 @@ import './Gallery.css';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { SecondtData } from './SecondData';
+import { Link } from 'react-router-dom';
 
 
 const Gallery = () => {
@@ -28,7 +29,11 @@ const Gallery = () => {
                }
               </div>
              <div className='d-grid'>
-              <button className='gallery-button'>SHOP NOW</button>
+                <button className='gallery-button'>
+                    <Link to={{ pathname: '/search', search: `allProducts`}}>
+                        SHOP NOW
+                    </Link>
+                </button>
              </div>
              </div>
              <div className='happy-customers text-center'>
