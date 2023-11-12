@@ -1,6 +1,6 @@
 .shipping-contact {
-    color: #1a1a1a7d;
-    size: 0.9rem;
+    color: #1a1a1ab5;
+    font-size: 0.9rem;
 }
 
 
@@ -11,9 +11,9 @@
 
 
 .h1 {
-    color: #000;
+    color: #000000eb;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1.5rem;
 }
 
@@ -47,9 +47,6 @@
 
 @media screen and (min-width: 600px) {
     .billing-address {
-        /* display: flex;
-        flex-direction: row;
-        align-items: center; */
         width: 370px;
     }
 
@@ -63,11 +60,6 @@
 }
 
 @media screen and (max-width: 600px) {
-    .billing-address {
-        /* display: flex;
-        flex-direction: row;
-        align-items: center; */
-    }
 
     .shipping-contact .biling-same {
         color: #1a1a1ac5;
@@ -75,10 +67,9 @@
         font-size: 0.8rem;
         font-weight: 400;
         width: 1700px;
+        margin-left: -1rem;
     }
 }
-
-
 
 .cart-item .cart-image-group {
     width: 25%; 
@@ -87,7 +78,6 @@
 
 .box {
     outline: none;
-    /* margin-left: -12px; */
 }
 
 .shipping-item {
@@ -131,21 +121,22 @@
 }
 
 .order-details ul li {
-    margin-bottom: 1rem;
+    margin-bottom: .8rem;
 }
 
 .order-details p {
     color: #1a1a1aaf;
+    font-size: .9rem;
 }
 
 .order-details span {
     color: #1a1a1a;
-    font-size: 1rem;
+    font-size: .9rem;
     font-weight: 600;
 }
 
 .order-details .shipping-class {
-    color: #c4c4c4;
+    color: #c4c4c4c2;
     font-size: 1rem;
     font-weight: 600;
 }
@@ -156,8 +147,8 @@
 }
 
 .s-item-name-price {
-    color: #1a1a1a;
-    font-size: 1rem;
+    color: #1a1a1ae2;
+    font-size: .9rem;
     font-weight: 600;
 }
 

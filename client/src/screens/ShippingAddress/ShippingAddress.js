@@ -173,9 +173,9 @@ const ShippingAddress = () => {
                                 ></textarea>
                         </Form.Group>
 
-                        <div className="billing-address flex flex-row items-center">
+                        <div className="billing-address flex flex-row justify-between items-center">
                                 <input className="box w-5 h-5" type="checkbox" id="billing-same" name="billing-same" value="billing-same" />
-                                <label className="biling-same" for="billing-same"> Billing and delivery address are the same</label>
+                                <span className="biling-same" for="billing-same"> Billing and delivery address are the same</span>
                         </div>
 
                     <div className='payment'>
