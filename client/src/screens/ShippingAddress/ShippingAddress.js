@@ -97,7 +97,7 @@ const ShippingAddress = () => {
                 <title>Shipping Address</title>
             </Helmet>
 
-            <div className='w-[90%] my-10 mx-auto md:flex md:flex-row md:justify-between'>
+            <div className='w-[90%] md:w-[72%] my-10 mx-auto md:flex md:flex-row md:justify-between'>
                 
                     <div className='md:w-[65%] shipping-contact mb-5'>
                     <Form className='shipping-form mt-8' onSubmit={submitHandler}>
@@ -115,8 +115,8 @@ const ShippingAddress = () => {
                         </Form.Group>
 
 
-                       <div className='md:flex md:flex-row md:justify-between'>
-                        <Form.Group className="mb-4" controlId="phonenumber">
+                       <div className='md:grid md:grid-cols-2 md:gap-3'>
+                        <Form.Group className="phone-group mb-4" controlId="phonenumber">
                             <Form.Label>Phone</Form.Label>
                                     <PhoneInput
                                     value={phonenumber}
@@ -126,9 +126,10 @@ const ShippingAddress = () => {
                                     />
                             </Form.Group>
 
-                            <Form.Group className="mb-4 d-grid" controlId="postalCode">
+                            <Form.Group className="email-group mb-4 d-grid" controlId="postalCode">
                             <Form.Label>Email</Form.Label>
                                     <input
+                                    className='w-full'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     required
@@ -137,10 +138,11 @@ const ShippingAddress = () => {
                        </div>
                         
 
-                        <div className='md:flex md:flex-row md:justify-between'>
+                        <div className='md:grid md:grid-cols-2 md:gap-3'>
                             <Form.Group className="mb-4 d-grid" controlId="country">
                             <Form.Label>Country</Form.Label>
                                     <input
+                                    className='w-full'
                                     value={country}
                                     onChange={(e) => setCountry(e.target.value)}
                                     required
@@ -151,6 +153,7 @@ const ShippingAddress = () => {
                             <Form.Group className="mb-4 d-grid" controlId="city">
                             <Form.Label>City</Form.Label>
                                     <input
+                                    className='w-full'
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
                                     required
@@ -208,7 +211,7 @@ const ShippingAddress = () => {
                     
                     </div>
 
-                    <div className='md:w-[32%] details-image-group'>
+                    <div className='md:w-[32%] md:mt-8 details-image-group'>
                         <div className='order-details border mb-5'>
                         <h1 className='h1'>Order details</h1>
                         <ul>
@@ -261,4 +264,4 @@ const ShippingAddress = () => {
     )
 }
 
-export default ShippingAddress;
+export default ShippingAddress

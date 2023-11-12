@@ -29,6 +29,7 @@
     margin-top: 2rem;
 }
 
+
 .shipping-contact .button {
     background-color: #003466;
     font-family: 'Inter', sans-serif;
@@ -51,6 +52,14 @@
         align-items: center;
         width: 370px;
     }
+
+    /* .phone-group {
+        width: 40%;
+    } */
+    
+    /* .email-group input {
+        width: 100%;
+    } */
 }
 
 @media screen and (max-width: 600px) {
@@ -60,6 +69,8 @@
         align-items: center;
     }
 }
+
+
 
 .shipping-contact .biling-same {
     color: #1a1a1ae6;
@@ -76,7 +87,7 @@
 
 .box {
     outline: none;
-    margin-left: -12px;
+    /* margin-left: -12px; */
 }
 
 .shipping-item {
