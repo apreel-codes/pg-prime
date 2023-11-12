@@ -53,6 +53,14 @@
         width: 370px;
     }
 
+    .shipping-contact .biling-same {
+        color: #1a1a1ae6;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 2000px;
+    }
+
     /* .phone-group {
         width: 40%;
     } */
@@ -68,17 +76,17 @@
         flex-direction: row;
         align-items: center;
     }
+
+    .shipping-contact .biling-same {
+        color: #1a1a1ae6;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        font-weight: 600;
+        width: 1700px;
+    }
 }
 
 
-
-.shipping-contact .biling-same {
-    color: #1a1a1ae6;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
-    width: 1700px;
-}
 
 .cart-item .cart-image-group {
     width: 25%; 
