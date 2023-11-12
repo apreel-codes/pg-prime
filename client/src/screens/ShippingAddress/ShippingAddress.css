@@ -47,41 +47,33 @@
 
 @media screen and (min-width: 600px) {
     .billing-address {
-        display: flex;
+        /* display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: center; */
         width: 370px;
     }
 
     .shipping-contact .biling-same {
-        color: #1a1a1ae6;
+        color: #1a1a1ac5;
         font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
+        font-size: 0.9rem;
+        font-weight: 400;
         width: 2000px;
     }
-
-    /* .phone-group {
-        width: 40%;
-    } */
-    
-    /* .email-group input {
-        width: 100%;
-    } */
 }
 
 @media screen and (max-width: 600px) {
     .billing-address {
-        display: flex;
+        /* display: flex;
         flex-direction: row;
-        align-items: center;
+        align-items: center; */
     }
 
     .shipping-contact .biling-same {
-        color: #1a1a1ae6;
+        color: #1a1a1ac5;
         font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
+        font-size: 0.8rem;
+        font-weight: 400;
         width: 1700px;
     }
 }
