@@ -1,0 +1,67 @@
+.shipping-page {
+    color: #1a1a1a7d;
+    size: 0.9rem;
+}
+
+.shipping-form {
+    border: 1px #1a1a1a3b solid;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.shipping-page h1 {
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.5rem;
+}
+
+.shipping-page h2 {
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+
+.shipping-page .button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+}
+
+.shipping-page textarea {
+    width: 100%;
+    height: 150px;
+    border: 2px #1a1a1a3b solid;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+}
+
+.shipping-page .biling-same {
+    color: #1a1a1ae6;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 1700px;
+}
+
+.cart-item .cart-image-group {
+    width: 25%; 
+    height: 100%;
+}
+
+.box {
+    outline: none;
+    margin-left: -12px;
+}
+
+.shipping-item .shipping-image-group {
+    width: 25%; 
+    height: 100%;
+}
+
+
+.shipping-item .shipping-image {
+    width: 100%;
+    height: 30%;
+}

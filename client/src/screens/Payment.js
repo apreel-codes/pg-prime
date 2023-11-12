@@ -41,7 +41,7 @@ const Payment = () => {
                         <Helmet>
                             <title>Payment Method</title>
                         </Helmet>
-                        <CheckoutSteps step1 step2 step3></CheckoutSteps>
+                        {/* <CheckoutSteps step1 step2 step3></CheckoutSteps> */}
                         <h1 className='my-3 text-2xl font-bold'>Payment Method</h1>
                         <Form onSubmit={submitHandler}>
                             <div className='my-3'>
@@ -64,11 +64,11 @@ const Payment = () => {
                                 onChange={(e) => setPaymentMethod(e.target.value)}
                                 />
                             </div>
-                            <div className='mt-4 d-grid'>
+                            {/* <div className='mt-4 d-grid'>
                                 <Button className='bg-black rounded-full py-3 text-gray-100 border-none'  type="submit">
                                     Continue
                                 </Button>
-                            </div>
+                            </div> */}
                         </Form>
             </div>
     )

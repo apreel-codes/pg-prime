@@ -113,8 +113,6 @@ const Home = () => {
         }
       };
 
-      
-
         //autoscroll
         const [ currentSlide, setCurrentSlide ] = useState(0);
         const slideLength = sliderData.length;

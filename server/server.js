@@ -11,6 +11,7 @@ import orderRouter from './routes/orderRoute.js';
 import uploadRouter from './routes/uploadRouter.js';
 import expressAsyncHandler from "express-async-handler"
 import request from 'request';
+import User from './models/User.js';
 
 
 
@@ -80,6 +81,18 @@ app.post(
     });
     })
   )
+
+// app.post(
+//     '/exchange-rate',
+//     expressAsyncHandler(async (req, res) => {
+//         const user = await User.findOne({ email: req.body.email });
+//             if (user) {
+//                 const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+//                 expiresIn: '3h',
+//             })
+//         };
+//     })
+// )
   
 
 const __dirname = path.resolve();
@@ -98,3 +111,9 @@ const port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log(`serve at http://localhost:${port}`)
 })
+
+
+// curl https://abokifx.com/api/v1/rates/movement 
+// -H 
+// "Accept: application/json" 
+// "Authorization: Bearer {YOUR_AUTH_TOKEN}"

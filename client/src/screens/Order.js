@@ -59,7 +59,7 @@ const Order = () => {
 
     const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
-    console.log(isPending);
+    // console.log(isPending);
 
 
     function createOrder(data, actions) {
@@ -108,7 +108,7 @@ const Order = () => {
                 const { data } = await axios.get(`/api/orders/${orderId}`, {
                     headers: { authorization: `Bearer ${userInfo.token}` },
                 });
-                console.log(data);
+                // console.log(data);
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
             } catch (err) {
                 dispatch({ type: 'FETCH_FAIL', payload: getError(err) });

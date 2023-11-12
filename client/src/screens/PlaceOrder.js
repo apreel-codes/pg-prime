@@ -58,7 +58,7 @@ const PlaceOrder = () => {
    }
     cart.totalPrice = cart.itemsPrice + cart.shippingPrice;
 
-    console.log(cart)
+    // console.log(cart)
 
     const placeOrderHandler = async () => {
         try {
