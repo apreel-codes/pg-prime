@@ -40,6 +40,8 @@ const PlaceOrder = () => {
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { cart, userInfo } = state;
+
+    // console.log(cart);
     
     const [urgency, setUrgency] = useState('I can wait');
 

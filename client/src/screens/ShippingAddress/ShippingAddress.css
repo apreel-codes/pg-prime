@@ -1,35 +1,42 @@
-.shipping-page {
+.shipping-contact {
     color: #1a1a1a7d;
     size: 0.9rem;
 }
 
+
 .shipping-form {
-    border: 1px #1a1a1a3b solid;
     padding: 1.5rem;
     border-radius: 0.5rem;
 }
 
-.shipping-page h1 {
+
+.h1 {
     color: #000;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.shipping-page h2 {
+.shipping-contact h2 {
     color: #000;
     font-family: 'Open Sans', sans-serif;
     font-size: 1.2rem;
     margin-top: 2rem;
 }
 
+.shipping-contact .payment {
+    border-top: 1px #1a1a1a3b solid;
+    margin-top: 2rem;
+}
 
-.shipping-page .button {
+.shipping-contact .button {
     background-color: #003466;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
+    margin-top: .8rem;
 }
 
-.shipping-page textarea {
+.shipping-contact textarea {
     width: 100%;
     height: 150px;
     border: 2px #1a1a1a3b solid;
@@ -37,7 +44,24 @@
     padding: 0.8rem;
 }
 
-.shipping-page .biling-same {
+@media screen and (min-width: 600px) {
+    .billing-address {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 370px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .billing-address {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.shipping-contact .biling-same {
     color: #1a1a1ae6;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
@@ -55,13 +79,82 @@
     margin-left: -12px;
 }
 
+.shipping-item {
+    border-bottom: 1px #1a1a1a34 solid;
+    padding: 1rem 0;
+}
+
 .shipping-item .shipping-image-group {
     width: 25%; 
     height: 100%;
 }
 
-
 .shipping-item .shipping-image {
     width: 100%;
     height: 30%;
+}
+
+.shipping-item .shipping-item-content {
+    width: 70%;
+}
+
+.shipping-form {
+    border: 1px #1a1a1a3b solid;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.order-details {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.order-details ul {
+    border-top: 1px #1a1a1a34 solid;
+    padding-top: 1.5rem;
+}
+
+.order-details .order-total {
+    border-top: 1px #1a1a1a34 solid;
+    padding-top: 1.5rem;
+}
+
+.order-details ul li {
+    margin-bottom: 1rem;
+}
+
+.order-details p {
+    color: #1a1a1aaf;
+}
+
+.order-details span {
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.order-details .shipping-class {
+    color: #c4c4c4;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.shipping-item-images {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.s-item-name-price {
+    color: #1a1a1a;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.s-item-name {
+    font-size: 0.8rem;
+    color: #1a1a1a9c;
+}
+
+.shipping-item:last-of-type {
+    border: none;
 }
