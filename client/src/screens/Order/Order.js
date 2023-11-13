@@ -209,7 +209,7 @@ const Order = () => {
                     <div className='order-button mt-4 d-grid'>
                         <Button className='button flex flex-row justify-between items-center border-none text-white mx-auto' type="button">
                             <img src="../images/arrow-left.png"/>
-                            <Link>Back to home page</Link>
+                            <Link to="/">Back to home page</Link>
                         </Button>
                     </div>
 
