@@ -54,3 +54,10 @@
     margin: .5rem 0;
     font-weight: 700;
 }
+
+
+.paypal-group span {
+    color: #1a1a1a8c;
+    line-height: 1rem;
+    /* margin-bottom: 1.5rem; */
+}

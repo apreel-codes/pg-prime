@@ -181,7 +181,8 @@ const Order = () => {
                         <Card className='mb-3'>
                             <Card.Body>
                                 <h2>Make Payment</h2>
-                                <ListGroup className='border-none' variant="flush">
+                                <span className='mb-8'>If you opted for PayPal as your payment method.</span>
+                                <ListGroup className='mt-4' variant="flush">
                                     {!order.isPaid && (
                                         <ListGroup.Item className='mt-1'>
                                             { isPending ? (
