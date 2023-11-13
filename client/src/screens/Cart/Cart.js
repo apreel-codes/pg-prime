@@ -87,8 +87,7 @@ const CartComponent = () => {
                                     </div>
                                 ))
                                 }
-                            </div>
-                            
+                            </div>  
                        )
                     }
                     </div>

@@ -2,11 +2,11 @@ import axios from 'axios';
 // import apiClient from '../api';
 import React, { useContext, useEffect, useReducer } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
+import LoadingBox from '../../components/LoadingBox';
+import MessageBox from '../../components/MessageBox';
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { Store } from '../Store';
-import { getError } from '../uttils';
+import { Store } from '../../Store';
+import { getError } from '../../uttils';
 import { Helmet } from 'react-helmet-async';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
@@ -15,6 +15,11 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/esm/Container';
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import copy from "copy-to-clipboard";
+import './Order.css';
+import Button from 'react-bootstrap/Button';
 
 
 function reducer(state, action) {
@@ -58,8 +63,6 @@ const Order = () => {
     });
 
     const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
-
-    // console.log(isPending);
 
 
     function createOrder(data, actions) {
@@ -108,7 +111,6 @@ const Order = () => {
                 const { data } = await axios.get(`/api/orders/${orderId}`, {
                     headers: { authorization: `Bearer ${userInfo.token}` },
                 });
-                // console.log(data);
                 dispatch({ type: 'FETCH_SUCCESS', payload: data });
             } catch (err) {
                 dispatch({ type: 'FETCH_FAIL', payload: getError(err) });
@@ -141,6 +143,15 @@ const Order = () => {
         }
     }, [order, userInfo, orderId, navigate, paypalDispatch, successPay]);
 
+
+    const orderIdShort = orderId.slice(0, 8);
+
+    const copyToClipboard = () => {
+        copy(orderIdShort);
+        toast.success('Order ID copied to clipboard!');
+        return;
+    };
+
     return loading ? 
         (<LoadingBox></LoadingBox>)
         :
@@ -149,90 +160,28 @@ const Order = () => {
         )
         :
         (
-            <div className='md:w-[60%] w-[90%] my-10 mx-auto'>
+            <div>
+                <Header />
                 <Helmet>
                     <title>Order {orderId}</title>
                 </Helmet>
-                <h1 className='mb-3 text-center text-xl font-bold'>Order {orderId}</h1>
-                <Row>
-                    <Col md={8}>
+                <div className='order-page md:w-[30%] mx-auto w-[70%] my-12'>
+                    <h1 className='order-h1 font-black'>Thanks for your order!</h1>
+                    <p className='order-p'>Your order will be sent to your address via the selected delivery service after payment confirmation has been made.</p>
+
+                    <div className='order-id flex flex-row justify-between items-center mx-auto'>
+                        <p className='order-id-text'>Your order ID</p>
+                        <div className='order-border flex flex-row justify-between items-center py-1 px-2'>
+                            <p>#{orderIdShort}</p>
+                            <img src="../images/copy.png" onClick={copyToClipboard} />
+                        </div>
+                    </div>
+
+                    <div className='paypal-group mt-9'>
                         <Card className='mb-3'>
                             <Card.Body>
-                                <Card.Title>Shipping</Card.Title>
-                                <Card.Text className='text-sm mb-2'>
-                                    <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                                    <strong>Address:</strong> {order.shippingAddress.address}, {''}
-                                    {order.shippingAddress.city}, {order.shippingAddress.postalCode}, {''}
-                                    {order.shippingAddress.country}, {order.shippingAddress.phonenumber}
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
-                        <Card className='mb-3'>
-                            <Card.Body>
-                                <Card.Title>Payment</Card.Title>
-                                <Card.Text className='text-sm mb-2'>
-                                    <strong>Method: </strong> {order.paymentMethod}
-                                </Card.Text>
-                                {order.isPaid ? (
-                                    <MessageBox className="text-sm" variant="success">
-                                        Paid at {order.paidAt.substring(0, 10)}
-                                    </MessageBox>
-                                ): (
-                                    <MessageBox className="text-sm" variant="danger">Not Paid</MessageBox>
-                                )}
-                            </Card.Body>
-                        </Card>
-                        <Card className='mb-3'>
-                            <Card.Body>
-                                <Card.Title>Items</Card.Title>
-                                <ListGroup variant="flush">
-                                    {order.orderItems.map((item) => (
-                                        <ListGroup.Item key={item._id}>
-                                            <Row className='align-items-center flex flex-row justify-between'>
-                                                <Col>
-                                                    <img
-                                                        src={item.image}
-                                                        alt={item.name}
-                                                        className='img-fluid rounded img-thumbnail'
-                                                    ></img>{' '}
-                                                    <Link className='font-medium text-sm' to={`/product/${item.slug}`}>{item.name}</Link>
-                                                </Col>
-                                                <Col>
-                                                    <span>{item.quantity}</span>
-                                                </Col>
-                                                <Col>
-                                                    &#163;{item.price}
-                                                </Col>
-                                            </Row>
-                                        </ListGroup.Item>
-                                    ))}
-                                </ListGroup>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col md={4}>
-                        <Card className='mb-3'>
-                            <Card.Body>
-                                <Card.Title>Order Summary</Card.Title>
-                                <ListGroup variant="flush">
-                                    <ListGroup.Item>
-                                        <Row>
-                                            <Col>Items</Col>
-                                            <Col>&#163;{order.itemsPrice.toFixed(2)}</Col>
-                                        </Row>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <Row>
-                                            <Col>Shipping</Col>
-                                            <Col>&#163;{order.shippingPrice.toFixed(2)}</Col>
-                                        </Row>
-                                    </ListGroup.Item>
-                                    <ListGroup.Item>
-                                        <Row>
-                                            <Col>Order Total</Col>
-                                            <Col>&#163;{order.totalPrice.toFixed(2)}</Col>
-                                        </Row>
-                                    </ListGroup.Item>
+                                <h2>Make Payment</h2>
+                                <ListGroup className='border-none' variant="flush">
                                     {!order.isPaid && (
                                         <ListGroup.Item className='mt-1'>
                                             { isPending ? (
@@ -253,8 +202,18 @@ const Order = () => {
                                 </ListGroup>
                             </Card.Body>
                         </Card>
-                    </Col>
-                </Row>
+                    </div>
+
+                    
+                    <div className='order-button mt-4 d-grid'>
+                        <Button className='button flex flex-row justify-between items-center border-none text-white mx-auto' type="button">
+                            <img src="../images/arrow-left.png"/>
+                            <Link>Back to home page</Link>
+                        </Button>
+                    </div>
+
+                </div>
+                <Footer />
             </div>
         );
 }

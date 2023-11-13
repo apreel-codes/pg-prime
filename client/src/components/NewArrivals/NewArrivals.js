@@ -174,19 +174,7 @@ const NewArrivals = () => {
                               <img src="../images/more.png" />
                           </button>
               </div>
-              {/* <Carousel responsive={responsive} className="new-arrival-carousel">
-                      { 
-                          webProductsData.map((product, i) => (
-                                      <div key={product.slug} className="mb-3">
-                                          <HomeProduct
-                                          product={product}></HomeProduct>
-                                      </div>
-                                  
-                        ))
-                      }
-              </Carousel>   */}
 
-              
               <div className='new-arrival-slider'>
               {
                 mobileProductsData.map((product, index) => (

@@ -1,0 +1,64 @@
+.place-shipping{
+    color: #1a1a1ae7;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.order-place-shipping {
+    color: #1a1a1ae7;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.h1 {
+    color: #000000eb;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.3rem;
+    margin-bottom: .9rem;
+}
+
+.place-shipping-contact-content {
+    font-size: 0.9rem;
+    color: #1a1a1ae7;
+    margin-bottom: .7rem;
+}
+
+.place-shipping-payment-content {
+    font-size: 0.9rem;
+    color: #1a1a1ae7;
+    margin-bottom: .7rem;
+}
+
+.place-img-name {
+    width: 32%;
+}
+
+.place-price {
+    font-weight: 600;
+}
+
+
+.order-place-shipping ul li {
+    margin-bottom: .8rem;
+}
+
+.order-place-shipping p {
+    color: #1a1a1aaf;
+    font-size: .9rem;
+}
+
+.order-place-shipping span {
+    color: #1a1a1a;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+
+.place-button .button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    margin-top: .8rem;
+}

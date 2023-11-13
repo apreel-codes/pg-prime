@@ -18,8 +18,8 @@ import ShippingAddress from '../../screens/ShippingAddress/ShippingAddress';
 import DashboardScreen from '../../screens/Dashboard';
 import Signup from '../../screens/Signup/Signup';
 import Payment from '../../screens/Payment';
-import PlaceOrder from '../../screens/PlaceOrder';
-import Order from '../../screens/Order';
+import PlaceOrder from '../../screens/PlaceOrder/PlaceOrder';
+import Order from '../../screens/Order/Order';
 import OrderHistory from '../../screens/OrderHistory';
 import Profile from '../../screens/Profile';
 import Button from 'react-bootstrap/Button';
@@ -150,8 +150,8 @@ const Header = () => {
                 <div className='hidden md:block page-navs border'>
                     <ul className='flex flex-row justify-between items-center w-[55%] my-3 ml-20'>
                         <Link to="/"><li>Home</li></Link>
-                        <Link><li>New Arrivals</li></Link>
-                        <Link><li>Best Sellers</li></Link>
+                        <Link to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
+                        <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
                         <div className='brands w-16'><li>Nike</li><img className='h-2' src='../images/arrow-down.png'/></div>
                         <div className='brands w-20'><li>Adidas</li><img className='h-2' src='../images/arrow-down.png'/></div>
                         <div className='brands w-20'><li>Jordan</li><img className='h-2' src='../images/arrow-down.png'/></div>
@@ -163,8 +163,8 @@ const Header = () => {
                     <div className= { isNavBarToggled ? 'mobile-side-nav' : 'hide-mobile-side-nav'} >
                             <ul className='content flex flex-col py-1'>
                                 <Link to="/"><li >Home</li></Link>
-                                <Link><li>New Arrivals</li></Link>
-                                <Link><li>Best Sellers</li></Link>
+                                <Link to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
+                                <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
                                 <div className='mobile-brands'><li>Nike</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
                                 <div className='mobile-brands'><li>Adidas</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
                                 <div className='mobile-brands'><li>Jordan</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
