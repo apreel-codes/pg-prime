@@ -77,7 +77,7 @@ const Header = () => {
                         ><img className='h-10 w-22' src='../images/nav-insta.png'/></Link>
                     </div>
                     <div className='flex flex-row justify-between gallery-refund md:w-48'>
-                        <Link className='hidden md:block'>Gallery</Link>
+                        <Link className='hidden md:block' to="/gallery">Gallery</Link>
                         <Link className='' to='/refundpolicy'>Refund Policy</Link>
                     </div>
                 </div>

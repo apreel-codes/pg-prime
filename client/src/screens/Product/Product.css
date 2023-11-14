@@ -18,6 +18,20 @@
     flex-wrap: wrap;
 }
 
+.product-page .specs .size .buttons {
+    display: none;
+}
+
+.buttons-active {
+    display: block;
+}
+
+.country-text {
+    border-bottom: 1px black solid;
+    font-weight: 700;
+}
+
+
 .product-page .specs .size .size-button button {
     cursor: pointer;
     font-family: 'Inter', sans-serif;

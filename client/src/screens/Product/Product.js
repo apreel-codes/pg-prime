@@ -54,8 +54,10 @@ const Product = () => {
     const [selectedImage, setSelectedImage] = useState('');
     const [size, setSize] = useState('36');
     const [active, setActive] = useState({});
+    const [buttonToggled, setButtonToggled] = useState(false);
 
-    const sizes =[
+    const eusizes =[
+        "35",
         "36",
         "37",
         "38",
@@ -64,15 +66,79 @@ const Product = () => {
         "41",
         "42",
         "43",
-        "44"
+        "44",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50"
+      ];
+
+
+      const ussizes =[
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "12.5",
+        "13",
+        "13.5",
+        "14",
+        "15",
+        "16"
+      ];
+
+      const uksizes =[
+        "2",
+        "2.5",
+        "3",
+        "3.5",
+        "4",
+        "4.5",
+        "5",
+        "5.5",
+        "6",
+        "6.5",
+        "7",
+        "7.5",
+        "8",
+        "8.5",
+        "9",
+        "9.5",
+        "10",
+        "10.5",
+        "11",
+        "11.5",
+        "12",
+        "13",
+        "14",
+        "15",
       ];
 
       
 
-    const handleSizeChange = (event) => {
-    setSize(event.target.value);
-    setActive(!active);
-  }
+    const handleSizeChange = (event, index) => {
+        setSize(event.target.value);
+        setButtonToggled(index);
+    }
+
+    // const updateButton = (id) => {
+    //     setButtonToggled(id);
+    // }
+
+  
 
     const navigate = useNavigate();
     const params = useParams();
@@ -106,6 +172,7 @@ const Product = () => {
 
     const addToCartHandler = async () => {
         product.size = size;
+        console.log(product.size);
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
         const { data } = await axios.get(`/api/products/${product._id}`);
@@ -114,7 +181,7 @@ const Product = () => {
             return;
         }
         ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity }});
-        navigate('/cart');
+        // navigate('/cart');
         toast.success('Item added to cart');
         return;
     }
@@ -158,6 +225,9 @@ const Product = () => {
       const [isDescriptionToggled, setIsDescriptionToggled] = useState(false);
       const [isPolicyToggled, setIsPolicyToggled] = useState(false);
       const [isReviewToggled, setIsReviewToggled] = useState(false);
+      const [toggled, setToggled] = useState(1);
+    //   const [isUStoggled, setIsUSToggled] = useState(false);
+    //   const [isUKtoggled, setIsUKToggled] = useState(false);
     
 
         const showDescription = () => {
@@ -172,7 +242,9 @@ const Product = () => {
             setIsReviewToggled(!isReviewToggled);    
     }
 
-
+    const updateToggle = (id) => {
+            setToggled(id);
+    }
 
     return loading ? (
         <LoadingBox />
@@ -215,20 +287,64 @@ const Product = () => {
                                     <p className="price">&#163;{product.price}</p>
                                 </div>
 
+                                
                                 <div className="size">
-                                    <p>Size: {size}</p>
+                                    <p>Size: {size} </p>
+
+                                    <div className="countries mb-2 flex flex-row justify-between">
+                                        <p className = { toggled === 1 ? "country-text" : " "} onClick={() => updateToggle(1)}>EU</p>
+                                        <p className = { toggled === 2 ? "country-text" : " "} onClick={() => updateToggle(2)}>US</p>
+                                        <p className = { toggled === 3 ? "country-text" : " "} onClick={() => updateToggle(3)}>UK</p>
+                                    </div>
+
+                                    <div className = { toggled === 1 ? "buttons-active" : "buttons" }>
                                         <div className="size-button">
-                                            {sizes.map((size, index) => (
-                                                <button 
-                                                active = {active === 1} 
-                                                // className = { active ? "button" : "button-select" } 
-                                                key = {index}
-                                                value={size} 
-                                                onClick={handleSizeChange} 
-                                                type="submit">{size}
-                                                </button>
-                                            ))}
-                                        </div>
+                                                {eusizes.map((eusize, index) => (
+                                                    <button 
+                                                    active = {active === 1} 
+                                                    className = { buttonToggled === index ? "button-select" : "" } 
+                                                    key = {index}
+                                                    value={eusize} 
+                                                    // onClick={updateButton}
+                                                    onClick={handleSizeChange} 
+                                                    type="submit">{eusize}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                    </div>
+                                        
+                                    
+                                    <div className = { toggled === 2 ? "buttons-active" : "buttons" } >
+                                            <div className="size-button">
+                                                {ussizes.map((ussize, index) => (
+                                                    <button 
+                                                    active = {active === 1} 
+                                                    // className = { active ? "button" : "button-select" } 
+                                                    key = {index}
+                                                    value={ussize} 
+                                                    onClick={handleSizeChange} 
+                                                    type="submit">{ussize}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                    </div>
+
+                                    <div className = { toggled === 3 ? "buttons-active" : "buttons" } >
+                                        <div className="size-button">
+                                                {uksizes.map((uksize, index) => (
+                                                    <button 
+                                                    active = {active === 1} 
+                                                    // className = { active ? "button" : "button-select" } 
+                                                    key = {index}
+                                                    value={uksize} 
+                                                    onClick={handleSizeChange} 
+                                                    type="submit">{uksize}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                    </div>
+                                    
+
                                 </div>
 
                                 <div className="availability">
