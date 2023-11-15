@@ -27,7 +27,8 @@
 }
 
 .countries p {
-    width: 70px
+    width: 70px;
+    cursor: pointer;
 }
 
 .country-text {
