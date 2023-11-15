@@ -73,7 +73,7 @@ const Header = () => {
 
 
     return (
-            <header className='relative'>
+            <header className='relative header'>
                 <div className='top-nav flex flex-row justify-between items-center py-2 px-6 md:px-20 md:py-2'>
                     <div className='socials flex flex-row justify-between'>
                         <Link><img className='h-8 w-18 mt-0.5 mr-1' src='../images/nav-twitter.png'/></Link>
@@ -178,7 +178,7 @@ const Header = () => {
                      <SearchBox />
                     </div>
                 </div>
-                <div className='hidden md:block page-navs border'>
+                <div className='hidden md:block page-navs'>
                     <ul className='flex flex-row justify-between items-center w-[55%] my-3 ml-20'>
                         <Link to="/"><li>Home</li></Link>
                         <Link to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
@@ -210,7 +210,8 @@ const Header = () => {
                                         Account
                                     </Link>
 
-
+                                
+                                { userInfo && userInfo.isAdmin && (
                                     <div className="admin-group">
                                         <div className="admin flex flex-row justify-between w-[30%]">
                                             <h3 className='mb-3'>Admin</h3>
@@ -237,6 +238,7 @@ const Header = () => {
                                                 
                                         </div>
                                      </div>
+                                )}
 
                                     <Link 
                                         className='dropdown-item'
@@ -271,68 +273,6 @@ const Header = () => {
                             )}
                     </div>
                 </div>
-                
-                {/* <Navbar className='bg-black' bg="dark" variant="dark" expand="lg">
-                    <Container fluid className='px-4'>
-                        <LinkContainer className='' to="/">
-                        <Navbar.Brand className=''><img src='../images/logo.png' className='w-6 h-7'></img></Navbar.Brand>
-                        </LinkContainer>
-                        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-nav" className=''>
-                        <SearchBox />
-                        <Nav className="me-auto w-100 justify-content-end">
-                            <Link to="/cart" className="nav-link">
-                            Cart
-                            {cart.cartItems.length > 0 && (
-                                <Badge pill bg="danger">
-                                {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                                </Badge>
-                            )}
-                            </Link>
-                            {userInfo ? (
-                            
-                            <NavDropdown title={userInfo.name} id="basic-nav-dropdown">
-                                
-                                <LinkContainer to="/profile">
-                                    <NavDropdown.Item>User Profile</NavDropdown.Item>
-                                </LinkContainer>
-                                <LinkContainer to="/orderhistory">
-                                    <NavDropdown.Item>Order History</NavDropdown.Item>
-                                </LinkContainer>
-                                <NavDropdown.Divider />
-                                <Link 
-                                    className='dropdown-item'
-                                    to="#signout"
-                                    onClick={signoutHandler}
-                                >
-                                    Sign Out
-                                </Link>             
-                            </NavDropdown>
-                            ) : (
-                            <Link className="nav-link" to="/signin">
-                                Sign In
-                            </Link>
-                            )}
-                            {userInfo && userInfo.isAdmin && (
-                            <NavDropdown title="Admin" id="admin-nav-dropdown">
-                                <LinkContainer to='/admin/dashboard'>
-                                <NavDropdown.Item>Dashboard</NavDropdown.Item>
-                                </LinkContainer>
-                                <LinkContainer to='/admin/productlist'>
-                                <NavDropdown.Item>Products</NavDropdown.Item>
-                                </LinkContainer>
-                                <LinkContainer to='/admin/orderlist'>
-                                <NavDropdown.Item>Orders</NavDropdown.Item>
-                                </LinkContainer>
-                                <LinkContainer to='/admin/userlist'>
-                                <NavDropdown.Item>Users</NavDropdown.Item>
-                                </LinkContainer>                    
-                            </NavDropdown>
-                            )}
-                        </Nav>
-                        </Navbar.Collapse>
-                    </Container>
-                </Navbar> */}
             </header>
     )
 }

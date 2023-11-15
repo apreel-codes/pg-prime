@@ -2,11 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@media screen and (min-width: 600px) {
+  html, body, #root {
+    position: relative;
+    height: 100%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 64px;
+  }
+}
 
-html, body, #root {
-  position: relative;
-  height: 100%;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
+
+@media screen and (max-width: 600px) {
+  html, body, #root {
+    position: relative;
+    height: 100%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding-top: 43px;
+  }
 }
 
 .message-box-text {
