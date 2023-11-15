@@ -27,12 +27,11 @@
 }
 
 .countries p {
-    /* border: 1px red solid; */
-    width: 100px
+    width: 70px
 }
 
 .country-text {
-    border-bottom: 1px black solid;
+    border-bottom: .12rem #1a1a1a solid;
     font-weight: 700;
 }
 
