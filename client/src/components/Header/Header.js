@@ -56,6 +56,8 @@ const Header = () => {
   const [isNavBarToggled, setIsNavBarToggled] = useState(false);
   const [isCloseToggled, setIsCloseToggled] = useState(false);
 
+  const [isAdminToggled, setIsAdminToggled] = useState(false);
+
   const showSearchBar = () => {
         setIsToggled(!isToggled);    
   }
@@ -64,6 +66,10 @@ const Header = () => {
     setIsNavBarToggled(!isNavBarToggled);
     setIsCloseToggled(!isCloseToggled);
   }
+
+  const showAdmin = () => {
+    setIsAdminToggled(!isAdminToggled);    
+}
 
 
     return (
@@ -86,12 +92,37 @@ const Header = () => {
                     <div className='search-profile-cart flex flex-row justify-between items-center'>
                         <SearchBox />
                         {userInfo ? (
-                            <NavDropdown className='' title={profile} id="basic-nav-dropdown">
+                            <NavDropdown className='web-profile-history-sign' title={profile} id="basic-nav-dropdown">
                                 <Link 
                                     className='dropdown-item' 
                                     to="/profile"
                                 >
-                                    My Account
+                                    Account
+                                </Link>
+
+                                { userInfo && userInfo.isAdmin && (
+                                    <NavDropdown title="Admin" id="admin-nav-dropdown" className='dropdown-item'>
+                                        <LinkContainer to='/admin/dashboard'>
+                                        <NavDropdown.Item>Dashboard</NavDropdown.Item>
+                                        </LinkContainer>
+                                        <LinkContainer to='/admin/productlist'>
+                                        <NavDropdown.Item>Products</NavDropdown.Item>
+                                        </LinkContainer>
+                                        <LinkContainer to='/admin/orderlist'>
+                                        <NavDropdown.Item>Orders</NavDropdown.Item>
+                                        </LinkContainer>
+                                        <LinkContainer to='/admin/userlist'>
+                                        <NavDropdown.Item>Users</NavDropdown.Item>
+                                        </LinkContainer>                    
+                                    </NavDropdown>
+                                )}
+
+
+                                <Link 
+                                    className='dropdown-item'
+                                    to="/orderhistory"
+                                >
+                                    Order History
                                 </Link>
                                 <Link 
                                     className='dropdown-item'
@@ -171,18 +202,55 @@ const Header = () => {
                                 <div className='mobile-brands'><li>New Balance</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
                             </ul>
                             {userInfo ? (
-                                <div className='profile-signout flex flex-col mt-14'>
+                                <div className='profile-signout flex flex-col mt-12'>
                                     <Link 
-                                        className='' 
+                                        className='dropdown-item mb-3'
                                         to="/profile"
                                     >
-                                        My Account
+                                        Account
                                     </Link>
+
+
+                                    <div className="admin-group">
+                                        <div className="admin flex flex-row justify-between w-[30%]">
+                                            <h3 className='mb-3'>Admin</h3>
+                                            <div className='fa-stack' onClick={showAdmin}>
+                                                <img className= { isAdminToggled ? "downAdmin fa-stack-1x h-3 w-4" : "upAdmin" } src="../images/down-arrow.png"/>
+                                                <img className= { isAdminToggled ? "upAdmin fa-stack-1x h-3 w-4" : "downAdmin" } src="../images/up-arrow.png"/>
+                                            </div>   
+                                        </div>
+                                        <div className= {isAdminToggled ? "" : 'hidden'}>
+                                            <div className='admin-content flex flex-col space-y-4'>
+                                                <Link to='/admin/dashboard'>
+                                                        Dashboard
+                                                    </Link>
+                                                    <Link to='/admin/productlist'>
+                                                        Products
+                                                    </Link>
+                                                    <Link to='/admin/orderlist'>
+                                                        Orders
+                                                    </Link>
+                                                    <Link className='mb-3' to='/admin/userlist'>
+                                                    Users   
+                                                </Link>          
+                                            </div>
+                                                
+                                        </div>
+                                     </div>
+
+                                    <Link 
+                                        className='dropdown-item'
+                                        to="/orderhistory"
+                                    >
+                                        Order History
+                                    </Link>
+
                                     <Link 
                                         className='signout'
                                         to="#signout"
                                         onClick={signoutHandler}
                                     >
+
                                         <Button className='button py-2 w-full mt'>Sign Out</Button>
                                     </Link>             
                                 </div>
