@@ -54,7 +54,7 @@ const Product = () => {
     const [selectedImage, setSelectedImage] = useState('');
     const [size, setSize] = useState('36');
     const [active, setActive] = useState({});
-    const [buttonToggled, setButtonToggled] = useState(false);
+    const [buttonToggled, setButtonToggled] = useState(0);
 
     const eusizes =[
         "35",
@@ -74,7 +74,6 @@ const Product = () => {
         "49",
         "50"
       ];
-
 
       const ussizes =[
         "5",
@@ -127,16 +126,13 @@ const Product = () => {
         "15",
       ];
 
-      
-
-    const handleSizeChange = (event, index) => {
-        setSize(event.target.value);
-        setButtonToggled(index);
+    const handleSizeChange = (e) => {
+        setSize(e.target.value);
     }
 
-    // const updateButton = (id) => {
-    //     setButtonToggled(id);
-    // }
+    const updateButton = (index) => {
+        setButtonToggled(index);
+    }
 
   
 
@@ -172,7 +168,6 @@ const Product = () => {
 
     const addToCartHandler = async () => {
         product.size = size;
-        console.log(product.size);
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
         const { data } = await axios.get(`/api/products/${product._id}`);
@@ -181,7 +176,7 @@ const Product = () => {
             return;
         }
         ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity }});
-        // navigate('/cart');
+        navigate('/cart');
         toast.success('Item added to cart');
         return;
     }
@@ -226,8 +221,6 @@ const Product = () => {
       const [isPolicyToggled, setIsPolicyToggled] = useState(false);
       const [isReviewToggled, setIsReviewToggled] = useState(false);
       const [toggled, setToggled] = useState(1);
-    //   const [isUStoggled, setIsUSToggled] = useState(false);
-    //   const [isUKtoggled, setIsUKToggled] = useState(false);
     
 
         const showDescription = () => {
@@ -291,7 +284,7 @@ const Product = () => {
                                 <div className="size">
                                     <p>Size: {size} </p>
 
-                                    <div className="countries mb-2 flex flex-row justify-between">
+                                    <div className="countries mb-3 flex flex-row justify-between">
                                         <p className = { toggled === 1 ? "country-text" : " "} onClick={() => updateToggle(1)}>EU</p>
                                         <p className = { toggled === 2 ? "country-text" : " "} onClick={() => updateToggle(2)}>US</p>
                                         <p className = { toggled === 3 ? "country-text" : " "} onClick={() => updateToggle(3)}>UK</p>
@@ -305,8 +298,10 @@ const Product = () => {
                                                     className = { buttonToggled === index ? "button-select" : "" } 
                                                     key = {index}
                                                     value={eusize} 
-                                                    // onClick={updateButton}
-                                                    onClick={handleSizeChange} 
+                                                    onClick={(e) => {
+                                                        handleSizeChange(e) 
+                                                        updateButton(index)
+                                                    }}
                                                     type="submit">{eusize}
                                                     </button>
                                                 ))}
@@ -319,10 +314,13 @@ const Product = () => {
                                                 {ussizes.map((ussize, index) => (
                                                     <button 
                                                     active = {active === 1} 
-                                                    // className = { active ? "button" : "button-select" } 
+                                                    className = { buttonToggled === index ? "button-select" : "" } 
                                                     key = {index}
                                                     value={ussize} 
-                                                    onClick={handleSizeChange} 
+                                                    onClick={(e) => {
+                                                        handleSizeChange(e) 
+                                                        updateButton(index)
+                                                    }} 
                                                     type="submit">{ussize}
                                                     </button>
                                                 ))}
@@ -334,10 +332,13 @@ const Product = () => {
                                                 {uksizes.map((uksize, index) => (
                                                     <button 
                                                     active = {active === 1} 
-                                                    // className = { active ? "button" : "button-select" } 
+                                                    className = { buttonToggled === index ? "button-select" : "" } 
                                                     key = {index}
                                                     value={uksize} 
-                                                    onClick={handleSizeChange} 
+                                                    onClick={(e) => {
+                                                        handleSizeChange(e) 
+                                                        updateButton(index)
+                                                    }}
                                                     type="submit">{uksize}
                                                     </button>
                                                 ))}

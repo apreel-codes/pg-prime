@@ -82,7 +82,7 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='web-second md:flex md:flex-row md:justify-between items-center md:px-20 md:py-2 hidden md:block'>
-                    <Link to='/'><img className='h-19 w-24' src='../images/nav-logo.png'/></Link>
+                    <Link to='/'><img className='h-16 w-24' src='../images/nav-logo.png'/></Link>
                     <div className='search-profile-cart flex flex-row justify-between items-center'>
                         <SearchBox />
                         {userInfo ? (
@@ -183,7 +183,7 @@ const Header = () => {
                                         to="#signout"
                                         onClick={signoutHandler}
                                     >
-                                        <Button className='button w-full mt'>Sign Out</Button>
+                                        <Button className='button py-2 w-full mt'>Sign Out</Button>
                                     </Link>             
                                 </div>
                             ) : (
