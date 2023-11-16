@@ -1,14 +1,14 @@
 import axios from 'axios';
 // import apiClient from '../api';
 import React, { useContext, useReducer, useState } from 'react';
-import { Store } from '../Store';
+import { Store } from '../../Store';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
 import { toast } from "react-toastify";
-import { getError } from '../uttils';
+import { getError } from '../../uttils';
 // import axios from 'axios';
 
 

@@ -1,7 +1,7 @@
 .header {
     position: fixed;
     width: 100%;
-    z-index: 3999;
+    z-index: 100000;
     top: 0;
     background-color: #fff;
 }
@@ -78,10 +78,9 @@
 }
 
 .dropdown-item {
-    font-size: 0.9rem;
+    font-size: 1rem;
 
 }
-
 
 .mobile-side-nav {
         font-family: 'Inter', sans-serif;
@@ -137,7 +136,7 @@
 
 
 .mobile-side-nav .content li {
-    margin-top: 0.7rem;
+    margin-top: 0.5rem;
     font-size: 1rem;
 }
 
@@ -170,7 +169,7 @@
 
 
 .hide-mobile-side-nav ul li {
-    margin-top: 0.7rem;
+    margin-top: 0.5rem;
 }
 
 .close {
@@ -205,4 +204,8 @@
 
 .admin-content {
     margin-left: 1.2rem;
+}
+
+.profile-signout {
+    margin-top: -.05rem;
 }

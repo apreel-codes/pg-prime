@@ -22,7 +22,7 @@ import Payment from './screens/Payment';
 import PlaceOrder from './screens/PlaceOrder/PlaceOrder';
 import Order from './screens/Order/Order';
 import OrderHistory from './screens/OrderHistory';
-import Profile from './screens/Profile';
+import Profile from './screens/Profile/Profile';
 import Button from 'react-bootstrap/Button';
 import { getError } from './uttils';
 import SearchBox from './components/SearcchBox';

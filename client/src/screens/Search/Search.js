@@ -180,10 +180,10 @@ const Search = (e) => {
         setIsFilterToggled(!isFilterToggled);
       }
 
-      const [isBrandToggled, setIsBrandToggled] = useState(false);
-      const [isCategoryToggled, setIsCategoryToggled] = useState(false);
-      const [isPriceToggled, setIsPriceToggled] = useState(false);
-      const [isRatingToggled, setIsRatingToggled] = useState(false);
+      const [isBrandToggled, setIsBrandToggled] = useState(true);
+      const [isCategoryToggled, setIsCategoryToggled] = useState(true);
+      const [isPriceToggled, setIsPriceToggled] = useState(true);
+      const [isRatingToggled, setIsRatingToggled] = useState(true);
     
 
     const showBrand = () => {
