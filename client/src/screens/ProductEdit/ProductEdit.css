@@ -1,0 +1,42 @@
+.message-box-text {
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.edit-product-page {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    font-size: .9rem;
+}
+
+.edit-product-page .edit-label {
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.edit-product-page .edit-button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+   width: 170px;
+}
+
+.edit-product-page .edit-cancel-button {
+    background-color: #e4e4e7;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    width: 170px;
+    color: black;
+    font-weight: 500;
+}
+
+
+@media screen and (min-width: 600px) {
+    .edit-product-page .edit-button-group {
+        width: 360px;
+    }
+}

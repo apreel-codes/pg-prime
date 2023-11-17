@@ -72,7 +72,7 @@ const Signin = () => {
         </Helmet>
         <Header />
         <div className="sign-in-page mx-auto">
-            <div className=" flex flex-row">
+            <div className="flex flex-row">
                 <div className="web-test hidden md:block">
                     <Testimonials />
                 </div>

@@ -13,6 +13,7 @@ import { getError } from '../../uttils';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import './ProductList.css';
+import { Helmet } from 'react-helmet-async';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -148,6 +149,9 @@ export default function ProductList() {
 
   return (
     <div>
+      <Helmet>
+        <title>Products</title>
+      </Helmet>
       <Header />
       <div className='productlist-page md:w-[80%] w-[90%] my-10 mx-auto'>
           <div className='products-button flex flex-row justify-between items-center mb-4'>
