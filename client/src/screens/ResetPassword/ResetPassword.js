@@ -97,12 +97,12 @@ export default function ResetPassword() {
               </div>
               <div className="md:w-[60%] mx-auto">
               <div className="md:w-[50%] mx-auto py-14 w-[100%] px-3">
-                    <div className="relative mb-3">
+                    {/* <div className="relative mb-3">
                             <Link to="/signin">
                                 <AiOutlineArrowLeft className="back-arrow"/>
                             </Link>
                             <p className="back">Back to Sign in</p>
-                    </div>
+                    </div> */}
                     <div className="form">
                         <div className="">
                             <h1 className="mb-1 font-bold">Set up a new password</h1>

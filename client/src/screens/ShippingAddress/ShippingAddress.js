@@ -31,7 +31,6 @@ const ShippingAddress = () => {
     const[fullName, setFullName] = useState(shippingAddress.fullName || '');
     const[address, setAddress] = useState(shippingAddress.address || '');
     const[city, setCity] = useState(shippingAddress.city || '');
-    const[email, setEmail] = useState(shippingAddress.email || '');
     const[country, setCountry] = useState(shippingAddress.country || '');
     const[phonenumber, setPhoneNumber] = useState(shippingAddress.phonenumber || '');
 
@@ -63,7 +62,6 @@ const ShippingAddress = () => {
                 fullName,
                 address,
                 city,
-                email,
                 country,
                 phonenumber
             }
@@ -79,13 +77,11 @@ const ShippingAddress = () => {
                 fullName,
                 address,
                 city,
-                email,
                 country,
                 phonenumber,
             })
         );
         // navigate('/payment');
-
         navigate('/placeorder');
 
     }
@@ -115,23 +111,14 @@ const ShippingAddress = () => {
                         </Form.Group>
 
 
-                       <div className='md:grid md:grid-cols-2 md:gap-3'>
+                       <div className='w-full'>
                         <Form.Group className="phone-group mb-4" controlId="phonenumber">
                             <Form.Label>Phone</Form.Label>
                                     <PhoneInput
+                                    className=''
                                     value={phonenumber}
                                     onChange={setPhoneNumber}
                                     type='tel'
-                                    required
-                                    />
-                            </Form.Group>
-
-                            <Form.Group className="email-group mb-4 d-grid" controlId="postalCode">
-                            <Form.Label>Email</Form.Label>
-                                    <input
-                                    className='w-full'
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
                                     required
                                     />
                             </Form.Group>

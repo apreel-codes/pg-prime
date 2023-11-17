@@ -3,29 +3,38 @@
     width: 100%;
 }
 
-.create-product-page {
+.edit-product-page {
     font-family: 'Inter', sans-serif;
     color: #1a1a1a;
     font-size: .9rem;
 }
 
-.create-product-page .create-label {
+.edit-product-page .edit-label {
     color: #000000;
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
     font-weight: 600;
 }
 
-.create-product-page .create-button {
+.edit-product-page .edit-button {
     background-color: #003466;
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     padding: 0.8rem 0;
-    margin-top: .7rem;
-    /* width: 170px; */
+   width: 170px;
 }
 
-.create-product-page textarea {
+.edit-product-page .edit-cancel-button {
+    background-color: #e4e4e7;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    width: 170px;
+    color: black;
+    font-weight: 500;
+}
+
+.edit-product-page textarea {
     width: 100%;
     height: 150px;
     border: 2px #1a1a1a3b solid;
@@ -33,13 +42,9 @@
     padding: 0.8rem;
 }
 
+
 @media screen and (min-width: 600px) {
-    .create-product-page .create-button {
-        background-color: #003466;
-        font-family: 'Inter', sans-serif;
-        font-size: 1rem;
-        padding: 0.8rem 0;
-        margin-top: .7rem;
-        width: 170px;
+    .edit-product-page .edit-button-group {
+        width: 360px;
     }
-  }
+}

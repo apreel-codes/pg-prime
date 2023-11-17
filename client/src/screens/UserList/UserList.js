@@ -116,48 +116,55 @@ export default function UserList() {
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
-          <table className="table mt-3">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>EMAIL</th>
-                <th>IS ADMIN</th>
-                <th>ACTIONS</th>
-              </tr>
-            </thead>
-            <tbody>
-              {users.map((user) => (
-                <tr key={user._id}>
-                  <td><span className='md:hidden mobile-header block font-semibold'>ID:&nbsp;</span>{user._id}</td>
-                  <td><span className='md:hidden mobile-header block font-semibold'>NAME:&nbsp;</span>{user.name}</td>
-                  <td><span className='md:hidden mobile-header block font-semibold'>EMAIL:&nbsp;</span>{user.email}</td>
-                  <td><span className='md:hidden mobile-header block font-semibold'>ADMIN:&nbsp;</span>{user.isAdmin ? 'YES' : 'NO'}</td>
-                  <td>
-                    <Button
-                    className='text-blue-800 border-blue-800'
-                      type="button"
-                      
-                      onClick={() => navigate(`/admin/user/${user._id}`)}
-                    >
-                      Edit
-                    </Button>
-                    &nbsp;
-                    &nbsp;
-                    &nbsp;
-                    <Button
-                    className='bg-red-600 text-gray-100 border-none'
-                      type="button"
-                      
-                      onClick={() => deleteHandler(user)}
-                    >
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <div>
+            { users.length === 0 ? (
+                  <p className='no-users'>There are no users yet.</p>
+                  ) : (
+              <table className="table mt-3">
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>IS ADMIN</th>
+                    <th>ACTIONS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users.map((user) => (
+                    <tr key={user._id}>
+                      <td><span className='md:hidden mobile-header block font-semibold'>ID:&nbsp;</span>{user._id}</td>
+                      <td><span className='md:hidden mobile-header block font-semibold'>NAME:&nbsp;</span>{user.name}</td>
+                      <td><span className='md:hidden mobile-header block font-semibold'>EMAIL:&nbsp;</span>{user.email}</td>
+                      <td><span className='md:hidden mobile-header block font-semibold'>ADMIN:&nbsp;</span>{user.isAdmin ? 'YES' : 'NO'}</td>
+                      <td>
+                        <Button
+                        className='text-blue-800 border-blue-800'
+                          type="button"
+                          
+                          onClick={() => navigate(`/admin/user/${user._id}`)}
+                        >
+                          Edit
+                        </Button>
+                        &nbsp;
+                        &nbsp;
+                        &nbsp;
+                        <Button
+                        className='bg-red-600 text-gray-100 border-none'
+                          type="button"
+                          
+                          onClick={() => deleteHandler(user)}
+                        >
+                          Delete
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+               ) 
+              }
+          </div>
         )}
       </div>
       <Footer />

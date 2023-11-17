@@ -1,14 +1,13 @@
-
-.userlist-page {
+.orderhistory-page {
     font-family: 'Inter', sans-serif;
     color: #1a1a1a;
     font-size: .9rem;
 }
 
-.userlist-page .mobile-header {
+.orderhistory-page .mobile-header {
     font-size: .9rem;
 }
 
-.no-users {
+.no-order {
     font-size: 0.9rem;
 }

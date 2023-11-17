@@ -62,6 +62,7 @@ const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
+  const [policy, setPolicy] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [description, setDescription] = useState('');
@@ -88,6 +89,7 @@ const [name, setName] = useState('');
           image,
           images,
           category,
+          policy,
           brand,
           countInStock,
         },
@@ -101,7 +103,6 @@ const [name, setName] = useState('');
       });
       toast.success('Product created successfully');
       navigate('/admin/productlist');
-      console.log(data);
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'CREATE_FAIL' });
@@ -178,22 +179,12 @@ const [name, setName] = useState('');
                     <Form.Label className="create-label">Price</Form.Label>
                     <input
                       className='text-sm w-full'
-                      placeholder='e.g 200'
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                       required
                     />
                 </Form.Group>
-                {/* <Form.Group className="mb-3" controlId="name">
-                    <Form.Label>Size</Form.Label>
-                    <Form.Control
-                    className='text-sm'
-                    placeholder='e.g All sizes available'
-                    value={size}
-                    onChange={(e) => setSize(e.target.value)}
-                    required
-                    />
-                </Form.Group> */}
+                
                 <Form.Group className="mb-4" controlId="imageFile">
                     <Form.Label className="create-label">Upload Image</Form.Label>
                     <Form.Control type="file" 
@@ -231,7 +222,6 @@ const [name, setName] = useState('');
                     <Form.Label className="create-label">Category</Form.Label>
                     <input
                       className='text-sm w-full'
-                      placeholder='e.g Men'
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
                       required
@@ -242,7 +232,6 @@ const [name, setName] = useState('');
                     <Form.Label className="create-label">Brand</Form.Label>
                     <input
                       className='text-sm w-full'
-                      placeholder='e.g Nike'
                       value={brand}
                       onChange={(e) => setBrand(e.target.value)}
                       required
@@ -253,11 +242,20 @@ const [name, setName] = useState('');
                     <Form.Label className="create-label">Count In Stock</Form.Label>
                     <input
                       className='text-sm w-full'
-                      placeholder='e.g 10'
                       value={countInStock}
                       onChange={(e) => setCountInStock(e.target.value)}
                       required
                     />
+                </Form.Group>
+
+                <Form.Group className="mb-4 grid" controlId="policy">
+                  <Form.Label className="create-label">Return Policy</Form.Label>
+                      <textarea
+                      value={policy}
+                      onChange={(e) => setPolicy(e.target.value)}
+                      required
+                      className='policy-input'
+                      ></textarea>
                 </Form.Group>
 
                 <div className="d-grid">

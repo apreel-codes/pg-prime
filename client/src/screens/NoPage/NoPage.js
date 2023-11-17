@@ -15,7 +15,9 @@ const ErrorPage = () => {
                   We are unable to find the page you are looking for.
                </p>
                <div className="d-grid">
-                <button className="mobile-error-button">Back to homepage</button>
+                <button className="mobile-error-button">
+                    <Link to="/">Back to homepage</Link>
+                </button>
                </div>
             </div>
            </div>
@@ -26,7 +28,9 @@ const ErrorPage = () => {
                         We are unable to find the page you are looking for.
                     </p>
                     <div className="d-grid">
-                        <button className="web-error-button">Back to homepage</button>
+                        <button className="web-error-button">
+                            <Link to="/">Back to homepage</Link>
+                        </button>
                     </div>
             </div>
             <img className="web-error-image" src='../images/page.png'/>

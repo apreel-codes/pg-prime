@@ -182,64 +182,71 @@ export default function ProductList() {
           ) : error ? (
             <MessageBox variant="danger">{error}</MessageBox>
           ) : (
-            <>
-            <table className="table mt-3">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>PRICE</th>
-                    <th>CATEGORY</th>
-                    <th>BRAND</th>
-                    <th>ACTIONS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {products.map((product) => (
-                    <tr key={product._id}>
-                      <td><span className='md:hidden mobile-header block font-semibold'>ID:&nbsp;</span>{product._id}</td>
-                      <td><span className='md:hidden mobile-header block font-semibold'>NAME:&nbsp;</span>{product.name}</td>
-                      <td><span className='md:hidden mobile-header block font-semibold'>PRICE:&nbsp;</span>&#163;{product.price}</td>
-                      <td><span className='md:hidden mobile-header block font-semibold'>CATEGORY:&nbsp;</span>{product.category}</td>
-                      <td><span className='md:hidden mobile-header block font-semibold'>BRAND:&nbsp;</span>{product.brand}</td>
-                      <td>
-                        <Button
-                          className='text-blue-800 border-blue-800'
-                          type="button"
-                          
-                          onClick={() => navigate(`/admin/product/${product._id}`)}
-                        >
-                          Edit
-                        </Button>
-                        &nbsp;
-                        &nbsp;
-                        &nbsp;
-                        <Button
-                        
-                          type="button"
-                          className='bg-red-600 text-gray-100 border-none'
-                          
-                          onClick={() => deleteHandler(product)}
-                        >
-                          Delete
-                        </Button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <div>
-                {[...Array(pages).keys()].map((x) => (
-                  <Link
-                    className={x + 1 === Number(page) ? 'btn font-bold' : 'btn'}
-                    key={x + 1}
-                    to={`/admin/productlist?page=${x + 1}`}
-                  >
-                    {x + 1}
-                  </Link>
-                ))}
-              </div>
-            </>
+            <div>
+              { products.length === 0 ? (
+                <p className='no-product'>There are no products yet.</p>
+                ) : (
+                <>
+                <table className="table mt-3">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>PRICE</th>
+                        <th>CATEGORY</th>
+                        <th>BRAND</th>
+                        <th>ACTIONS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      { products.map((product) => (
+                        <tr key={product._id}>
+                          <td><span className='md:hidden mobile-header block font-semibold'>ID:&nbsp;</span>{product._id}</td>
+                          <td><span className='md:hidden mobile-header block font-semibold'>NAME:&nbsp;</span>{product.name}</td>
+                          <td><span className='md:hidden mobile-header block font-semibold'>PRICE:&nbsp;</span>&#163;{product.price}</td>
+                          <td><span className='md:hidden mobile-header block font-semibold'>CATEGORY:&nbsp;</span>{product.category}</td>
+                          <td><span className='md:hidden mobile-header block font-semibold'>BRAND:&nbsp;</span>{product.brand}</td>
+                          <td>
+                            <Button
+                              className='text-blue-800 border-blue-800'
+                              type="button"
+                              
+                              onClick={() => navigate(`/admin/product/${product._id}`)}
+                            >
+                              Edit
+                            </Button>
+                            &nbsp;
+                            &nbsp;
+                            &nbsp;
+                            <Button
+                            
+                              type="button"
+                              className='bg-red-600 text-gray-100 border-none'
+                              
+                              onClick={() => deleteHandler(product)}
+                            >
+                              Delete
+                            </Button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div>
+                    {[...Array(pages).keys()].map((x) => (
+                      <Link
+                        className={x + 1 === Number(page) ? 'btn font-bold' : 'btn'}
+                        key={x + 1}
+                        to={`/admin/productlist?page=${x + 1}`}
+                      >
+                        {x + 1}
+                      </Link>
+                    ))}
+                  </div>
+                </>
+               ) 
+              }
+            </div>
           )}
       </div>
       <Footer />

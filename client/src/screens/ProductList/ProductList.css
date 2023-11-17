@@ -19,3 +19,7 @@
 .export-button {
     width: 200px;
 }
+
+.no-product {
+    font-size: 0.9rem;
+}

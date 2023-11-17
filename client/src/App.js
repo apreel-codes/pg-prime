@@ -1,18 +1,9 @@
-import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Home from './screens/Home/Home';
 import Product from './screens/Product/Product';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import {LinkContainer} from 'react-router-bootstrap';
 import ErrorPage from './screens/NoPage/NoPage';
-import Badge from 'react-bootstrap/Badge';
-import Nav from 'react-bootstrap/Nav';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Store } from './Store';
 import Cart from './screens/Cart/Cart';
 import Signin from './screens/Signin/Signin.js';
 import ShippingAddress from './screens/ShippingAddress/ShippingAddress';
@@ -21,27 +12,22 @@ import Signup from './screens/Signup/Signup';
 import Payment from './screens/Payment';
 import PlaceOrder from './screens/PlaceOrder/PlaceOrder';
 import Order from './screens/Order/Order';
-import OrderHistory from './screens/OrderHistory';
+import OrderHistory from './screens/OrderHistory/OrderHistory';
 import Profile from './screens/Profile/Profile';
-import Button from 'react-bootstrap/Button';
-import { getError } from './uttils';
-import SearchBox from './components/SearcchBox';
 import Search from './screens/Search/Search';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './screens/Dashboard';
 import AdminRoute from './components/AdminRoute';
-import OrderList from './screens/OrderList';
+import OrderList from './screens/OrderList/OrderList';
 import ProductList from './screens/ProductList/ProductList';
 import UserList from './screens/UserList/UserList';
-import ProductEdit from './screens/ProductEdit/ProductEdit';
-import UserEdit from './screens/UserEdit';
+import EditProduct from './screens/EditProduct/EditProduct';
+import UserEdit from './screens/UserEdit/UserEdit';
 import CreateProduct from './screens/CreateProduct/CreateProduct';
 import ForgotPassword from './screens/ForgotPassword/ForgotPassword';
 import ResetPassword from './screens/ResetPassword/ResetPassword';
 import CheckEmail from './screens/CheckEmail/CheckEmail';
 import RefundPolicy from './screens/RefundPolicy/RefundPolicy';
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
 import Gallery from './screens/Gallery/Gallery';
 
 
@@ -84,7 +70,7 @@ function App() {
                   <Route path="/admin/dashboard" element={<AdminRoute><Dashboard /></AdminRoute>} />
                   <Route path="/admin/orderlist" element={<AdminRoute><OrderList /></AdminRoute>}></Route>
                   <Route path="/admin/productlist" element={<AdminRoute><ProductList /></AdminRoute>}></Route>
-                  <Route path="/admin/product/:id" element={<AdminRoute><ProductEdit /></AdminRoute>}></Route>
+                  <Route path="/admin/product/:id" element={<AdminRoute><EditProduct /></AdminRoute>}></Route>
                   <Route path="/admin/dashboard" element={<AdminRoute><DashboardScreen /></AdminRoute>}></Route>
                   <Route path="/admin/createproduct" element={<AdminRoute><CreateProduct /></AdminRoute>}></Route>
                   <Route path="/admin/user/:id"element={<AdminRoute><UserEdit /></AdminRoute>}></Route>

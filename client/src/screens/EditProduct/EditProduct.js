@@ -13,7 +13,7 @@ import Button from 'react-bootstrap/Button';
 import { Store } from '../../Store';
 import { getError } from '../../uttils';
 import LoadingBox from '../../components/LoadingBox';
-import './ProductEdit.css';
+import './EditProduct.css';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -44,7 +44,7 @@ const reducer = (state, action) => {
       return state;
   }
 };
-export default function ProductEdit() {
+export default function EditProduct() {
   const navigate = useNavigate();
   const params = useParams();
   const { id: productId } = params;
@@ -64,9 +64,9 @@ export default function ProductEdit() {
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
+  const [policy, setPolicy] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
-  const [description, setDescription] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -76,13 +76,12 @@ export default function ProductEdit() {
         setName(data.name);
         setSlug(data.slug);
         setPrice(data.price);
-        // setSize(data.size);
         setImage(data.image);
         setImages(data.images);
         setCategory(data.category);
+        setPolicy(data.policy);
         setCountInStock(data.countInStock);
         setBrand(data.brand);
-        setDescription(data.description);
         dispatch({ type: 'FETCH_SUCCESS' });
       } catch (err) {
         dispatch({
@@ -109,6 +108,7 @@ export default function ProductEdit() {
           image,
           images,
           category,
+          policy,
           brand,
           countInStock,
         },
@@ -203,14 +203,7 @@ export default function ProductEdit() {
                   required
                 />
               </Form.Group>
-              {/* <Form.Group className="mb-3" controlId="name">
-                <Form.Label>Size</Form.Label>
-                <Form.Control
-                  value={size}
-                  onChange={(e) => setSize(e.target.value)}
-                  required
-                />
-              </Form.Group> */}
+            
               <Form.Group className="mb-4 grid" controlId="image">
                 <Form.Label className="edit-label">Image File</Form.Label>
                 <Form.Control
@@ -276,8 +269,18 @@ export default function ProductEdit() {
                 />
               </Form.Group>
 
+              <Form.Group className="mb-4 grid" controlId="policy">
+                  <Form.Label className="create-label">Return Policy</Form.Label>
+                      <textarea
+                      value={policy}
+                      onChange={(e) => setPolicy(e.target.value)}
+                      required
+                      className='policy-input'
+                      ></textarea>
+                </Form.Group>
 
-              <div className="edit-button-group flex flex-row justify-between items-center">
+
+              <div className="edit-button-group flex mt-2 flex-row justify-between items-center">
                 <div>
                     <Button className="edit-cancel-button border-none w-full" type="">
                       <Link to='/admin/productlist'>Cancel</Link>
