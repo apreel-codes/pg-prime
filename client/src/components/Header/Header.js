@@ -29,11 +29,11 @@ import ProtectedRoute from '../ProtectedRoute';
 import Dashboard from '../../screens/Dashboard';
 import AdminRoute from '../AdminRoute';
 import OrderList from '../../screens/OrderList';
-import ProductList from '../../screens/ProductList';
+import ProductList from '../../screens/ProductList/ProductList';
 import UserList from '../../screens/UserList';
 import ProductEdit from '../../screens/ProductEdit';
 import UserEdit from '../../screens/UserEdit';
-import CreateProduct from '../../screens/CreateProduct';
+import CreateProduct from '../../screens/CreateProduct/CreateProduct';
 import './Header.css';
 import SearchBox from '../SearcchBox';
 import classNames from 'classnames';
@@ -253,7 +253,7 @@ const Header = () => {
                                         onClick={signoutHandler}
                                     >
 
-                                        <Button className='button py-2 w-full mt'>Sign Out</Button>
+                                        <Button className='button py-2 w-full mt-4'>Sign Out</Button>
                                     </Link>             
                                 </div>
                             ) : (

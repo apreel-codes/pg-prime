@@ -1,0 +1,21 @@
+.productlist-page .productlist-page-button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: .8rem;
+    padding: 0.8rem 0;
+    width: 130px;
+}
+
+.productlist-page {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    font-size: .9rem;
+}
+
+.productlist-page .mobile-header {
+    font-size: .9rem;
+}
+
+.export-button {
+    width: 200px;
+}

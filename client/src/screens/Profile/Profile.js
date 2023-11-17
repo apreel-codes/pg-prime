@@ -2,18 +2,24 @@ import axios from 'axios';
 // import apiClient from '../api';
 import React, { useContext, useReducer, useState } from 'react';
 import { Store } from '../../Store';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Button from "react-bootstrap/Button";
 import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
 import { toast } from "react-toastify";
 import { getError } from '../../uttils';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+import {Icon} from 'react-icons-kit';
+import {eyeOff} from 'react-icons-kit/feather/eyeOff';
+import {eye} from 'react-icons-kit/feather/eye';
 // import axios from 'axios';
+import './Profile.css';
 
 
 const reducer = (state, action) => {
-    switch ( action.type) {
+    switch (action.type) {
         case 'UPDATE_REQUEST':
             return { ...state, loadingUpdate: true };
             case 'UPDATE_SUCCESS':
@@ -24,7 +30,7 @@ const reducer = (state, action) => {
         default:
             return state;
     }
-}
+};
 
 const Profile = () => {
     const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -39,13 +45,42 @@ const Profile = () => {
     const [email, setEmail] = useState(userInfo.email);
     const [password, setPassword] = useState('');
     const [confirmPassword, setconfirmPassword] = useState('');
+    const [passwordtype, setPasswordType] = useState('password');
+    const [confirmPasswordtype, setConfirmPasswordType] = useState('password');
+    const [passwordIcon, setPasswordIcon] = useState(eyeOff);
+    const [confirmPasswordIcon, setConfirmPasswordIcon] = useState(eyeOff);
 
     const [{ loadingUpdate }, dispatch ] = useReducer(reducer, {
         loadingUpdate: false,
     });
 
+    const handleToggle = () => {
+        if (passwordtype === 'password'){
+            setPasswordIcon(eye);
+            setPasswordType('text')
+        } else {
+            setPasswordIcon(eyeOff)
+            setPasswordType('password')
+        }
+     }
+
+     const handleConfirmToggle = () => {
+        if (confirmPasswordtype === 'password'){
+            setConfirmPasswordIcon(eye);
+            setConfirmPasswordType('text')
+         } else {
+            setConfirmPasswordIcon(eyeOff)
+            setConfirmPasswordType('password')
+         }
+     }
+
+
     const submitHandler = async (e) => {
         e.preventDefault();
+        if(!name || !email || !password){
+            toast.error('Please complete all fields');
+            return;
+        }
         if(password !== confirmPassword) {
             toast.error('Passwords do not match');
             return;
@@ -69,56 +104,91 @@ const Profile = () => {
             localStorage.setItem('userInfo', JSON.stringify(data));
             navigate(redirect || '/');
             toast.success('User updated successfully!');
+            return;
         } catch (err) {
             dispatch({
                 type: 'FETCH_FAIL',
             });
-            toast.error(getError(err));
+            toast.error('Oops! Something went wrong.');
+            return;
         }
 
     }
 
     return (
-        <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
+        <div>
             <Helmet>
                 <title>Profile</title>
             </Helmet>
-            <h1 className="my-3 text-2xl font-bold">Profile</h1>
-                <form onSubmit={submitHandler}>
-                    <Form.Group className="mb-3" ControlId="name">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        ></Form.Control>
-                    </Form.Group>
-                    <Form.Group className="mb-3" ControlId="name">
-                        <Form.Label>Email Address</Form.Label>
-                        <Form.Control
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        ></Form.Control>
-                    </Form.Group>
-                    <Form.Group className="mb-3" ControlId="name">
-                        <Form.Label>Pasword</Form.Label>
-                        <Form.Control
-                            onChange={(e) => setPassword(e.target.value)}
-                            type="password"
-                        ></Form.Control>
-                    </Form.Group>
-                    <Form.Group className="mb-3" ControlId="name">
-                        <Form.Label>Confirm Password</Form.Label>
-                        <Form.Control
-                            onChange={(e) => setconfirmPassword(e.target.value)}
-                            type="password"
-                        ></Form.Control>
-                    </Form.Group>
-                    <div className='mb-3 mt-4 d-grid'>
-                        <Button className='bg-black py-3 rounded-full text-gray-100 border-none' type="submit">Update</Button>
-                    </div>
-                </form>
+            <Header />
+            <div className='profile-page md:w-[40%] w-[90%] mx-auto my-12 md:my-20'>
+                <h1 className="">Account Details</h1>
+                <p>Edit your name and email address...</p>
+                <form className="profile-main-form" onSubmit={submitHandler}>
+                        <Form.Group className="mb-4 grid" controlId="name">
+                                <Form.Label className="label">Name</Form.Label>
+                                <input 
+                                    className='w-full'
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                        </Form.Group>
+                        <Form.Group className="mb-4 grid" controlId="name">
+                                <Form.Label className="label">Email</Form.Label>
+                                <input 
+                                    className='w-full'
+                                    type="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    required
+                                />
+                        </Form.Group>
+                        <Form.Group className="mb-1 grid" controlId="name">
+                            <Form.Label className="label" >Password</Form.Label>
+                                    <div className="mb-2 flex">
+                                        <input 
+                                            className='w-full'
+                                            type={passwordtype}
+                                            value={password} 
+                                            onChange={(e) => setPassword(e.target.value)}
+                                            required
+                                        />
+                                        <span class="flex justify-around items-center" onClick={handleToggle}>
+                                            <Icon class="absolute mr-10" icon={passwordIcon} size={20}/>
+                                        </span>
+                                    </div>          
+                                    <p className="">Must be atleast 8 characters</p>
+                        </Form.Group>
+                        <Form.Group className="mb-5 grid" controlId="confirmpassword">
+                        <Form.Label className="label" >Confirm Password</Form.Label>
+                                <div className="flex">
+                                    <input 
+                                        className='w-full'
+                                        type={confirmPasswordtype}
+                                        value={confirmPassword} 
+                                        onChange={(e) => setconfirmPassword(e.target.value)}
+                                        required
+                                    />
+                                    <span class="flex justify-around items-center" onClick={handleConfirmToggle}>
+                                        <Icon class="absolute mr-10" icon={confirmPasswordIcon} size={20}/>
+                                    </span>
+                                </div>          
+                        </Form.Group>
+                        <div className='profile-button-group flex flex-row justify-between items-center'>
+                            <div className="">
+                                    <Button className="profile-cancel-button border-none w-full" type="">
+                                        <Link to="/">Cancel</Link>
+                                    </Button>
+                            </div>
+                            <div className="">
+                                    <Button className="profile-button border-none text-white w-full" type="submit">Save changes</Button>
+                            </div>
+                        </div>
+                        
+                    </form>
+
+            </div>
+            <Footer />
         </div>
     )
 }

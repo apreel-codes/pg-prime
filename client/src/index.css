@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* html, body, #root {
+  position: relative;
+  height: 100%;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+
 @media screen and (min-width: 600px) {
   html, body, #root {
     position: relative;
@@ -189,8 +196,6 @@ button.thumbnail {
   display: block;
 }
 
-
-
 .brands {
   align-items: center;
 }
@@ -200,10 +205,11 @@ button.thumbnail {
   max-height: 400px;
 }
 
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   table thead {
     display: none;
   }
+
   table td {
     display: flex;
   }
@@ -211,10 +217,10 @@ button.thumbnail {
   table td::before {
     content: attr(label);
     font-weight: bold;
-    width: 120px;
-    min-width: 120px;
+    width: 10px;
+    min-width: 10px;
   }
-} */
+}
 
 
 /* autoscroll */

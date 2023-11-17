@@ -81,18 +81,6 @@ app.post(
     });
     })
   )
-
-// app.post(
-//     '/exchange-rate',
-//     expressAsyncHandler(async (req, res) => {
-//         const user = await User.findOne({ email: req.body.email });
-//             if (user) {
-//                 const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-//                 expiresIn: '3h',
-//             })
-//         };
-//     })
-// )
   
 
 const __dirname = path.resolve();

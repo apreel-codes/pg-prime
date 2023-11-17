@@ -7,8 +7,6 @@ import { useContext, useEffect, useState } from "react";
 import { Store } from "../../Store";
 import { toast } from "react-toastify";
 import { getError } from "../../uttils";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import "./Signin.css";
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import Testimonials from "../../components/Testimonials/Testimonials";
@@ -66,7 +64,7 @@ const Signin = () => {
 
 
     return (
-       <div className='sign-in mx-auto'>
+       <div className='sign-in-page mx-auto'>
         <Helmet>
             <title>Sign In</title>
         </Helmet>

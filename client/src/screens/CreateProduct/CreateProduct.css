@@ -1,0 +1,37 @@
+.message-box-text {
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.create-product-page {
+    font-family: 'Inter', sans-serif;
+    color: #1a1a1a;
+    font-size: .9rem;
+}
+
+.create-product-page .create-label {
+    color: #000000;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.create-product-page .create-button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    padding: 0.8rem 0;
+    margin-top: .7rem;
+    /* width: 170px; */
+}
+
+@media screen and (min-width: 600px) {
+    .create-product-page .create-button {
+        background-color: #003466;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        padding: 0.8rem 0;
+        margin-top: .7rem;
+        width: 170px;
+    }
+  }
