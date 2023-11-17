@@ -114,6 +114,14 @@
     border: 1px #003466 solid;
  }
 
+ .mobile-side-nav .sign-in-button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    border: 1px #003466 solid;
+    padding: .8rem 0;
+ }
+
  .mobile-side-nav .signup .button{
     background-color: #f4f4f5;
     border: 1px #003466 solid;

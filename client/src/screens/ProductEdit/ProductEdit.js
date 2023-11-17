@@ -165,7 +165,7 @@ export default function ProductEdit() {
   return (
     <div className=''>
       <Helmet>
-        <title>Edit Product ${productId}</title>
+        <title>Edit Product</title>
       </Helmet>
       <Header />
       <div className='edit-product-page md:w-[40%] w-[90%] my-12 md:my-20 mx-auto'>

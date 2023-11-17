@@ -261,7 +261,7 @@ const Header = () => {
                                     <Link 
                                         className='signin'
                                         to="/signin">
-                                        <Button className='button w-full py-2'>Sign in</Button>
+                                        <Button className='sign-in-button w-full'>Sign in</Button>
                                     </Link>
                                     <Link 
                                         className='signup'
