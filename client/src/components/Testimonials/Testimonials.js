@@ -24,7 +24,7 @@ const Testimonials = (props) => {
 
     return (
         <div className='slider'>
-            <Link to="/"><img className="" src='../images/sign-in-logo.png'/></Link>
+            {/* <Link to="/"><img className="" src='../images/sign-in-logo.png'/></Link> */}
             <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide}/>
             <AiOutlineArrowRight className="arrow next" onClick={nextSlide}/>
             {

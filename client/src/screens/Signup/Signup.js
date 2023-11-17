@@ -15,6 +15,8 @@ import Testimonials from "../../components/Testimonials/Testimonials";
 import {Icon} from 'react-icons-kit';
 import {eyeOff} from 'react-icons-kit/feather/eyeOff';
 import {eye} from 'react-icons-kit/feather/eye';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 
 
 const Signup = () => {
@@ -90,79 +92,83 @@ const Signup = () => {
 
 
     return (
-       <div className='sign-in'>
+       <div className=''>
         <Helmet>
             <title>Sign Up</title>
         </Helmet>
-        <div className="flex flex-row">
-            <div className="web-test hidden md:block ">
-                <Testimonials />
-            </div>
-            <div className="sign-up md:w-[60%] mx-auto">
-                <div className="sign-up-content md:w-[50%] mx-auto py-14 w-[100%] px-3">
-                <div className="relative mb-3">
-                        <Link to="/">
-                            <AiOutlineArrowLeft className="back-arrow"/>
-                        </Link>
-                        <p className="back">Back to Home page</p>
+        <Header />
+        <div className="mx-auto">
+            <div className="flex flex-row">
+                <div className="web-test hidden md:block ">
+                    <Testimonials />
                 </div>
-                <div className="form">
-                    <div className="">
-                        <h1 className="mb-1 font-bold">Create an account</h1>
-                        <p>Welcome back! Kindly enter your details to sign up.</p>
-                    </div>
-                    <Form className="main-form" onSubmit={submitHandler}>
-                        <Form.Group className="mb-3 grid" controlId="name">
-                                <Form.Label className="label">Name</Form.Label>
-                                <input type="text" placeholder="Enter your name"  required onChange={(e) => setName(e.target.value)}/>
-                        </Form.Group>
-                        <Form.Group className="mb-3 grid" controlId="email">
-                                <Form.Label className="label">Email</Form.Label>
-                                <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
-                        </Form.Group>
-                        <Form.Group className="mb-2 grid" controlId="password">
-                            <Form.Label className="label" >Password</Form.Label>
-                                    <div className="mb-2 flex">
+                <div className="sign-up md:w-[60%] mx-auto">
+                    <div className="sign-up-content md:w-[50%] mx-auto py-14 w-[90%] px-3">
+                    {/* <div className="relative mb-3">
+                            <Link to="/">
+                                <AiOutlineArrowLeft className="back-arrow"/>
+                            </Link>
+                            <p className="back">Back to Home page</p>
+                    </div> */}
+                    <div className="form">
+                        <div className="">
+                            <h1 className="mb-1 font-bold">Create an account</h1>
+                            <p>Welcome back! Kindly enter your details to sign up.</p>
+                        </div>
+                        <Form className="main-form" onSubmit={submitHandler}>
+                            <Form.Group className="mb-3 grid" controlId="name">
+                                    <Form.Label className="label">Name</Form.Label>
+                                    <input type="text" placeholder="Enter your name"  required onChange={(e) => setName(e.target.value)}/>
+                            </Form.Group>
+                            <Form.Group className="mb-3 grid" controlId="email">
+                                    <Form.Label className="label">Email</Form.Label>
+                                    <input type="email" placeholder="Enter your email" required onChange={(e) => setEmail(e.target.value)}/>
+                            </Form.Group>
+                            <Form.Group className="mb-2 grid" controlId="password">
+                                <Form.Label className="label" >Password</Form.Label>
+                                        <div className="mb-2 flex">
+                                            <input 
+                                                type={passwordtype}
+                                                value={password} 
+                                                placeholder="********" 
+                                                required 
+                                                onChange={(e) => setPassword(e.target.value)}
+                                            />
+                                            <span class="flex justify-around items-center" onClick={handleToggle}>
+                                                <Icon class="absolute mr-10" icon={passwordIcon} size={20}/>
+                                            </span>
+                                        </div>          
+                                        <p className="">Must be atleast 8 characters</p>
+                            </Form.Group>
+                            <Form.Group className="grid" controlId="confirmpassword">
+                            <Form.Label className="label" >Confirm Password</Form.Label>
+                                    <div className="mb-4 flex">
                                         <input 
-                                            type={passwordtype}
-                                            value={password} 
+                                            type={confirmPasswordtype}
+                                            value={confirmPassword} 
                                             placeholder="********" 
                                             required 
-                                            onChange={(e) => setPassword(e.target.value)}
+                                            onChange={(e) => setconfirmPassword(e.target.value)}
                                         />
-                                        <span class="flex justify-around items-center" onClick={handleToggle}>
-                                            <Icon class="absolute mr-10" icon={passwordIcon} size={20}/>
+                                        <span class="flex justify-around items-center" onClick={handleConfirmToggle}>
+                                            <Icon class="absolute mr-10" icon={confirmPasswordIcon} size={20}/>
                                         </span>
                                     </div>          
-                                    <p className="">Must be atleast 8 characters</p>
-                        </Form.Group>
-                        <Form.Group className="grid" controlId="confirmpassword">
-                        <Form.Label className="label" >Confirm Password</Form.Label>
-                                <div className="mb-4 flex">
-                                    <input 
-                                        type={confirmPasswordtype}
-                                        value={confirmPassword} 
-                                        placeholder="********" 
-                                        required 
-                                        onChange={(e) => setconfirmPassword(e.target.value)}
-                                    />
-                                    <span class="flex justify-around items-center" onClick={handleConfirmToggle}>
-                                        <Icon class="absolute mr-10" icon={confirmPasswordIcon} size={20}/>
-                                    </span>
-                                </div>          
-                        </Form.Group>
-                        <div className="mb-3 d-grid">
-                                <Button className="button py-2 border-none text-white" type="submit">Sign Up</Button>
-                        </div>
-                        <div className="have-account text-center">
-                            Already have an account?{' '}
-                            <Link className="forgot-password" to={`/signin?redirect=${redirect}`}>Sign In</Link>
-                        </div>
-                    </Form>
-                </div>
+                            </Form.Group>
+                            <div className="mb-3 d-grid">
+                                    <Button className="button py-2 border-none text-white" type="submit">Sign Up</Button>
+                            </div>
+                            <div className="have-account text-center">
+                                Already have an account?{' '}
+                                <Link className="forgot-password" to={`/signin?redirect=${redirect}`}>Sign In</Link>
+                            </div>
+                        </Form>
+                    </div>
+                    </div>
                 </div>
             </div>
         </div>
+        <Footer />
        </div>
     )
 }
