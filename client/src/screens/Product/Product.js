@@ -231,6 +231,7 @@ const Product = () => {
                                         }
                                         </select>
                                     </div>
+                                    <small>(Conversion is made based on current rate)</small>
                                 </div>
 
                                 
