@@ -220,6 +220,17 @@
     color: #1a1a1a;
 }
 
+.product-page .product-details .policy-group .policy-content p {
+    color: #1a1a1aae;
+    margin-bottom: 0.45rem;
+    line-height: 1.6rem;
+}
+
+
+.product-page .product-details .policy-group .policy-content span {
+    color: #1a1a1a;
+}
+
 .product-page .product-details .description-group {
     border-bottom: 1px #1a1a1a4c solid;
     padding-bottom: 0.2rem;
@@ -321,7 +332,7 @@
     font-size: 0.9rem;
     color: #ffffff;
     cursor: pointer;
-    padding: 0.8rem;
+    padding: 1rem;
     border-radius: 0.5rem;
 }
 

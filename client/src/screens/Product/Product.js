@@ -52,9 +52,10 @@ const Product = () => {
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const [selectedImage, setSelectedImage] = useState('');
-    const [size, setSize] = useState('36');
+    const [size, setSize] = useState('35');
     const [active, setActive] = useState({});
     const [buttonToggled, setButtonToggled] = useState(0);
+    const [currency, setCurrency] = useState('');
 
     const eusizes =[
         "35",
@@ -134,6 +135,11 @@ const Product = () => {
         setButtonToggled(index);
     }
 
+    const changeCurrency = (e) => {
+        setCurrency(e.target.value);
+        console.log(currency);
+    }
+
   
 
     const navigate = useNavigate();
@@ -159,6 +165,18 @@ const Product = () => {
         };
         fetchData();
     }, [slug])
+
+    //show currency
+    const currencyHandler = async () => {
+        // e.preventDefault();
+        const currencies = await axios.get('http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22');
+        console.log(currencies.data);
+        // const rates = currencies.data.rates;
+        // const data = JSON.stringify(currencies.data);
+        // console.log(data.rates);
+
+        setCurrency('');
+    }
 
 
     //this function adds an item to the cart
@@ -278,6 +296,30 @@ const Product = () => {
                                     <p className="brand">Brand: {product.brand}</p>
                                     <Rating rating={product.rating} numReviews={product.numReviews} />
                                     <p className="price">&#163;{product.price}</p>
+                                    <form onSubmit={currencyHandler}>
+                                        <label>Enter Currency</label>
+                                        <input 
+                                            value={currency}
+                                            onChange={changeCurrency}
+                                        />
+                                    </form>
+
+                                    <button onClick={currencyHandler} type="submit">See price</button>
+                                    {/* <div className="sort">
+                                        <span>Currency{' '}<br /></span>
+                                        <select
+                                            className='sort-box border border-black-200 mt-1'
+                                            value={order}
+                                            // onChange={(e) => {
+                                            // navigate(getFilterUrl({ order: e.target.value }));
+                                            // }}
+                                        >
+                                            <option value="newest">Newest Arrivals</option>
+                                            <option value="lowest">Price: Low to High</option>
+                                            <option value="highest">Price: High to Low</option>
+                                            <option value="toprated">Avg. Customer Reviews</option>
+                                        </select>
+                                    </div> */}
                                 </div>
 
                                 
@@ -351,7 +393,7 @@ const Product = () => {
                                 <div className="availability">
                                         { product.countInStock > 0 ? (
                                         
-                                                <p className="green">In Stock</p>
+                                                <p className="green">Available</p>
                                                     )   :  (
 
                                                 <p className="red">Unavailable</p>
@@ -409,7 +451,7 @@ const Product = () => {
                             <div className= { isReviewToggled ? "review-content" : "hidden" } >
                                     <div>
                                         {product.reviews.length === 0 && (
-                                            <MessageBox>There is no review</MessageBox>
+                                            <MessageBox>There are no reviews yet.</MessageBox>
                                         )}
                                             <div>
                                                     {product.reviews.map((review) => (
@@ -435,7 +477,7 @@ const Product = () => {
                             {
                                 userInfo ? (
                                                 <form onSubmit={submitHandler}>
-                                                    <h2>Write a customer review</h2>
+                                                    <h2>Write a review</h2>
                                                     <Form.Group className="mb-3 rating-group" controlId="rating">
                                                         <Form.Label className="label">Rating</Form.Label>
                                                         <Form.Select

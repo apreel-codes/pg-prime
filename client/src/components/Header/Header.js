@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -38,9 +38,36 @@ import './Header.css';
 import SearchBox from '../SearcchBox';
 import classNames from 'classnames';
 
+
+const reducer = (state, action) => {
+    switch (action.type) {
+        case 'FETCH_REQUEST':
+            return { ...state, loading: true };
+            case 'FETCH_SUCCESS':
+                return {
+                    ...state,
+                    products: action.payload.products,
+                    page: action.payload.page,
+                    pages: action.payload.pages,
+                    countProducts: action.payload.countProducts,
+                    loading: false
+                };
+                case 'FETCH_FAIL':
+                    return { ...state, loading: false, error: action.payload };
+
+            default:
+                return state;
+    }
+}
+
 const Header = () => {
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { cart, userInfo } = state;
+
+    const [{ loading, error, products, pages, countProducts }, dispatch] = useReducer(reducer, {
+        loading: true,
+        error: '',
+    })
 
     const signoutHandler = () => {
     ctxDispatch({ type: 'USER_SIGNOUT', });
@@ -72,6 +99,21 @@ const Header = () => {
 }
 
 
+const [brands, setBrands] = useState([]);
+    useEffect(() => {
+        const fetchBrands = async () => {
+            try{
+                const { data } = await axios.get(`/api/products/brands`);
+                setBrands(data);
+                // console.log(data);
+            } catch (err) {
+                toast.error(getError(err));
+            }
+        };
+        fetchBrands();
+    }, [dispatch])
+
+
     return (
             <header className='relative header'>
                 <div className='top-nav flex flex-row justify-between items-center py-2 px-6 md:px-20 md:py-2'>
@@ -99,6 +141,10 @@ const Header = () => {
                                 >
                                     Account
                                 </Link>
+
+                                {/* { brands.map((brand, index) => (
+                                    <p key={index}>{brand}</p>
+                                ))} */}
 
                                 { userInfo && userInfo.isAdmin && (
                                     <NavDropdown title="Admin" id="admin-nav-dropdown" className='dropdown-item'>
@@ -179,14 +225,16 @@ const Header = () => {
                     </div>
                 </div>
                 <div className='hidden md:block page-navs'>
-                    <ul className='flex flex-row justify-between items-center w-[55%] my-3 ml-20'>
+                    <ul className='brand-header flex flex-row justify-between items-center w-[55%] my-3 ml-20'>
                         <Link to="/"><li>Home</li></Link>
                         <Link to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
                         <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
-                        <div className='brands w-16'><li>Nike</li><img className='h-2' src='../images/arrow-down.png'/></div>
-                        <div className='brands w-20'><li>Adidas</li><img className='h-2' src='../images/arrow-down.png'/></div>
-                        <div className='brands w-20'><li>Jordan</li><img className='h-2' src='../images/arrow-down.png'/></div>
-                        <div className='brands w-32'><li>New Balance</li><img className='h-2' src='../images/arrow-down.png'/></div>
+                        
+                        { brands && 
+                            brands.map((b, i) => (
+                                <Link to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
+                            ))
+                        }
                     </ul>
                 </div>
 
@@ -196,10 +244,13 @@ const Header = () => {
                                 <Link to="/"><li >Home</li></Link>
                                 <Link to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
                                 <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
-                                <div className='mobile-brands'><li>Nike</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
-                                <div className='mobile-brands'><li>Adidas</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
-                                <div className='mobile-brands'><li>Jordan</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
-                                <div className='mobile-brands'><li>New Balance</li><img className='w-3 h-4' src='../images/mobile-right.png'/></div>
+                                 
+                                { brands && 
+                                    brands.map((b, i) => (
+                                        <Link className='mobile-brands' to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
+                                    ))
+                                }
+                            
                             </ul>
                             {userInfo ? (
                                 <div className='profile-signout flex flex-col mt-12'>

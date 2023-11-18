@@ -58,21 +58,12 @@ const CreateProduct = () => {
 const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
   const [price, setPrice] = useState('');
-  // const [size, setSize] = useState('');
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
   const [policy, setPolicy] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
-  const [description, setDescription] = useState('');
-
-
-  useEffect(() => {
-
-
-  }, [])
-
 
 
   const submitHandler = async (e) => {
@@ -85,7 +76,6 @@ const [name, setName] = useState('');
           name,
           slug,
           price,
-          // size,
           image,
           images,
           category,
@@ -101,6 +91,7 @@ const [name, setName] = useState('');
         type: 'CREATE_SUCCESS',
         payload: data
       });
+      // console.log(data);
       toast.success('Product created successfully');
       navigate('/admin/productlist');
     } catch (err) {
@@ -128,7 +119,7 @@ const [name, setName] = useState('');
       } else {
         setImage(data.secure_url);
       }
-      toast.success('Image uploaded successfully. click Update to apply it');
+      toast.success('Image uploaded successfully.');
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
@@ -140,7 +131,7 @@ const [name, setName] = useState('');
     console.log(images);
     console.log(images.filter((x) => x !== fileName));
     setImages(images.filter((x) => x !== fileName));
-    toast.success('Image removed successfully. click Update to apply it');
+    toast.success('Image removed successfully.');
   };
 
 
@@ -199,7 +190,7 @@ const [name, setName] = useState('');
                     <ListGroup variant="flush">
                         {images.map((x) => (
                             <ListGroup.Item key={x}>
-                            {x}
+                            {/* {x} */}
                             <Button variant="light" 
                             onClick={() => deleteFileHandler(x)}
                             >

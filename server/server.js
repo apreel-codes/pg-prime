@@ -37,6 +37,11 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
+// app.get('http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22', expressAsyncHandler(async (req, res) => {
+//     res.status(200).send(data)
+//     console.log(data);
+// }))
+
 app.post(
     '/subscribe',
     expressAsyncHandler(async (req, res) => {

@@ -237,7 +237,8 @@
 }
 
 .new-arrival-next {
-    right: -1rem;
+    /* right: 10px; */
+    margin-right: 50px;
     
 }
 
@@ -247,7 +248,7 @@
 }
 
 .new-arrival-prev {
-    left: 1rem;
+    margin-left: 50px;
 }
 
 .new-arrival-content {
