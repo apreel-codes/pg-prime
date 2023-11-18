@@ -3,17 +3,18 @@
 }
 
 .currency {
-    margin-top: .8rem;
+    margin-top: 1rem;
     margin-bottom: .2rem;
 }
 
 .currency span {
-   font-size: 1rem;
+   font-size: .9rem;
    padding-bottom: .25rem;
 }
 
 small {
     color: #1a1a1a;
+    
  }
 
 .product-page .specs .size {
