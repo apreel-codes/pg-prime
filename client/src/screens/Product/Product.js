@@ -3,15 +3,10 @@ import { Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useReducer, useRef, useState } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
-import Badge from 'react-bootstrap/Badge';
 import { Helmet } from 'react-helmet-async';
 import { getError } from "../../uttils";
-import { ToastContainer } from "react-toastify";
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { toast } from "react-toastify";
 import Rating from "../../components/Rating";
@@ -22,6 +17,7 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import './Product.css';
 import NewArrivals from "../../components/NewArrivals/NewArrivals";
+import { currencyData, eusizes, ussizes, uksizes } from './Currency';
 
 
 
@@ -48,84 +44,35 @@ const reducer = (state, action) => {
 
 const Product = () => {
     let reviewsRef = useRef();
-
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const [selectedImage, setSelectedImage] = useState('');
     const [size, setSize] = useState('35');
     const [active, setActive] = useState({});
     const [buttonToggled, setButtonToggled] = useState(0);
-    const [currency, setCurrency] = useState('');
+    const [price, setPrice] = useState(0);
+    const [isDescriptionToggled, setIsDescriptionToggled] = useState(false);
+    const [isPolicyToggled, setIsPolicyToggled] = useState(false);
+    const [isReviewToggled, setIsReviewToggled] = useState(false);
+    const [toggled, setToggled] = useState(1);
+  
 
-    const eusizes =[
-        "35",
-        "36",
-        "37",
-        "38",
-        "39",
-        "40",
-        "41",
-        "42",
-        "43",
-        "44",
-        "45",
-        "46",
-        "47",
-        "48",
-        "49",
-        "50"
-      ];
+      const showDescription = () => {
+          setIsDescriptionToggled(!isDescriptionToggled);    
+  }
 
-      const ussizes =[
-        "5",
-        "5.5",
-        "6",
-        "6.5",
-        "7",
-        "7.5",
-        "8",
-        "8.5",
-        "9",
-        "9.5",
-        "10",
-        "10.5",
-        "11",
-        "11.5",
-        "12",
-        "12.5",
-        "13",
-        "13.5",
-        "14",
-        "15",
-        "16"
-      ];
+      const showPolicy = () => {
+          setIsPolicyToggled(!isPolicyToggled);    
+  }
 
-      const uksizes =[
-        "2",
-        "2.5",
-        "3",
-        "3.5",
-        "4",
-        "4.5",
-        "5",
-        "5.5",
-        "6",
-        "6.5",
-        "7",
-        "7.5",
-        "8",
-        "8.5",
-        "9",
-        "9.5",
-        "10",
-        "10.5",
-        "11",
-        "11.5",
-        "12",
-        "13",
-        "14",
-        "15",
-      ];
+      const showReview = () => {
+          setIsReviewToggled(!isReviewToggled);    
+  }
+
+  const updateToggle = (id) => {
+          setToggled(id);
+  }
+   
 
     const handleSizeChange = (e) => {
         setSize(e.target.value);
@@ -135,13 +82,7 @@ const Product = () => {
         setButtonToggled(index);
     }
 
-    const changeCurrency = (e) => {
-        setCurrency(e.target.value);
-        console.log(currency);
-    }
-
   
-
     const navigate = useNavigate();
     const params = useParams();
     const { slug } = params;
@@ -151,6 +92,17 @@ const Product = () => {
         product: [],
         loading: true, error: ''
     })
+
+    const [currency, setCurrency] = useState('');
+    const [country, setCountry] = useState('£');
+
+    // let price;
+
+    const changeCountry = async (e) => {
+        setCountry(e.target.value);
+        const currencies = await axios.get('http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22');
+        setPrice(parseInt(product.price) * 1.091643);
+    }
 
 
     useEffect(() => {
@@ -165,18 +117,6 @@ const Product = () => {
         };
         fetchData();
     }, [slug])
-
-    //show currency
-    const currencyHandler = async () => {
-        // e.preventDefault();
-        const currencies = await axios.get('http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22');
-        console.log(currencies.data);
-        // const rates = currencies.data.rates;
-        // const data = JSON.stringify(currencies.data);
-        // console.log(data.rates);
-
-        setCurrency('');
-    }
 
 
     //this function adds an item to the cart
@@ -235,27 +175,7 @@ const Product = () => {
         setComment('');
     };
 
-      const [isDescriptionToggled, setIsDescriptionToggled] = useState(false);
-      const [isPolicyToggled, setIsPolicyToggled] = useState(false);
-      const [isReviewToggled, setIsReviewToggled] = useState(false);
-      const [toggled, setToggled] = useState(1);
     
-
-        const showDescription = () => {
-            setIsDescriptionToggled(!isDescriptionToggled);    
-    }
-
-        const showPolicy = () => {
-            setIsPolicyToggled(!isPolicyToggled);    
-    }
-
-        const showReview = () => {
-            setIsReviewToggled(!isReviewToggled);    
-    }
-
-    const updateToggle = (id) => {
-            setToggled(id);
-    }
 
     return loading ? (
         <LoadingBox />
@@ -296,30 +216,21 @@ const Product = () => {
                                     <p className="brand">Brand: {product.brand}</p>
                                     <Rating rating={product.rating} numReviews={product.numReviews} />
                                     <p className="price">&#163;{product.price}</p>
-                                    <form onSubmit={currencyHandler}>
-                                        <label>Enter Currency</label>
-                                        <input 
-                                            value={currency}
-                                            onChange={changeCurrency}
-                                        />
-                                    </form>
-
-                                    <button onClick={currencyHandler} type="submit">See price</button>
-                                    {/* <div className="sort">
-                                        <span>Currency{' '}<br /></span>
+                                    
+                                    <div className="currency">
+                                        <span>{country}{price.toFixed(2)} {' '}<br /></span>
                                         <select
                                             className='sort-box border border-black-200 mt-1'
-                                            value={order}
-                                            // onChange={(e) => {
-                                            // navigate(getFilterUrl({ order: e.target.value }));
-                                            // }}
+                                            value={country}
+                                            onChange={changeCountry}
                                         >
-                                            <option value="newest">Newest Arrivals</option>
-                                            <option value="lowest">Price: Low to High</option>
-                                            <option value="highest">Price: High to Low</option>
-                                            <option value="toprated">Avg. Customer Reviews</option>
+                                        {
+                                            currencyData.map((cd, i) => (
+                                                <option value={cd.sign}>{cd.country}</option>
+                                            ))
+                                        }
                                         </select>
-                                    </div> */}
+                                    </div>
                                 </div>
 
                                 

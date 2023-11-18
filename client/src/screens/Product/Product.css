@@ -2,6 +2,15 @@
     font-family: 'Inter', sans-serif;
 }
 
+.currency {
+    margin-top: .8rem;
+}
+
+.currency span {
+   font-size: 1rem;
+   padding-bottom: .25rem;
+}
+
 .product-page .specs .size {
     margin-top: 1.3rem;
 }

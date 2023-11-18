@@ -47,6 +47,18 @@ const productSchema = new mongoose.Schema(
             type: Number,
             required: true,
         },
+        country: {
+            type: String,
+        },
+        symbol: {
+            type: String,
+        },
+        sign: {
+            type: String,
+        },
+        convertedPrice: {
+            type: Number,
+        },
         countInStock: {
             type: Number,
             required: true,

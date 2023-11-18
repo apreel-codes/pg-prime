@@ -1,3 +1,4 @@
+import axios from "axios";
 import express from 'express';
 import Product from '../models/Product.js';
 import expressAsyncHandler from 'express-async-handler';
