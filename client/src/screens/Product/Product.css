@@ -5,6 +5,7 @@
 .currency {
     margin-top: 1rem;
     margin-bottom: .2rem;
+    font-size: .9rem;
 }
 
 .currency span {
@@ -13,9 +14,8 @@
 }
 
 small {
-    color: #1a1a1a;
-    
- }
+    color: #1a1a1a84;
+}
 
 .product-page .specs .size {
     margin-top: 1.3rem;

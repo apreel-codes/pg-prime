@@ -156,6 +156,7 @@ const [name, setName] = useState('');
                       required
                     />
                 </Form.Group>
+                
                 <Form.Group className="mb-4 grid" controlId="slug">
                     <Form.Label className="create-label">Slug</Form.Label>
                     <input
@@ -166,6 +167,7 @@ const [name, setName] = useState('');
                       required
                     />
                 </Form.Group>
+
                 <Form.Group className="mb-4 grid" controlId="name">
                     <Form.Label className="create-label">Price</Form.Label>
                     <input
@@ -200,6 +202,7 @@ const [name, setName] = useState('');
                         ))}
                     </ListGroup>
                 </Form.Group>
+
                 <Form.Group className="mb-4 grid" controlId="additionalImageFile">
                     <Form.Label className="create-label">Upload Aditional Images</Form.Label>
                       <Form.Control

@@ -97,7 +97,6 @@ const Product = () => {
     const [country, setCountry] = useState('£');
 
     // let price;
-
     const changeCountry = async (e) => {
         setCountry(e.target.value);
         const currencies = await axios.get('http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22');
@@ -183,6 +182,9 @@ const Product = () => {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div className="">
+            <Helmet>
+                <title>{product.name}</title>
+            </Helmet>
             <Header />
             <div className="product-page mx-auto mb-8" >
                 <div className="image-specs-button md:flex md:flex-row md:justify-between">
