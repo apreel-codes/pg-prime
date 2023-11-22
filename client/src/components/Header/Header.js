@@ -37,6 +37,7 @@ import CreateProduct from '../../screens/CreateProduct/CreateProduct';
 import './Header.css';
 import SearchBox from '../SearcchBox';
 import classNames from 'classnames';
+import SalesSlider from '../SalesSlider/SalesSlider';
 
 
 const reducer = (state, action) => {
@@ -116,6 +117,7 @@ const [brands, setBrands] = useState([]);
 
     return (
             <header className='relative header'>
+                <SalesSlider />
                 <div className='top-nav flex flex-row justify-between items-center py-2 px-6 md:px-20 md:py-2'>
                     <div className='socials flex flex-row justify-between'>
                         <Link><img className='h-8 w-18 mt-0.5 mr-1' src='../images/nav-twitter.png'/></Link>

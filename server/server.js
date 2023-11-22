@@ -37,10 +37,6 @@ app.use('/api/products', productRouter);
 app.use('/api/users', userRouter);
 app.use('/api/orders', orderRouter);
 
-// app.get('http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22', expressAsyncHandler(async (req, res) => {
-//     res.status(200).send(data)
-//     console.log(data);
-// }))
 
 app.post(
     '/subscribe',
@@ -63,7 +59,7 @@ app.post(
     const postData = JSON.stringify(data);
 
     const options = {
-        url: 'https://us21.api.mailchimp.com/3.0/lists/6499f4b028',
+        url: 'https://us21.api.mailchimp.com/3.0/lists/93b2ba0790',
         method: 'POST',
         headers: {
             Authorization: `auth ${process.env.MAILCHIMP_API_KEY}`
@@ -105,7 +101,3 @@ app.listen(port, () => {
 })
 
 
-// curl https://abokifx.com/api/v1/rates/movement 
-// -H 
-// "Accept: application/json" 
-// "Authorization: Bearer {YOUR_AUTH_TOKEN}"

@@ -74,7 +74,7 @@ const BestSellers = () => {
     )
 }
 
-// search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1
+
 
 
 export default BestSellers;

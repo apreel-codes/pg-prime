@@ -1,10 +1,10 @@
-.product {
+/* .product {
     font-family: 'Inter', sans-serif;
     max-height: 40rem;
     display: block;
-    width: 100%;
+    width: 50%;
     height: 400px;
-  }
+  } */
 
 @media screen and (min-width: 600px) {
   .product {
@@ -41,7 +41,6 @@
     max-height: 440px;
   }
 }
-
 
   .product .product-name {
     font-weight: 600;

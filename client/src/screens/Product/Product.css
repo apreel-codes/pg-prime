@@ -51,7 +51,6 @@ small {
     font-weight: 700;
 }
 
-
 .product-page .specs .size .size-button button {
     cursor: pointer;
     font-family: 'Inter', sans-serif;
@@ -64,7 +63,6 @@ small {
     color: #1a1a1aa1;
     width: 50px;
 }
-
 
 .product-page .specs .size .size-button .button-select {
     cursor: pointer;
@@ -79,7 +77,6 @@ small {
     color: #ffffff;
     width: 50px;
 }
-
 
 .product-buttons {
     margin-top: 1.4rem;
@@ -122,7 +119,6 @@ small {
         max-width: 400px;
         height: 100%;
         max-height: 400px;
-    
     }
     
     .product-page .product-page-image-specs{
@@ -204,7 +200,6 @@ small {
     font-weight: bold;
 }
 
-
 .product-page .availability{
     font-size: .9rem;
     margin-top: .5rem;
@@ -219,7 +214,6 @@ small {
     color: red;
 }
 
-
 .product-page .product-details {
     margin-top: 3.7rem;
     font-size: .9rem;
@@ -230,7 +224,6 @@ small {
     margin-bottom: 0.45rem;
 }
 
-
 .product-page .product-details .description-group .decription-content span {
     color: #1a1a1a;
 }
@@ -240,7 +233,6 @@ small {
     margin-bottom: 0.45rem;
     line-height: 1.6rem;
 }
-
 
 .product-page .product-details .policy-group .policy-content span {
     color: #1a1a1a;

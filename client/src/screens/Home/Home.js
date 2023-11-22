@@ -19,6 +19,7 @@ import BgImage from "../../components/BgImage/BgImage";
 import BestSellers from "../../components/BestSellers/BestSellers";
 import GalleryBg from "../../components/GalleryBg/GalleryBg";
 import  Store from "../../components/Store/Store";
+import SalesSlider from "../../components/SalesSlider/SalesSlider";
 
 
 const reducer = (state, action) => {

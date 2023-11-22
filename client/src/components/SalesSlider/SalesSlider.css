@@ -1,0 +1,62 @@
+
+.sales-slide .link {
+    text-decoration: underline;
+    font-size: 0.9rem;
+}
+
+.sales-slide h2 {
+    margin-bottom: .3rem;
+}
+
+@media screen and (min-width: 600px) {
+
+    .sales-slide {
+        transform: translateX(0%);
+        transition: all 0.5s ease-in-out;
+        text-align: center;
+        color: #1a1a1a;
+        font-size: 0.9rem;
+        margin: .5rem 0;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .sales-slider {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+
+    h2 {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .sales-slide {
+        transform: translateX(0%);
+        transition: all 0.5s ease-in-out;
+        text-align: center;
+        color: #1a1a1a;
+        font-size: 0.8rem;
+        margin: .5rem 0;
+        font-family: 'Inter', sans-serif;
+    }
+
+    .sales-slider {
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    h2 {
+        font-family: 'Bebas Neue', sans-serif;
+        font-size: 1rem;
+    }
+}
+
+.sales-current {
+    opacity: 1;
+    transform: translateX(100%);
+}

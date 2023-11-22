@@ -121,7 +121,7 @@ const NewArrivals = () => {
         },
         mobile: {
           breakpoint: { max: 600, min: 0 },
-          items: 1
+          items: 2
         }
       };
 
@@ -164,7 +164,7 @@ const NewArrivals = () => {
               </Slider>
             </div>
 
-            <div className="mx-auto w-[90%] mt-20 md:hidden block">
+            <div className="mx-auto w-[90%] mt-20 md:hidden block mobile-new-all">
               <div className='flex flex-row justify-between items-center'>
                           <h1 className='new-arrivals'>New arrivals for you</h1>
                           <button variant='' className='slider-button flex flex-row justify-between items-center'>
@@ -184,6 +184,7 @@ const NewArrivals = () => {
                               <HomeProduct
                               product={product}></HomeProduct>
                           </div>
+                          
                         )}
                     </div>
                     
