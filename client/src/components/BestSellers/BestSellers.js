@@ -46,7 +46,7 @@ const BestSellers = () => {
         return arr.slice(0, num);
       };
 
-    const bestSellingProducts = getProducts(products, 8);
+    const bestSellingProducts = getProducts(products, 12);
 
 
     return (
@@ -60,7 +60,7 @@ const BestSellers = () => {
                     <img src="../images/more.png" />
                 </button>
             </div>
-            <div className='md:grid md:grid-cols-4 md:gap-6 md:space-y-0 space-y-12 mx-auto'>
+            <div className='md:grid md:grid-cols-4 md:gap-6 md:space-y-0 space-y-12 mx-auto hidden md:block'>
                 {
                     bestSellingProducts.map((product, i) => (
                             <div key={product.slug} className=''>
@@ -70,6 +70,17 @@ const BestSellers = () => {
                         ))
                     }
             </div>
+
+
+            <div className='md:hidden grid grid-cols-2 gap-3 mt-2'>
+                {
+                  bestSellingProducts.map((product, index) => (
+                    <div key={product.slug} className="">
+                          <BestSellersProduct product={product}></BestSellersProduct>
+                    </div>
+                  ))
+                }
+              </div>
         </div>
     )
 }

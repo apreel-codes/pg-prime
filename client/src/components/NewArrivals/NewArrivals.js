@@ -207,7 +207,6 @@ const NewArrivals = () => {
                 }
               </div>
             </div>
-
         </div>
     )
 }
