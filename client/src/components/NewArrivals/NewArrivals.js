@@ -197,7 +197,7 @@ const NewArrivals = () => {
                     <AiOutlineArrowRight className="new-arrival-arrow new-arrival-next" onClick={nextSlide}/>
               </div> */}
 
-              <div className='grid grid-cols-2 gap-2 mt-2'>
+              <div className='grid grid-cols-2 gap-3 mt-2'>
                 {
                   mobileProductsData.map((product, index) => (
                     <div key={product.slug} className="new-arrival-content">

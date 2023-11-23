@@ -17,6 +17,28 @@
     font-weight: 600;
 }
 
+@media screen and (min-width: 600px) {
+    .new-arrivals {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.3rem;
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+    }
+    
+
+}
+
+@media screen and (max-width: 600px) {
+    .new-arrivals {
+        font-family: 'Inter', sans-serif;
+        font-size: 1.1rem;
+        color: rgb(0, 0, 0);
+        font-weight: 600;
+    }
+    
+  
+}
+
 
 /* Arrows */
 .slick-prev,

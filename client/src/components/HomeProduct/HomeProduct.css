@@ -35,22 +35,21 @@
 }
 
   .product .product-name {
-    font-weight: 600;
+    font-weight: 500;
     color: black;
-    font-size: 1rem;
-    /* margin-bottom: 0.1rem; */
+    font-size: .9rem;
   }
 
   .product .brand {
     font-weight: 200;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: rgb(97, 97, 97);
   }
   
   .product .price {
-    font-weight: 600;
+    font-weight: 500;
     color: black;
-    font-size: 1.1rem;
+    font-size: .9rem;
     /* margin-top: 0.2rem; */
   }
 
