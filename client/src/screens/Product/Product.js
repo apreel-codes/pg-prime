@@ -51,18 +51,18 @@ const Product = () => {
     const [active, setActive] = useState({});
     const [buttonToggled, setButtonToggled] = useState(0);
     const [price, setPrice] = useState(0);
+    const [isDetailsToggled, setIsDetailsToggled] = useState(false);
     const [isDescriptionToggled, setIsDescriptionToggled] = useState(false);
-    const [isPolicyToggled, setIsPolicyToggled] = useState(false);
     const [isReviewToggled, setIsReviewToggled] = useState(false);
     const [toggled, setToggled] = useState(1);
   
 
-      const showDescription = () => {
-          setIsDescriptionToggled(!isDescriptionToggled);    
+      const showDetails = () => {
+          setIsDetailsToggled(!isDetailsToggled);    
   }
 
-      const showPolicy = () => {
-          setIsPolicyToggled(!isPolicyToggled);    
+      const showDescription = () => {
+          setIsDescriptionToggled(!isDescriptionToggled);    
   }
 
       const showReview = () => {
@@ -326,31 +326,30 @@ const Product = () => {
                 </div>
 
                 <div className="product-details md:w-[43%]">                   
-                    <div className="description-group">
-                            <div className="description flex flex-row justify-between">
-                                <h3>Product Description</h3>
-                                <div className='fa-stack' onClick={showDescription}>
-                                    <img className= { isDescriptionToggled ? "downDescription fa-stack-1x h-3 w-4" : "upDescription" } src="../images/down-arrow.png"/>
-                                    <img className= { isDescriptionToggled ? "upDescription fa-stack-1x h-3 w-4" : "downDescription" } src="../images/up-arrow.png"/>
+                    <div className="details-group">
+                            <div className="details flex flex-row justify-between">
+                                <h3>Product Details</h3>
+                                <div className='fa-stack' onClick={showDetails}>
+                                    <img className= { isDetailsToggled ? "downDetails fa-stack-1x h-3 w-4" : "upDetails" } src="../images/down-arrow.png"/>
+                                    <img className= { isDetailsToggled ? "upDetails fa-stack-1x h-3 w-4" : "downDetails" } src="../images/up-arrow.png"/>
                                 </div>   
                             </div>
-                            <div className= {isDescriptionToggled ? "decription-content" : 'hidden'}>
+                            <div className= {isDetailsToggled ? "details-content" : 'hidden'}>
                                 <p>Name: <span>{product.name}</span></p>
                                 <p>Brand: <span>{product.brand}</span></p>
-                                <p>{product.description}</p>
                             </div>
                     </div>
 
-                    <div className="policy-group">
-                            <div className="return-policy flex flex-row justify-between">
-                                <h3>Return Policy</h3>
-                                <div className='fa-stack' onClick={showPolicy}>
-                                    <img className= { isPolicyToggled ? "downPolicy fa-stack-1x h-3 w-4" : "upPolicy" } src="../images/down-arrow.png"/>
-                                    <img className= { isPolicyToggled ? "upPolicy fa-stack-1x h-3 w-4" :  "downPolicy" } src="../images/up-arrow.png"/>
+                    <div className="description-group">
+                            <div className="product-description flex flex-row justify-between">
+                                <h3>Description</h3>
+                                <div className='fa-stack' onClick={showDescription}>
+                                    <img className= { isDescriptionToggled ? "downDescription fa-stack-1x h-3 w-4" : "upDescription" } src="../images/down-arrow.png"/>
+                                    <img className= { isDescriptionToggled ? "upDescription fa-stack-1x h-3 w-4" :  "downDescription" } src="../images/up-arrow.png"/>
                                 </div>   
                             </div>
-                            <div className= { isPolicyToggled ? "policy-content" : "hidden" } >
-                                <p>{product.policy}</p>
+                            <div className= { isDescriptionToggled ? "description-content" : "hidden" } >
+                                <p>{product.description}</p>
                             </div>
                     </div>
 

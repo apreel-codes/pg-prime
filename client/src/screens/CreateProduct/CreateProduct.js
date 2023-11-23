@@ -61,7 +61,7 @@ const [name, setName] = useState('');
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
-  const [policy, setPolicy] = useState('');
+  const [description, setDescription] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
 
@@ -79,7 +79,7 @@ const [name, setName] = useState('');
           image,
           images,
           category,
-          policy,
+          description,
           brand,
           countInStock,
         },
@@ -242,11 +242,11 @@ const [name, setName] = useState('');
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-4 grid" controlId="policy">
-                  <Form.Label className="create-label">Return Policy</Form.Label>
+                <Form.Group className="mb-4 grid" controlId="description">
+                  <Form.Label className="create-label">Description</Form.Label>
                       <textarea
-                      value={policy}
-                      onChange={(e) => setPolicy(e.target.value)}
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
                       required
                       className='policy-input'
                       ></textarea>

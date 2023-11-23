@@ -10,7 +10,7 @@ const HomeProduct = (props) => {
                 <Link to={`/product/${product.slug}`}>
                     <img className='image' src={product.image} />
                     </Link>
-                    <div className="mt-4">
+                    <div className="mt-2">
                         <Link to={`/product/${product.slug}`}>
                                 <p className="product-name">{product.name}</p>
                         </Link>

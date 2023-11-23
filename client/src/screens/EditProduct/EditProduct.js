@@ -64,7 +64,7 @@ export default function EditProduct() {
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
-  const [policy, setPolicy] = useState('');
+  const [description, setDescription] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
 
@@ -79,7 +79,7 @@ export default function EditProduct() {
         setImage(data.image);
         setImages(data.images);
         setCategory(data.category);
-        setPolicy(data.policy);
+        setDescription(data.description);
         setCountInStock(data.countInStock);
         setBrand(data.brand);
         dispatch({ type: 'FETCH_SUCCESS' });
@@ -108,7 +108,7 @@ export default function EditProduct() {
           image,
           images,
           category,
-          policy,
+          description,
           brand,
           countInStock,
         },
@@ -146,7 +146,7 @@ export default function EditProduct() {
       } else {
         setImage(data.secure_url);
       }
-      toast.success('Image uploaded successfully. click Update to apply it');
+      toast.success('Image uploaded successfully.');
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPLOAD_FAIL', payload: getError(err) });
@@ -157,7 +157,7 @@ export default function EditProduct() {
     console.log(images);
     console.log(images.filter((x) => x !== fileName));
     setImages(images.filter((x) => x !== fileName));
-    toast.success('Image removed successfully. click Update to apply it');
+    toast.success('Image removed successfully.');
   };
 
 
@@ -269,11 +269,11 @@ export default function EditProduct() {
                 />
               </Form.Group>
 
-              <Form.Group className="mb-4 grid" controlId="policy">
-                  <Form.Label className="create-label">Return Policy</Form.Label>
+              <Form.Group className="mb-4 grid" controlId="description">
+                  <Form.Label className="create-label">Description</Form.Label>
                       <textarea
-                      value={policy}
-                      onChange={(e) => setPolicy(e.target.value)}
+                      value={description}
+                      onChange={(e) => setDescription(e.target.value)}
                       required
                       className='policy-input'
                       ></textarea>

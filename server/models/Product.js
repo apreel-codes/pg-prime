@@ -39,7 +39,7 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        policy: {
+        description: {
             type: String,
             required: true,
         },

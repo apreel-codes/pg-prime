@@ -175,7 +175,7 @@ const NewArrivals = () => {
                           </button>
               </div>
 
-              <div className='new-arrival-slider'>
+              {/* <div className='new-arrival-slider'>
               {
                 mobileProductsData.map((product, index) => (
                     <div className={index === currentSlide ? "new-arrival-slide new-arrival-current" : "new-arrival-slide"} key={index}>
@@ -195,6 +195,16 @@ const NewArrivals = () => {
                     <AiOutlineArrowLeft className="new-arrival-arrow new-arrival-prev" onClick={prevSlide}/>
                     <span>{currentSlide + 1}/{slideLength}</span>
                     <AiOutlineArrowRight className="new-arrival-arrow new-arrival-next" onClick={nextSlide}/>
+              </div> */}
+
+              <div className='grid grid-cols-2 gap-2 mt-2'>
+                {
+                  mobileProductsData.map((product, index) => (
+                    <div key={product.slug} className="new-arrival-content">
+                          <HomeProduct product={product}></HomeProduct>
+                    </div>
+                  ))
+                }
               </div>
             </div>
 

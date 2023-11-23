@@ -25,7 +25,7 @@ productRouter.post(
         price: req.body.price,
         size: req.body.size,
         category: req.body.category,
-        policy: req.body.policy,
+        description: req.body.description,
         brand: req.body.brand,
         countInStock: req.body.countInStock,
         rating: 0,
@@ -53,7 +53,7 @@ productRouter.post(
         product.image = req.body.image;
         product.images = req.body.images;
         product.category = req.body.category;
-        product.policy = req.body.policy;
+        product.description = req.body.description;
         product.brand = req.body.brand;
         product.countInStock = req.body.countInStock;
         await product.save();
