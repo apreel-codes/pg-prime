@@ -148,7 +148,9 @@ const NewArrivals = () => {
             <div className='flex flex-row justify-between items-center my-4 w-[90%] mx-auto'>
                         <h1 className='new-arrivals'>New arrivals for you</h1>
                         <button variant='' className='slider-button flex flex-row justify-between items-center'>
-                            View More
+                            <Link to={{ pathname: '/search', search: `allProducts`}}> 
+                              View More
+                            </Link>
                             <img src="../images/more.png" />
                         </button>
             </div>

@@ -407,7 +407,7 @@ const Search = (e) => {
                                                 }}
                                             >
                                                 <Button
-                                                    className={Number(page) === x + 1 ? 'text-bold' : ''}
+                                                    className={Number(page) === x + 1 ? 'font-bold text-sm' : 'text-sm'}
                                                     variant="light"
                                                     >
                                                     {x + 1}

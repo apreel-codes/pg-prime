@@ -57,10 +57,10 @@ const Footer = () => {
             <div className="flex flex-col gap-y-3">
               <span className="font-semibold text-base">Quick Links</span>
                 <ul className="flex flex-col gap-y-2">
-                  <li><Link to='#'>Best Sellers</Link></li>
+                  <li><Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1">Best Sellers</Link></li>
                   <li><Link to='#'>Discount Sales</Link></li>
-                  <li><Link to='#'>New Arrivals</Link></li>
-                  <li><Link to='#'>Gallery</Link></li>
+                  <li><Link to={{ pathname: '/search', search: `allProducts`}}>New Arrivals</Link></li>
+                  <li><Link to="/gallery">Gallery</Link></li>
                   <li><Link to='/refundpolicy'>Refund Policy</Link></li>
                 </ul>
               </div>

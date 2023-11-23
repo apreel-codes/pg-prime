@@ -180,8 +180,7 @@ const Order = () => {
                     <div className='paypal-group mt-9'>
                         <Card className='mb-3'>
                             <Card.Body>
-                                <h2>Make Payment</h2>
-                                <span className='mb-8'>If you opted for PayPal as your payment method.</span>
+                                
                                 <ListGroup className='mt-4' variant="flush">
                                     {!order.isPaid && (
                                         <ListGroup.Item className='mt-1'>
@@ -190,6 +189,8 @@ const Order = () => {
                                             ) : 
                                             (
                                                 <div>
+                                                    <h2>Make Payment</h2>
+                                                    <span className='mb-8'>If you opted for PayPal as your payment method.</span>
                                                     <PayPalButtons
                                                         createOrder={createOrder}
                                                         onApprove={onApprove}
