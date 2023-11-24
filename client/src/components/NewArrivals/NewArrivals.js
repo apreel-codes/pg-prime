@@ -145,7 +145,7 @@ const NewArrivals = () => {
     return (
         <div>
             <div className='web-carousel hidden md:block mb-4 mt-24'>
-            <div className='flex flex-row justify-between items-center my-4 w-[90%] mx-auto'>
+            <div className='flex flex-row justify-between items-center my-4 w-[80%] mx-auto'>
                         <h1 className='new-arrivals'>New arrivals for you</h1>
                         <button variant='' className='slider-button flex flex-row justify-between items-center'>
                             <Link to={{ pathname: '/search', search: `allProducts`}}> 

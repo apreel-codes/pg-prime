@@ -391,7 +391,7 @@ const Search = (e) => {
                                     <div className='md:grid md:grid-cols-3 md:gap-6 grid grid-cols-2 gap-3'>
                                         {products.map((product) => (
                                         <div className="mb-3" key={product._id}>
-                                            <BestSellersProduct product={product}></BestSellersProduct>
+                                            <HomeProduct product={product}></HomeProduct>
                                         </div>
                                         ))}
                                     </div>

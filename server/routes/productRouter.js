@@ -26,6 +26,7 @@ productRouter.post(
         size: req.body.size,
         category: req.body.category,
         description: req.body.description,
+        availability: req.body.availability,
         brand: req.body.brand,
         countInStock: req.body.countInStock,
         rating: 0,
@@ -54,6 +55,7 @@ productRouter.post(
         product.images = req.body.images;
         product.category = req.body.category;
         product.description = req.body.description;
+        product.availability = req.body.availability,
         product.brand = req.body.brand;
         product.countInStock = req.body.countInStock;
         await product.save();
@@ -118,7 +120,7 @@ productRouter.post(
   );
 
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 100;
 
 productRouter.get(
   '/admin',

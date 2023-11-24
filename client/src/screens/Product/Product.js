@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Routes, Route, Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import React, { useContext, useEffect, useReducer, useRef, useState } from "react";
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -93,10 +93,8 @@ const Product = () => {
         loading: true, error: ''
     })
 
-    const [currency, setCurrency] = useState('');
     const [country, setCountry] = useState('£');
 
-    // let price;
     const changeCountry = async (e) => {
         setCountry(e.target.value);
         const currencies = await axios.get('http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22');
@@ -207,12 +205,13 @@ const Product = () => {
                                             <img src={x} alt="product" />
                                             </Button>
                                     </div>
-                                        </Col>
+                                </Col>
                                 ))}
                         </Row>
                     </div>
+
                     <div className="specs-content">
-                        <div className="specs mt-14 md:mt-0">
+                        <div className="specs mt-6 md:mt-0">
                                 <div>
                                     <h1 className="font-bold">{product.name}</h1>
                                     <p className="brand">Brand: {product.brand}</p>
@@ -236,7 +235,8 @@ const Product = () => {
                                     <small>(Conversion is made based on current rate)</small>
                                 </div>
 
-                                
+                                <p className="product-availability">{product.availability}</p>
+
                                 <div className="size">
                                     <p>Size: {size} </p>
 
@@ -299,19 +299,7 @@ const Product = () => {
                                                     </button>
                                                 ))}
                                             </div>
-                                    </div>
-                                    
-
-                                </div>
-
-                                <div className="availability">
-                                        { product.countInStock > 0 ? (
-                                        
-                                                <p className="green">Available</p>
-                                                    )   :  (
-
-                                                <p className="red">Unavailable</p>
-                                        )}
+                                    </div>                                   
                                 </div>
                         </div>
                         <div className="product-buttons d-grid space-y-4">

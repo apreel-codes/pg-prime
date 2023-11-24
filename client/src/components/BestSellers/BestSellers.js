@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React, { useEffect, useReducer, useRef, useState } from 'react';
 import logger from 'use-reducer-logger';
-import BestSellersProduct from '../BestSellersProduct/BestSellersProduct';
+// import BestSellersProduct from '../BestSellersProduct/BestSellersProduct';
 import './BestSellers.css'
 import { Link } from 'react-router-dom';
+import HomeProduct from '../HomeProduct/HomeProduct';
 
 
 
@@ -60,11 +61,11 @@ const BestSellers = () => {
                     <img src="../images/more.png" />
                 </button>
             </div>
-            <div className='md:grid md:grid-cols-4 md:gap-6 md:space-y-0 space-y-12 mx-auto hidden md:block'>
+            <div className='md:grid md:grid-cols-3 md:space-y-0 space-y-12 mx-auto hidden md:block'>
                 {
                     bestSellingProducts.map((product, i) => (
                             <div key={product.slug} className=''>
-                                <BestSellersProduct product={product} key={product.slug}></BestSellersProduct>
+                                <HomeProduct product={product} key={product.slug}></HomeProduct>
                             </div>
                                 
                         ))
@@ -76,7 +77,7 @@ const BestSellers = () => {
                 {
                   bestSellingProducts.map((product, index) => (
                     <div key={product.slug} className="">
-                          <BestSellersProduct product={product}></BestSellersProduct>
+                          <HomeProduct product={product}></HomeProduct>
                     </div>
                   ))
                 }

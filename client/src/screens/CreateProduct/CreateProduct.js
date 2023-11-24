@@ -62,6 +62,7 @@ const [name, setName] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
+  const [availability, setAvailability] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
 
@@ -80,6 +81,7 @@ const [name, setName] = useState('');
           images,
           category,
           description,
+          availability,
           brand,
           countInStock,
         },
@@ -91,7 +93,6 @@ const [name, setName] = useState('');
         type: 'CREATE_SUCCESS',
         payload: data
       });
-      // console.log(data);
       toast.success('Product created successfully');
       navigate('/admin/productlist');
     } catch (err) {
@@ -232,7 +233,7 @@ const [name, setName] = useState('');
                     />
                 </Form.Group>
 
-                <Form.Group className="mb-4 grid" controlId="countInStock">
+                {/* <Form.Group className="mb-4 grid" controlId="countInStock">
                     <Form.Label className="create-label">Count In Stock</Form.Label>
                     <input
                       className='text-sm w-full'
@@ -240,13 +241,23 @@ const [name, setName] = useState('');
                       onChange={(e) => setCountInStock(e.target.value)}
                       required
                     />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Form.Group className="mb-4 grid" controlId="description">
                   <Form.Label className="create-label">Description</Form.Label>
                       <textarea
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
+                      required
+                      className='policy-input'
+                      ></textarea>
+                </Form.Group>
+
+                <Form.Group className="mb-4 grid" controlId="availability">
+                  <Form.Label className="create-label">Availability</Form.Label>
+                      <textarea
+                      value={availability}
+                      onChange={(e) => setAvailability(e.target.value)}
                       required
                       className='policy-input'
                       ></textarea>

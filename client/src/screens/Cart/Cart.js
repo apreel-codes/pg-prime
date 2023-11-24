@@ -2,15 +2,8 @@ import axios from "axios";
 import { useContext } from "react";
 import { Store } from "../../Store";
 import { Helmet } from "react-helmet-async";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import MessageBox from "../../components/MessageBox";
 import { Link, useNavigate } from "react-router-dom";
-import ListGroup from "react-bootstrap/ListGroup";
-import ListGroupItem from "react-bootstrap/ListGroupItem";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Card from "react-bootstrap/Card";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import './Cart.css';
@@ -75,7 +68,7 @@ const CartComponent = () => {
                                                     <img src="../images/minus.png" />
                                                     </button>{' '}
                                                     <span className="">{item.quantity}</span>{' '}
-                                                    <button onClick={ () => updateCartHandler(item, item.quantity + 1 )} disabled={item.quantity === item.countInStock}>
+                                                    <button onClick={ () => updateCartHandler(item, item.quantity + 1 )}>
                                                     <img src="../images/add.png" />
                                                     </button>{' '}   
                                                 </div>

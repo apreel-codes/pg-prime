@@ -64,6 +64,7 @@ export default function EditProduct() {
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
+  const [availability, setAvailability] = useState('');
   const [description, setDescription] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
@@ -80,6 +81,7 @@ export default function EditProduct() {
         setImages(data.images);
         setCategory(data.category);
         setDescription(data.description);
+        setAvailability(data.availability);
         setCountInStock(data.countInStock);
         setBrand(data.brand);
         dispatch({ type: 'FETCH_SUCCESS' });
@@ -109,6 +111,7 @@ export default function EditProduct() {
           images,
           category,
           description,
+          availability,
           brand,
           countInStock,
         },
@@ -259,7 +262,7 @@ export default function EditProduct() {
                   required
                 />
               </Form.Group>
-              <Form.Group className="mb-4 grid" controlId="countInStock">
+              {/* <Form.Group className="mb-4 grid" controlId="countInStock">
                 <Form.Label className="edit-label">Count In Stock</Form.Label>
                 <input
                   className='text-sm w-full'
@@ -267,13 +270,23 @@ export default function EditProduct() {
                   onChange={(e) => setCountInStock(e.target.value)}
                   required
                 />
-              </Form.Group>
+              </Form.Group> */}
 
               <Form.Group className="mb-4 grid" controlId="description">
                   <Form.Label className="create-label">Description</Form.Label>
                       <textarea
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
+                      required
+                      className='policy-input'
+                      ></textarea>
+                </Form.Group>
+
+                <Form.Group className="mb-4 grid" controlId="availability">
+                  <Form.Label className="create-label">Availability</Form.Label>
+                      <textarea
+                      value={availability}
+                      onChange={(e) => setAvailability(e.target.value)}
                       required
                       className='policy-input'
                       ></textarea>

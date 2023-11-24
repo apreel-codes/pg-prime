@@ -43,21 +43,16 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        availability: {
+            type: String,
+            required: true,
+        },
         price: {
             type: Number,
             required: true,
         },
         country: {
             type: String,
-        },
-        symbol: {
-            type: String,
-        },
-        sign: {
-            type: String,
-        },
-        convertedPrice: {
-            type: Number,
         },
         countInStock: {
             type: Number,
@@ -73,7 +68,6 @@ const productSchema = new mongoose.Schema(
         },
         size: {
             type: String,
-            // required: true,
         },
         reviews: [reviewSchema],    
     },
