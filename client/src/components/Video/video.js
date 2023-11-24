@@ -6,7 +6,7 @@ const HomeVideo = () => {
     return (
         <div>
             <div className='video-wrap w-[90%] mx-auto mb-5'>
-                <video className='video' controls>
+                <video autoplay loop muted className='video' controls>
                     <source src="../images/video.mp4" type="video/mp4" />
                 </video>    
             </div>
