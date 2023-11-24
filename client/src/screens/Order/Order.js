@@ -181,7 +181,7 @@ const Order = () => {
                         <Card className='mb-3'>
                             <Card.Body>
                                 
-                                <ListGroup className='mt-4' variant="flush">
+                                <ListGroup className='' variant="flush">
                                     {!order.isPaid && (
                                         <ListGroup.Item className='mt-1'>
                                             { isPending ? (
@@ -189,9 +189,9 @@ const Order = () => {
                                             ) : 
                                             (
                                                 <div>
-                                                    <h2>Make Payment</h2>
-                                                    <span className='mb-8'>If you opted for PayPal as your payment method.</span>
+                                                    <h2>Pay with PayPal/Card</h2>
                                                     <PayPalButtons
+                                                        className='pal-buttons'
                                                         createOrder={createOrder}
                                                         onApprove={onApprove}
                                                         onError={onError}

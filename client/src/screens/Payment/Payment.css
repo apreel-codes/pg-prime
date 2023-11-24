@@ -1,0 +1,11 @@
+.payment-form {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.payment-form .button {
+    background-color: #003466;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    margin-top: .8rem;
+}

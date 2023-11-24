@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const GalleryBg = () => {
     return (
         <div className='gallery mt-34 mb-5'>
-            <div className='title'>
+            <div className='title w-[90%] mx-auto'>
                 <h2 className=''>Our Gallery</h2>
                 <p className=''>Explore the world of PGF Prime through our captivating media contents.</p>
             </div>

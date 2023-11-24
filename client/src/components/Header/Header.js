@@ -17,7 +17,7 @@ import Signin from '../../screens/Signin/Signin.js';
 import ShippingAddress from '../../screens/ShippingAddress/ShippingAddress';
 import DashboardScreen from '../../screens/Dashboard';
 import Signup from '../../screens/Signup/Signup';
-import Payment from '../../screens/Payment';
+import Payment from '../../screens/Payment/Payment';
 import PlaceOrder from '../../screens/PlaceOrder/PlaceOrder';
 import Order from '../../screens/Order/Order';
 import OrderHistory from '../../screens/OrderHistory/OrderHistory';

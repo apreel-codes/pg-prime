@@ -46,6 +46,11 @@
     width: 300px;
 }
 
+
+.pal-buttons {
+    margin-top: 1rem;
+}
+
 .paypal-group h2  {
     text-align: center;
     color: #1a1a1a;
@@ -58,6 +63,6 @@
 
 .paypal-group span {
     color: #1a1a1a8c;
-    line-height: 1rem;
-    /* margin-bottom: 1.5rem; */
+    line-height: 0.7rem;
+    margin-bottom: 2rem;
 }

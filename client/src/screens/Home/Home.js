@@ -19,7 +19,7 @@ import BgImage from "../../components/BgImage/BgImage";
 import BestSellers from "../../components/BestSellers/BestSellers";
 import GalleryBg from "../../components/GalleryBg/GalleryBg";
 import  Store from "../../components/Store/Store";
-import SalesSlider from "../../components/SalesSlider/SalesSlider";
+import HomeVideo from "../../components/Video/video";
 
 
 const reducer = (state, action) => {
@@ -198,6 +198,8 @@ const Home = () => {
                 <BestSellers ref={sectionRef}/>
                 <GalleryBg />
                 <Store />
+
+                <HomeVideo />
 
                 <Link to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">
                   <img className="whatsapp"  src="./images/whatsapp.png"/>               

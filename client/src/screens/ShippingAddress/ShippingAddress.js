@@ -31,19 +31,18 @@ const ShippingAddress = () => {
     const[fullName, setFullName] = useState(shippingAddress.fullName || '');
     const[address, setAddress] = useState(shippingAddress.address || '');
     const[city, setCity] = useState(shippingAddress.city || '');
+    useEffect(() => {
+        if (!userInfo) {
+            navigate('/signin?redirect=/shipping')
+        }
+    }, [userInfo, navigate])
+
     const[country, setCountry] = useState(shippingAddress.country || '');
     const[phonenumber, setPhoneNumber] = useState(shippingAddress.phonenumber || '');
 
     const [paymentMethodName, setPaymentMethod] = useState(
         paymentMethod || 'PayPal'
     );
-
-
-    useEffect(() => {
-        if (!userInfo) {
-            navigate('/signin?redirect=/shipping')
-        }
-    }, [userInfo, navigate])
 
 
     const submitHandler = (e) => {
@@ -66,11 +65,7 @@ const ShippingAddress = () => {
                 phonenumber
             }
         });
-
-        // remove this if doesn't work
         ctxDispatch({ type: 'SAVE_PAYMENT_METHOD', payload: paymentMethodName});
-        localStorage.setItem('paymentMethod', paymentMethodName);
-
         localStorage.setItem(
             'shippingAddress',
             JSON.stringify({
@@ -81,7 +76,12 @@ const ShippingAddress = () => {
                 phonenumber,
             })
         );
-        // navigate('/payment');
+
+        //  navigate('/payment');
+
+        // remove this if doesn't work
+        localStorage.setItem('paymentMethod', paymentMethodName);
+
         navigate('/placeorder');
 
     }
@@ -171,7 +171,7 @@ const ShippingAddress = () => {
                                         <Form.Check
                                         type='radio'
                                         id='PayPal'
-                                        label="PayPal"
+                                        label="PayPal/Card"
                                         value="PayPal"
                                         checked={paymentMethodName === "PayPal"}
                                         onChange={(e) => setPaymentMethod(e.target.value)}

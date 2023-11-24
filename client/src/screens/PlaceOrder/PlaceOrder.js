@@ -128,7 +128,7 @@ const PlaceOrder = () => {
                             <div className='place-shipping-payment-content'>
                                 <p><strong>Method:</strong> {cart.paymentMethod}</p>
                             </div >
-                            <Link className='text-red-600' to="/payment">Change Payment Method</Link>
+                            <Link className='text-red-600' to="/shipping">Change Payment Method</Link>
                         </div>
                     
                         <div className='border place-shipping mb-4'>

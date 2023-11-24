@@ -45,6 +45,7 @@ const SalesSlider = (props) => {
                         {index === currentSlide && (
                             <>
                                 <h2>{slide.text}</h2>
+                                <p>{slide.subtext}</p>
                                 <Link to={slide.to} className='link'>{slide.link}</Link>
                             </>
                         )}
