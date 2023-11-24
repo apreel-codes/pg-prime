@@ -10,10 +10,6 @@ const HomeVideo = () => {
                     <source src="../images/video.mp4" type="video/mp4" />
                 </video>    
             </div>
-
-            {/* <div className='ratio ratio-16x9'>
-                <iframe src="../images/video.mp4" title='Home video' allowFullScreen ></iframe>
-            </div> */}
         </div>
         
     )
