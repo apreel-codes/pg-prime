@@ -118,7 +118,7 @@ const [brands, setBrands] = useState([]);
     return (
             <header className='relative header'>
                 <SalesSlider />
-                <div className='top-nav flex flex-row justify-between items-center py-2 px-6 md:px-20 md:py-2'>
+                {/* <div className='top-nav flex flex-row justify-between items-center py-2 px-6 md:px-20 md:py-2'>
                     <div className='socials flex flex-row justify-between'>
                         <Link><img className='h-8 w-18 mt-0.5 mr-1' src='../images/nav-twitter.png'/></Link>
                         <Link to="https://www.facebook.com/profile.php?id=61551700054426&mibextid=LQQJ4d"
@@ -130,7 +130,7 @@ const [brands, setBrands] = useState([]);
                         <Link className='hidden md:block' to="/gallery">Gallery</Link>
                         <Link className='' to='/refundpolicy'>Refund Policy</Link>
                     </div>
-                </div>
+                </div> */}
                 <div className='web-second md:flex md:flex-row md:justify-between items-center md:px-20 md:py-2 hidden md:block'>
                     <Link to='/'><img className='h-16 w-24' src='../images/nav-logo.png'/></Link>
                     <div className='search-profile-cart flex flex-row justify-between items-center'>
