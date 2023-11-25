@@ -8,7 +8,7 @@
         transition: all 0.5s ease-in-out;
         text-align: center;
         color: #1a1a1a;
-        margin: 1.5rem 0 0.5rem;
+        margin-top: 1.5rem;
         font-family: 'Inter', sans-serif;
     }
 
@@ -16,7 +16,7 @@
         width: 100%;
         position: relative;
         overflow: hidden;
-        height: 100px;
+        height: 74px;
     }
 
     .sales-slide .link {
@@ -42,7 +42,7 @@
         text-align: center;
         color: #1a1a1a;
         font-size: 0.8rem;
-        margin: 1.5rem 0 0.5rem;
+        margin-top: 1.5rem;
         font-family: 'Inter', sans-serif;
 
     }
@@ -51,7 +51,7 @@
         width: 100%;
         position: relative;
         overflow: hidden;
-        height: 100px;
+        height: 68px;
     }
 
     h2 {
