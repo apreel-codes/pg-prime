@@ -1,12 +1,5 @@
 
-.sales-slide .link {
-    text-decoration: underline;
-    font-size: 0.9rem;
-}
 
-.sales-slide h2 {
-    margin-bottom: .3rem;
-}
 
 @media screen and (min-width: 600px) {
 
@@ -15,8 +8,7 @@
         transition: all 0.5s ease-in-out;
         text-align: center;
         color: #1a1a1a;
-        font-size: 0.9rem;
-        margin: .5rem 0;
+        margin: 1.5rem 0 0.5rem;
         font-family: 'Inter', sans-serif;
     }
 
@@ -24,11 +16,21 @@
         width: 100%;
         position: relative;
         overflow: hidden;
+        height: 100px;
     }
 
+    .sales-slide .link {
+        font-size: .9rem;
+        text-decoration: underline;
+    }
+    
+    .sales-slide h2 {
+        font-size: 1.2rem;
+        margin-bottom: .3rem;
+    }
 
-    h2 {
-        font-size: 1rem;
+    .sales-slide p {
+        font-size: .9rem;
     }
 }
 
@@ -40,18 +42,33 @@
         text-align: center;
         color: #1a1a1a;
         font-size: 0.8rem;
-        margin: .5rem 0;
+        margin: 1.5rem 0 0.5rem;
         font-family: 'Inter', sans-serif;
+
     }
 
     .sales-slider {
         width: 100%;
         position: relative;
         overflow: hidden;
+        height: 100px;
     }
 
     h2 {
         font-family: 'Inter', sans-serif;
+        font-size: .9rem;
+    }
+
+    .sales-slide .link {
+        text-decoration: underline;
+        font-size: 0.9rem;
+    }
+    
+    .sales-slide h2 {
+        margin-bottom: .3rem;
+    }
+
+    .sales-slide p {
         font-size: .9rem;
     }
 }
