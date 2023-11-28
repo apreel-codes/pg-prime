@@ -9,6 +9,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -27,8 +29,6 @@ const reducer = (state, action) => {
 
 
 const NewArrivals = () => {
-
-
     const [{ loading, error, products}, dispatch] = useReducer(logger(reducer), {
         products: [],
         loading: true, error: ''
@@ -141,11 +141,15 @@ const NewArrivals = () => {
           setCurrentSlide(0)
       }, [])
 
+      useEffect(() => {
+        AOS.init({duration: 1200});
+      }, []);
+
 
     return (
         <div>
             <div className='web-carousel hidden md:block mb-4 mt-24'>
-            <div className='flex flex-row justify-between items-center my-4 w-[80%] mx-auto'>
+            <div className='flex flex-row justify-between items-center my-4 w-[80%] mx-auto' data-aos="slide-up">
                         <h1 className='new-arrivals'>New arrivals for you</h1>
                         <button variant='' className='slider-button flex flex-row justify-between items-center'>
                             <Link to={{ pathname: '/search', search: `allProducts`}}> 
@@ -157,7 +161,7 @@ const NewArrivals = () => {
               <Slider {...settings} className='slider'>
                   {
                       webProductsData.map((product, i) => (
-                              <div key={product.slug} className='carousel-product'>
+                              <div key={product.slug} className='carousel-product' data-aos="slide-up">
                                       <HomeProduct product={product}></HomeProduct>
                               </div>
                               
@@ -167,7 +171,7 @@ const NewArrivals = () => {
             </div>
 
             <div className="mx-auto w-[90%] mt-20 md:hidden block mobile-new-all">
-              <div className='flex flex-row justify-between items-center'>
+              <div className='flex flex-row justify-between items-center' data-aos="slide-up">
                           <h1 className='new-arrivals'>New arrivals for you</h1>
                           <button variant='' className='slider-button flex flex-row justify-between items-center'>
                             <Link to={{ pathname: '/search', search: `allProducts`}}> 
@@ -202,7 +206,7 @@ const NewArrivals = () => {
               <div className='grid grid-cols-2 gap-3 mt-2'>
                 {
                   mobileProductsData.map((product, index) => (
-                    <div key={product.slug} className="new-arrival-content">
+                    <div key={product.slug} className="new-arrival-content" data-aos="slide-up">
                           <HomeProduct product={product}></HomeProduct>
                     </div>
                   ))

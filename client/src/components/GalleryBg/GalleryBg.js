@@ -1,26 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './GalleryBg.css'
 import { Link } from "react-router-dom";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const GalleryBg = () => {
+
+    useEffect(() => {
+        AOS.init({duration: 1200});
+      }, []);
+
     return (
         <div className='gallery mt-34 mb-5'>
             <div className='title w-[90%] mx-auto'>
-                <h2 className=''>Our Gallery</h2>
-                <p className=''>Explore the world of PGF Prime through our captivating media contents.</p>
+                <h2 className='' data-aos="slide-up">Our Gallery</h2>
+                <p className='' data-aos="slide-up">Explore the world of PGF Prime through our captivating media contents.</p>
             </div>
             <div className='mobile-gallery'>
-                <div className='mobile-gallery-image md:hidden block w-[88%] mx-auto'>
+                <div className='mobile-gallery-image md:hidden block w-[88%] mx-auto' data-aos="zoom-in">
                 </div>
             </div>
             
             <div className='web-gallery'>
-                <div className='web-gallery-image md:block hidden w-[95%] mx-auto'>
+                <div className='web-gallery-image md:block hidden w-[95%] mx-auto' data-aos="zoom-in">
                 </div>
             </div>
 
-            <div className='gallery-buttons flex flex-row justify-between md:w-[30%] w-[89%] mx-auto mt-5 space-x-3'>
+            <div className='gallery-buttons flex flex-row justify-between md:w-[30%] w-[89%] mx-auto mt-5 space-x-3' data-aos="slide-up">
                 <button className='shop-now-button'>
                     <Link to={{ pathname: '/search', search: `allProducts`}}>
                         Shop now

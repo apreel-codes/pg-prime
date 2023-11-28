@@ -18,6 +18,8 @@ import Footer from "../../components/Footer/Footer";
 import './Product.css';
 import NewArrivals from "../../components/NewArrivals/NewArrivals";
 import { currencyData, eusizes, ussizes, uksizes } from './Currency';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -171,6 +173,10 @@ const Product = () => {
         setRating(0);
         setComment('');
     };
+
+    useEffect(() => {
+        AOS.init({duration: 1200});
+      }, []);
 
     
 

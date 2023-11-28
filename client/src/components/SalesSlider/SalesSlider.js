@@ -43,11 +43,10 @@ const SalesSlider = (props) => {
                 SalesSliderData.map((slide, index) => (
                     <div className={index === currentSlide ? "sales-slide 'sales-current" : "sales-slide"} key={index}>
                         {index === currentSlide && (
-                            <>
-                                <h2>{slide.text}</h2>
-                                <p>{slide.subtext}</p>
-                                <Link to={slide.to} className='link'>{slide.link}</Link>
-                            </>
+                            <div className=''>
+                                <p>{slide.text} <span><Link to={slide.to} className='link'>{slide.link}</Link></span> <span>{slide.subtext}</span></p>
+                                {/* <p>{slide.subtext}</p> */}
+                            </div>
                         )}
                     </div>
                 ))

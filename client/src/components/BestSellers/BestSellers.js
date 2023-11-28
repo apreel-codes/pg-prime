@@ -1,10 +1,12 @@
 import axios from 'axios';
-import React, { useEffect, useReducer, useRef, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import logger from 'use-reducer-logger';
 // import BestSellersProduct from '../BestSellersProduct/BestSellersProduct';
 import './BestSellers.css'
 import { Link } from 'react-router-dom';
 import HomeProduct from '../HomeProduct/HomeProduct';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 
@@ -49,10 +51,15 @@ const BestSellers = () => {
 
     const bestSellingProducts = getProducts(products, 12);
 
+    useEffect(() => {
+        AOS.init({duration: 1200});
+      }, []);
+
+
 
     return (
         <div className='box mx-auto my-24'>
-            <div className='flex flex-row justify-between items-center my-4'>
+            <div className='flex flex-row justify-between items-center my-4' data-aos="slide-up">
                 <h1 className='best-sellers'>Best Sellers</h1>
                  <button className='best-sellers-button flex flex-row justify-between items-center'>
                     <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1">
@@ -64,7 +71,7 @@ const BestSellers = () => {
             <div className='md:grid md:grid-cols-3 md:space-y-0 space-y-12 mx-auto hidden md:block'>
                 {
                     bestSellingProducts.map((product, i) => (
-                            <div key={product.slug} className=''>
+                            <div key={product.slug} className='' data-aos="slide-up">
                                 <HomeProduct product={product} key={product.slug}></HomeProduct>
                             </div>
                                 
@@ -76,7 +83,7 @@ const BestSellers = () => {
             <div className='md:hidden grid grid-cols-2 gap-3 mt-2'>
                 {
                   bestSellingProducts.map((product, index) => (
-                    <div key={product.slug} className="">
+                    <div key={product.slug} className="" data-aos="slide-up">
                           <HomeProduct product={product}></HomeProduct>
                     </div>
                   ))

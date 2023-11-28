@@ -118,7 +118,7 @@ const [brands, setBrands] = useState([]);
     return (
             <header className='relative header'>
                 <SalesSlider />
-                {/* <div className='top-nav flex flex-row justify-between items-center py-2 px-6 md:px-20 md:py-2'>
+                <div className='top-nav flex flex-row justify-between items-center py-2 px-6 md:px-20 md:py-2'>
                     <div className='socials flex flex-row justify-between'>
                         <Link><img className='h-8 w-18 mt-0.5 mr-1' src='../images/nav-twitter.png'/></Link>
                         <Link to="https://www.facebook.com/profile.php?id=61551700054426&mibextid=LQQJ4d"
@@ -126,11 +126,12 @@ const [brands, setBrands] = useState([]);
                         <Link to="https://instagram.com/pgf_prime?igshid=MzRIODBiNWFIZA=="
                         ><img className='h-10 w-22' src='../images/nav-insta.png'/></Link>
                     </div>
-                    <div className='flex flex-row justify-between gallery-refund md:w-48'>
+                    <div className='flex flex-row justify-between gallery-refund md:w-80'>
+                        <Link className='hidden md:block' to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">Our store</Link>
                         <Link className='hidden md:block' to="/gallery">Gallery</Link>
                         <Link className='' to='/refundpolicy'>Refund Policy</Link>
                     </div>
-                </div> */}
+                </div>
                 <div className='web-second md:flex md:flex-row md:justify-between items-center md:px-20 md:py-2 hidden md:block'>
                     <Link to='/'><img className='h-16 w-24' src='../images/nav-logo.png'/></Link>
                     <div className='search-profile-cart flex flex-row justify-between items-center'>
