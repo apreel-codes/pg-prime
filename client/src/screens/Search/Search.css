@@ -37,7 +37,7 @@
     display: block;
     height: 300vh;
     position: absolute;
-    top: 134px;
+    top: 138px;
     z-index: 10000;
     background-color: #ffffff;
     width: 100%;
@@ -51,7 +51,7 @@
     background-color: #ffffff;
     height: 100vh;
     position: absolute;
-    top: 134px;
+    top: 138px;
     z-index: 10000;
     margin-left: -100%;
     transition: all 0.5s ease-in-out;
