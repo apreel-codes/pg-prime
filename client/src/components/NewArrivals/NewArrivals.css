@@ -17,6 +17,11 @@
     font-weight: 600;
 }
 
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
 @media screen and (min-width: 600px) {
     .new-arrivals {
         font-family: 'Inter', sans-serif;
@@ -26,7 +31,7 @@
     }
 
     .slider{
-        width: 87%;
+        width: 100%;
     }
 }
 
@@ -158,8 +163,6 @@
     list-style: none;
 
     text-align: center;
-
-    /* border: 1px red solid !important; */
 }
 .slick-dots li
 {

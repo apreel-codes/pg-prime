@@ -5,7 +5,7 @@
         transition: all 0.5s ease-in-out;
         text-align: center;
         color: #1a1a1a;
-        margin-top: 1.5rem;
+        margin-top: .8rem;
         font-family: 'Inter', sans-serif;
     }
 
@@ -13,7 +13,7 @@
         width: 100%;
         position: relative;
         overflow: hidden;
-        height: 74px;
+        height: 54px;
         background-color: #f4f4f5;
     }
 
@@ -35,14 +35,13 @@
 }
 
 @media screen and (max-width: 600px) {
-
     .sales-slide {
         transform: translateX(0%);
         transition: all 0.5s ease-in-out;
         text-align: center;
         color: #1a1a1a;
         font-size: 0.8rem;
-        margin-top: 1rem;
+        margin-top: .5rem;
         font-family: 'Inter', sans-serif;
 
     }
@@ -51,8 +50,9 @@
         width: 100%;
         position: relative;
         overflow: hidden;
-        height: 58px;
+        height: 50px;
         background-color: #f4f4f5;
+        padding: 0 1rem;
     }
 
     p {

@@ -190,7 +190,7 @@ const [brands, setBrands] = useState([]);
                         )}
                         <div className='border flex flex-row justify-between items-center px-1.5 py-2.5 w-16 rounded'>
                             <Link to="/cart" className="nav-link">
-                                <img className='w-7 h-7' src='../images/shopping-cart.png'/>
+                                <img className='w-7 h-7' src='../images/shopping-bag.png'/>
                             </Link>
                             {cart.cartItems.length > 0 && (
                                 <small className='cart-text'>
@@ -208,13 +208,15 @@ const [brands, setBrands] = useState([]);
                                 <img className='w-4 h-4' src='../images/search.png' onClick={showSearchBar}/>
                                 <div className='flex flex-row justify-between items-center px-1.5 py-2 w-12 rounded'>
                                     <Link to="/cart" className="nav-link">
-                                        <img className='w-5 h-5' src='../images/shopping-cart.png'/>
+                                        <img className='w-5 h-5' src='../images/shopping-bag.png'/>
                                     </Link>
-                                    {cart.cartItems.length > 0 && (
+
+                                    { cart.cartItems.length > 0 && (
                                         <small className='cart-text'>
                                             {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
                                         </small>
                                     )}
+
                                 </div>
                                 <span className='fa-stack' onClick={showSideNav}>
                                     <img className= { isCloseToggled ? 'hamburger w-7 h-7 fa-stack-2x' : 'close' } src='../images/hamburger.png'/> 
@@ -223,10 +225,11 @@ const [brands, setBrands] = useState([]);
                                 
                         </div>
                     </div>
-                    <div className = {isToggled ? 'hidden' : 'mt-3' }>
+                    <div className = {isToggled ? 'hidden' : 'my-2' }>
                      <SearchBox />
                     </div>
                 </div>
+
                 <div className='hidden md:block page-navs'>
                     <ul className='brand-header flex flex-row justify-between items-center w-[55%] my-3 ml-20'>
                         <Link to="/"><li>Home</li></Link>

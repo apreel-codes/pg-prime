@@ -148,8 +148,8 @@ const NewArrivals = () => {
 
     return (
         <div>
-            <div className='web-carousel hidden md:block mb-4 mt-24 w-[92%] mx-auto'>
-            <div className='flex flex-row justify-between items-center my-4  w-[87%] mx-auto' data-aos="slide-up">
+            <div className='web-carousel hidden md:block mb-4 mt-24 w-[100%] mx-auto'>
+            <div className='flex flex-row justify-between items-center my-4  w-[90%] mx-auto' data-aos="slide-up">
                         <h1 className='new-arrivals'>New arrivals for you</h1>
                         <button variant='' className='slider-button flex flex-row justify-between items-center'>
                             <Link to={{ pathname: '/search', search: `allProducts`}}> 
@@ -158,16 +158,20 @@ const NewArrivals = () => {
                             <img className='h-4 w-4' src="../images/arrow-right.png" />
                         </button>
             </div>
-              <Slider {...settings} className='slider'>
+            <div className='3/4 m-auto wrapper'>
+              <div>
+                <Slider {...settings}>
                   {
                       webProductsData.map((product, i) => (
-                              <div key={product.slug} className='carousel-product' data-aos="slide-up">
-                                      <HomeProduct product={product}></HomeProduct>
-                              </div>
-                              
+                        <div key={product.slug} className='carousel-product' data-aos="slide-up">
+                          <HomeProduct product={product}></HomeProduct>
+                        </div>
+                                
                       ))
-                  }
-              </Slider>
+                    }
+                </Slider>
+              </div>
+            </div>
             </div>
 
             <div className="mx-auto w-[90%] mt-20 md:hidden block mobile-new-all">
