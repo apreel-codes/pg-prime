@@ -24,6 +24,10 @@
         color: rgb(0, 0, 0);
         font-weight: 600;
     }
+
+    .slider{
+        width: 87%;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -273,8 +277,4 @@
 span {
     font-size: 0.8rem;
     color: #1a1a1ab9;
-}
-
-.carousel-product{
-    margin-right: 5rem;
 }
