@@ -170,7 +170,6 @@
 
     cursor: pointer;
 
-    /* border: 1px red solid !important; */
 }
 .slick-dots li button
 {
@@ -230,7 +229,6 @@
 
 
 .new-arrival-slide {
-    /* margin-top: 9rem; */
     opacity: 0;
     transform: translateX(50%);
     transition: all 0.5s ease; 
@@ -244,19 +242,16 @@
     height: 1rem;
     border-radius: 50%;
     cursor: pointer;
-    /* position: absolute; */
     z-index: 999;
     top: 34.7rem;
     left: 90%;
 }
 
 .new-arrival-arrow:hover {
-    /* background-color: white; */
     color: rgb(0, 0, 0);
 }
 
 .new-arrival-next {
-    /* right: 10px; */
     margin-right: 50px;
     
 }
@@ -280,6 +275,6 @@ span {
     color: #1a1a1ab9;
 }
 
-/* .mobile-new-all {
-    border: 1px red solid;
-} */
+.carousel-product{
+    margin-right: 5rem;
+}
