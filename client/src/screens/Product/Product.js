@@ -18,8 +18,7 @@ import Footer from "../../components/Footer/Footer";
 import './Product.css';
 import NewArrivals from "../../components/NewArrivals/NewArrivals";
 import { currencyData, eusizes, ussizes, uksizes } from './Currency';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 
 
@@ -52,7 +51,6 @@ const Product = () => {
     const [size, setSize] = useState('35');
     const [active, setActive] = useState({});
     const [buttonToggled, setButtonToggled] = useState(0);
-    const [price, setPrice] = useState(0);
     const [isDetailsToggled, setIsDetailsToggled] = useState(false);
     const [isDescriptionToggled, setIsDescriptionToggled] = useState(false);
     const [isReviewToggled, setIsReviewToggled] = useState(false);
@@ -95,13 +93,9 @@ const Product = () => {
         loading: true, error: ''
     })
 
-    const [country, setCountry] = useState('£');
+    // console.log(product);
 
-    const changeCountry = async (e) => {
-        setCountry(e.target.value);
-        const currencies = await axios.get('http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22');
-        setPrice(parseInt(product.price) * 1.091643);
-    }
+    const [country, setCountry] = useState('£');
 
 
     useEffect(() => {
@@ -122,9 +116,25 @@ const Product = () => {
     const {state, dispatch: ctxDispatch} = useContext(Store); //by using useContext, we have access to the state and also to change the context
     const { cart, userInfo } = state;
 
+    const [price, setPrice] = useState(0);
+
+    const changeCountry = async (e, i) => {
+        try {
+            const currencies = await axios.get("http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22");
+            setCountry(e.target.value); 
+            const { cartItems } = state.cart;
+            setPrice(parseInt(product.price) * 1.091643);
+            console.log(price);
+            console.log(currencies.data);
+        } catch (err) {
+            toast.error("Something went wrong.");
+            return;
+        }
+    }
 
     const addToCartHandler = async () => {
         product.size = size;
+        product.price = price;
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
         const { data } = await axios.get(`/api/products/${product._id}`);
@@ -132,11 +142,13 @@ const Product = () => {
             window.alert('Sorry. Product is out of stock');
             return;
         }
+        // console.log(cart);
         ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity }});
         navigate('/cart');
         toast.success('Item added to cart');
         return;
     }
+
 
 
     const submitHandler = async (e) => {
@@ -173,10 +185,6 @@ const Product = () => {
         setRating(0);
         setComment('');
     };
-
-    useEffect(() => {
-        AOS.init({duration: 1200});
-      }, []);
 
     
 
@@ -222,10 +230,17 @@ const Product = () => {
                                     <h1 className="font-bold">{product.name}</h1>
                                     <p className="brand">Brand: {product.brand}</p>
                                     <Rating rating={product.rating} numReviews={product.numReviews} />
-                                    <p className="price">&#163;{product.price}</p>
+                                    {
+                                        price ? (
+                                            <p className="price">&#163;{price.toFixed(2)}</p>
+                                        ) : (
+                                            <p className="price">&#163;{product.price}</p>
+                                        )
+                                    }
+                                    {/* <p className="price">&#163;{product.price}</p> */}
                                     
                                     <div className="currency">
-                                        <span>{country}{price.toFixed(2)} {' '}<br /></span>
+                                        <span className="select-country">Select country {' '}<br /></span>
                                         <select
                                             className='sort-box border border-black-200 mt-1'
                                             value={country}
@@ -244,12 +259,12 @@ const Product = () => {
                                 <p className="product-availability">{product.availability}</p>
 
                                 <div className="size">
-                                    <p>Size: {size} </p>
+                                    <p>Size: {size}</p>
 
                                     <div className="countries mb-3 flex flex-row justify-between">
-                                        <p className = { toggled === 1 ? "country-text" : " "} onClick={() => updateToggle(1)}>EU</p>
-                                        <p className = { toggled === 2 ? "country-text" : " "} onClick={() => updateToggle(2)}>US</p>
-                                        <p className = { toggled === 3 ? "country-text" : " "} onClick={() => updateToggle(3)}>UK</p>
+                                        <p className = { toggled === 1 ? "country-text" : "country-text-inactive"} onClick={() => updateToggle(1)}>EU</p>
+                                        <p className = { toggled === 2 ? "country-text" : "country-text-inactive"} onClick={() => updateToggle(2)}>US</p>
+                                        <p className = { toggled === 3 ? "country-text" : "country-text-inactive"} onClick={() => updateToggle(3)}>UK</p>
                                     </div>
 
                                     <div className = { toggled === 1 ? "buttons-active" : "buttons" }>

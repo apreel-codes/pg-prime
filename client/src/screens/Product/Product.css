@@ -23,7 +23,7 @@ small {
 
 .product-page .specs .size p {
     color: #1a1a1a;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: 0.7rem;
 }
@@ -41,6 +41,10 @@ small {
     display: block;
 }
 
+.countries {
+    width: 170px;
+}
+
 .countries p {
     width: 70px;
     cursor: pointer;
@@ -51,6 +55,11 @@ small {
     font-weight: 700;
 }
 
+.country-text-inactive {
+    border-bottom: .12rem #8f8f8f solid;
+    font-weight: 700;
+}
+
 .product-page .specs .size .size-button button {
     cursor: pointer;
     font-family: 'Inter', sans-serif;
@@ -58,7 +67,7 @@ small {
     border: 1px #1a1a1a73 solid;
     margin-right: 0.7rem;
     margin-bottom: 0.7rem;
-    border-radius: .3rem;
+    border-radius: .5rem;
     font-size: .9rem;
     color: #1a1a1aa1;
     width: 50px;
@@ -71,7 +80,7 @@ small {
     border: 1px #636363 solid;
     margin-right: 0.7rem;
     margin-bottom: 0.7rem;
-    border-radius: .3rem;
+    border-radius: .5rem;
     background-color: #003466;
     font-size: .9rem;
     color: #ffffff;
@@ -143,8 +152,18 @@ small {
         outline: 1px rgba(173, 173, 173, 0.709) solid;
         border-radius: .8rem;
     }
-  
 
+    .product-page .specs .price{
+        font-size: 1.3rem;
+        color: #1a1a1a;
+        margin-top: .5rem;
+        font-weight: 500;
+    }
+  
+    .product-page .specs h1{
+        font-size: 1.3rem;
+        margin-bottom: .5rem;
+    }
 }
 
 @media screen and (max-width: 600px) {
@@ -180,14 +199,21 @@ small {
         outline: 1px rgba(173, 173, 173, 0.709) solid;
         border-radius: .8rem;
     }
+
+    .product-page .specs .price{
+        font-size: 1.0rem;
+        color: #1a1a1a;
+        margin-top: .5rem;
+        font-weight: bold;
+    }
   
+    .product-page .specs h1{
+        font-size: 1.1rem;
+        margin-bottom: .5rem;
+    }
 }
 
 
-.product-page .specs h1{
-    font-size: 1.1rem;
-    margin-bottom: .5rem;
-}
 
 .product-page .specs .brand{
     font-size: 0.9rem;
@@ -195,12 +221,6 @@ small {
     margin-bottom: .2rem;
 }
 
-.product-page .specs .price{
-    font-size: 1.0rem;
-    color: #1a1a1a;
-    margin-top: .5rem;
-    font-weight: bold;
-}
 
 .product-page .availability{
     font-size: .9rem;
@@ -285,7 +305,6 @@ small {
 
 
 
-
 .product-page .product-details .review-group {
     border-bottom: 1px #1a1a1a4c solid;
     padding-bottom: 0.2rem;
@@ -363,6 +382,9 @@ small {
     color: rgba(197, 197, 197, 0.916);
 }
 
+.select-country {
+    font-weight: 500;
+}
 
 
 

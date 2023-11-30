@@ -7,10 +7,6 @@
 }
 
 
-.brand-header{
-    width: 500px;
-}
-
 .top-nav {
     color: #ffffff;
     background-color: #131313;
@@ -64,6 +60,11 @@
     font-size: 0.9rem;
 }
 
+.brand-header .brand{
+    width: auto;
+}
+
+
 .brands {
     display: flex;
     flex-direction: row;
@@ -89,7 +90,7 @@
 
 .mobile-side-nav {
         font-family: 'Inter', sans-serif;
-        padding: 0 2rem 2rem;
+        padding: .6rem 2rem 2rem;
         display: block;
         height: 200vh;
         position: fixed;
@@ -151,7 +152,9 @@
 .mobile-side-nav .content li {
     margin-top: 0.3rem;
     font-size: 1rem;
+    width: 100%;
 }
+
 
 .hide-mobile-side-nav .button {
     background-color: #003466;

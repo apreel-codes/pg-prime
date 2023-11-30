@@ -144,7 +144,7 @@ productRouter.get(
   })
 );
 
-const SEARCH_PAGE_SIZE = 10;
+const SEARCH_PAGE_SIZE = 12;
 
 productRouter.get(
   '/search',

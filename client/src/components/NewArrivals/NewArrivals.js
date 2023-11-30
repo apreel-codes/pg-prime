@@ -155,7 +155,7 @@ const NewArrivals = () => {
                             <Link to={{ pathname: '/search', search: `allProducts`}}> 
                               View More
                             </Link>
-                            <img src="../images/more.png" />
+                            <img className='h-4 w-4' src="../images/more.png" />
                         </button>
             </div>
               <Slider {...settings} className='slider'>
@@ -177,7 +177,7 @@ const NewArrivals = () => {
                             <Link to={{ pathname: '/search', search: `allProducts`}}> 
                               View More
                             </Link>
-                              <img src="../images/more.png" />
+                              <img className='h-4 w-4' src="../images/arrow-right.png" />
                           </button>
               </div>
 

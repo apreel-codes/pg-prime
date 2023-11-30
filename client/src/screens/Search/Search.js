@@ -400,18 +400,18 @@ const Search = (e) => {
                                         {[...Array(pages).keys()].map((x) => (
                                             <LinkContainer
                                                 key={x + 1}
-                                                className="mx-1"
+                                                className="mx-1 border"
                                                 to={{
                                                 pathname: '/search',
                                                 search: getFilterUrl({ page: x + 1 }, true),
                                                 }}
                                             >
-                                                <Button
-                                                    className={Number(page) === x + 1 ? 'font-bold text-sm' : 'text-sm'}
-                                                    variant="light"
+                                                <button
+                                                    className={Number(page) === x + 1 ? 'nav-active' : 'nav-inactive'}
+                                                    variant=""
                                                     >
                                                     {x + 1}
-                                                </Button>
+                                                </button>
                                             </LinkContainer>
                                         ))}
                                     </div>

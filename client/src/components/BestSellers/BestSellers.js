@@ -65,7 +65,7 @@ const BestSellers = () => {
                     <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1">
                             View More
                     </Link>
-                    <img src="../images/more.png" />
+                    <img className='h-4 w-4' src="../images/arrow-right.png" />
                 </button>
             </div>
             <div className='md:grid md:grid-cols-3 md:space-y-0 space-y-12 mx-auto hidden md:block'>

@@ -153,3 +153,20 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 1.6rem;
 }
+
+.nav-active {
+    background-color: #1a1a1a;
+    color: white;
+    font-size: .8rem;
+    padding: .5rem .9rem;
+    border-radius: .4rem;
+}
+
+.nav-inactive {
+    background-color: white;
+    color: #1a1a1a;
+    font-size: .8rem;
+    border: 1px red #1a1a1a;
+    padding: .5rem .9rem;
+    border-radius: .4rem;
+}

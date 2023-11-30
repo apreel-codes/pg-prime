@@ -235,8 +235,16 @@ const [brands, setBrands] = useState([]);
                         
                         { brands && 
                             brands.map((b, i) => (
-                                <Link to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
+                                <div className='brand w-16 flex flex-row justify-between items-center'>
+                                    <Link to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>
+                                        {b}
+                                    </li>
+                                    </Link>
+                                    <img className='ml-2' src='../images/arrow-down.png' />
+                                </div>
                             ))
+                                
+        
                         }
                     </ul>
                 </div>
@@ -244,7 +252,7 @@ const [brands, setBrands] = useState([]);
                 <div className='side-body'>
                     <div className= { isNavBarToggled ? 'mobile-side-nav' : 'hide-mobile-side-nav'} >
                             <ul className='content flex flex-col py-1'>
-                                <Link to="/"><li >Home</li></Link>
+                                <Link to="/"><li>Home</li></Link>
                                 <Link to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
                                 <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
                                  
