@@ -266,7 +266,7 @@ const [brands, setBrands] = useState([]);
                             
                             </ul>
                             {userInfo ? (
-                                <div className='profile-signout flex flex-col mt-12'>
+                                <div className='profile-signout flex flex-col'>
                                     <Link 
                                         className='dropdown-item mb-3'
                                         to="/profile"
@@ -277,7 +277,7 @@ const [brands, setBrands] = useState([]);
                                 
                                 { userInfo && userInfo.isAdmin && (
                                     <div className="admin-group">
-                                        <div className="admin flex flex-row justify-between w-[30%]">
+                                        <div className="admin flex flex-row justify-between w-[27%]">
                                             <h3 className='mb-3'>Admin</h3>
                                             <div className='fa-stack' onClick={showAdmin}>
                                                 <img className= { isAdminToggled ? "downAdmin fa-stack-1x h-3 w-4" : "upAdmin" } src="../images/down-arrow.png"/>

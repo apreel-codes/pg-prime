@@ -89,9 +89,6 @@
     /* height: 300vh; */
 }
 
-.dropdown-item {
-    font-size: 1rem;
-}
 
 .mobile-side-nav {
         font-family: 'Inter', sans-serif;
@@ -155,8 +152,8 @@
 
 
 .mobile-side-nav .content li {
-    margin-top: 0.3rem;
-    font-size: 1rem;
+    margin-top: 0.2rem;
+    font-size: .9rem;
     width: 100%;
 }
 
@@ -190,7 +187,8 @@
 
 
 .hide-mobile-side-nav ul li {
-    margin-top: 0.3rem;
+    margin-top: 0.2rem;
+    font-size: .9rem;
 }
 
 .close {
@@ -212,8 +210,8 @@
 
 .upAdmin {
     display: block;
-    width: .8rem;
-    height: .5rem;
+    width: .7rem;
+    height: .4rem;
     cursor: pointer;
     margin-top: .4rem;
 }
@@ -228,5 +226,8 @@
 }
 
 .profile-signout {
-    margin-top: -.05rem;
+    margin-top: -.07rem;
+    font-size: .9rem;
 }
+
+
