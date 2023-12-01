@@ -58,7 +58,7 @@ const BestSellers = () => {
 
     return (
         <div className='mx-auto my-24'>
-            <div className='flex flex-row justify-between items-center w-[78%] mx-auto my-4' data-aos="slide-up">
+            <div className='flex flex-row justify-between items-center w-[90%] md:w-[78%] mx-auto my-4' data-aos="slide-up">
                 <h1 className='best-sellers'>Best Sellers</h1>
                  <button className='best-sellers-button flex flex-row justify-between items-center'>
                     <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1">
@@ -79,7 +79,7 @@ const BestSellers = () => {
             </div>
 
 
-            <div className='md:hidden grid grid-cols-2 gap-3 mt-2'>
+            <div className='md:hidden w-[90%] mx-auto grid grid-cols-2 gap-3 mt-2'>
                 {
                   bestSellingProducts.map((product, index) => (
                     <div key={product.slug} data-aos="slide-up">
