@@ -26,11 +26,14 @@ productRouter.post(
         size: req.body.size,
         category: req.body.category,
         description: req.body.description,
-        availability: req.body.availability,
+        // availability: req.body.availability,
         brand: req.body.brand,
-        countInStock: req.body.countInStock,
+        // countInStock: req.body.countInStock,
         rating: 0,
         numReviews: 0,
+        euSizes: req.body.selectedEuSize,
+        usSizes: req.body.selectedUsSize,
+        ukSizes: req.body.selectedUkSize,
       });
       const product = await newProduct.save();
       res.send({ message: 'Product Created', product });
@@ -53,11 +56,14 @@ productRouter.post(
         product.size = req.body.size,
         product.image = req.body.image;
         product.images = req.body.images;
+        product.euSizes = req.body.selectedEuSize;
+        product.usSizes = req.body.selectedUsSize;
+        product.ukSizes = req.body.selectedUkSize;
         product.category = req.body.category;
         product.description = req.body.description;
-        product.availability = req.body.availability,
+        // product.availability = req.body.availability,
         product.brand = req.body.brand;
-        product.countInStock = req.body.countInStock;
+        // product.countInStock = req.body.countInStock;
         await product.save();
         res.send({ message: 'Product Updated' });
       } else {

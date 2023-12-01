@@ -22,7 +22,6 @@
     font-size: 1rem;
     padding: 0.8rem 0;
     margin-top: .7rem;
-    /* width: 170px; */
 }
 
 .create-product-page textarea {
@@ -43,3 +42,10 @@
         width: 170px;
     }
   }
+
+.size-check-box {
+    outline: none;
+    width: 1.7rem;
+    height: 1.7rem;
+    display: block;
+}

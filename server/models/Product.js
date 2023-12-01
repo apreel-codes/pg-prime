@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 
 
+
 const reviewSchema = new mongoose.Schema(
     {
       name: { type: String, required: true },
@@ -43,20 +44,12 @@ const productSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        availability: {
-            type: String,
-            required: true,
-        },
         price: {
             type: Number,
             required: true,
         },
         country: {
             type: String,
-        },
-        countInStock: {
-            type: Number,
-            required: true,
         },
         rating: {
             type: Number,
@@ -69,7 +62,10 @@ const productSchema = new mongoose.Schema(
         size: {
             type: String,
         },
-        reviews: [reviewSchema],    
+        reviews: [reviewSchema],  
+        euSizes: [String],
+        usSizes: [String],
+        ukSizes: [String],
     },
     {
         timestamps: true

@@ -48,7 +48,7 @@ const Product = () => {
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const [selectedImage, setSelectedImage] = useState('');
-    const [size, setSize] = useState('35');
+    const [size, setSize] = useState('Select a size below');
     const [active, setActive] = useState({});
     const [buttonToggled, setButtonToggled] = useState(0);
     const [isDetailsToggled, setIsDetailsToggled] = useState(false);
@@ -57,21 +57,22 @@ const Product = () => {
     const [toggled, setToggled] = useState(1);
   
 
+
       const showDetails = () => {
           setIsDetailsToggled(!isDetailsToggled);    
-  }
+    }
 
       const showDescription = () => {
           setIsDescriptionToggled(!isDescriptionToggled);    
-  }
+    }
 
       const showReview = () => {
           setIsReviewToggled(!isReviewToggled);    
-  }
+    }
 
-  const updateToggle = (id) => {
+    const updateToggle = (id) => {
           setToggled(id);
-  }
+    }
    
 
     const handleSizeChange = (e) => {
@@ -92,8 +93,6 @@ const Product = () => {
         product: [],
         loading: true, error: ''
     })
-
-    // console.log(product);
 
     const [country, setCountry] = useState('£');
 
@@ -132,6 +131,11 @@ const Product = () => {
         }
     }
 
+
+    const euSizes = product.euSizes;
+    const usSizes = product.usSizes;
+    const ukSizes = product.ukSizes;
+  
     const addToCartHandler = async () => {
         product.size = size;
         product.price = price;
@@ -142,7 +146,6 @@ const Product = () => {
             window.alert('Sorry. Product is out of stock');
             return;
         }
-        // console.log(cart);
         ctxDispatch({type: 'CART_ADD_ITEM', payload: {...product, quantity }});
         navigate('/cart');
         toast.success('Item added to cart');
@@ -269,8 +272,9 @@ const Product = () => {
 
                                     <div className = { toggled === 1 ? "buttons-active" : "buttons" }>
                                         <div className="size-button">
-                                                {eusizes.map((eusize, index) => (
+                                                {euSizes.map((eusize, index) => (
                                                     <button 
+                                                    
                                                     active = {active === 1} 
                                                     className = { buttonToggled === index ? "button-select" : "" } 
                                                     key = {index}
@@ -284,11 +288,10 @@ const Product = () => {
                                                 ))}
                                             </div>
                                     </div>
-                                        
                                     
                                     <div className = { toggled === 2 ? "buttons-active" : "buttons" } >
                                             <div className="size-button">
-                                                {ussizes.map((ussize, index) => (
+                                                {usSizes.map((ussize, index) => (
                                                     <button 
                                                     active = {active === 1} 
                                                     className = { buttonToggled === index ? "button-select" : "" } 
@@ -306,7 +309,7 @@ const Product = () => {
 
                                     <div className = { toggled === 3 ? "buttons-active" : "buttons" } >
                                         <div className="size-button">
-                                                {uksizes.map((uksize, index) => (
+                                                {ukSizes.map((uksize, index) => (
                                                     <button 
                                                     active = {active === 1} 
                                                     className = { buttonToggled === index ? "button-select" : "" } 

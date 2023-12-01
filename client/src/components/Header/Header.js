@@ -106,7 +106,6 @@ const [brands, setBrands] = useState([]);
             try{
                 const { data } = await axios.get(`/api/products/brands`);
                 setBrands(data);
-                // console.log(data);
             } catch (err) {
                 toast.error(getError(err));
             }

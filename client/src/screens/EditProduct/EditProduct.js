@@ -64,10 +64,83 @@ export default function EditProduct() {
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
-  const [availability, setAvailability] = useState('');
+  // const [availability, setAvailability] = useState('');
   const [description, setDescription] = useState('');
-  const [countInStock, setCountInStock] = useState('');
+  // const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
+  const [selectedEuSize, setSelectedEuSize] = useState([]);
+  const [selectedUsSize, setSelectedUsSize] = useState([]);
+  const [selectedUkSize, setSelectedUkSize] = useState([]);
+
+  const eusizes = [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ];
+
+const ussizes = [
+    "5",
+    "5.5",
+    "6",
+    "6.5",
+    "7",
+    "7.5",
+    "8",
+    "8.5",
+    "9",
+    "9.5",
+    "10",
+    "10.5",
+    "11",
+    "11.5",
+    "12",
+    "12.5",
+    "13",
+    "13.5",
+    "14",
+    "15",
+    "16"
+  ];
+
+const uksizes = [
+    "2",
+    "2.5",
+    "3",
+    "3.5",
+    "4",
+    "4.5",
+    "5",
+    "5.5",
+    "6",
+    "6.5",
+    "7",
+    "7.5",
+    "8",
+    "8.5",
+    "9",
+    "9.5",
+    "10",
+    "10.5",
+    "11",
+    "11.5",
+    "12",
+    "13",
+    "14",
+    "15",
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -81,9 +154,18 @@ export default function EditProduct() {
         setImages(data.images);
         setCategory(data.category);
         setDescription(data.description);
-        setAvailability(data.availability);
-        setCountInStock(data.countInStock);
+        // setAvailability(data.availability);
+        // setCountInStock(data.countInStock);
         setBrand(data.brand);
+        if(data.selectedEuSize) {
+          setSelectedEuSize(data.selectedEuSize);
+        }
+        if(data.selectedUsSize) {
+          setSelectedUsSize(data.selectedUsSize);
+        }
+        if(data.selectedUkSize) {
+          setSelectedUkSize(data.selectedUkSize);
+        }
         dispatch({ type: 'FETCH_SUCCESS' });
       } catch (err) {
         dispatch({
@@ -106,14 +188,14 @@ export default function EditProduct() {
           name,
           slug,
           price,
-          // size,
           image,
           images,
           category,
           description,
-          availability,
           brand,
-          countInStock,
+          selectedEuSize,
+          selectedUsSize,
+          selectedUkSize,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
@@ -127,6 +209,32 @@ export default function EditProduct() {
     } catch (err) {
       toast.error(getError(err));
       dispatch({ type: 'UPDATE_FAIL' });
+    }
+  };
+
+  const handleEuSizeSelect = (eusize) => {
+    if (selectedEuSize.includes(eusize)) {
+      //  if eusize is selected, it will be from the selectedEuSize array
+      setSelectedEuSize(selectedEuSize.filter((selectedEuSize) => selectedEuSize !== eusize));
+    } else {
+      //  if eusize is not selected, it will be added to the selectedEuSize array
+      setSelectedEuSize([...selectedEuSize, eusize]);
+    }
+  };
+
+  const handleUsSizeSelect = (ussize) => {
+    if (selectedUsSize.includes(ussize)) {
+      setSelectedUsSize(selectedUsSize.filter((selectedUsSize) => selectedUsSize !== ussize));
+    } else {
+      setSelectedUsSize([...selectedUsSize, ussize]);
+    }
+  };
+
+  const handleUkSizeSelect = (uksize) => {
+    if (selectedUkSize.includes(uksize)) {
+      setSelectedUkSize(selectedUkSize.filter((selectedUkSize) => selectedUkSize !== uksize));
+    } else {
+      setSelectedUkSize([...selectedUkSize, uksize]);
     }
   };
   
@@ -262,15 +370,6 @@ export default function EditProduct() {
                   required
                 />
               </Form.Group>
-              {/* <Form.Group className="mb-4 grid" controlId="countInStock">
-                <Form.Label className="edit-label">Count In Stock</Form.Label>
-                <input
-                  className='text-sm w-full'
-                  value={countInStock}
-                  onChange={(e) => setCountInStock(e.target.value)}
-                  required
-                />
-              </Form.Group> */}
 
               <Form.Group className="mb-4 grid" controlId="description">
                   <Form.Label className="create-label">Description</Form.Label>
@@ -282,15 +381,56 @@ export default function EditProduct() {
                       ></textarea>
                 </Form.Group>
 
-                <Form.Group className="mb-4 grid" controlId="availability">
-                  <Form.Label className="create-label">Availability</Form.Label>
-                      <textarea
-                      value={availability}
-                      onChange={(e) => setAvailability(e.target.value)}
-                      required
-                      className='policy-input'
-                      ></textarea>
-                </Form.Group>
+                <div className='mb-3'>
+                    <h3 className='create-label mb-2'>Select EU sizes available:</h3>
+                    {eusizes.map((eusize) => (
+                      <label key={eusize} className='mr-3 mb-2 text-center'>
+                        <input
+                          className='size-check-box'
+                          type="checkbox"
+                          checked={selectedEuSize.includes(eusize)}
+                          onChange={() => handleEuSizeSelect(eusize)}
+                        />
+                        {eusize}
+                      </label>
+                    ))}
+                    {/* <h4>Selected EU sizes:</h4>
+                    <ul>
+                      {selectedEuSize.map((eusize) => (
+                        <li key={eusize}>{eusize}</li>
+                      ))}
+                    </ul> */}
+                </div>
+
+                <div className='mb-3'>
+                    <h3 className='create-label mb-2'>Select US sizes available:</h3>
+                    {ussizes.map((ussize) => (
+                      <label key={ussize} className='mr-3 mb-2 text-center'>
+                        <input
+                          className='size-check-box'
+                          type="checkbox"
+                          checked={selectedUsSize.includes(ussize)}
+                          onChange={() => handleUsSizeSelect(ussize)}
+                        />
+                        {ussize}
+                      </label>
+                    ))}
+                </div>
+
+                <div className='mb-3'>
+                    <h3 className='create-label mb-2'>Select UK sizes available:</h3>
+                    {uksizes.map((uksize) => (
+                      <label key={uksize} className='mr-3 mb-2 text-center'>
+                        <input
+                          className='size-check-box'
+                          type="checkbox"
+                          checked={selectedUkSize.includes(uksize)}
+                          onChange={() => handleUkSizeSelect(uksize)}
+                        />
+                        {uksize}
+                      </label>
+                    ))}
+                </div>
 
 
               <div className="edit-button-group flex mt-2 flex-row justify-between items-center">

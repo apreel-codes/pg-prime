@@ -73,6 +73,21 @@ small {
     width: 50px;
 }
 
+.button-cross {
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    padding: 0.2rem 0.4rem;
+    border: 1px #636363 solid;
+    margin-right: 0.7rem;
+    margin-bottom: 0.7rem;
+    border-radius: .5rem;
+    background-color: white;
+    font-size: .9rem;
+    color: #003466;
+    width: 50px;
+    text-decoration: line-through;
+}
+
 .product-page .specs .size .size-button .button-select {
     cursor: pointer;
     font-family: 'Inter', sans-serif;

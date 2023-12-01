@@ -54,18 +54,121 @@ const CreateProduct = () => {
     });
 
 
-
-const [name, setName] = useState('');
+  const [name, setName] = useState('');
   const [slug, setSlug] = useState('');
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
-  const [availability, setAvailability] = useState('');
-  const [countInStock, setCountInStock] = useState('');
+  // const [availability, setAvailability] = useState('');
+  // const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
 
+  
+  const eusizes = [
+    "35",
+    "36",
+    "37",
+    "38",
+    "39",
+    "40",
+    "41",
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47",
+    "48",
+    "49",
+    "50"
+  ];
+
+const ussizes = [
+    "5",
+    "5.5",
+    "6",
+    "6.5",
+    "7",
+    "7.5",
+    "8",
+    "8.5",
+    "9",
+    "9.5",
+    "10",
+    "10.5",
+    "11",
+    "11.5",
+    "12",
+    "12.5",
+    "13",
+    "13.5",
+    "14",
+    "15",
+    "16"
+  ];
+
+const uksizes = [
+    "2",
+    "2.5",
+    "3",
+    "3.5",
+    "4",
+    "4.5",
+    "5",
+    "5.5",
+    "6",
+    "6.5",
+    "7",
+    "7.5",
+    "8",
+    "8.5",
+    "9",
+    "9.5",
+    "10",
+    "10.5",
+    "11",
+    "11.5",
+    "12",
+    "13",
+    "14",
+    "15",
+  ];
+
+const [selectedEuSize, setSelectedEuSize] = useState([]);
+const [selectedUsSize, setSelectedUsSize] = useState([]);
+const [selectedUkSize, setSelectedUkSize] = useState([]);
+
+const handleEuSizeSelect = (eusize) => {
+  if (selectedEuSize.includes(eusize)) {
+    //  if eusize is selected, it will be from the selectedEuSize array
+    setSelectedEuSize(selectedEuSize.filter((selectedEuSize) => selectedEuSize !== eusize));
+  } else {
+    //  if eusize is not selected, it will be added to the selectedEuSize array
+    setSelectedEuSize([...selectedEuSize, eusize]);
+  }
+};
+
+const handleUsSizeSelect = (ussize) => {
+  if (selectedUsSize.includes(ussize)) {
+    //  if ussize is selected, it will be from the selectedUsSize array
+    setSelectedUsSize(selectedUsSize.filter((selectedUsSize) => selectedUsSize !== ussize));
+  } else {
+    //  if eusize is not selected, it will be added to the selectedEuSize array
+    setSelectedUsSize([...selectedUsSize, ussize]);
+  }
+};
+
+const handleUkSizeSelect = (uksize) => {
+  if (selectedUkSize.includes(uksize)) {
+    //  if eusize is selected, it will be from the selectedEuSize array
+    setSelectedUkSize(selectedUkSize.filter((selectedUkSize) => selectedUkSize !== uksize));
+  } else {
+    //  if eusize is not selected, it will be added to the selectedEuSize array
+    setSelectedUkSize([...selectedUkSize, uksize]);
+  }
+};
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -81,14 +184,18 @@ const [name, setName] = useState('');
           images,
           category,
           description,
-          availability,
+          // availability,
           brand,
-          countInStock,
+          // countInStock,
+          selectedEuSize,
+          selectedUsSize,
+          selectedUkSize,
         },
         {
           headers: { Authorization: `Bearer ${userInfo.token}` },
         }
       );
+      console.log(selectedEuSize);
       dispatch({
         type: 'CREATE_SUCCESS',
         payload: data
@@ -134,8 +241,6 @@ const [name, setName] = useState('');
     setImages(images.filter((x) => x !== fileName));
     toast.success('Image removed successfully.');
   };
-
-
 
 
     return (
@@ -233,16 +338,6 @@ const [name, setName] = useState('');
                     />
                 </Form.Group>
 
-                {/* <Form.Group className="mb-4 grid" controlId="countInStock">
-                    <Form.Label className="create-label">Count In Stock</Form.Label>
-                    <input
-                      className='text-sm w-full'
-                      value={countInStock}
-                      onChange={(e) => setCountInStock(e.target.value)}
-                      required
-                    />
-                </Form.Group> */}
-
                 <Form.Group className="mb-4 grid" controlId="description">
                   <Form.Label className="create-label">Description</Form.Label>
                       <textarea
@@ -253,15 +348,56 @@ const [name, setName] = useState('');
                       ></textarea>
                 </Form.Group>
 
-                <Form.Group className="mb-4 grid" controlId="availability">
-                  <Form.Label className="create-label">Availability</Form.Label>
-                      <textarea
-                      value={availability}
-                      onChange={(e) => setAvailability(e.target.value)}
-                      required
-                      className='policy-input'
-                      ></textarea>
-                </Form.Group>
+                <div className='mb-3'>
+                    <h3 className='create-label mb-2'>Select EU sizes available:</h3>
+                    {eusizes.map((eusize) => (
+                      <label key={eusize} className='mr-3 mb-2 text-center'>
+                        <input
+                          className='size-check-box'
+                          type="checkbox"
+                          checked={selectedEuSize.includes(eusize)}
+                          onChange={() => handleEuSizeSelect(eusize)}
+                        />
+                        {eusize}
+                      </label>
+                    ))}
+                    {/* <h4>Selected EU sizes:</h4>
+                    <ul>
+                      {selectedEuSize.map((eusize) => (
+                        <li key={eusize}>{eusize}</li>
+                      ))}
+                    </ul> */}
+                </div>
+
+                <div className='mb-3'>
+                    <h3 className='create-label mb-2'>Select US sizes available:</h3>
+                    {ussizes.map((ussize) => (
+                      <label key={ussize} className='mr-3 mb-2 text-center'>
+                        <input
+                          className='size-check-box'
+                          type="checkbox"
+                          checked={selectedUsSize.includes(ussize)}
+                          onChange={() => handleUsSizeSelect(ussize)}
+                        />
+                        {ussize}
+                      </label>
+                    ))}
+                </div>
+
+                <div className='mb-3'>
+                    <h3 className='create-label mb-2'>Select UK sizes available:</h3>
+                    {uksizes.map((uksize) => (
+                      <label key={uksize} className='mr-3 mb-2 text-center'>
+                        <input
+                          className='size-check-box'
+                          type="checkbox"
+                          checked={selectedUkSize.includes(uksize)}
+                          onChange={() => handleUkSizeSelect(uksize)}
+                        />
+                        {uksize}
+                      </label>
+                    ))}
+                </div>
 
                 <div className="d-grid">
                     <Button

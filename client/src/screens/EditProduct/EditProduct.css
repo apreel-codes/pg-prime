@@ -48,3 +48,10 @@
         width: 360px;
     }
 }
+
+.size-check-box {
+    outline: none;
+    width: 1.7rem;
+    height: 1.7rem;
+    display: block;
+}
