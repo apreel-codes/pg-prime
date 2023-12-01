@@ -57,8 +57,8 @@ const BestSellers = () => {
 
 
     return (
-        <div className='box mx-auto my-24'>
-            <div className='flex flex-row justify-between items-center my-4' data-aos="slide-up">
+        <div className='mx-auto my-24'>
+            <div className='flex flex-row justify-between items-center w-[78%] mx-auto my-4' data-aos="slide-up">
                 <h1 className='best-sellers'>Best Sellers</h1>
                  <button className='best-sellers-button flex flex-row justify-between items-center'>
                     <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1">
@@ -67,7 +67,7 @@ const BestSellers = () => {
                     <img className='h-4 w-4' src="../images/arrow-right.png" />
                 </button>
             </div>
-            <div className='md:grid md:grid-cols-3 mx-auto hidden'>
+            <div className='box md:grid md:grid-cols-3 mx-auto hidden'>
                 {
                     bestSellingProducts.map((product, i) => (
                             <div key={product.slug} className="best-arrival-product" data-aos="slide-up">
