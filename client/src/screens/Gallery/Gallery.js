@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FirstData } from './FirstData';
 import { Helmet } from "react-helmet-async";
 import './Gallery.css';
@@ -6,9 +6,17 @@ import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import { SecondtData } from './SecondData';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 const Gallery = () => {
+
+    useEffect(() => {
+        AOS.init({duration: 1200});
+      }, []);
+
+
     return (
         <div>
             <Helmet>
@@ -24,12 +32,12 @@ const Gallery = () => {
               <div className='md:grid md:grid-cols-4 md:gap-4 md:mx-auto md:w-[90%]'>
                {
                 FirstData.map((show, index) => (
-                <img className='gallery-image' src={show.image} key={index} />
+                <img className='gallery-image' src={show.image} key={index} data-aos="slide-up"/>
                 ))
                }
               </div>
              <div className='d-grid'>
-                <button className='gallery-button'>
+                <button className='gallery-button' data-aos="slide-up">
                     <Link to={{ pathname: '/search', search: `allProducts`}}>
                         SHOP NOW
                     </Link>
@@ -42,7 +50,7 @@ const Gallery = () => {
               <div className='md:grid md:grid-cols-4 md:gap-4 md:mx-auto md:w-[90%]'>
                {
                 SecondtData.map((display, index) => (
-                <img className='gallery-image' src={display.image} key={index} />
+                <img className='gallery-image' src={display.image} key={index} data-aos="slide-up"/>
                 ))
                }
               </div>

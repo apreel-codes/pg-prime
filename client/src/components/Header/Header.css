@@ -1,8 +1,8 @@
 .header {
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     z-index: 100000;
-    top: 0;
+    /* top: 0; */
     background-color: #fff;
 }
 
@@ -49,6 +49,7 @@
 .web-second {
     border-bottom: 1px #4a4a4a28 solid;
     height: 70px;
+    padding: 1rem 1.2rem;
 }
 
 .mobile-second {
@@ -92,10 +93,10 @@
 
 .mobile-side-nav {
         font-family: 'Inter', sans-serif;
-        padding: .6rem 2rem 2rem;
+        padding: 1rem 2rem;
         display: block;
         height: 300vh;
-        position: fixed;
+        position: absolute;
         z-index: 50000;
         background-color: #ffffff;
         width: 100%;
@@ -106,7 +107,7 @@
         font-family: 'Inter', sans-serif;
         font-size: 1rem;
         width: 100%;
-        padding: 0 2rem 2rem;
+        padding: 1rem 2rem;
         background-color: #ffffff;
         height: 300vh;
         position: absolute;

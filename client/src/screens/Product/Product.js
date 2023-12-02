@@ -48,7 +48,7 @@ const Product = () => {
     const [rating, setRating] = useState(0);
     const [comment, setComment] = useState('');
     const [selectedImage, setSelectedImage] = useState('');
-    const [size, setSize] = useState('Select a size below');
+    const [size, setSize] = useState('Select a size');
     const [active, setActive] = useState({});
     const [buttonToggled, setButtonToggled] = useState(0);
     const [isDetailsToggled, setIsDetailsToggled] = useState(false);

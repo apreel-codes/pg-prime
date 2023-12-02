@@ -1,16 +1,16 @@
 .mobile-gallery-image {
     background-image: url("./mobile-gallery.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 800px;
   }
 
   .web-gallery-image {
     background-image: url("./web-gallery.png");
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 500px;
   }
 

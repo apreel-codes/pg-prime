@@ -61,7 +61,7 @@ const CartComponent = () => {
                                         <div className="cart-details">
                                             <Link className="item-name" to={`/product/${item.slug}`}>{item.name}</Link>
                                             <p className="item-size">Size: {item.size}</p>
-                                            <p className="item-price">&#163;{item.price}</p>
+                                            <p className="item-price">&#163;{item.price.toFixed(2)}</p>
                                             <div className="update-delete flex flex-row justify-between items-center">
                                                 <div className="add-minus-qty flex flex-row justify-between items-center">
                                                     <button onClick={ () => updateCartHandler(item, item.quantity - 1 )} disabled={item.quantity === 1}>
