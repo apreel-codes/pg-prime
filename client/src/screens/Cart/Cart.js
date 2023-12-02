@@ -61,7 +61,7 @@ const CartComponent = () => {
                                         <div className="cart-details">
                                             <Link className="item-name" to={`/product/${item.slug}`}>{item.name}</Link>
                                             <p className="item-size">Size: {item.size}</p>
-                                            <p className="item-price">&#163;{item.price.toFixed(2)}</p>
+                                            <p className="item-price">₦{item.price.toFixed(2)}</p>
                                             <div className="update-delete flex flex-row justify-between items-center">
                                                 <div className="add-minus-qty flex flex-row justify-between items-center">
                                                     <button onClick={ () => updateCartHandler(item, item.quantity - 1 )} disabled={item.quantity === 1}>
@@ -87,7 +87,7 @@ const CartComponent = () => {
                     <div className="check-out-section">
                         <div className="total flex flex-row justify-between items-center mb-3">
                             <p>Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}item(s))</p>
-                            <p className="price">&#163;{(cartItems.reduce((a, c) => a + c.price * c.quantity, 0)).toFixed(2)}</p>  
+                            <p className="price">₦{(cartItems.reduce((a, c) => a + c.price * c.quantity, 0)).toFixed(2)}</p>  
                         </div>
                         <div className="d-grid">
                             <button

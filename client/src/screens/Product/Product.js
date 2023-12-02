@@ -94,8 +94,6 @@ const Product = () => {
         loading: true, error: ''
     })
 
-    const [country, setCountry] = useState('£');
-
 
     useEffect(() => {
         const fetchData = async () => {
@@ -115,30 +113,12 @@ const Product = () => {
     const {state, dispatch: ctxDispatch} = useContext(Store); //by using useContext, we have access to the state and also to change the context
     const { cart, userInfo } = state;
 
-    const [price, setPrice] = useState(0);
-
-    const changeCountry = async (e, i) => {
-        try {
-            const currencies = await axios.get("http://api.exchangeratesapi.io/v1/latest?access_key=fa0f36c7820378e9504158df29888f22");
-            setCountry(e.target.value); 
-            const { cartItems } = state.cart;
-            setPrice(parseInt(product.price) * 1.091643);
-            console.log(price);
-            console.log(currencies.data);
-        } catch (err) {
-            toast.error("Something went wrong.");
-            return;
-        }
-    }
-
-
     const euSizes = product.euSizes;
     const usSizes = product.usSizes;
     const ukSizes = product.ukSizes;
   
     const addToCartHandler = async () => {
         product.size = size;
-        product.price = price;
         const existItem = cart.cartItems.find((x) => x._id === product._id);
         const quantity = existItem ? existItem.quantity + 1 : 1;
         const { data } = await axios.get(`/api/products/${product._id}`);
@@ -233,30 +213,7 @@ const Product = () => {
                                     <h1 className="font-bold">{product.name}</h1>
                                     <p className="brand">Brand: {product.brand}</p>
                                     <Rating rating={product.rating} numReviews={product.numReviews} />
-                                    {
-                                        price ? (
-                                            <p className="price">&#163;{price.toFixed(2)}</p>
-                                        ) : (
-                                            <p className="price">&#163;{product.price}</p>
-                                        )
-                                    }
-                                    {/* <p className="price">&#163;{product.price}</p> */}
-                                    
-                                    <div className="currency">
-                                        <span className="select-country">Select country {' '}<br /></span>
-                                        <select
-                                            className='sort-box border border-black-200 mt-1'
-                                            value={country}
-                                            onChange={changeCountry}
-                                        >
-                                        {
-                                            currencyData.map((cd, i) => (
-                                                <option value={cd.sign}>{cd.country}</option>
-                                            ))
-                                        }
-                                        </select>
-                                    </div>
-                                    <small>(Conversion is made based on current rate)</small>
+                                    <p className="price">₦{product.price}</p>  
                                 </div>
 
                                 <p className="product-availability">{product.availability}</p>

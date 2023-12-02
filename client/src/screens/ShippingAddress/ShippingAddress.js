@@ -204,21 +204,21 @@ const ShippingAddress = () => {
                         <ul>
                                 <li className='flex flex-row justify-between items-center'>
                                     <p>Subtotal: </p>
-                                    <span>&#163;{ subtotal }</span>
+                                    <span>₦{ subtotal }</span>
                                 </li>
                                 <li className='flex flex-row justify-between items-center'>
                                     <p>Shipping: </p>
-                                    <span className='shipping-class'>&#163;{ shipping }</span>
+                                    <span className='shipping-class'>₦{ shipping }</span>
                                 </li>
                                 <li className='flex flex-row justify-between items-center'>
                                     <p>Tax: </p>
-                                    <span>+ &#163;{ tax }</span>
+                                    <span>+ ₦{ tax }</span>
                                 </li>
                                 
                         </ul>
                         <div className='order-total flex flex-row justify-between items-center'>
                                 <p>Total:</p>
-                                <span>&#163;{ total }</span>
+                                <span>₦{ total }</span>
                         </div>
                         </div>
                 
@@ -236,7 +236,7 @@ const ShippingAddress = () => {
                                                 <div className='shipping-item-content space-y-1'>
                                                     <p className='s-item-name-price'>{item.name}</p>
                                                     <p className='s-item-name'>{item.brand}</p>
-                                                    <p className='s-item-name-price'>&#163;{item.price}</p>
+                                                    <p className='s-item-name-price'>₦{item.price.toFixed(2)}</p>
                                                 </div>
                                             </div>
                                     ))

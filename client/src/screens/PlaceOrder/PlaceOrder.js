@@ -146,7 +146,7 @@ const PlaceOrder = () => {
                                                 <span>{item.quantity}</span>
                                             </div>
                                             <div className='place-price'>
-                                             &#163;{(item.price).toFixed(2)}
+                                            ₦{(item.price).toFixed(2)}
                                             </div>
                                         </div>
                                 ))}
@@ -195,19 +195,19 @@ const PlaceOrder = () => {
                                     <ul>
                                         <li className='flex flex-row justify-between items-center'>
                                             <p>Subtotal: </p>
-                                            <span>&#163;{cart.itemsPrice.toFixed(2)}</span>
+                                            <span>₦{cart.itemsPrice.toFixed(2)}</span>
                                         </li>
                                         <li className='flex flex-row justify-between items-center'>
                                             <p>Shipping: </p>
-                                            <span className='shipping-class'>&#163;{cart.shippingPrice.toFixed(2)}</span>
+                                            <span className='shipping-class'>₦{cart.shippingPrice.toFixed(2)}</span>
                                         </li>
                                         <li className='flex flex-row justify-between items-center'>
                                             <p>Tax: </p>
-                                            <span>&#163;{ tax }</span>
+                                            <span>₦{ tax }</span>
                                         </li>
                                         <li className='place-order-total flex flex-row justify-between items-center'>
                                             <p>Order Total: </p>
-                                            <span>&#163;{cart.totalPrice.toFixed(2)}</span>
+                                            <span>₦{cart.totalPrice.toFixed(2)}</span>
                                         </li> 
                                     </ul>
                         </div>

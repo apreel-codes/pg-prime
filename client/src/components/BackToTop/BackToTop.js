@@ -35,7 +35,7 @@ const BackToTop = () => {
                     right: "90px",
                     height: "20px",
                     width: "20px",
-                    fontSize: "30px"
+                    fontSize: "30px",
                 }}>^</button>
             </div>
             
