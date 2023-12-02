@@ -20,7 +20,7 @@ import BestSellers from "../../components/BestSellers/BestSellers";
 import GalleryBg from "../../components/GalleryBg/GalleryBg";
 import  Store from "../../components/Store/Store";
 import HomeVideo from "../../components/Video/video";
-import BackToTop from "../../components/BackToTop";
+import BackToTop from "../../components/BackToTop/BackToTop";
 
 
 const reducer = (state, action) => {
