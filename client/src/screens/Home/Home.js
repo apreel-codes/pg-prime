@@ -20,6 +20,7 @@ import BestSellers from "../../components/BestSellers/BestSellers";
 import GalleryBg from "../../components/GalleryBg/GalleryBg";
 import  Store from "../../components/Store/Store";
 import HomeVideo from "../../components/Video/video";
+import BackToTop from "../../components/BackToTop";
 
 
 const reducer = (state, action) => {
@@ -139,24 +140,6 @@ const Home = () => {
             setCurrentSlide(0)
         }, [])
 
-        // useEffect(() => {
-        //     // if autoScroll is true, then call auto function
-        //     if(autoScroll) {
-        //         auto();
-        //     }
-        //     // this clears the slideInterval variable to avoid conflicts
-        //     return () => clearInterval(slideInterval)
-        // }, [currentSlide]) //autoScroll should fire when currenSlide changes
-
-
-         //set scroll to section
-        // const sectionRef = useRef(null);
-        
-        // const handleButtonClick = () => {
-        //     sectionRef.current.scrollIntoView({ behavior: 'smooth' });
-        //   };
-
-
           const [allProducts, setAllProducts] = useState([]);
 
           useEffect(() => {
@@ -195,15 +178,18 @@ const Home = () => {
                 <Link to={{ pathname: '/search', search: `allProducts`}}>
                       <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
                 </Link>
-                <BestSellers ref={sectionRef}/>
+                <BestSellers/>
                 <GalleryBg />
                 <Store />
 
                 <HomeVideo />
 
+                <BackToTop />
+
                 <Link to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">
                   <img className="whatsapp"  src="./images/whatsapp.png"/>               
                 </Link>
+
             <Footer />
             </div>
     )
