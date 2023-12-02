@@ -133,7 +133,6 @@ const Product = () => {
     }
 
 
-
     const submitHandler = async (e) => {
         e.preventDefault();
         if (!comment || !rating) {
@@ -213,7 +212,7 @@ const Product = () => {
                                     <h1 className="font-bold">{product.name}</h1>
                                     <p className="brand">Brand: {product.brand}</p>
                                     <Rating rating={product.rating} numReviews={product.numReviews} />
-                                    <p className="price">₦{product.price}</p>  
+                                    <p className="price">₦{product.price.toFixed(2)}</p>  
                                 </div>
 
                                 <p className="product-availability">{product.availability}</p>
