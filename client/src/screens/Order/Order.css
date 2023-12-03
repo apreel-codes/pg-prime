@@ -37,13 +37,29 @@
     color: #1a1a1ad0;
 }
 
-.order-button .button {
-    background-color: #003466;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    margin-top: .8rem;
-    padding: 1rem 3rem;
-    width: 300px;
+
+@media screen and (min-width: 600px) {
+    .order-button .button {
+        background-color: #003466;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        margin-top: .8rem;
+        padding: 1rem 3rem;
+        width: 300px;
+    }
+  
+}
+
+@media screen and (max-width: 600px) {
+    .order-button .button {
+        background-color: #003466;
+        font-family: 'Inter', sans-serif;
+        font-size: 1rem;
+        margin-top: .8rem;
+        padding: 1rem 3rem;
+        width: 100%;
+    }
+  
 }
 
 

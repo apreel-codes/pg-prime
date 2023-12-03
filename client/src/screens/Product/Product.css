@@ -28,6 +28,13 @@ small {
     margin-bottom: 0.7rem;
 }
 
+.product-page .specs .size .product-size-text {
+    color: #676767;
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-bottom: 0.7rem;
+}
+
 .product-page .specs .size .size-button {
     display: flex;
     flex-wrap: wrap;

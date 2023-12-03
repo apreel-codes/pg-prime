@@ -215,10 +215,8 @@ const Product = () => {
                                     <p className="price">₦{product.price.toFixed(2)}</p>  
                                 </div>
 
-                                <p className="product-availability">{product.availability}</p>
-
                                 <div className="size">
-                                    <p>Size: {size}</p>
+                                    <p className="product-size-text">Size: {size}</p>
 
                                     <div className="countries mb-3 flex flex-row justify-between">
                                         <p className = { toggled === 1 ? "country-text" : "country-text-inactive"} onClick={() => updateToggle(1)}>EU</p>
