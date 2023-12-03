@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import './Footer.css';
 import Form from "react-bootstrap/Form";
@@ -12,7 +12,10 @@ import { toast } from "react-toastify";
 const Footer = () => {
   const [email, setEmail] = useState('');
 
- 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -57,11 +60,11 @@ const Footer = () => {
             <div className="flex flex-col gap-y-3">
               <span className="font-semibold text-base">Quick Links</span>
                 <ul className="flex flex-col gap-y-2">
-                  <li><Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1">Best Sellers</Link></li>
-                  <li><Link to='#'>Discount Sales</Link></li>
-                  <li><Link to={{ pathname: '/search', search: `allProducts`}}>New Arrivals</Link></li>
-                  <li><Link to="/gallery">Gallery</Link></li>
-                  <li><Link to='/refundpolicy'>Refund Policy</Link></li>
+                  <li><Link onClick={() => window.scrollTo(0, 0)} to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1">Best Sellers</Link></li>
+                  <li><Link onClick={() => window.scrollTo(0, 0)} to='#'>Discount Sales</Link></li>
+                  <li><Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `allProducts`}}>New Arrivals</Link></li>
+                  <li><Link onClick={() => window.scrollTo(0, 0)} to="/gallery">Gallery</Link></li>
+                  <li><Link onClick={() => window.scrollTo(0, 0)} to='/refundpolicy'>Refund Policy</Link></li>
                 </ul>
               </div>
 

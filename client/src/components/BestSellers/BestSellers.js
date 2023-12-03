@@ -48,7 +48,7 @@ const BestSellers = () => {
         return arr.slice(0, num);
       };
 
-    const bestSellingProducts = getProducts(products, 12);
+    const bestSellingProducts = getProducts(products, 6);
 
     useEffect(() => {
         AOS.init({duration: 1200});
