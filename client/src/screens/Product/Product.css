@@ -18,7 +18,7 @@ small {
 }
 
 .product-page .specs .size {
-    margin-top: 1.2rem;
+    margin-top: .5rem;
 }
 
 .product-page .specs .size p {
@@ -77,23 +77,9 @@ small {
     border-radius: .5rem;
     font-size: .9rem;
     color: #1a1a1aa1;
-    width: 50px;
+    width: 40px;
 }
 
-.button-cross {
-    cursor: pointer;
-    font-family: 'Inter', sans-serif;
-    padding: 0.2rem 0.4rem;
-    border: 1px #636363 solid;
-    margin-right: 0.7rem;
-    margin-bottom: 0.7rem;
-    border-radius: .5rem;
-    background-color: white;
-    font-size: .9rem;
-    color: #003466;
-    width: 50px;
-    text-decoration: line-through;
-}
 
 .product-page .specs .size .size-button .button-select {
     cursor: pointer;
@@ -106,7 +92,7 @@ small {
     background-color: #003466;
     font-size: .9rem;
     color: #ffffff;
-    width: 50px;
+    width: 40px;
 }
 
 .product-buttons {
@@ -128,7 +114,6 @@ small {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     color: #1a1a1a;
-    font-weight: 700;
     cursor: pointer;
     padding: 0.8rem;
     border: 1px #003466 solid;
@@ -236,27 +221,12 @@ small {
 }
 
 
-
 .product-page .specs .brand{
     font-size: 0.9rem;
     color: #1a1a1a97;
     margin-bottom: .2rem;
 }
 
-
-.product-page .availability{
-    font-size: .9rem;
-    margin-top: .5rem;
-    font-weight: 600;
-}
-
-.product-page .availability .green{
-    color: rgb(8, 211, 8);
-}
-
-.product-page .availability .red{
-    color: red;
-}
 
 .product-page .product-details {
     margin-top: 3.7rem;
@@ -325,8 +295,6 @@ small {
     cursor: pointer;
 }
 
-
-
 .product-page .product-details .review-group {
     border-bottom: 1px #1a1a1a4c solid;
     padding-bottom: 0.2rem;
@@ -346,12 +314,8 @@ small {
 }
 
 .product-page .product-details .review-group .review-content .review {
-    padding-left: 1.8rem;
     margin-bottom: 1.05rem;
-}
-
-.product-page .product-details .review-group .review-content .review {
-    padding-left: 1.4rem;
+    width: 95%;
 }
 
 .product-page .product-details .review-group .review-content .review .date {
@@ -361,6 +325,10 @@ small {
 .product-page .product-details .review-group .review-content .review .comment {
     color: #1a1a1a;
     font-size: .9rem;
+}
+
+.product-page .product-details .review-group .review-content .review .name-date {
+    text-align: right;
 }
 
 .product-page .write-review {

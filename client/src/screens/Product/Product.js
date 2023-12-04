@@ -336,13 +336,14 @@ const Product = () => {
                                                     {product.reviews.map((review) => (
                                                         <div className="review flex flex-row justify-between items-center" key={review._id}>
                                                             <div className="space-y-1">
-                                                                <strong>{review.name}</strong>
-                                                                <p className="date">{review.createdAt.substring(0, 10)}</p>
-                                                            </div>
-                                                            <div className="space-y-1">
                                                                 <Rating rating={review.rating} caption=" "></Rating>
                                                                 <p className="comment">{review.comment}</p>
                                                             </div>
+                                                            <div className="space-y-1 name-date">
+                                                                <strong className="">{review.name}</strong>
+                                                                <p className="date">{review.createdAt.substring(0, 10)}</p>
+                                                            </div>
+                                                            
                                                         </div>
                                                     ))}
                                         </div>
