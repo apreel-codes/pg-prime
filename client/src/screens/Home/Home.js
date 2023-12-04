@@ -153,16 +153,6 @@ const Home = () => {
             }
             fetchAllProducts();
           }, []);
-
-          const sectionRef = useRef(null);
-
-          useEffect(() => {
-               console.log(sectionRef.current);
-             }, []);
-
-             const handleButtonClick = () => {
-              sectionRef.current.scrollIntoView({ behavior: 'smooth' });
-          };
       
 
 
@@ -173,7 +163,7 @@ const Home = () => {
                     <title>PGF PRIME</title>
                 </Helmet>
                 <Header />
-                <BgImage props={handleButtonClick} />
+                <BgImage />
                 <NewArrivals />
                 <Link to={{ pathname: '/search', search: `allProducts`}}>
                       <button className="md:mt-3 md:text-lg text-white text-base">View All</button>

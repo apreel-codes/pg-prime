@@ -53,24 +53,6 @@ const Reviews = () => {
         fetchData();
     }, [slug])
 
-    
-    // const [currentItems, setCurrentItems] = useState(null);
-    // const [pageCount, setPageCount] = useState(null);
-    // const [itemOffset, setItemOffset] = useState(0);
-    // const itemsPerPage = 3;
-
-    // useEffect(() => {
-    //     const endOffset = itemOffset + itemsPerPage;
-    //     setCurrentItems(product.reviews.slice(itemOffset, endOffset));
-    //     setPageCount(Math.ceil(product.reviews.length / itemsPerPage));   
-    // }, [itemOffset, itemsPerPage, product.reviews]);
-
-    
-
-    //   const handlePageClick = (event) => {
-    //     const newOffset = (event.selected * itemsPerPage) % product.reviews.length;
-    //     setItemOffset(newOffset);
-    //   };
 
 
       return (
@@ -93,15 +75,6 @@ const Reviews = () => {
                             </div>
                 </div>
             </div>
-          {/* <ReactPaginate
-            breakLabel="..."
-            nextLabel="next >"
-            onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
-            pageCount={pageCount}
-            previousLabel="< previous"
-            renderOnZeroPageCount={null}
-          /> */}
         </>
       );
 }

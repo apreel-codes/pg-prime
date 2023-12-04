@@ -1,10 +1,10 @@
-.mobile-bg {
+.bg-image-comp .mobile-bg {
     font-family: 'Inter', sans-serif;
     height: 100%;
     width: 100%;
   }
 
-.mobile-bg-image {
+.bg-image-comp .mobile-bg-image {
     background-image: linear-gradient(rgba(3, 3, 3, 0.529), rgba(13, 13, 16, 0.6)), url("./mobile-bg.png");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -12,13 +12,13 @@
     height: 400px;
   }
 
-.mobile-bg-content {
+.bg-image-comp .mobile-bg-content {
     width: 92%;
     font-family: 'Inter', sans-serif;
-    padding-top: 6rem;
+    padding-top: 4rem;
 }
 
-.mobile-bg-content h1{
+.bg-image-comp .mobile-bg-content h1{
     font-size: 1.5rem;
     line-height: 2.1rem;
     font-family: 'Open Sans', sans-serif;
@@ -28,7 +28,7 @@
     margin-bottom: 2rem;
 }
 
-.mobile-bg-content p {
+.bg-image-comp .mobile-bg-content p {
     font-size: 0.9rem;
     line-height: 1.5rem;
     color: #ffffffcf;
@@ -36,22 +36,22 @@
     margin-bottom: 2rem;
 }
 
-.mobile-bg-button {
+.bg-image-comp .mobile-bg-button {
     background-color: #003466;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #ffffff;
     width: 30%;
     cursor: pointer;
 }
 
-.web-bg {
+.bg-image-comp .web-bg {
     font-family: 'Inter', sans-serif;
     height: 100%;
     width: 100%;
   }
 
-.web-bg-image {
+.bg-image-comp .web-bg-image {
     background-image: linear-gradient(rgba(3, 3, 3, 0.529), rgba(13, 13, 16, 0.6)), url("./web-bg.png");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -59,13 +59,13 @@
     height: 600px;
   }
 
-  .web-bg-content {
+.bg-image-comp .web-bg-content {
     width: 87%;
     font-family: 'Inter', sans-serif;
     padding-top: 10rem;
 }
 
-.web-bg-content h1{
+.bg-image-comp .web-bg-content h1{
     font-size: 2.4rem;
     line-height: 3rem;
     font-family: 'Open Sans', sans-serif;
@@ -75,7 +75,7 @@
     margin-bottom: 1.5rem;
 }
 
-.web-bg-content p {
+.bg-image-comp .web-bg-content p {
     font-size: 1rem;
     line-height: 1.5rem;
     color: #ffffffcf;
@@ -83,10 +83,10 @@
     margin-bottom: 2rem;
 }
 
-.web-bg-button {
+.bg-image-comp .web-bg-button {
     background-color: #003466;
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: #ffffff;
     width: 10rem;
     cursor: pointer;

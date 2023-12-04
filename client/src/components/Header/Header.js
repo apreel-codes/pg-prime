@@ -113,6 +113,23 @@ const [brands, setBrands] = useState([]);
         fetchBrands();
     }, [dispatch])
 
+    const [categories, setCategories] = useState([]);
+    useEffect(() => {
+        const fetchCategories = async () => {
+            try{
+                const { data } = await axios.get(`/api/products/categories`);
+                setCategories(data);
+            } catch (err) {
+                toast.error(getError(err));
+            }
+        };
+        fetchCategories();
+    }, [dispatch])
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
 
     return (
             <header className='relative header'>
@@ -126,27 +143,24 @@ const [brands, setBrands] = useState([]);
                         ><img className='h-10 w-22' src='../images/nav-insta.png'/></Link>
                     </div>
                     <div className='flex flex-row justify-between gallery-refund md:w-80'>
-                        <Link className='hidden md:block' to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">Our store</Link>
-                        <Link className='hidden md:block' to="/gallery">Gallery</Link>
-                        <Link className='' to='/refundpolicy'>Refund Policy</Link>
+                        <Link onClick={() => window.scrollTo(0, 0)} className='hidden md:block' to="https://maps.google.com?q=33a%20Adebayo%20Doherty%20Rd,%20Eti-Osa%20101233,%20Lekki,%20Lagos&ftid=0x0:0xa188c9c24bd3a6f0&hl=en-NG&gl=ng&entry=gps&lucs=,47071704&g_st=iw">Our store</Link>
+                        <Link onClick={() => window.scrollTo(0, 0)} className='hidden md:block' to="/gallery">Gallery</Link>
+                        <Link onClick={() => window.scrollTo(0, 0)} className='' to='/refundpolicy'>Refund Policy</Link>
                     </div>
                 </div>
                 <div className='web-second md:flex md:flex-row md:justify-between items-center hidden md:block'>
-                    <Link to='/'><img className='h-16 w-24' src='../images/nav-logo.png'/></Link>
+                    <Link onClick={() => window.scrollTo(0, 0)} to='/'><img className='h-16 w-24' src='../images/nav-logo.png'/></Link>
                     <div className='search-profile-cart flex flex-row justify-between items-center'>
                         <SearchBox />
-                        {userInfo ? (
+                        { userInfo ? (
                             <NavDropdown className='web-profile-history-sign' title={profile} id="basic-nav-dropdown">
                                 <Link 
+                                    onClick={() => window.scrollTo(0, 0)}
                                     className='dropdown-item' 
                                     to="/profile"
                                 >
                                     Account
                                 </Link>
-
-                                {/* { brands.map((brand, index) => (
-                                    <p key={index}>{brand}</p>
-                                ))} */}
 
                                 { userInfo && userInfo.isAdmin && (
                                     <NavDropdown title="Admin" id="admin-nav-dropdown" className='dropdown-item'>
@@ -167,6 +181,7 @@ const [brands, setBrands] = useState([]);
 
 
                                 <Link 
+                                    onClick={() => window.scrollTo(0, 0)}
                                     className='dropdown-item'
                                     to="/orderhistory"
                                 >
@@ -182,13 +197,14 @@ const [brands, setBrands] = useState([]);
                             </NavDropdown>
                         ) : (
                             <Link 
+                                onClick={() => window.scrollTo(0, 0)}
                                 className='signin'
                                 to="/signin">
                                 Sign In
                             </Link>
                         )}
                         <div className='border flex flex-row justify-between items-center px-1.5 py-2.5 w-16 rounded'>
-                            <Link to="/cart" className="nav-link">
+                            <Link onClick={() => window.scrollTo(0, 0)} to="/cart" className="nav-link">
                                 <img className='w-7 h-7' src='../images/shopping-bag.png'/>
                             </Link>
                             {cart.cartItems.length > 0 && (
@@ -202,11 +218,11 @@ const [brands, setBrands] = useState([]);
                 </div>
                 <div className='mobile-second md:hidden'>
                     <div className='flex flex-row justify-between items-center'>
-                        <Link to='/'> <img className='h-12 w-20' src='../images/nav-logo.png'/></Link>
+                        <Link onClick={() => window.scrollTo(0, 0)} to='/'> <img className='h-12 w-20' src='../images/nav-logo.png'/></Link>
                         <div className='search-cart-ham flex flex-border justify-between items-center'>
                                 <img className='w-4 h-4' src='../images/search.png' onClick={showSearchBar}/>
                                 <div className='flex flex-row justify-between items-center px-1.5 py-2 w-12 rounded'>
-                                    <Link to="/cart" className="nav-link">
+                                    <Link onClick={() => window.scrollTo(0, 0)} to="/cart" className="nav-link">
                                         <img className='w-5 h-5' src='../images/shopping-bag.png'/>
                                     </Link>
 
@@ -231,14 +247,23 @@ const [brands, setBrands] = useState([]);
 
                 <div className='hidden md:block page-navs'>
                     <ul className='brand-header flex flex-row justify-between items-center w-[55%] my-3 ml-6'>
-                        <Link to="/"><li>Home</li></Link>
-                        <Link to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
-                        <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
+                        <Link onClick={() => window.scrollTo(0, 0)} to="/"><li>Home</li></Link>
+                        <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
+                        <Link onClick={() => window.scrollTo(0, 0)} to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
+
+                        { categories && 
+                            categories.map((c, i) => (
+                                <div className='brand w-16 flex flex-row justify-between items-center'>
+                                <Link onClick={() => window.scrollTo(0, 0)} className='mobile-brands' to={{ pathname: '/search', search: `category=${c}`}} key={i}><li>{c}</li></Link>
+                                <img className='ml-2' src='../images/arrow-down.png' />
+                                </div>
+                            ))
+                        }
                         
                         { brands && 
                             brands.map((b, i) => (
                                 <div className='brand w-16 flex flex-row justify-between items-center'>
-                                    <Link to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>
+                                    <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>
                                         {b}
                                     </li>
                                     </Link>
@@ -254,13 +279,19 @@ const [brands, setBrands] = useState([]);
                 <div className='side-body'>
                     <div className= { isNavBarToggled ? 'mobile-side-nav' : 'hide-mobile-side-nav'} >
                             <ul className='content flex flex-col py-1'>
-                                <Link to="/"><li>Home</li></Link>
-                                <Link to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
-                                <Link to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
+                                <Link onClick={showSideNav} to="/"><li>Home</li></Link>
+                                <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
+                                <Link onClick={() => window.scrollTo(0, 0)} to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
+
+                                { categories && 
+                                    categories.map((c, i) => (
+                                        <Link onClick={() => window.scrollTo(0, 0)} className='mobile-brands' to={{ pathname: '/search', search: `category=${c}`}} key={i}><li>{c}</li></Link>
+                                    ))
+                                }
                                  
                                 { brands && 
                                     brands.map((b, i) => (
-                                        <Link className='mobile-brands' to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
+                                        <Link onClick={() => window.scrollTo(0, 0)} className='mobile-brands' to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
                                     ))
                                 }
                             
@@ -268,6 +299,7 @@ const [brands, setBrands] = useState([]);
                             {userInfo ? (
                                 <div className='profile-signout flex flex-col'>
                                     <Link 
+                                        onClick={() => window.scrollTo(0, 0)}
                                         className='dropdown-item mb-3'
                                         to="/profile"
                                     >
@@ -286,16 +318,16 @@ const [brands, setBrands] = useState([]);
                                         </div>
                                         <div className= {isAdminToggled ? "" : 'hidden'}>
                                             <div className='admin-content flex flex-col space-y-4'>
-                                                <Link to='/admin/dashboard'>
+                                                <Link onClick={() => window.scrollTo(0, 0)} to='/admin/dashboard'>
                                                         Dashboard
                                                     </Link>
-                                                    <Link to='/admin/productlist'>
+                                                    <Link onClick={() => window.scrollTo(0, 0)} to='/admin/productlist'>
                                                         Products
                                                     </Link>
-                                                    <Link to='/admin/orderlist'>
+                                                    <Link onClick={() => window.scrollTo(0, 0)} to='/admin/orderlist'>
                                                         Orders
                                                     </Link>
-                                                    <Link className='mb-3' to='/admin/userlist'>
+                                                    <Link onClick={() => window.scrollTo(0, 0)} className='mb-3' to='/admin/userlist'>
                                                     Users   
                                                 </Link>          
                                             </div>
@@ -305,6 +337,7 @@ const [brands, setBrands] = useState([]);
                                 )}
 
                                     <Link 
+                                        onClick={() => window.scrollTo(0, 0)}
                                         className='dropdown-item'
                                         to="/orderhistory"
                                     >
@@ -323,11 +356,14 @@ const [brands, setBrands] = useState([]);
                             ) : (
                                 <div className='flex flex-col mt-14'>
                                     <Link 
+                                        onClick={() => window.scrollTo(0, 0)}
                                         className='signin'
                                         to="/signin">
                                         <Button className='sign-in-button w-full'>Sign in</Button>
                                     </Link>
+
                                     <Link 
+                                        onClick={() => window.scrollTo(0, 0)}
                                         className='signup'
                                         to="/signup">
                                         <Button className='button w-full py-2'>Sign up</Button>

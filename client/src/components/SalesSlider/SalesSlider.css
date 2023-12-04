@@ -1,6 +1,6 @@
 @media screen and (min-width: 600px) {
 
-    .sales-slide {
+    .sales-slider .sales-slide {
         transform: translateX(0%);
         transition: all 0.5s ease-in-out;
         text-align: center;
@@ -17,12 +17,12 @@
         background-color: #f4f4f5;
     }
 
-    .sales-slide .link {
+    .sales-slider .sales-slide .link {
         font-size: 1rem;
         text-decoration: underline;
     }
     
-    .sales-slide p {
+    .sales-slider .sales-slide p {
         font-size: 1.2rem;
         margin-bottom: .3rem;
         font-weight: bold;
@@ -35,7 +35,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .sales-slide {
+    .sales-slider .sales-slide {
         transform: translateX(0%);
         transition: all 0.5s ease-in-out;
         text-align: center;
@@ -55,28 +55,28 @@
         padding: 0 1rem;
     }
 
-    p {
+    .sales-slider p {
         font-family: 'Inter', sans-serif;
         font-size: .8rem;
     }
 
-    .sales-slide .link {
+    .sales-slider .sales-slide .link {
         text-decoration: underline;
         font-size: .8rem;
     }
     
-    .sales-slide p {
+    .sales-slider .sales-slide p {
         margin-bottom: .3rem;
         font-weight: bold;
     }
 
-    .sales-slide span {
+    .sales-slider .sales-slide span {
         font-size: .8rem;
         font-weight: bold;
     }
 }
 
-.sales-current {
+.sales-slider .sales-current {
     opacity: 1;
     transform: translateX(100%);
 }

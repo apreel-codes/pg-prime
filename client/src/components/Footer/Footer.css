@@ -6,14 +6,14 @@ footer span {
     color: #1a1a1a7c;
 }
 
-.footer-form h1 {
+footer .footer-form h1 {
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 1rem;
 }
 
-.footer-form p {
+footer .footer-form p {
     color: #1a1a1a68;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
@@ -37,12 +37,12 @@ footer .link-contact ul li {
     margin-top: 1rem;
 }
 
-input::placeholder {
+footer input::placeholder {
     color: #1a1a1a50;
     font-size: 0.85rem;
 }
 
-.payment-text {
+footer .payment-text {
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
@@ -54,12 +54,11 @@ input::placeholder {
 
 /* large screen */
 @media screen and (min-width: 600px) {
-    .footer-form {
+    footer .footer-form {
         width: 450px;
     }
 
-
-    input {
+    footer input {
         outline: 2.3px #27272747 solid;
         height: 2.5rem;
         border-radius: .3rem;
@@ -68,7 +67,7 @@ input::placeholder {
         width: 280px;
     }
 
-    .footer-form .button {
+    footer .footer-form .button {
         background-color: #003466;
         font-family: 'Inter', sans-serif;
         font-size: 0.8rem;
@@ -81,10 +80,11 @@ input::placeholder {
 
 /* small screen */
 @media screen and (max-width: 600px) {
-    .footer-form {
+    footer .footer-form {
         width: 100%;
     }
-    input {
+
+    footer input {
         outline: 2.3px #27272747 solid;
         height: 2.5rem;
         border-radius: .3rem;
@@ -92,7 +92,8 @@ input::placeholder {
         font-size: 1rem;
         width: 100%;
     }
-    .footer-form .button {
+
+    footer .footer-form .button {
         background-color: #003466;
         font-family: 'Inter', sans-serif;
         font-size: 0.8rem;

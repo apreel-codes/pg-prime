@@ -145,14 +145,18 @@ const NewArrivals = () => {
         AOS.init({duration: 1200});
       }, []);
 
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
+
 
     return (
-        <div>
+        <div className='new-arrival-comp'>
             <div className='web-carousel hidden md:block mb-4 mt-24 w-[100%] mx-auto'>
             <div className='flex flex-row justify-between items-center my-4 w-[78%] mx-auto' data-aos="slide-up">
                         <h1 className='new-arrivals'>New arrivals for you</h1>
                         <button variant='' className='slider-button flex flex-row justify-between items-center'>
-                            <Link to={{ pathname: '/search', search: `allProducts`}}> 
+                            <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `allProducts`}}> 
                               View More
                             </Link>
                             <img className='h-4 w-4' src="../images/arrow-right.png" />
@@ -178,7 +182,7 @@ const NewArrivals = () => {
               <div className='flex flex-row justify-between items-center' data-aos="slide-up">
                           <h1 className='new-arrivals'>New arrivals for you</h1>
                           <button variant='' className='slider-button flex flex-row justify-between items-center'>
-                            <Link to={{ pathname: '/search', search: `allProducts`}}> 
+                            <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `allProducts`}}> 
                               View More
                             </Link>
                               <img className='h-4 w-4' src="../images/arrow-right.png" />

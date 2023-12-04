@@ -1,8 +1,8 @@
 
 .search-page {
-    width: 92%;
-    position: relative;
-    font-size: 0.9rem;
+        width: 92%;
+        position: relative;
+        font-size: 0.9rem;
 }
 
 .search-page-body {
@@ -35,7 +35,7 @@
 .filter-group {
     font-family: 'Inter', sans-serif;
     display: block;
-    height: 300vh;
+    height: 100vh;
     position: absolute;
     top: 240px;
     z-index: 10000;

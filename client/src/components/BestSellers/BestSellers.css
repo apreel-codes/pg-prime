@@ -1,4 +1,4 @@
-.best-sellers-button {
+.best-sellers-comp .best-sellers-button {
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-size: 0.7rem;
@@ -11,29 +11,29 @@
 
 
 @media screen and (min-width: 600px) {
-    .box {
+   .best-sellers-comp .box {
         width: 72%;
     }
 
-    .best-sellers {
+    .best-sellers-comp .best-sellers {
         font-family: 'Inter', sans-serif;
         font-size: 1.3rem;
         color: rgb(0, 0, 0);
         font-weight: 600;
     }
 
-    .best-arrival-product {
+    .best-sellers-comp .best-sellers .best-arrival-product {
         margin-bottom: 8.3rem;
         border: 1px white solid;
     }
 }
 
 @media screen and (max-width: 600px) {
-    .box {
+    .best-sellers-comp .box {
         width: 92%;
     }
 
-    .best-sellers {
+    .best-sellers-comp .best-sellers {
         font-family: 'Inter', sans-serif;
         font-size: 1.1rem;
         color: rgb(0, 0, 0);

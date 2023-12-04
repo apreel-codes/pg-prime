@@ -23,7 +23,7 @@ const Testimonials = (props) => {
     }, [])
 
     return (
-        <div className='slider'>
+        <div className='test-slider'>
             {/* <Link to="/"><img className="" src='../images/sign-in-logo.png'/></Link> */}
             <AiOutlineArrowLeft className="arrow prev" onClick={prevSlide}/>
             <AiOutlineArrowRight className="arrow next" onClick={nextSlide}/>
@@ -36,7 +36,7 @@ const Testimonials = (props) => {
                                     <p className='text'>{slide.text}</p>
                                     <img src={slide.image} alt='slide'/>
                                     <p className='name'>{slide.name}</p>
-                                    <small>{slide.location}</small>
+                                    <small className='test-location'>{slide.location}</small>
                             </div>
                         )}
                     </div>

@@ -203,6 +203,9 @@ const Search = (e) => {
     }
 
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
 
 
     return (
@@ -228,6 +231,7 @@ const Search = (e) => {
                                                             { brands.map((b) => (
                                                                 <li key={b}>
                                                                 <Link
+                                                                        onClick={() => window.scrollTo(0, 0)}
                                                                         className={brand === b ? 'text-bold' : ''}
                                                                         to={getFilterUrl({ brand: b })}
                                                                     >
@@ -253,6 +257,7 @@ const Search = (e) => {
                                                         { categories.map((c) => (
                                                             <li key={c}>
                                                             <Link
+                                                                onClick={() => window.scrollTo(0, 0)}
                                                                 className={c === category ? 'text-bold' : ''}
                                                                 to={getFilterUrl({ category: c })}
                                                             >
@@ -278,6 +283,7 @@ const Search = (e) => {
                                                     { prices.map((p) => (
                                                         <li key={p.value}>
                                                         <Link
+                                                            onClick={() => window.scrollTo(0, 0)}
                                                             to={getFilterUrl({ price: p.value })}
                                                             className={p.value === price ? 'text-bold' : ''}
                                                         >
@@ -303,6 +309,7 @@ const Search = (e) => {
                                                     {ratings.map((r) => (
                                                         <li key={r.name} className='rating-list'>
                                                         <Link
+                                                            onClick={() => window.scrollTo(0, 0)}
                                                             to={getFilterUrl({ rating: r.rating })}
                                                             className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
                                                         >
@@ -312,8 +319,9 @@ const Search = (e) => {
                                                     ))}
                                                     <li className=''>
                                                         <Link
-                                                        to={getFilterUrl({ rating: 'all' })}
-                                                        className={rating === 'all' ? 'text-bold' : ''}
+                                                            onClick={() => window.scrollTo(0, 0)}
+                                                            to={getFilterUrl({ rating: 'all' })}
+                                                            className={rating === 'all' ? 'text-bold' : ''}
                                                         >
                                                         <Rating caption={' & up'} rating={0}>& up</Rating>
                                                         </Link>
@@ -390,7 +398,7 @@ const Search = (e) => {
 
                                     <div className='md:grid md:grid-cols-3 md:gap-0 grid grid-cols-2 gap-3'>
                                         {products.map((product) => (
-                                        <div className="md:mb-24" key={product._id}>
+                                        <div className="" key={product._id}>
                                             <HomeProduct product={product}></HomeProduct>
                                         </div>
                                         ))}
@@ -407,6 +415,7 @@ const Search = (e) => {
                                                 }}
                                             >
                                                 <button
+                                                    onClick={() => window.scrollTo(0, 0)}
                                                     className={Number(page) === x + 1 ? 'nav-active' : 'nav-inactive'}
                                                     variant=""
                                                     >
@@ -463,6 +472,7 @@ const Search = (e) => {
                                                             { brands.map((b) => (
                                                                 <li key={b}>
                                                                 <Link
+                                                                        onClick={() => window.scrollTo(0, 0)}
                                                                         className={brand === b ? 'text-bold' : ''}
                                                                         to={getFilterUrl({ brand: b })}
                                                                     >
@@ -488,6 +498,7 @@ const Search = (e) => {
                                                         { categories.map((c) => (
                                                             <li key={c}>
                                                             <Link
+                                                                onClick={() => window.scrollTo(0, 0)}
                                                                 className={c === category ? 'text-bold' : ''}
                                                                 to={getFilterUrl({ category: c })}
                                                             >
@@ -513,6 +524,7 @@ const Search = (e) => {
                                                     { prices.map((p) => (
                                                         <li key={p.value}>
                                                         <Link
+                                                            onClick={() => window.scrollTo(0, 0)}
                                                             to={getFilterUrl({ price: p.value })}
                                                             className={p.value === price ? 'text-bold' : ''}
                                                         >
@@ -538,6 +550,7 @@ const Search = (e) => {
                                                     {ratings.map((r) => (
                                                         <li key={r.name} className='rating-list'>
                                                         <Link
+                                                            onClick={() => window.scrollTo(0, 0)}
                                                             to={getFilterUrl({ rating: r.rating })}
                                                             className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
                                                         >
@@ -547,8 +560,9 @@ const Search = (e) => {
                                                     ))}
                                                     <li className=''>
                                                         <Link
-                                                        to={getFilterUrl({ rating: 'all' })}
-                                                        className={rating === 'all' ? 'text-bold' : ''}
+                                                            onClick={() => window.scrollTo(0, 0)}
+                                                            to={getFilterUrl({ rating: 'all' })}
+                                                            className={rating === 'all' ? 'text-bold' : ''}
                                                         >
                                                         <Rating caption={' & up'} rating={0}>& up</Rating>
                                                         </Link>
@@ -561,7 +575,10 @@ const Search = (e) => {
             
                 </div>
             </div>
+            <div className='border'>
             <Footer />
+            </div>
+            
         </div>
     );
 }

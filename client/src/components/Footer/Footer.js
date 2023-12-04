@@ -12,11 +12,6 @@ import { toast } from "react-toastify";
 const Footer = () => {
   const [email, setEmail] = useState('');
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
-
   const submitHandler = async (e) => {
     e.preventDefault();
     if(!email){
@@ -35,8 +30,11 @@ const Footer = () => {
   }
 
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  console.log(window.location.host);
+
   return (
     <footer className="md:px-12 md:py-14 p-8">
     <div className="flex flex-col gap-y-12 justify-between md:flex-row md:items-center">

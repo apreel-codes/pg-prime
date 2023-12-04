@@ -1,12 +1,13 @@
 
-.slide {
+.test-slider .slide {
     margin-top: 9rem;
     text-align: center;
     /* transition: all 0.5s ease; */ 
+    padding: 0 2rem;
 }
 
 
-.slide img {
+.test-slider .slide img {
     margin: auto;
     width: 4.1rem;
     height: 4rem;
@@ -20,7 +21,7 @@
   } */
 
 
-.arrow {
+.test-slider .arrow {
     border: none;
     background-color: transparent;
     color: rgb(215, 213, 213);
@@ -30,67 +31,67 @@
     cursor: pointer;
     position: absolute;
     z-index: 999;
-    top: 11.5rem;
-    left: 90%;
+    top: 11rem;
+    left: 83%;
 }
 
-.arrow:hover {
+.test-slider .arrow:hover {
     background-color: white;
     color: gray;
 }
 
-.next {
-    right: -1rem;
+.test-slider .next {
+    right: -5rem;
     
 }
 
-.prev {
-    left: 1rem;
+.test-slider .prev {
+    left: 5rem;
 }
 
-.content > * {
+.test-slider .content > * {
     color: black;
     margin-bottom: 1rem;
   }
   
-  .current {
+  .test-slider .current {
     opacity: 1;
     transform: translateX(0);
   }
   
-  .current .content {
+ .test-slider .current .content {
     opacity: 1;
   }
 
-.slider .text{
+.test-slider .text{
     font-size: 1rem;
     line-height: 1.7rem;
     margin-bottom: 1.5rem;
 }
 
-.slider .name{
+.test-slider .name{
     color: #c5c5c5d9;
     font-family: 'Inter', sans-serif;
 }
 
-.slider {
+.test-slider {
     color: #c5c5c5d9;
     font-family: 'Inter', sans-serif;
 }
 
-small {
+.test-slider .test-location {
     color: #c5c5c5d9;
     font-family: 'Inter', sans-serif;
 }
 
-.entry-rating {
+.test-slider .entry-rating {
     margin: auto;
     width: 95px;
     margin-bottom: 1.5rem;
 }
 
 @media screen and (min-width: 600px) {
-    .slider {
+    .test-slider {
         width: 70%;
         margin: auto;
         position: relative;

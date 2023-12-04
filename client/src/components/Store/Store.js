@@ -11,10 +11,10 @@ const Store = () => {
         AOS.init({duration: 1200});
       }, []);
 
-    
+     
     return (
         <div>
-            <div className='store w-[94%] mx-auto'>
+            <div className='store-comp w-[94%] mx-auto'>
                 <div className='store-img md:block hidden'>
                 </div>
                 <div className='store-content md:w-[60%] w-[95%] md:px-2 px-2 mx-auto'>

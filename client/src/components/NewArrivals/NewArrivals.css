@@ -1,5 +1,5 @@
 
-.slider-button {
+.new-arrival-comp .slider-button {
     background-color: #ffffff;
     font-family: 'Inter', sans-serif;
     font-size: 0.7rem;
@@ -10,20 +10,20 @@
     border-radius: 0.3rem;
 }
 
-.new-arrivals {
+.new-arrival-comp .new-arrivals {
     font-family: 'Inter', sans-serif;
     font-size: 1.3rem;
     color: rgb(0, 0, 0);
     font-weight: 600;
 }
 
-.wrapper {
+.new-arrival-comp .wrapper {
     width: 72%;
     margin: 0 auto;
 }
 
 @media screen and (min-width: 600px) {
-    .new-arrivals {
+    .new-arrival-comp .new-arrivals {
         font-family: 'Inter', sans-serif;
         font-size: 1.3rem;
         color: rgb(0, 0, 0);
@@ -36,7 +36,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .new-arrivals {
+    .new-arrival-comp .new-arrivals {
         font-family: 'Inter', sans-serif;
         font-size: 1.1rem;
         color: rgb(0, 0, 0);
@@ -235,13 +235,13 @@
 }
 
 
-.new-arrival-slide {
+.new-arrival-comp .new-arrival-slide {
     opacity: 0;
     transform: translateX(50%);
     transition: all 0.5s ease; 
 }
 
-.new-arrival-arrow {
+.new-arrival-comp .new-arrival-arrow {
     border: none;
     background-color: transparent;
     color: #1a1a1a;
@@ -254,30 +254,30 @@
     left: 90%;
 }
 
-.new-arrival-arrow:hover {
+.new-arrival-comp .new-arrival-arrow:hover {
     color: rgb(0, 0, 0);
 }
 
-.new-arrival-next {
+.new-arrival-comp .new-arrival-next {
     margin-right: 50px;
     
 }
 
-.new-arrival-current {
+.new-arrival-comp .new-arrival-current {
     opacity: 1;
     transform: translateX(0);
 }
 
-.new-arrival-prev {
+.new-arrival-comp .new-arrival-prev {
     margin-left: 50px;
 }
 
-.new-arrival-content {
+.new-arrival-comp .new-arrival-content {
     animation-fill-mode: forwards;
 }
 
 
-span {
+.new-arrival-comp span {
     font-size: 0.8rem;
     color: #1a1a1ab9;
 }
