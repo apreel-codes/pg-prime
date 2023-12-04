@@ -49,45 +49,39 @@ const ForgotPassword = () =>  {
         <title>Forget Password</title>
       </Helmet>
       <Header />
-      <div className='mx-auto'>
-        <div className="flex flex-row">
-          <div className="web-test hidden md:block">
-                  <Testimonials />
-          </div>
-          <div className="forgot-password-content md:w-[60%] mx-auto">
-            <div className="forgot-password-content md:w-[50%] mx-auto py-14 w-[100%] px-3">
-                    {/* <div className="relative mb-3">
-                        <Link to="/signin">
-                            <AiOutlineArrowLeft className="back-arrow"/>
-                        </Link>
-                        <p className="back">Back to Sign in</p>
-                    </div> */}
-                    <div className="form">
-                        <div className="">
-                            <h1 className="mb-1 font-bold">Forgot your password?</h1>
-                            <p>We will send you a reset link.</p>
-                        </div>
-                        <Form className="main-form" onSubmit={submitHandler}>
-                            <Form.Group className="mb-3 grid" controlId="email">
-                            <Form.Label className="label">Email</Form.Label>
-                            <input
-                                type="email"
-                                placeholder="Enter your email"
-                                required
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            </Form.Group>
+        <div className='mx-auto'>
+          <div className="flex flex-row">
+            <div className="web-test hidden md:block">
+                    <Testimonials />
+            </div>
+            <div className="forgot-password-content md:w-[60%] mx-auto">
+              <div className="forgot-password-content md:w-[50%] mx-auto py-14 w-[100%] px-3">
+                      <div className="form">
+                          <div className="">
+                              <h1 className="mb-1 font-bold">Forgot your password?</h1>
+                              <p>We will send you a reset link.</p>
+                          </div>
+                          <Form className="main-form" onSubmit={submitHandler}>
+                              <Form.Group className="mb-3 grid" controlId="email">
+                              <Form.Label className="label">Email</Form.Label>
+                              <input
+                                  type="email"
+                                  placeholder="Enter your email"
+                                  required
+                                  onChange={(e) => setEmail(e.target.value)}
+                              />
+                              </Form.Group>
 
-                            <div className="mb-3 mt-4 d-grid">
-                            <Button className="button py-2 border-none text-white" type="submit">Reset Password</Button>
-                            </div>
-                        </Form>
-                    </div>
+                              <div className="mb-3 mt-4 d-grid">
+                              <Button className="button py-2 border-none text-white" type="submit">Reset Password</Button>
+                              </div>
+                          </Form>
+                      </div>
 
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <Footer />
     </div>
   );

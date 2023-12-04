@@ -575,9 +575,9 @@ const Search = (e) => {
             
                 </div>
             </div>
-            <div className='border'>
+            
             <Footer />
-            </div>
+           
             
         </div>
     );

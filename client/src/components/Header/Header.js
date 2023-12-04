@@ -132,7 +132,7 @@ const [brands, setBrands] = useState([]);
 
 
     return (
-            <header className='relative header'>
+            <div className='header'>
                 <SalesSlider />
                 <div className='top-nav flex flex-row justify-between items-center py-1 px-6 md:px-18'>
                     <div className='socials flex flex-row justify-between'>
@@ -246,7 +246,7 @@ const [brands, setBrands] = useState([]);
                 </div>
 
                 <div className='hidden md:block page-navs'>
-                    <ul className='brand-header flex flex-row justify-between items-center w-[55%] my-3 ml-6'>
+                    <ul className='brand-header flex flex-row justify-between items-center w-[60%] my-3 ml-6'>
                         <Link onClick={() => window.scrollTo(0, 0)} to="/"><li>Home</li></Link>
                         <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
                         <Link onClick={() => window.scrollTo(0, 0)} to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
@@ -373,7 +373,7 @@ const [brands, setBrands] = useState([]);
                             )}
                     </div>
                 </div>
-            </header>
+            </div>
     )
 }
 

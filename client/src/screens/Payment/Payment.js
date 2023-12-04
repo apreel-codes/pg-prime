@@ -45,7 +45,6 @@ const Payment = () => {
                         <Helmet>
                             <title>Payment Method</title>
                         </Helmet>
-
                         <div className='w-[90%] md:w-[40%] my-10 mx-auto'>
                             <Form className='payment-form' onSubmit={submitHandler}> 
                                 <h2>Payment Method</h2>

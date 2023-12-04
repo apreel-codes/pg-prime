@@ -279,179 +279,179 @@ const uksizes = [
         <title>Edit Product</title>
       </Helmet>
       <Header />
-      <div className='edit-product-page md:w-[40%] w-[90%] my-12 md:my-20 mx-auto'>
-      <h1 className="my-3 text-xl font-bold">Edit Product</h1>
-          {loading ? (
-            <LoadingBox></LoadingBox>
-          ) : error ? (
-            <MessageBox variant="danger">{error}</MessageBox>
-          ) : (
-            <Form onSubmit={submitHandler}>
-              <Form.Group className="mb-4 grid" controlId="name">
-                <Form.Label className="edit-label">Name</Form.Label>
-                <input
-                  className='text-sm w-full'
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-4 grid" controlId="slug">
-                <Form.Label className="edit-label">Slug</Form.Label>
-                <input
-                  className='text-sm w-full'
-                  value={slug}
-                  onChange={(e) => setSlug(e.target.value)}
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="name">
-                <Form.Label className="edit-label">Price</Form.Label>
-                <input
-                  className='text-sm w-full'
-                  value={price}
-                  onChange={(e) => setPrice(e.target.value)}
-                  required
-                />
-              </Form.Group>
-            
-              <Form.Group className="mb-4 grid" controlId="image">
-                <Form.Label className="edit-label">Image File</Form.Label>
-                <Form.Control
-                  value={image}
-                  onChange={(e) => setImage(e.target.value)}
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-4 grid" controlId="imageFile">
-                <Form.Label className="edit-label">Upload Image</Form.Label>
-                <Form.Control type="file" onChange={uploadFileHandler} />
-                {loadingUpload && <LoadingBox></LoadingBox>}
-              </Form.Group>
-
-              <Form.Group className="mb-4 grid" controlId="additionalImage">
-                <Form.Label className="edit-label">Additional Images</Form.Label>
-                {images.length === 0 && <MessageBox>No image</MessageBox>}
-                <ListGroup variant="flush">
-                  {images.map((x) => (
-                    <ListGroup.Item key={x}>
-                      {/* {x} */}
-                      <Button variant="light" onClick={() => deleteFileHandler(x)}>
-                        <i className="fa fa-times-circle"></i>
-                      </Button>
-                    </ListGroup.Item>
-                  ))}
-                </ListGroup>
-              </Form.Group>
-              <Form.Group className="mb-4 grid" controlId="additionalImageFile">
-                <Form.Label>Upload Aditional Image</Form.Label>
-                <Form.Control
-                  type="file"
-                  onChange={(e) => uploadFileHandler(e, true)}
-                />
-                {loadingUpload && <LoadingBox></LoadingBox>}
-              </Form.Group>
-
-              <Form.Group className="mb-4 grid" controlId="category">
-                <Form.Label>Category</Form.Label>
-                <input
-                  className='text-sm w-full'
-                  value={category}
-                  onChange={(e) => setCategory(e.target.value)}
-                  required
-                />
-              </Form.Group>
-              <Form.Group className="mb-4 grid" controlId="brand">
-                <Form.Label className="edit-label">Brand</Form.Label>
-                <input
-                  className='text-sm w-full'
-                  value={brand}
-                  onChange={(e) => setBrand(e.target.value)}
-                  required
-                />
-              </Form.Group>
-
-              <Form.Group className="mb-4 grid" controlId="description">
-                  <Form.Label className="create-label">Description</Form.Label>
-                      <textarea
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
-                      required
-                      className='policy-input'
-                      ></textarea>
+        <div className='edit-product-page md:w-[40%] w-[90%] my-12 md:my-20 mx-auto'>
+        <h1 className="my-3 text-xl font-bold">Edit Product</h1>
+            {loading ? (
+              <LoadingBox></LoadingBox>
+            ) : error ? (
+              <MessageBox variant="danger">{error}</MessageBox>
+            ) : (
+              <Form onSubmit={submitHandler}>
+                <Form.Group className="mb-4 grid" controlId="name">
+                  <Form.Label className="edit-label">Name</Form.Label>
+                  <input
+                    className='text-sm w-full'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group className="mb-4 grid" controlId="slug">
+                  <Form.Label className="edit-label">Slug</Form.Label>
+                  <input
+                    className='text-sm w-full'
+                    value={slug}
+                    onChange={(e) => setSlug(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="name">
+                  <Form.Label className="edit-label">Price</Form.Label>
+                  <input
+                    className='text-sm w-full'
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+              
+                <Form.Group className="mb-4 grid" controlId="image">
+                  <Form.Label className="edit-label">Image File</Form.Label>
+                  <Form.Control
+                    value={image}
+                    onChange={(e) => setImage(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group className="mb-4 grid" controlId="imageFile">
+                  <Form.Label className="edit-label">Upload Image</Form.Label>
+                  <Form.Control type="file" onChange={uploadFileHandler} />
+                  {loadingUpload && <LoadingBox></LoadingBox>}
                 </Form.Group>
 
-                <div className='mb-3'>
-                    <h3 className='create-label mb-2'>Select EU sizes available:</h3>
-                    {eusizes.map((eusize) => (
-                      <label key={eusize} className='mr-3 mb-2 text-center'>
-                        <input
-                          className='size-check-box'
-                          type="checkbox"
-                          checked={selectedEuSize.includes(eusize)}
-                          onChange={() => handleEuSizeSelect(eusize)}
-                        />
-                        {eusize}
-                      </label>
+                <Form.Group className="mb-4 grid" controlId="additionalImage">
+                  <Form.Label className="edit-label">Additional Images</Form.Label>
+                  {images.length === 0 && <MessageBox>No image</MessageBox>}
+                  <ListGroup variant="flush">
+                    {images.map((x) => (
+                      <ListGroup.Item key={x}>
+                        {/* {x} */}
+                        <Button variant="light" onClick={() => deleteFileHandler(x)}>
+                          <i className="fa fa-times-circle"></i>
+                        </Button>
+                      </ListGroup.Item>
                     ))}
-                    {/* <h4>Selected EU sizes:</h4>
-                    <ul>
-                      {selectedEuSize.map((eusize) => (
-                        <li key={eusize}>{eusize}</li>
+                  </ListGroup>
+                </Form.Group>
+                <Form.Group className="mb-4 grid" controlId="additionalImageFile">
+                  <Form.Label>Upload Aditional Image</Form.Label>
+                  <Form.Control
+                    type="file"
+                    onChange={(e) => uploadFileHandler(e, true)}
+                  />
+                  {loadingUpload && <LoadingBox></LoadingBox>}
+                </Form.Group>
+
+                <Form.Group className="mb-4 grid" controlId="category">
+                  <Form.Label>Category</Form.Label>
+                  <input
+                    className='text-sm w-full'
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+                <Form.Group className="mb-4 grid" controlId="brand">
+                  <Form.Label className="edit-label">Brand</Form.Label>
+                  <input
+                    className='text-sm w-full'
+                    value={brand}
+                    onChange={(e) => setBrand(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+
+                <Form.Group className="mb-4 grid" controlId="description">
+                    <Form.Label className="create-label">Description</Form.Label>
+                        <textarea
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                        required
+                        className='policy-input'
+                        ></textarea>
+                  </Form.Group>
+
+                  <div className='mb-3'>
+                      <h3 className='create-label mb-2'>Select EU sizes available:</h3>
+                      {eusizes.map((eusize) => (
+                        <label key={eusize} className='mr-3 mb-2 text-center'>
+                          <input
+                            className='size-check-box'
+                            type="checkbox"
+                            checked={selectedEuSize.includes(eusize)}
+                            onChange={() => handleEuSizeSelect(eusize)}
+                          />
+                          {eusize}
+                        </label>
                       ))}
-                    </ul> */}
+                      {/* <h4>Selected EU sizes:</h4>
+                      <ul>
+                        {selectedEuSize.map((eusize) => (
+                          <li key={eusize}>{eusize}</li>
+                        ))}
+                      </ul> */}
+                  </div>
+
+                  <div className='mb-3'>
+                      <h3 className='create-label mb-2'>Select US sizes available:</h3>
+                      {ussizes.map((ussize) => (
+                        <label key={ussize} className='mr-3 mb-2 text-center'>
+                          <input
+                            className='size-check-box'
+                            type="checkbox"
+                            checked={selectedUsSize.includes(ussize)}
+                            onChange={() => handleUsSizeSelect(ussize)}
+                          />
+                          {ussize}
+                        </label>
+                      ))}
+                  </div>
+
+                  <div className='mb-3'>
+                      <h3 className='create-label mb-2'>Select UK sizes available:</h3>
+                      {uksizes.map((uksize) => (
+                        <label key={uksize} className='mr-3 mb-2 text-center'>
+                          <input
+                            className='size-check-box'
+                            type="checkbox"
+                            checked={selectedUkSize.includes(uksize)}
+                            onChange={() => handleUkSizeSelect(uksize)}
+                          />
+                          {uksize}
+                        </label>
+                      ))}
+                  </div>
+
+
+                <div className="edit-button-group flex mt-2 flex-row justify-between items-center">
+                  <div>
+                      <Button className="edit-cancel-button border-none w-full" type="">
+                        <Link to='/admin/productlist'>Cancel</Link>
+                      </Button>
+                  </div>
+                  <div className="">
+                      <Button 
+                      className="edit-button border-none text-white w-full"
+                      disabled={loadingUpdate} type="submit">
+                        Save changes
+                      </Button>
+                      {loadingUpdate && <LoadingBox></LoadingBox>}
+                  </div>
                 </div>
 
-                <div className='mb-3'>
-                    <h3 className='create-label mb-2'>Select US sizes available:</h3>
-                    {ussizes.map((ussize) => (
-                      <label key={ussize} className='mr-3 mb-2 text-center'>
-                        <input
-                          className='size-check-box'
-                          type="checkbox"
-                          checked={selectedUsSize.includes(ussize)}
-                          onChange={() => handleUsSizeSelect(ussize)}
-                        />
-                        {ussize}
-                      </label>
-                    ))}
-                </div>
-
-                <div className='mb-3'>
-                    <h3 className='create-label mb-2'>Select UK sizes available:</h3>
-                    {uksizes.map((uksize) => (
-                      <label key={uksize} className='mr-3 mb-2 text-center'>
-                        <input
-                          className='size-check-box'
-                          type="checkbox"
-                          checked={selectedUkSize.includes(uksize)}
-                          onChange={() => handleUkSizeSelect(uksize)}
-                        />
-                        {uksize}
-                      </label>
-                    ))}
-                </div>
-
-
-              <div className="edit-button-group flex mt-2 flex-row justify-between items-center">
-                <div>
-                    <Button className="edit-cancel-button border-none w-full" type="">
-                      <Link to='/admin/productlist'>Cancel</Link>
-                    </Button>
-                </div>
-                <div className="">
-                    <Button 
-                    className="edit-button border-none text-white w-full"
-                    disabled={loadingUpdate} type="submit">
-                      Save changes
-                    </Button>
-                    {loadingUpdate && <LoadingBox></LoadingBox>}
-                </div>
-              </div>
-
-            </Form>
-          )}
-      </div>
+              </Form>
+            )}
+        </div>
       <Footer />
     </div>
 );

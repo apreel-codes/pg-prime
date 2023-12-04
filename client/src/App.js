@@ -47,7 +47,7 @@ function App() {
   return (
     <BrowserRouter className="relative">
       <ToastContainer position='bottom-center' limit={1} />
-      <main>
+      <main className="main">
         <Routes className="">
                 <Route>
                   <Route index element={<Home />} />

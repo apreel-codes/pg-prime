@@ -1,11 +1,7 @@
 .header {
-    /* position: fixed; */
     width: 100%;
-    z-index: 100000;
-    /* top: 0; */
     background-color: #fff;
 }
-
 
 .top-nav {
     color: #ffffff;
@@ -29,7 +25,7 @@
 }
 
 .search-profile-cart {
-    width: 27rem;
+    width: 23rem;
 }
 
 .search-cart-ham {
@@ -55,7 +51,6 @@
 .mobile-second {
     padding: 0.2rem 1.2rem;
     border-bottom: 1px #4a4a4a28 solid;
-    /* height: 70px; */
 }
 
 .page-navs {
@@ -87,12 +82,11 @@
 
 .side-body {
     border-top: 1px #4a4a4a28 solid;
-    /* height: 300vh; */
 }
 
 .mobile-side-nav {
         font-family: 'Inter', sans-serif;
-        padding: 1rem 2rem;
+        padding: .2rem 2rem;
         display: block;
         height: 300vh;
         position: absolute;
@@ -106,7 +100,7 @@
         font-family: 'Inter', sans-serif;
         font-size: 1rem;
         width: 100%;
-        padding: 1rem 2rem;
+        padding: .2rem 2rem;
         background-color: #ffffff;
         height: 300vh;
         position: absolute;
@@ -129,6 +123,8 @@
     border: 1px #003466 solid;
     padding: .8rem 0;
  }
+
+
 
  .mobile-side-nav .signup .button{
     background-color: #f4f4f5;
@@ -226,7 +222,8 @@
 }
 
 .profile-signout {
-    margin-top: -.07rem;
+
+    margin-top: .8rem;
     font-size: .9rem;
 }
 

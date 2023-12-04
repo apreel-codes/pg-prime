@@ -104,7 +104,7 @@ const PlaceOrder = () => {
     }, [cart, navigate])
 
     return (
-        <div >
+        <div>
             <Header />
             <Helmet>
                 <title>Preview Order</title>

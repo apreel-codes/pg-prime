@@ -102,9 +102,6 @@ const CartComponent = () => {
                     </div>
                 </div>
 
-
-
-
                 <div className="web-cart-page hidden md:block w-[91%] mx-auto">
                 <h1>My Shopping Cart</h1>
                     <div>

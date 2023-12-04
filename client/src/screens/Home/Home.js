@@ -23,164 +23,25 @@ import HomeVideo from "../../components/Video/video";
 import BackToTop from "../../components/BackToTop/BackToTop";
 
 
-const reducer = (state, action) => {
-    switch(action.type) {
-        case 'FETCH_REQUEST':
-            return {...state, loading: true};
-            case 'FETCH_SUCCESS':
-                return {...state, products: action.payload, loading: false};
-                case 'FETCH_FAIL':
-                    return {...state, loading: false, error: action.payload};
-                    default:
-                        return state;
-    }
-};
-
 const Home = () => {
-    const [isCatToggled, setIsCatToggled] = useState(true);
-    const [isPriceToggled, setIsPriceToggled] = useState(true);
-    const [isBrandToggled, setIsBrandToggled] = useState(true);
-    const [isSizeToggled, setIsSizeToggled] = useState(true);
-    const [link, setLink] = ('');
-    
-    const [{ loading, error, products}, dispatch] = useReducer(logger(reducer), {
-        products: [],
-        loading: true, error: ''
-    })
-
-    useEffect(() => {
-        const fetchData = async () => {
-            dispatch({ type: 'FETCH_REQUEST' });
-            try{
-                const result = await axios.get('/api/products');
-                dispatch({type: 'FETCH_SUCCESS', payload: result.data})
-            } catch(err) {
-                dispatch({ type: 'FETCH_FAIL', payload: err.message })
-            }
-            
-        };
-        fetchData();
-    }, [])
-
-    function randomizeDataset(products) {
-        const randomizedDataset = products.slice();
-      
-        for (let i = randomizedDataset.length - 1; i > 0; i--) {
-          const randomIndex = Math.floor(Math.random() * (i + 1));
-          [randomizedDataset[i], randomizedDataset[randomIndex]] = [randomizedDataset[randomIndex], randomizedDataset[i]];
-        }
-      
-        return randomizedDataset;
-      }
-    
-    const randProducts = randomizeDataset(products);
-
-
-    const reverseArray = (products) => {
-      // Function to reverse an array
-      let reversedArray = [];
-      for (let i = products.length - 1; i >= 0; i--) {
-        reversedArray.push(products[i]);
-      }
-      return reversedArray;
-    };
-
-    const newestProducts = reverseArray(products);
-
-    // Function to specify a particular number of objects from the array
-    const getFourProducts = (arr, num) => {
-      return arr.slice(0, num);
-    };
   
-    const fourProducts = getFourProducts(products, 4);
-
-
-      const responsive = {
-        superLargeDesktop: {
-          // the naming can be any, depends on you.
-          breakpoint: { max: 4000, min: 3000 },
-          items: 5
-        },
-        desktop: {
-          breakpoint: { max: 3000, min: 1024 },
-          items: 4
-        },
-        tablet: {
-          breakpoint: { max: 1024, min: 600 },
-          items: 3
-        },
-        mobile: {
-          breakpoint: { max: 600, min: 0 },
-          items: 2
-        }
-      };
-
-        //autoscroll
-        const [ currentSlide, setCurrentSlide ] = useState(0);
-        const slideLength = sliderData.length;
-
-        const autoScroll = true;
-        let slideInterval;
-        let intervalTime = 5000;
-
-        const nextSlide = () => {
-            setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
-        }
-
-        const prevSlide = () => {
-            setCurrentSlide(currentSlide === 0 ? slideLength - 1 : currentSlide - 1);
-        }
-
-        function auto() {
-            slideInterval = setInterval(nextSlide, intervalTime)
-        }
-
-        useEffect(() => {
-            // puts the current slide to slide 0 on page refresh
-            setCurrentSlide(0)
-        }, [])
-
-          const [allProducts, setAllProducts] = useState([]);
-
-          useEffect(() => {
-            const fetchAllProducts = async () => {
-              try{
-                const { data } = await axios.get('/api/products/allProducts');
-                setAllProducts(data);
-              } catch(err) {
-                toast.error(getError(err));
-              }
-            }
-            fetchAllProducts();
-          }, []);
-      
-
-
-
     return (
             <div className="">
                 <Helmet>
                     <title>PGF PRIME</title>
                 </Helmet>
                 <Header />
-                <BgImage />
-                <NewArrivals />
-                <Link to={{ pathname: '/search', search: `allProducts`}}>
-                      <button className="md:mt-3 md:text-lg text-white text-base">View All</button>
-                </Link>
-                <BestSellers/>
-                <GalleryBg />
-                <Store />
-
-                <HomeVideo />
-
-                <BackToTop />
-
-                <Link to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">
-                  <img className="whatsapp"  src="./images/whatsapp.png"/>               
-                </Link>
-
-            <Footer />
+                  <BgImage />
+                  <NewArrivals />
+                  <BestSellers/>
+                  <GalleryBg />
+                  <Store />
+                  <HomeVideo />
+                  <BackToTop />
+                  <Link to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">
+                    <img className="whatsapp"  src="./images/whatsapp.png"/>               
+                  </Link>
+                <Footer />
             </div>
     )
 }
