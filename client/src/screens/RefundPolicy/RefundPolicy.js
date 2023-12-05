@@ -9,9 +9,9 @@ const RefundPolicy = () => {
     return (
         <div className="refund-page">
             <Header />
-            <div className="refund w-[85%] md:w-[80%] mx-auto my-8">
+            <div className="refund w-[85%] md:w-[80%] mx-auto my-12">
                 <h1 className="text-center">Refund Policy</h1>
-                <div className="mt-5">
+                <div className="mt-4">
                     <p>At PGF Prime, your satisfaction is our top priority. 
                         We understand that shopping for sneakers online may come with uncertainties, so we've crafted a comprehensive refund policy to make your experience as smooth as possible. 
                         Please read through the following sections to understand our policies for different scenarios:</p>

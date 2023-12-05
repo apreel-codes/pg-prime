@@ -3,40 +3,13 @@ import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import DropdownMenu from 'react-bootstrap/DropdownMenu';
-import Home from '../../screens/Home/Home';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
 import {LinkContainer} from 'react-router-bootstrap';
-// import ErrorPage from '../../screens/NotFound/NoPage';
-import Badge from 'react-bootstrap/Badge';
-import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Store } from '../../Store';
-import Signin from '../../screens/Signin/Signin.js';
-import ShippingAddress from '../../screens/ShippingAddress/ShippingAddress';
-import DashboardScreen from '../../screens/Dashboard';
-import Signup from '../../screens/Signup/Signup';
-import Payment from '../../screens/Payment/Payment';
-import PlaceOrder from '../../screens/PlaceOrder/PlaceOrder';
-import Order from '../../screens/Order/Order';
-import OrderHistory from '../../screens/OrderHistory/OrderHistory';
-import Profile from '../../screens/Profile/Profile';
 import Button from 'react-bootstrap/Button';
 import { getError } from '../../uttils';
-import Search from '../../screens/Search/Search';
-import ProtectedRoute from '../ProtectedRoute';
-import Dashboard from '../../screens/Dashboard';
-import AdminRoute from '../AdminRoute';
-import OrderList from '../../screens/OrderList/OrderList';
-import ProductList from '../../screens/ProductList/ProductList';
-import UserList from '../../screens/UserList/UserList';
-import EditProduct from '../../screens/EditProduct/EditProduct';
-import UserEdit from '../../screens/UserEdit/UserEdit';
-import CreateProduct from '../../screens/CreateProduct/CreateProduct';
 import './Header.css';
 import SearchBox from '../SearcchBox';
-import classNames from 'classnames';
 import SalesSlider from '../SalesSlider/SalesSlider';
 
 
@@ -246,7 +219,7 @@ const [brands, setBrands] = useState([]);
                 </div>
 
                 <div className='hidden md:block page-navs'>
-                    <ul className='brand-header flex flex-row justify-between items-center w-[60%] my-3 ml-6'>
+                    <ul className='brand-header flex flex-row justify-between items-center w-[100%] my-3 ml-6'>
                         <Link onClick={() => window.scrollTo(0, 0)} to="/"><li>Home</li></Link>
                         <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
                         <Link onClick={() => window.scrollTo(0, 0)} to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
@@ -255,7 +228,7 @@ const [brands, setBrands] = useState([]);
                             categories.map((c, i) => (
                                 <div className='brand w-16 flex flex-row justify-between items-center'>
                                 <Link onClick={() => window.scrollTo(0, 0)} className='mobile-brands' to={{ pathname: '/search', search: `category=${c}`}} key={i}><li>{c}</li></Link>
-                                <img className='ml-2' src='../images/arrow-down.png' />
+                                {/* <img className='ml-2' src='../images/arrow-down.png' /> */}
                                 </div>
                             ))
                         }
@@ -267,7 +240,7 @@ const [brands, setBrands] = useState([]);
                                         {b}
                                     </li>
                                     </Link>
-                                    <img className='ml-2' src='../images/arrow-down.png' />
+                                    {/* <img className='ml-2' src='../images/arrow-down.png' /> */}
                                 </div>
                             ))
                                 
@@ -280,26 +253,44 @@ const [brands, setBrands] = useState([]);
                     <div className= { isNavBarToggled ? 'mobile-side-nav' : 'hide-mobile-side-nav'} >
                             <ul className='content flex flex-col py-1'>
                                 <Link onClick={showSideNav} to="/"><li>Home</li></Link>
-                                <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
-                                <Link onClick={() => window.scrollTo(0, 0)} to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
+                                <Link onClick={() => { 
+                                    window.scrollTo(0, 0) 
+                                    showSideNav()
+                                    }}
+                                    to={{ pathname: '/search', search: `allProducts`}}><li>New Arrivals</li></Link>
+                                <Link onClick={() => { 
+                                    window.scrollTo(0, 0) 
+                                    showSideNav()
+                                    }}
+                                    to="/search?category=all&query=all&price=all&brand=all&rating=4&order=newest&page=1"><li>Best Sellers</li></Link>
 
                                 { categories && 
                                     categories.map((c, i) => (
-                                        <Link onClick={() => window.scrollTo(0, 0)} className='mobile-brands' to={{ pathname: '/search', search: `category=${c}`}} key={i}><li>{c}</li></Link>
+                                        <Link onClick={() => { 
+                                            window.scrollTo(0, 0) 
+                                            showSideNav()
+                                            }}
+                                            className='mobile-brands' to={{ pathname: '/search', search: `category=${c}`}} key={i}><li>{c}</li></Link>
                                     ))
                                 }
                                  
                                 { brands && 
                                     brands.map((b, i) => (
-                                        <Link onClick={() => window.scrollTo(0, 0)} className='mobile-brands' to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
+                                        <Link onClick={() => { 
+                                            window.scrollTo(0, 0) 
+                                            showSideNav()
+                                            }}
+                                            className='mobile-brands' to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
                                     ))
                                 }
                             
                             </ul>
                             {userInfo ? (
                                 <div className='profile-signout flex flex-col'>
-                                    <Link 
-                                        onClick={() => window.scrollTo(0, 0)}
+                                    <Link onClick={() => { 
+                                            window.scrollTo(0, 0) 
+                                            showSideNav()
+                                        }}
                                         className='dropdown-item mb-3'
                                         to="/profile"
                                     >
@@ -318,26 +309,44 @@ const [brands, setBrands] = useState([]);
                                         </div>
                                         <div className= {isAdminToggled ? "" : 'hidden'}>
                                             <div className='admin-content flex flex-col space-y-4'>
-                                                <Link onClick={() => window.scrollTo(0, 0)} to='/admin/dashboard'>
-                                                        Dashboard
-                                                    </Link>
-                                                    <Link onClick={() => window.scrollTo(0, 0)} to='/admin/productlist'>
-                                                        Products
-                                                    </Link>
-                                                    <Link onClick={() => window.scrollTo(0, 0)} to='/admin/orderlist'>
-                                                        Orders
-                                                    </Link>
-                                                    <Link onClick={() => window.scrollTo(0, 0)} className='mb-3' to='/admin/userlist'>
-                                                    Users   
-                                                </Link>          
+                                            <Link onClick={() => { 
+                                                window.scrollTo(0, 0) 
+                                                showSideNav()
+                                                }}
+                                                to='/admin/dashboard'>
+                                                Dashboard
+                                            </Link>
+                                            <Link onClick={() => { 
+                                                window.scrollTo(0, 0) 
+                                                showSideNav()
+                                                }}
+                                                to='/admin/productlist'>
+                                                Products
+                                            </Link>
+                                            <Link onClick={() => { 
+                                                window.scrollTo(0, 0) 
+                                                showSideNav()
+                                                }}
+                                                to='/admin/orderlist'>
+                                                Orders
+                                            </Link>
+                                            <Link onClick={() => { 
+                                                window.scrollTo(0, 0) 
+                                                showSideNav()
+                                                }}
+                                                className='mb-3' to='/admin/userlist'>
+                                                Users   
+                                            </Link>          
                                             </div>
                                                 
                                         </div>
                                      </div>
                                 )}
 
-                                    <Link 
-                                        onClick={() => window.scrollTo(0, 0)}
+                                     <Link onClick={() => { 
+                                            window.scrollTo(0, 0) 
+                                            showSideNav()
+                                            }}
                                         className='dropdown-item'
                                         to="/orderhistory"
                                     >
@@ -349,21 +358,24 @@ const [brands, setBrands] = useState([]);
                                         to="#signout"
                                         onClick={signoutHandler}
                                     >
-
-                                        <Button className='button py-2 w-full mt-4'>Sign Out</Button>
+                                    <Button className='button py-2 w-full mt-4'>Sign Out</Button>
                                     </Link>             
                                 </div>
                             ) : (
                                 <div className='flex flex-col mt-14'>
-                                    <Link 
-                                        onClick={() => window.scrollTo(0, 0)}
+                                    <Link onClick={() => { 
+                                        window.scrollTo(0, 0) 
+                                        showSideNav()
+                                        }}
                                         className='signin'
                                         to="/signin">
                                         <Button className='sign-in-button w-full'>Sign in</Button>
                                     </Link>
 
-                                    <Link 
-                                        onClick={() => window.scrollTo(0, 0)}
+                                    <Link onClick={() => { 
+                                        window.scrollTo(0, 0) 
+                                        showSideNav()
+                                        }}
                                         className='signup'
                                         to="/signup">
                                         <Button className='button w-full py-2'>Sign up</Button>

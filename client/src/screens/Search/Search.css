@@ -20,9 +20,6 @@
     position: relative;;
 }
 
-.filter-drop-down {
-    width: 90px;
-}
 
 .sort-box {
     width: 160px;
@@ -35,7 +32,7 @@
 .filter-group {
     font-family: 'Inter', sans-serif;
     display: block;
-    height: 100vh;
+    height: 200vh;
     position: absolute;
     top: 240px;
     z-index: 10000;
@@ -49,7 +46,7 @@
     font-size: 1rem;
     width: 100%;
     background-color: #ffffff;
-    height: 100vh;
+    height: 200vh;
     position: absolute;
     top: 240px;
     z-index: 10000;
@@ -58,7 +55,7 @@
 }
 
 .filter-content {
-    padding: 1rem 1.5rem 0;
+    padding: .8rem 1.5rem 0;
     font-size: 0.9rem;
 }
 
@@ -136,12 +133,16 @@
     cursor: pointer;
 }
 
+.filter-drop-down {
+    width: 132px;
+}
+
 .upFilter {
     display: block;
-    width: 0.8rem;
-    height: 0.5rem;
+    width: 1.8rem;
+    height: 1.5rem;
     cursor: pointer;
-    margin-top: 0.8rem;
+    margin-top: 0.2rem;
 }
 
 .downFilter {

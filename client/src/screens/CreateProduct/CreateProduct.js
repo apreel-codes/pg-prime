@@ -184,9 +184,7 @@ const handleUkSizeSelect = (uksize) => {
           images,
           category,
           description,
-          // availability,
           brand,
-          // countInStock,
           selectedEuSize,
           selectedUsSize,
           selectedUkSize,
@@ -255,7 +253,7 @@ const handleUkSizeSelect = (uksize) => {
                   <Form.Group className="mb-4 grid" controlId="name">
                       <Form.Label className="create-label">Name</Form.Label>
                       <input
-                        className='text-sm w-full'
+                        className='input text-sm w-full'
                         placeholder='e.g AJ Legacy 312 Low'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -266,7 +264,7 @@ const handleUkSizeSelect = (uksize) => {
                   <Form.Group className="mb-4 grid" controlId="slug">
                       <Form.Label className="create-label">Slug</Form.Label>
                       <input
-                        className='text-sm w-full'
+                        className='input text-sm w-full'
                         placeholder='e.g aj-legacy-312-low'
                         value={slug}
                         onChange={(e) => setSlug(e.target.value)}
@@ -277,7 +275,7 @@ const handleUkSizeSelect = (uksize) => {
                   <Form.Group className="mb-4 grid" controlId="name">
                       <Form.Label className="create-label">Price</Form.Label>
                       <input
-                        className='text-sm w-full'
+                        className='input text-sm w-full'
                         value={price}
                         onChange={(e) => setPrice(e.target.value)}
                         required
@@ -321,7 +319,7 @@ const handleUkSizeSelect = (uksize) => {
                   <Form.Group className="mb-4 grid" controlId="category">
                       <Form.Label className="create-label">Category</Form.Label>
                       <input
-                        className='text-sm w-full'
+                        className='input text-sm w-full'
                         value={category}
                         onChange={(e) => setCategory(e.target.value)}
                         required
@@ -331,7 +329,7 @@ const handleUkSizeSelect = (uksize) => {
                   <Form.Group className="mb-4 grid" controlId="brand">
                       <Form.Label className="create-label">Brand</Form.Label>
                       <input
-                        className='text-sm w-full'
+                        className='input text-sm w-full'
                         value={brand}
                         onChange={(e) => setBrand(e.target.value)}
                         required
@@ -361,12 +359,6 @@ const handleUkSizeSelect = (uksize) => {
                           {eusize}
                         </label>
                       ))}
-                      {/* <h4>Selected EU sizes:</h4>
-                      <ul>
-                        {selectedEuSize.map((eusize) => (
-                          <li key={eusize}>{eusize}</li>
-                        ))}
-                      </ul> */}
                   </div>
 
                   <div className='mb-3'>

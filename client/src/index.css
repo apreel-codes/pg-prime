@@ -92,7 +92,6 @@ html, body, #root {
 
 main {
   flex: 1;
-  /* margin: auto; */
 }
 
 .product-rating {

@@ -323,8 +323,9 @@ small {
 }
 
 .product-page .product-details .review-group .review-content .review .comment {
-    color: #1a1a1a;
+    color: #1a1a1ad3;
     font-size: .9rem;
+    width: 250px;
 }
 
 .product-page .product-details .review-group .review-content .review .name-date {
@@ -350,6 +351,7 @@ small {
 .write-review .comment-text {
     font-size: 0.9rem;
 }
+
 
 .write-review .drop-a-review {
     font-size: 0.9rem;

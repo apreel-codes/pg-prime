@@ -43,15 +43,15 @@ const reducer = (state, action) => {
 
 const prices = [
     {
-        name: '£90 - £120',
+        name: '₦90 - ₦120',
         value: '90-120'
     },
     {
-        name: '£121 - £150',
+        name: '₦121 - ₦150',
         value: '121-150'
     },
     {
-        name: '£151 - £200',
+        name: '₦151 - ₦200',
         value: '151-200'
     },
 ];
@@ -335,10 +335,10 @@ const Search = (e) => {
                     <div className='filter-search flex flex-row justify-between mt-4'>
                         <div className=''>
                             <div className='md:hidden filter-drop-down flex flex-row justify-between items-center'>
-                                <p className='cursor-pointer'>Filter</p>
+                                <p className='cursor-pointer'>Show Filters</p>
                                 <div className='fa-stack -mt-0.5' onClick={handleFilterClick}>
-                                    <img className= { isFilterToggled ? "upFilter fa-stack-1x h-3 w-4" : "downFilter" } src="../images/down-arrow.png"/>
-                                    <img className= { isFilterToggled ? "downFilter fa-stack-1x h-3 w-4" : "upFilter" } src="../images/up-arrow.png"/>
+                                    <img className= { isFilterToggled ? "upFilter fa-stack-1x h-3 w-4" : "downFilter" } src="../images/filter.png"/>
+                                    <img className= { isFilterToggled ? "downFilter fa-stack-1x h-3 w-4" : "upFilter" } src="../images/filter.png"/>
                                 </div>
                             </div>
                             <p className='all-products hidden md:block'>All Products</p>
@@ -382,12 +382,14 @@ const Search = (e) => {
                                                     brand !== 'all' ||
                                                     rating !== 'all' ||
                                                     price !== 'all' ? (
+                                                    
                                                     <Button
                                                         variant="light"
                                                         onClick={() => navigate('/search')}
                                                     >
                                                         <i className="fas fa-times-circle"></i>
                                                     </Button>
+
                                                     ) : null}
                                                 </div>
                                             </div>
@@ -448,13 +450,18 @@ const Search = (e) => {
                                                             brand !== 'all' ||
                                                             rating !== 'all' ||
                                                             price !== 'all' ? (
-                                                            <Button
-                                                                variant="light"
-                                                                onClick={() => navigate('/search')}
-                                                            >
-                                                                <i className="fas fa-times-circle"></i>
-                                                            </Button>
+                                                            <div>
+                                                                <Button
+                                                                    variant="light"
+                                                                    onClick={() => navigate('/search')}
+                                                                >
+                                                                    <i className="fas fa-times-circle"></i>
+                                                                </Button>
+                                                                <span onClick={handleFilterClick} className='ml-3'>{' '}Done</span>
+                                                            </div>
+                                                            
                                                             ) : null}
+                                                           
                                                         </div>
                                                     </div>
                                             </div>

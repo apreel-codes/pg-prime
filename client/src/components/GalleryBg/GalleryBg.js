@@ -40,7 +40,7 @@ const GalleryBg = () => {
                 </button>
                   <button className='explore-button flex flex-row justify-between items-center px-4'>
                      <Link onClick={() => window.scrollTo(0, 0)} className='' to="/gallery">Explore Gallery </Link>
-                    <img className='h-3 w-3' src="../images/more.png" />
+                    <img className='h-3 w-5' src="../images/arrow-right.png" />
                   </button>
             </div>
         </div>

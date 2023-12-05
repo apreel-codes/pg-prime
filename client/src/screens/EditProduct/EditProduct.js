@@ -4,7 +4,6 @@ import { toast } from 'react-toastify';
 import axios from 'axios';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
-import Container from 'react-bootstrap/Container';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
@@ -64,9 +63,7 @@ export default function EditProduct() {
   const [image, setImage] = useState('');
   const [images, setImages] = useState([]);
   const [category, setCategory] = useState('');
-  // const [availability, setAvailability] = useState('');
   const [description, setDescription] = useState('');
-  // const [countInStock, setCountInStock] = useState('');
   const [brand, setBrand] = useState('');
   const [selectedEuSize, setSelectedEuSize] = useState([]);
   const [selectedUsSize, setSelectedUsSize] = useState([]);
@@ -154,8 +151,6 @@ const uksizes = [
         setImages(data.images);
         setCategory(data.category);
         setDescription(data.description);
-        // setAvailability(data.availability);
-        // setCountInStock(data.countInStock);
         setBrand(data.brand);
         if(data.selectedEuSize) {
           setSelectedEuSize(data.selectedEuSize);
@@ -290,7 +285,7 @@ const uksizes = [
                 <Form.Group className="mb-4 grid" controlId="name">
                   <Form.Label className="edit-label">Name</Form.Label>
                   <input
-                    className='text-sm w-full'
+                    className='input text-sm w-full'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -299,7 +294,7 @@ const uksizes = [
                 <Form.Group className="mb-4 grid" controlId="slug">
                   <Form.Label className="edit-label">Slug</Form.Label>
                   <input
-                    className='text-sm w-full'
+                    className='input text-sm w-full'
                     value={slug}
                     onChange={(e) => setSlug(e.target.value)}
                     required
@@ -308,7 +303,7 @@ const uksizes = [
                 <Form.Group className="mb-3" controlId="name">
                   <Form.Label className="edit-label">Price</Form.Label>
                   <input
-                    className='text-sm w-full'
+                    className='input text-sm w-full'
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                     required
@@ -355,7 +350,7 @@ const uksizes = [
                 <Form.Group className="mb-4 grid" controlId="category">
                   <Form.Label>Category</Form.Label>
                   <input
-                    className='text-sm w-full'
+                    className='input text-sm w-full'
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                     required
@@ -364,7 +359,7 @@ const uksizes = [
                 <Form.Group className="mb-4 grid" controlId="brand">
                   <Form.Label className="edit-label">Brand</Form.Label>
                   <input
-                    className='text-sm w-full'
+                    className='input text-sm w-full'
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
                     required

@@ -5,8 +5,6 @@ import Button from 'react-bootstrap/Button';
 import { Helmet } from 'react-helmet-async';
 import { toast } from "react-toastify";
 import { Store } from '../../Store';
-import PhoneInput from 'react-phone-number-input';
-import 'react-phone-number-input/style.css';
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import './ShippingAddress.css';
@@ -31,15 +29,16 @@ const ShippingAddress = () => {
     const[fullName, setFullName] = useState(shippingAddress.fullName || '');
     const[address, setAddress] = useState(shippingAddress.address || '');
     const[city, setCity] = useState(shippingAddress.city || '');
+    const[phonenumber, setPhoneNumber] = useState(shippingAddress.phonenumber || '');
+    const[country, setCountry] = useState(shippingAddress.country || '');
+
     useEffect(() => {
         if (!userInfo) {
             navigate('/signin?redirect=/shipping')
         }
     }, [userInfo, navigate])
 
-    const[country, setCountry] = useState(shippingAddress.country || '');
-    const[phonenumber, setPhoneNumber] = useState(shippingAddress.phonenumber || '');
-
+   
     const [paymentMethodName, setPaymentMethod] = useState(
         paymentMethod || 'PayPal'
     );
@@ -102,7 +101,7 @@ const ShippingAddress = () => {
                         <Form.Group className="full-name d-grid mb-4" controlId="fullName">
                         <Form.Label>Full name</Form.Label>
                                 <input
-                                className='w-full'
+                                className='input w-full'
                                 type='text'
                                 value={fullName}
                                 onChange={(e) => setFullName(e.target.value)}
@@ -114,10 +113,10 @@ const ShippingAddress = () => {
                        <div className='w-full'>
                         <Form.Group className="phone-group mb-4" controlId="phonenumber">
                             <Form.Label>Phone</Form.Label>
-                                    <PhoneInput
-                                    className=''
+                                    <input
+                                    className='input w-full'
                                     value={phonenumber}
-                                    onChange={setPhoneNumber}
+                                    onChange={(e) => setPhoneNumber(e.target.value)}
                                     type='tel'
                                     required
                                     />
@@ -129,7 +128,7 @@ const ShippingAddress = () => {
                             <Form.Group className="mb-4 d-grid" controlId="country">
                             <Form.Label>Country</Form.Label>
                                     <input
-                                    className='w-full'
+                                    className='input w-full'
                                     value={country}
                                     onChange={(e) => setCountry(e.target.value)}
                                     required
@@ -140,7 +139,7 @@ const ShippingAddress = () => {
                             <Form.Group className="mb-4 d-grid" controlId="city">
                             <Form.Label>City</Form.Label>
                                     <input
-                                    className='w-full'
+                                    className='input w-full'
                                     value={city}
                                     onChange={(e) => setCity(e.target.value)}
                                     required

@@ -16,6 +16,14 @@
     font-weight: 600;
 }
 
+.edit-product-page .input {
+    outline: 2.3px #27272747 solid;
+    height: 2.5rem;
+    border-radius: .3rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
 .edit-product-page .edit-button {
     background-color: #003466;
     font-family: 'Inter', sans-serif;

@@ -211,7 +211,11 @@ const Product = () => {
                                 <div>
                                     <h1 className="font-bold">{product.name}</h1>
                                     <p className="brand">Brand: {product.brand}</p>
-                                    <Rating rating={product.rating} numReviews={product.numReviews} />
+                                    <div className="flex flex-row justify-between items-center w-32">
+                                        <Rating rating={product.rating} numReviews={product.numReviews} />
+                                        <span>{product.rating.toFixed(1)}</span>
+                                    </div>
+                                    
                                     <p className="price">₦{product.price.toFixed(2)}</p>  
                                 </div>
 

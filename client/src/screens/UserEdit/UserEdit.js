@@ -109,7 +109,7 @@ export default function UserEdit() {
                 <Form.Group className="mb-4 grid" controlId="name">
                   <Form.Label className="edit-user-label">Name</Form.Label>
                   <input
-                    className='text-sm w-full'
+                    className='input text-sm w-full'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     required
@@ -118,7 +118,7 @@ export default function UserEdit() {
                 <Form.Group className="mb-4 grid" controlId="email">
                   <Form.Label className="edit-user-label">Email</Form.Label>
                   <input
-                    className='text-sm w-full'
+                    className='input text-sm w-full'
                     value={email}
                     type="email"
                     onChange={(e) => setEmail(e.target.value)}
@@ -127,7 +127,7 @@ export default function UserEdit() {
                 </Form.Group>
 
                 <Form.Check
-                  className="mb-3"
+                  className=" mb-3"
                   type="checkbox"
                   id="isAdmin"
                   label="Give admin role"

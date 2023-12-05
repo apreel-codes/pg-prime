@@ -3,6 +3,14 @@
     width: 100%;
 }
 
+.edit-user-page .input {
+    outline: 2.3px #27272747 solid;
+    height: 2.5rem;
+    border-radius: .3rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
 .edit-user-page {
     font-family: 'Inter', sans-serif;
     color: #1a1a1a;
