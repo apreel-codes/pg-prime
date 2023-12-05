@@ -60,22 +60,26 @@ const prices = [
 
 export const ratings = [
     {
-      name: '4stars & up',
+        name: '5 stars',
+        rating: 5,
+      },
+    {
+      name: '4 stars',
       rating: 4,
     },
   
     {
-      name: '3stars & up',
+      name: '3 stars',
       rating: 3,
     },
   
     {
-      name: '2stars & up',
+      name: '2 stars',
       rating: 2,
     },
   
     {
-      name: '1stars & up',
+      name: '1 star',
       rating: 1,
     },
   ];
@@ -313,19 +317,10 @@ const Search = (e) => {
                                                             to={getFilterUrl({ rating: r.rating })}
                                                             className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
                                                         >
-                                                            <Rating caption={' & up'} rating={r.rating}></Rating>
+                                                            <Rating rating={r.rating}></Rating>
                                                         </Link>
                                                         </li>
                                                     ))}
-                                                    <li className=''>
-                                                        <Link
-                                                            onClick={() => window.scrollTo(0, 0)}
-                                                            to={getFilterUrl({ rating: 'all' })}
-                                                            className={rating === 'all' ? 'text-bold' : ''}
-                                                        >
-                                                        <Rating caption={' & up'} rating={0}>& up</Rating>
-                                                        </Link>
-                                                    </li>
                                                     </ul>
                                                 </div>
                                                 
@@ -376,7 +371,7 @@ const Search = (e) => {
                                                     {category !== 'all' && ' : ' + category}
                                                     {brand !== 'all' && ' : ' + brand}
                                                     {price !== 'all' && ' : Price ' + price}
-                                                    {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+                                                    {rating !== 'all' && ' : Rating ' + rating}
                                                     {query !== 'all' ||
                                                     category !== 'all' ||
                                                     brand !== 'all' ||
@@ -444,7 +439,7 @@ const Search = (e) => {
                                                             {category !== 'all' && ' : ' + category}
                                                             {brand !== 'all' && ' : ' + brand}
                                                             {price !== 'all' && ' : Price ' + price}
-                                                            {rating !== 'all' && ' : Rating ' + rating + ' & up'}
+                                                            {rating !== 'all' && ' : Rating ' + rating}
                                                             {query !== 'all' ||
                                                             category !== 'all' ||
                                                             brand !== 'all' ||
@@ -553,28 +548,19 @@ const Search = (e) => {
                                                 </div>
             
                                                 <div className= {isRatingToggled ? "block" : 'hidden'}>
+                                                { ratings.map((r) => (
                                                     <ul>
-                                                    {ratings.map((r) => (
-                                                        <li key={r.name} className='rating-list'>
-                                                        <Link
-                                                            onClick={() => window.scrollTo(0, 0)}
-                                                            to={getFilterUrl({ rating: r.rating })}
-                                                            className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
-                                                        >
-                                                            <Rating caption={' & up'} rating={r.rating}></Rating>
-                                                        </Link>
+                                                        <li key={r.name} className='rating-list'> 
+                                                            <Link
+                                                                onClick={() => window.scrollTo(0, 0)}
+                                                                to={getFilterUrl({ rating: r.rating })}
+                                                                className={`${r.rating}` === `${rating}` ? 'text-bold' : ''}
+                                                            >
+                                                                <Rating rating={r.rating}></Rating>
+                                                            </Link>
                                                         </li>
-                                                    ))}
-                                                    <li className=''>
-                                                        <Link
-                                                            onClick={() => window.scrollTo(0, 0)}
-                                                            to={getFilterUrl({ rating: 'all' })}
-                                                            className={rating === 'all' ? 'text-bold' : ''}
-                                                        >
-                                                        <Rating caption={' & up'} rating={0}>& up</Rating>
-                                                        </Link>
-                                                    </li>
                                                     </ul>
+                                                 ))}
                                                 </div>
                                                 
                                             </div>

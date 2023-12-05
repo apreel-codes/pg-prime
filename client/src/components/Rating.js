@@ -39,6 +39,13 @@ const Rating = (props) => {
                 ? 'fas fa-star-half-alt' 
                 : 'far fa-star'} />
             </span>
+            {/* <span>
+                <i className={rating = 5
+                ?'fas fa-star' 
+                : rating >= 4.5 
+                ? 'fas fa-star-half-alt' 
+                : 'far fa-star'} />
+            </span> */}
         </div>
         {caption ? (
             <span className="caption">{caption}</span>
