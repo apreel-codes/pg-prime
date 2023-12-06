@@ -26,9 +26,7 @@ productRouter.post(
         size: req.body.size,
         category: req.body.category,
         description: req.body.description,
-        // availability: req.body.availability,
         brand: req.body.brand,
-        // countInStock: req.body.countInStock,
         rating: 0,
         numReviews: 0,
         euSizes: req.body.selectedEuSize,
@@ -61,9 +59,7 @@ productRouter.post(
         product.ukSizes = req.body.selectedUkSize;
         product.category = req.body.category;
         product.description = req.body.description;
-        // product.availability = req.body.availability,
         product.brand = req.body.brand;
-        // product.countInStock = req.body.countInStock;
         await product.save();
         res.send({ message: 'Product Updated' });
       } else {

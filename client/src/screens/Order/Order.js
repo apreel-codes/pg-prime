@@ -1,7 +1,7 @@
 import axios from 'axios';
-// import apiClient from '../api';
-import React, { useContext, useEffect, useReducer } from 'react';
+import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
+import PaystackPop from '@paystack/inline-js';
 import LoadingBox from '../../components/LoadingBox';
 import MessageBox from '../../components/MessageBox';
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -46,8 +46,15 @@ function reducer(state, action) {
 }
 
 const Order = () => {
+    const[email, setEmail] = useState('');
+    const[amount, setAmount] = useState('');
+    const[fullname, setFullName] = useState('');
+    
+
+
+
     const { state } = useContext(Store);
-    const { userInfo } = state;
+    const { userInfo, cart } = state;
 
 
     const params = useParams();
@@ -61,6 +68,9 @@ const Order = () => {
         successPay: false,
         loadingPay: false,
     });
+
+    console.log(cart);
+    console.log(userInfo);
 
     const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
@@ -144,6 +154,29 @@ const Order = () => {
     }, [order, userInfo, orderId, navigate, paypalDispatch, successPay]);
 
 
+    const payWithPayStack = (e) => {
+        e.preventDefault();
+        //declare a variale to be an instance of PaystackPop
+        const paystack = new PaystackPop()
+        paystack.newTransaction({
+            key: "pk_test_1ceb68041ee70bc2174a59bf690e6d5afbf0dfc0",
+            amount: cart.totalPrice * 100,
+            email: userInfo.email,
+            fullname: cart.shippingAddress.fullName,
+            // shows when transaction has been completed
+            onSuccess(transaction){
+                let message = `Payment Complete! Reference ${transaction.reference}`
+                alert(message)
+            },
+            //shows when users closes a transaction without completing
+            onCancel(){
+                //make this a pop up modal
+                alert('You have cancelled a transaction.')
+            }
+        })
+    }
+
+
     const orderIdShort = orderId.slice(0, 8);
 
     const copyToClipboard = () => {
@@ -177,34 +210,88 @@ const Order = () => {
                         </div>
                     </div>
 
-                    <div className='paypal-group mt-9'>
-                        <Card className='mb-3'>
-                            <Card.Body>
-                                
-                                <ListGroup className='' variant="flush">
-                                    {!order.isPaid && (
-                                        <ListGroup.Item className='mt-1'>
-                                            { isPending ? (
-                                                <LoadingBox />
-                                            ) : 
-                                            (
-                                                <div>
-                                                    <h2>Pay with PayPal/Card</h2>
-                                                    <PayPalButtons
-                                                        className='pal-buttons'
-                                                        createOrder={createOrder}
-                                                        onApprove={onApprove}
-                                                        onError={onError}
-                                                    ></PayPalButtons>
-                                                </div>
-                                            )}
-                                            {loadingPay && <LoadingBox></LoadingBox>}
-                                        </ListGroup.Item>
-                                    )}                                                                     
-                                </ListGroup>
-                            </Card.Body>
-                        </Card>
-                    </div>
+                    { 
+                        cart.paymentMethod === "PayPal" && 
+                        <div className='paypal-group mt-9'>
+                            <Card className='mb-3'>
+                                <Card.Body>
+                                    
+                                    <ListGroup className='' variant="flush">
+                                        {!order.isPaid && (
+                                            <ListGroup.Item className='mt-1'>
+                                                { isPending ? (
+                                                    <LoadingBox />
+                                                ) : 
+                                                (
+                                                    <div>
+                                                        
+                                                        <PayPalButtons
+                                                            className='pal-buttons'
+                                                            createOrder={createOrder}
+                                                            onApprove={onApprove}
+                                                            onError={onError}
+                                                        ></PayPalButtons>
+                                                    </div>
+                                                )}
+                                                {loadingPay && <LoadingBox></LoadingBox>}
+                                            </ListGroup.Item>
+                                        )}                                                                     
+                                    </ListGroup>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    }
+
+                    { 
+                        cart.paymentMethod === "Paystack" && 
+                        <div className='paypal-group mt-9'>
+                            <Card className='mb-3'>
+                                <Card.Body>
+                                    
+                                    <ListGroup className='' variant="flush">
+                                        {!order.isPaid && (
+                                            <ListGroup.Item className='mt-1'>
+                                                { isPending ? (
+                                                    <LoadingBox />
+                                                ) : 
+                                                (
+                                                    <div className='paystack-group'>
+                                                        <h2 className='-mt-4'>Pay with Paysatck</h2>
+                                                        <form id='paymentForm' className=''>
+                                                            <div className='form-group d-grid mb-4'>
+                                                                <label className='label' htmlFor='amount'>Email address</label>
+                                                                <input className='input' type='email' id='email-address' value={userInfo.email} disabled/>
+                                                            </div>
+                                                            <div className='form-group d-grid mb-4'>
+                                                                <label className='label' htmlFor='amount'>Amount</label>
+                                                                <input className='input' type='tel' id='amount' value={cart.totalPrice} disabled/>
+                                                            </div>
+                                                            <div className='form-group d-grid mb-4'>
+                                                                <label className='label' htmlFor='first-name'>Full Name</label>
+                                                                <input className='input' type='text' id='first-name' value={cart.shippingAddress.fullName} disabled/>
+                                                            </div>
+                                                            {/* <div className='form-group d-grid mb-4'>
+                                                                <label className='label' htmlFor='last-name'>Last name</label>
+                                                                <input className='input' type='text' id='last-name' onChange={(e) => setLastName(e.target.value)}/>
+                                                            </div> */}
+                                                            <div className='order-button d-grid'>
+                                                                <Button className='button border-none text-white mx-auto' onClick={payWithPayStack} type='submit'>Pay</Button>
+                                                                
+                                                            </div>
+                                                        </form>
+                                                        
+                                                    </div>
+                                                )}
+                                                {loadingPay && <LoadingBox></LoadingBox>}
+                                            </ListGroup.Item>
+                                        )}                                                                     
+                                    </ListGroup>
+                                </Card.Body>
+                            </Card>
+                        </div>
+                    }
+
+                    
 
                     
                     <div className='order-button mt-4 d-grid'>

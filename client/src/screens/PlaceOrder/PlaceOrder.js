@@ -43,8 +43,6 @@ const PlaceOrder = () => {
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { cart, userInfo } = state;
-
-    // console.log(cart);
     
     const [urgency, setUrgency] = useState('I can wait');
 
@@ -97,11 +95,11 @@ const PlaceOrder = () => {
         }
     };
 
-    useEffect(() => {
-        if (!cart.paymentMethod) {
-            navigate('/payment');
-        }
-    }, [cart, navigate])
+    // useEffect(() => {
+    //     if (!cart.paymentMethod) {
+    //         navigate('/payment');
+    //     }
+    // }, [cart, navigate])
 
     return (
         <div>

@@ -176,6 +176,16 @@ const ShippingAddress = () => {
                                         onChange={(e) => setPaymentMethod(e.target.value)}
                                         />
                                     </div>
+                                    <div className='my-3'>
+                                        <Form.Check
+                                        type='radio'
+                                        id='Paystack'
+                                        label="Paystack"
+                                        value="Paystack"
+                                        checked={paymentMethodName === "Paystack"}
+                                        onChange={(e) => setPaymentMethod(e.target.value)}
+                                        />
+                                    </div>
                                     <div>
                                         <Form.Check
                                         type='radio'

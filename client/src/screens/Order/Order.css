@@ -1,7 +1,30 @@
 .order-page {
     text-align: center;
-    /* width: 70%; */
-    /* margin: 10rem auto; */
+}
+
+.order-page .input {
+    outline: 2.3px #27272747 solid;
+    height: 2.5rem;
+    border-radius: .3rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.order-page .input {
+    outline: 2.3px #27272747 solid;
+    height: 2.5rem;
+    border-radius: .3rem;
+    padding-left: 1rem;
+    font-size: 0.9rem;
+}
+
+.order-page .label {
+    color: #1a1a1a;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 400;
+    text-align: left;
+    margin-bottom: .8rem;
 }
 
 .order-page .order-h1 {

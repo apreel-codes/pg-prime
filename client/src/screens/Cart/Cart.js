@@ -145,7 +145,7 @@ const CartComponent = () => {
                                 
                                             </td>
                                             <td className="web-item-price">
-                                               <p className="mt-14">&#163;{item.price}</p>
+                                               <p className="mt-14">₦{item.price}</p>
                                             </td>
                                             <td className="web-add-minus-qty">
                                             <div className="web-add-minus-qty-content mt-12 w-[30%] flex flex-row justify-between items-center">
@@ -160,7 +160,7 @@ const CartComponent = () => {
                                                
                                             </td>
                                             <td className="web-item-price-total">
-                                               <p className="mt-14">&#163;{(item.price * item.quantity).toFixed(2)}</p>
+                                               <p className="mt-14">₦{(item.price * item.quantity).toFixed(2)}</p>
                                             </td>
                                           </tr>
                                         </tbody>
@@ -175,7 +175,7 @@ const CartComponent = () => {
                     <div className="web-check-out-section">
                         <div className="web-total flex flex-row justify-between items-center mb-3">
                             <p>Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{' '}item(s))</p>
-                            <p className="web-price">&#163;{(cartItems.reduce((a, c) => a + c.price * c.quantity, 0)).toFixed(2)}</p>  
+                            <p className="web-price">₦{(cartItems.reduce((a, c) => a + c.price * c.quantity, 0)).toFixed(2)}</p>  
                         </div>
                         <div className="d-grid">
                             <button
