@@ -21,7 +21,7 @@
 .order-page .label {
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 400;
     text-align: left;
     margin-bottom: .8rem;
@@ -31,7 +31,7 @@
     color: #1a1a1a;
     font-family: 'Open Sans', sans-serif;
     font-size: 2.3rem;
-    margin-bottom: 1.7rem;
+    margin-bottom: 2rem;
 }
 
 .order-page .order-p {
@@ -62,46 +62,47 @@
 
 
 @media screen and (min-width: 600px) {
-    .order-button .button {
+    .order-button .pay-button {
         background-color: #003466;
         font-family: 'Inter', sans-serif;
         font-size: 1rem;
         margin-top: .8rem;
         padding: 1rem 3rem;
-        width: 300px;
+        width: 100%;
     }
   
 }
 
 @media screen and (max-width: 600px) {
-    .order-button .button {
+    .order-button .pay-button {
         background-color: #003466;
         font-family: 'Inter', sans-serif;
         font-size: 1rem;
         margin-top: .8rem;
-        padding: 1rem 2rem;
+        padding: 1rem 3rem;
         width: 100%;
     }
   
 }
 
 
-.pal-buttons {
+/* /* .pal-buttons {
     margin-top: 1rem;
-}
+} */
 
 .paypal-group h2  {
     text-align: center;
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     margin: .5rem 0;
     font-weight: 700;
+    margin-bottom: 2rem;
 }
 
 
-.paypal-group span {
+/* .paypal-group span {
     color: #1a1a1a8c;
     line-height: 0.7rem;
     margin-bottom: 2rem;
-}
+}  */

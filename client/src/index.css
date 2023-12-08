@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html, body, #root {
   position: relative;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -11,7 +10,6 @@ html, body, #root {
   min-height: 100vh;
   overflow: auto;
 }
-
 
 
 .message-box-text {

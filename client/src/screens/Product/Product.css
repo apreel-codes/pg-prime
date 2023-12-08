@@ -140,7 +140,6 @@ small {
     
     .product-page .product-page-image-specs{
         display: block;
-        /* border: 1px rgba(173, 173, 173, 0.709) solid; */
         width: 400px;
         height: 570px;
         padding: 1rem;

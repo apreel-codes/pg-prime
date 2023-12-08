@@ -40,7 +40,7 @@ const ShippingAddress = () => {
 
    
     const [paymentMethodName, setPaymentMethod] = useState(
-        paymentMethod || 'PayPal'
+        paymentMethod || 'Paystack'
     );
 
 
@@ -166,7 +166,7 @@ const ShippingAddress = () => {
 
                     <div className='payment'>
                                     <h2>Payment Method</h2>
-                                    <div className='my-3'>
+                                    {/* <div className='my-3'>
                                         <Form.Check
                                         type='radio'
                                         id='PayPal'
@@ -175,7 +175,7 @@ const ShippingAddress = () => {
                                         checked={paymentMethodName === "PayPal"}
                                         onChange={(e) => setPaymentMethod(e.target.value)}
                                         />
-                                    </div>
+                                    </div> */}
                                     <div className='my-3'>
                                         <Form.Check
                                         type='radio'

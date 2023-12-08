@@ -53,6 +53,36 @@ export default function OrderListScreen() {
       error: '',
     });
 
+    console.log(orders);
+
+
+let newOrders;
+
+if(orders){
+  newOrders = orders.map(order => ({
+    ...order, // spread the existing properties
+    id: order._id,
+    date: order.createdAt.substring(0, 10),
+    buyer: order.user.name,
+    name: order.orderItems.map((o) => {
+      return o.name;
+    }),
+    size: order.orderItems.map((o) => {
+      return o.size;
+    }),
+    quantity: order.orderItems.map((o) => {
+      return o.quantity;
+    }),
+    itemPrice: order.itemsPrice,
+    shippingCost: order.shippingPrice,
+    totalCost: order.totalPrice,
+    phone: order.shippingAddress.phonenumber,
+    address: order.shippingAddress.address,
+    city: order.shippingAddress.city,
+    country: order.shippingAddress.country,
+    payment: order.paymentMethod,
+  }));
+}
 
 
   useEffect(() => {
@@ -105,8 +135,8 @@ export default function OrderListScreen() {
         <div className='flex flex-row justify-between items-center'>
           <h1 className='my-3 text-xl font-bold'>Orders</h1>
           <div className='csv-button'>
-                { orders  &&
-                <CSVLink data={orders}>Export</CSVLink>
+                { newOrders  &&
+                <CSVLink data={newOrders}>Export</CSVLink>
                 
                 }
           </div>
@@ -124,25 +154,29 @@ export default function OrderListScreen() {
                   ) : (
                     <table className="table mt-3">
                           <thead>
-                            <tr>
-                              <th>ID</th>
-                              <th>USER</th>
-                              <th>DATE</th>
-                              <th>TOTAL</th>
-                              <th>PAID</th>
-                              <th>ACTIONS</th>
+                          <tr className=''>
+                                  <th>ID</th>
+                                  <th>USER</th>
+                                  <th>DATE</th>
+                                  <th>DETAILS</th>
+                                  <th>TOTAL</th>
+                                  <th>ACTIONS</th>
                             </tr>
                           </thead>
                           <tbody>
                                     { orders.map((order) => (
                                     <tr key={order._id}>
-                                      <td><span className='md:hidden mobile-header block font-semibold'>ID:&nbsp;</span>{order._id}</td>
+                                      <td><span className='md:hidden mobile-header block font-semibold'>ID:&nbsp;</span>{order._id.slice(0, 8)}</td>
                                       <td><span className='md:hidden mobile-header block font-semibold'>USER:&nbsp;</span>{order.user ? order.user.name : 'DELETED USER'}</td>
                                       <td><span className='md:hidden mobile-header block font-semibold'>DATE:&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
-                                      <td><span className='md:hidden mobile-header block font-semibold'>TOTAL:&nbsp;</span>&#163;{order.totalPrice.toFixed(2)}</td>
-                                      <td><span className='md:hidden mobile-header block font-semibold'>PAID:&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td>
+                                      <td><span className='md:hidden mobile-header block font-semibold'>DETAILS:&nbsp;</span>{order.orderItems.map((o, index) => (
+                                          <p key={index}>{o.name}({o.quantity}).&nbsp;</p>
+                                      ))}
+                                      </td>
+                                      <td><span className='md:hidden mobile-header block font-semibold'>TOTAL:&nbsp;</span>₦{order.totalPrice.toFixed(2)}</td>
+                                      {/* <td><span className='md:hidden mobile-header block font-semibold'>PAID:&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No'}</td> */}
                                       <td>
-                                        <Button
+                                        {/* <Button
                                           className='text-blue-800 border-blue-800'
                                           type="button"
                                           
@@ -151,10 +185,8 @@ export default function OrderListScreen() {
                                           }}
                                         >
                                           Details
-                                        </Button>
-                                        &nbsp;
-                                        &nbsp;
-                                        &nbsp;
+                                        </Button> */}
+                                        
                                         <Button
                                           type="button"
                                           className='bg-red-600 text-gray-100 border-none'

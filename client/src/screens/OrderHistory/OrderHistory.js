@@ -38,6 +38,8 @@ const OrderHistory = () => {
         error: '',
     });
 
+    console.log(orders);
+
 
     useEffect(() => {
         const fetchData = async () => {
@@ -78,19 +80,22 @@ const OrderHistory = () => {
                                             <tr className=''>
                                                 <th>ID</th>
                                                 <th>DATE</th>
+                                                <th>DETAILS</th>
                                                 <th>TOTAL</th>
-                                                <th>PAID</th>
-                                                <th>ACTIONS</th>
+                                                {/* <th>ACTIONS</th> */}
                                             </tr>
                                     </thead>
                                     <tbody>
                                             { orders.map((order) => (
-                                                <tr key={order._id}>
-                                                    <td><span className='md:hidden mobile-header block font-semibold'>ID:&nbsp;</span>{order._id}</td>
+                                                <tr key={order._id} className=''>
+                                                    <td><span className='md:hidden mobile-header block font-semibold'>ID:&nbsp;</span>{order._id.slice(0, 8)}</td>
                                                     <td><span className='md:hidden mobile-header block font-semibold'>DATE:&nbsp;</span>{order.createdAt.substring(0, 10)}</td>
-                                                    <td><span className='md:hidden mobile-header block font-semibold'>TOTAL:&nbsp;</span>{order.totalPrice.toFixed(2)}</td>
-                                                    <td><span className='md:hidden mobile-header block font-semibold'>PAID:&nbsp;</span>{order.isPaid ? order.paidAt.substring(0, 10) : 'No' }</td>
-                                                    <td>
+                                                    <td><span className='md:hidden mobile-header block font-semibold'>DETAILS:&nbsp;</span>{order.orderItems.map((o, index) => (
+                                                        <p key={index}>{o.name}({o.quantity}).&nbsp;</p>
+                                                    ))}
+                                                    </td>
+                                                    <td><span className='md:hidden mobile-header block font-semibold'>TOTAL:&nbsp;</span>₦{order.totalPrice.toFixed(2)}</td>
+                                                    {/* <td>
                                                         <Button
                                                             className='text-blue-800 border-blue-800'
                                                             type='button'
@@ -99,7 +104,7 @@ const OrderHistory = () => {
                                                                 navigate(`/order/${order._id}`);
                                                             }}
                                                         >Details</Button>
-                                                    </td>
+                                                    </td> */}
                                                 </tr>
                                             ))}
                                     </tbody>

@@ -191,7 +191,12 @@ const [brands, setBrands] = useState([]);
                 </div>
                 <div className='mobile-second md:hidden'>
                     <div className='flex flex-row justify-between items-center'>
-                        <Link onClick={() => window.scrollTo(0, 0)} to='/'> <img className='h-12 w-20' src='../images/nav-logo.png'/></Link>
+                        <Link 
+                        onClick={() => { 
+                                window.scrollTo(0, 0) 
+                                showSideNav()
+                                }} to='/'> 
+                            <img className='h-12 w-20' src='../images/nav-logo.png'/></Link>
                         <div className='search-cart-ham flex flex-border justify-between items-center'>
                                 <img className='w-4 h-4' src='../images/search.png' onClick={showSearchBar}/>
                                 <div className='flex flex-row justify-between items-center px-1.5 py-2 w-12 rounded'>

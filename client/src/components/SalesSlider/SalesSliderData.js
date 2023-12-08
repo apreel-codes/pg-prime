@@ -10,7 +10,7 @@ export const SalesSliderData = [
         to: "/search?category=all&query=all&price=90-120&brand=all&rating=all&order=newest&page=1"
     },
     {
-        text: "PGF PRIME Black Friday Deals on Sneakers",
+        text: "PGF PRIME Black Friday Deals on Sneakers.",
         subtext: "Get your favourite sneakers at unbeatable prices!",
     },
 ]

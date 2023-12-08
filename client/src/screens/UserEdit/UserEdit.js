@@ -142,7 +142,7 @@ export default function UserEdit() {
                         <Link to='/admin/userlist'>Cancel</Link>
                       </Button>
                     </div>
-                    <div className="mb-3 d-grid">
+                    <div className="d-grid">
                       <Button disabled={loadingUpdate}
                       className="edit-user-button border-none text-white w-full"
                       type="submit">

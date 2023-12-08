@@ -20,6 +20,7 @@ import Footer from "../../components/Footer/Footer";
 import copy from "copy-to-clipboard";
 import './Order.css';
 import Button from 'react-bootstrap/Button';
+import ReviewModal from '../../components/ReviewModal/ReviewModal';
 
 
 function reducer(state, action) {
@@ -46,16 +47,10 @@ function reducer(state, action) {
 }
 
 const Order = () => {
-    const[email, setEmail] = useState('');
-    const[amount, setAmount] = useState('');
-    const[fullname, setFullName] = useState('');
     
-
-
 
     const { state } = useContext(Store);
     const { userInfo, cart } = state;
-
 
     const params = useParams();
     const { id: orderId } = params;
@@ -68,9 +63,6 @@ const Order = () => {
         successPay: false,
         loadingPay: false,
     });
-
-    console.log(cart);
-    console.log(userInfo);
 
     const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
 
@@ -154,6 +146,9 @@ const Order = () => {
     }, [order, userInfo, orderId, navigate, paypalDispatch, successPay]);
 
 
+    const [paymentMade, setPaymentMade] = useState(false);
+
+
     const payWithPayStack = (e) => {
         e.preventDefault();
         //declare a variale to be an instance of PaystackPop
@@ -167,10 +162,12 @@ const Order = () => {
             onSuccess(transaction){
                 let message = `Payment Complete! Reference ${transaction.reference}`
                 alert(message)
+                navigate('/')
+                // console.log(order);
+                setPaymentMade(!paymentMade)
             },
             //shows when users closes a transaction without completing
             onCancel(){
-                //make this a pop up modal
                 alert('You have cancelled a transaction.')
             }
         })
@@ -198,7 +195,7 @@ const Order = () => {
                 <Helmet>
                     <title>Order {orderId}</title>
                 </Helmet>
-                <div className='order-page md:w-[30%] mx-auto w-[70%] my-12'>
+                <div className='order-page md:w-[30%] mx-auto w-[90%] my-12'>
                     <h1 className='order-h1 font-black'>Thanks for your order!</h1>
                     <p className='order-p'>Your order will be sent to your address via the selected delivery service after payment confirmation has been made.</p>
 
@@ -206,11 +203,11 @@ const Order = () => {
                         <p className='order-id-text'>Your order ID</p>
                         <div className='order-border flex flex-row justify-between items-center py-1 px-2'>
                             <p>#{orderIdShort}</p>
-                            <img src="../images/copy.png" onClick={copyToClipboard} />
+                            <img src="../images/copy.png" onClick={copyToClipboard} className='cursor-pointer'/>
                         </div>
                     </div>
 
-                    { 
+                    {/* { 
                         cart.paymentMethod === "PayPal" && 
                         <div className='paypal-group mt-9'>
                             <Card className='mb-3'>
@@ -240,43 +237,45 @@ const Order = () => {
                                 </Card.Body>
                             </Card>
                         </div>
-                    }
+                    } */}
 
                     { 
                         cart.paymentMethod === "Paystack" && 
-                        <div className='paypal-group mt-9'>
-                            <Card className='mb-3'>
-                                <Card.Body>
+                        <div className='paypal-group mt-3'>
+                            <div className='mb-3 border-none'>
+                                <div>
                                     
                                     <ListGroup className='' variant="flush">
-                                        {!order.isPaid && (
+                                        { !paymentMade && (
                                             <ListGroup.Item className='mt-1'>
                                                 { isPending ? (
                                                     <LoadingBox />
                                                 ) : 
                                                 (
                                                     <div className='paystack-group'>
-                                                        <h2 className='-mt-4'>Pay with Paysatck</h2>
+                                                        <h2 className=''>Pay with Paystack</h2>
                                                         <form id='paymentForm' className=''>
                                                             <div className='form-group d-grid mb-4'>
                                                                 <label className='label' htmlFor='amount'>Email address</label>
                                                                 <input className='input' type='email' id='email-address' value={userInfo.email} disabled/>
                                                             </div>
+
                                                             <div className='form-group d-grid mb-4'>
                                                                 <label className='label' htmlFor='amount'>Amount</label>
                                                                 <input className='input' type='tel' id='amount' value={cart.totalPrice} disabled/>
                                                             </div>
+
                                                             <div className='form-group d-grid mb-4'>
                                                                 <label className='label' htmlFor='first-name'>Full Name</label>
                                                                 <input className='input' type='text' id='first-name' value={cart.shippingAddress.fullName} disabled/>
                                                             </div>
-                                                            {/* <div className='form-group d-grid mb-4'>
-                                                                <label className='label' htmlFor='last-name'>Last name</label>
-                                                                <input className='input' type='text' id='last-name' onChange={(e) => setLastName(e.target.value)}/>
-                                                            </div> */}
+                                                            
                                                             <div className='order-button d-grid'>
-                                                                <Button className='button border-none text-white mx-auto' onClick={payWithPayStack} type='submit'>Pay</Button>
+                                                                <Button className='pay-button border-none text-white mx-auto'
                                                                 
+                                                                onClick={payWithPayStack}
+                                                                type='submit'>Pay
+                                                                </Button> 
                                                             </div>
                                                         </form>
                                                         
@@ -286,20 +285,10 @@ const Order = () => {
                                             </ListGroup.Item>
                                         )}                                                                     
                                     </ListGroup>
-                                </Card.Body>
-                            </Card>
+                                </div>
+                            </div>
                         </div>
                     }
-
-                    
-
-                    
-                    <div className='order-button mt-4 d-grid'>
-                        <Button className='button flex flex-row justify-between items-center border-none text-white mx-auto' type="button">
-                            <img src="../images/arrow-left.png"/>
-                            <Link to="/">Back to home page</Link>
-                        </Button>
-                    </div>
 
                 </div>
                 <Footer />

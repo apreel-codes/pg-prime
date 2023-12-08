@@ -70,7 +70,7 @@ const Footer = () => {
               <div className="flex flex-col gap-y-3">
                 <div className="">
                   <span className="font-semibold text-base">Payments Method</span>
-                  <p className="payment-text mt-6 mb-2">We accept payment all across the world through PayPal</p>
+                  <p className="payment-text mt-6 mb-2">We accept payment all across the world through Paystack</p>
                 </div>
                 <span className="font-semibold text-base ">Contacts</span>
                 <ul className="flex flex-col gap-y-2">

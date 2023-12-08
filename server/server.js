@@ -81,6 +81,43 @@ app.post(
     });
     })
   )
+
+  app.get('/paystack', function(req, res) {
+    const https = require('https')
+  
+      const params = JSON.stringify({
+        "email": "customer@email.com",
+        "amount": "20000"
+      })
+  
+      const options = {
+        hostname: 'api.paystack.co',
+        port: 443,
+        path: '/transaction/initialize',
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer pk_test_1ceb68041ee70bc2174a59bf690e6d5afbf0dfc0',
+          'Content-Type': 'application/json'
+        }
+      }
+  
+      const reqpaystack = https.request(options, respaystack => {
+        let data = ''
+  
+        respaystack.on('data', (chunk) => {
+          data += chunk
+        });
+  
+        respaystack.on('end', () => {
+          console.log(JSON.parse(data))
+        })
+      }).on('error', error => {
+        console.error(error)
+      })
+  
+      reqpaystack.write(params)
+      reqpaystack.end()
+  });
   
 
 const __dirname = path.resolve();
