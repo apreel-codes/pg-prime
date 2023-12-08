@@ -59,8 +59,6 @@ const Store = () => {
                     
                     <div className='store-img md:block hidden'></div>            
                 
-                
-
                     <div className='store-content md:w-[60%] w-[95%] md:px-2 px-2 mx-auto'>
                         <h2 data-aos="slide-up">Visit Our Store Today</h2>
                         <p data-aos="slide-up">Step into our store and immerse yourself in the world of sneakers.</p>

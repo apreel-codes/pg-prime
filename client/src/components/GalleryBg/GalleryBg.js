@@ -63,13 +63,13 @@ const GalleryBg = () => {
                 </div>
             </div> */}
 
-            <div className='mobile-slider md:hidden block'>
+            <div className='mobile-slider md:hidden block' data-aos="slide-up" >
                     {
                         StoreMobileImg.map((mobile, index) => (
                             <div className = {index === currentSlide ? "mobile-slide 'mobile-current" : "mobile-slide"} key={index}>
                                 {index === currentSlide && (
                                     <div className=''>
-                                        <img data-aos="zoom-in" src={mobile.img} className='mobile-image mx-auto'/>
+                                        <img src={mobile.img} className='mobile-image mx-auto'/>
                                     </div>
                                 )}
                                 
@@ -78,13 +78,13 @@ const GalleryBg = () => {
                     }
             </div>
 
-            <div className='web-gallery-slider md:block hidden'>
+            <div className='web-gallery-slider md:block hidden' data-aos="slide-up">
                     {
                         StoreImg.map((store, index) => (
                             <div className = {index === currentSlide ? "web-gallery-slide 'web-gallery-current" : "web-gallery-slide"} key={index}>
                                 {index === currentSlide && (
                                     <div className=''>
-                                        <img data-aos="zoom-in" src={store.img} className='web-gallery-image mx-auto'/>
+                                        <img src={store.img} className='web-gallery-image mx-auto'/>
                                     </div>
                                 )}
                                 
