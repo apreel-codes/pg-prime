@@ -14,7 +14,7 @@ const GalleryBg = () => {
 
     const autoScroll = true;
     let slideInterval;
-    let intervalTime = 4000;
+    let intervalTime = 2000;
 
     const nextSlide = () => {
         setCurrentSlide(currentSlide === slideLength - 1 ? 0 : currentSlide + 1);
@@ -37,9 +37,6 @@ const GalleryBg = () => {
         return () => clearInterval(slideInterval)
     }, [currentSlide]) 
 
-    useEffect(() => {
-        AOS.init({duration: 1200});
-      }, []);
 
       useEffect(() => {
         window.scrollTo(0, 0);

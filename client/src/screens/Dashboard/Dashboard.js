@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 import Chart from 'react-google-charts';
 import axios from 'axios';
-import { Store } from '../Store';
-import { getError } from '../uttils';
-import LoadingBox from '../components/LoadingBox';
-import MessageBox from '../components/MessageBox';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import { Helmet } from 'react-helmet-async';
+import { Store } from '../../Store';
+import LoadingBox from '../../components/LoadingBox';
+import MessageBox from '../../components/MessageBox';
+import { getError } from '../../uttils';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -52,7 +54,9 @@ export default function DashboardScreen() {
   }, [userInfo]);
 
   return (
-    <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
+    <div>
+      <Header />
+      <div className='md:w-[40%] w-[90%] my-10 mx-auto'>
         <Helmet>
             <title>Dashboard</title>
         </Helmet>
@@ -97,7 +101,7 @@ export default function DashboardScreen() {
                       ? summary.orders[0].totalSales.toFixed(2)
                       : 0}
                   </Card.Title>
-                  <Card.Text> Orders</Card.Text>
+                  <Card.Text> Revenue</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -156,6 +160,9 @@ export default function DashboardScreen() {
           </div>
         </>
       )}
+      </div>
+      <Footer />
     </div>
+    
   );
 }

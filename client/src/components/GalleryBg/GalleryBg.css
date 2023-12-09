@@ -75,10 +75,10 @@
       margin: 0 auto;
   }
 
-  .web-gallery-slider .web-gallery-current {
+  /* .web-gallery-slider .web-gallery-current {
       opacity: 1;
       transform: translateX(100%);
-  }
+  } */
 
    .web-gallery-image {
     height: 600px;
@@ -116,10 +116,10 @@
       margin: 0 auto;
   }
 
-  .mobile-slider .mobile-current {
+  /* .mobile-slider .mobile-current {
       opacity: 1;
       transform: translateX(100%);
-  }
+  } */
 
   .mobile-image {
       height: 700px;

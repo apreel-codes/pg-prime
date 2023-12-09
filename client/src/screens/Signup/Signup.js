@@ -156,11 +156,11 @@ const Signup = () => {
                                     </div>          
                             </Form.Group>
                             <div className="mb-3 d-grid">
-                                    <Button className="button py-2 border-none text-white" type="submit">Sign Up</Button>
+                                    <Button className="button py-2 border-none text-white" type="submit">Sign up</Button>
                             </div>
                             <div className="have-account text-center">
                                 Already have an account?{' '}
-                                <Link className="forgot-password" to={`/signin?redirect=${redirect}`}>Sign In</Link>
+                                <Link className="forgot-password" to={`/signin?redirect=${redirect}`}>Sign in</Link>
                             </div>
                         </Form>
                     </div>

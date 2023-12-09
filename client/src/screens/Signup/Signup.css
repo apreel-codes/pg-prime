@@ -54,7 +54,7 @@
     color: #1a1a1aa7;;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
-    font-weight: 500;
+    /* font-weight: 500; */
 }
 
 .form .button {
