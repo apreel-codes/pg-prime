@@ -56,20 +56,30 @@ const Header = () => {
   const [isToggled, setIsToggled] = useState(true);
   const [isNavBarToggled, setIsNavBarToggled] = useState(false);
   const [isCloseToggled, setIsCloseToggled] = useState(false);
+  const [isBrandToggled, setIsBrandToggled] = useState(false);
 
   const [isAdminToggled, setIsAdminToggled] = useState(false);
+  const [isMobileBrandsToggled, setIsMobileBrandsToggled] = useState(false);
 
   const showSearchBar = () => {
         setIsToggled(!isToggled);    
   }
 
-  const showSideNav = () => {
+const showSideNav = () => {
     setIsNavBarToggled(!isNavBarToggled);
     setIsCloseToggled(!isCloseToggled);
-  }
+}
 
-  const showAdmin = () => {
+const showAdmin = () => {
     setIsAdminToggled(!isAdminToggled);    
+}
+
+const showMobileBrands = () => {
+    setIsMobileBrandsToggled(!isMobileBrandsToggled);    
+}
+    
+const showBrands = () => {
+    setIsBrandToggled(!isBrandToggled);
 }
 
 
@@ -222,7 +232,6 @@ const [brands, setBrands] = useState([]);
                      <SearchBox />
                     </div>
                 </div>
-
                 <div className='hidden md:block page-navs'>
                     <ul className='brand-header flex flex-row justify-between items-center w-[100%] my-3 ml-6'>
                         <Link onClick={() => window.scrollTo(0, 0)} to="/"><li>Home</li></Link>
@@ -233,27 +242,24 @@ const [brands, setBrands] = useState([]);
                             categories.map((c, i) => (
                                 <div className='brand w-16 flex flex-row justify-between items-center'>
                                 <Link onClick={() => window.scrollTo(0, 0)} className='mobile-brands' to={{ pathname: '/search', search: `category=${c}`}} key={i}><li>{c}</li></Link>
-                                {/* <img className='ml-2' src='../images/arrow-down.png' /> */}
+                                
                                 </div>
                             ))
                         }
                         
-                        { brands && 
+                        {/* { brands && 
                             brands.map((b, i) => (
                                 <div className='brand w-16 flex flex-row justify-between items-center'>
                                     <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>
                                         {b}
                                     </li>
                                     </Link>
-                                    {/* <img className='ml-2' src='../images/arrow-down.png' /> */}
                                 </div>
-                            ))
-                                
-        
-                        }
+                            ))            
+                        } */}
+                        <Link onClick={showBrands} to="#"><li>All Brands</li></Link>
                     </ul>
                 </div>
-
                 <div className='side-body'>
                     <div className= { isNavBarToggled ? 'mobile-side-nav' : 'hide-mobile-side-nav'} >
                             <ul className='content flex flex-col py-1'>
@@ -279,7 +285,7 @@ const [brands, setBrands] = useState([]);
                                     ))
                                 }
                                  
-                                { brands && 
+                                {/* { brands && 
                                     brands.map((b, i) => (
                                         <Link onClick={() => { 
                                             window.scrollTo(0, 0) 
@@ -287,8 +293,26 @@ const [brands, setBrands] = useState([]);
                                             }}
                                             className='mobile-brands' to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
                                     ))
-                                }
-                            
+                                } 
+                                                           */}
+                                {/* <Link onClick={showSideNav} to="#"><li>All Brands</li></Link> */}
+
+                                <div className="mobile-brands-group ">
+                                    <Link onClick={showMobileBrands} to="#"><li>All Brands</li></Link>
+                                    <div className= { isMobileBrandsToggled ? 'block ml-4' : 'hidden'}>
+                                        { brands && 
+                                            brands.map((b, i) => (
+                                                <Link onClick={() => { 
+                                                    window.scrollTo(0, 0) 
+                                                    showSideNav()
+                                                    }}
+                                                    className='mobile-brands' to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li>{b}</li></Link>
+                                            ))
+                                        } 
+                                    </div>
+                        
+                                                          
+                                </div>
                             </ul>
                             {userInfo ? (
                                 <div className='profile-signout flex flex-col'>
@@ -389,6 +413,21 @@ const [brands, setBrands] = useState([]);
                                 
                             )}
                     </div>
+                </div>
+                {/* <div className='brand-modal hidden md:block px-4'> */}
+                <div className = {isBrandToggled ? 'brand-modal hidden md:block px-4 shadow-lg' : 'md:hidden hidden'}>
+                    <ul className='grid grid-cols-3 gap-3 text-[.9rem] mt-3'>
+                    { brands && 
+                            brands.map((b, i) => (
+                                <div className='brand'>
+                                    <Link onClick={() => window.scrollTo(0, 0)} to={{ pathname: '/search', search: `brand=${b}`}} key={i}><li className=''>
+                                        {b}</li>
+                                    </Link>
+                                </div>
+                            ))            
+                        }
+                    </ul>
+                    
                 </div>
             </div>
     )
