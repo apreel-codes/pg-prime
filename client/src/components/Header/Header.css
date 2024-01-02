@@ -143,7 +143,6 @@
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     color: #003466;
-    /* font-weight: bold; */
     margin-top: 1rem;
  }
 
@@ -153,7 +152,6 @@
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     color: #003466;
-    /* font-weight: bold; */
     margin-top: 1rem;
  }
 
@@ -233,7 +231,6 @@
 }
 
 .profile-signout {
-
     margin-top: .8rem;
     font-size: .9rem;
 }
@@ -242,7 +239,7 @@
     /* border: 1px red solid; */
     font-family: 'Inter', sans-serif;
     background-color: white;
-    height: 320px;
+    /* height: 320px; */
     width: 58%;
     /* margin-top: -16px; */
     position: absolute;

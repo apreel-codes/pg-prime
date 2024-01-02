@@ -415,8 +415,8 @@ const [brands, setBrands] = useState([]);
                     </div>
                 </div>
                 {/* <div className='brand-modal hidden md:block px-4'> */}
-                <div className = {isBrandToggled ? 'brand-modal hidden md:block px-4 shadow-lg' : 'md:hidden hidden'}>
-                    <ul className='grid grid-cols-3 gap-3 text-[.9rem] mt-3'>
+                <div className = {isBrandToggled ? 'brand-modal hidden md:block p-4 shadow-lg' : 'md:hidden hidden'}>
+                    <ul className='grid grid-cols-3 gap-3 text-[.9rem]'>
                     { brands && 
                             brands.map((b, i) => (
                                 <div className='brand'>
