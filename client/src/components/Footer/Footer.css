@@ -26,7 +26,6 @@ footer .link-contact ul {
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
     font-weight: 400;
-
 }
 
 footer .link-contact ul li {
@@ -35,6 +34,10 @@ footer .link-contact ul li {
     font-size: 0.9rem;
     font-weight: 400;
     margin-top: 1rem;
+}
+
+footer .link-contact ul li:hover {
+    font-weight: 500;
 }
 
 footer input::placeholder {

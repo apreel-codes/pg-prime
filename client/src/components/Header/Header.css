@@ -1,7 +1,7 @@
 .header {
     width: 100%;
     background-color: #fff;
-    position: relative;
+    /* position: relative; */
 }
 
 .top-nav {
@@ -41,6 +41,11 @@
     color: #1a1a1a;
     font-family: 'Inter', sans-serif;
     font-size: 0.9rem;
+}
+
+.signin:hover {
+    font-weight: 500;
+    width: auto;
 }
 
 .web-second {
@@ -239,10 +244,11 @@
     background-color: white;
     height: 320px;
     width: 58%;
+    /* margin-top: -16px; */
     position: absolute;
-    top: 100%;
+    top: 227.4px;
     z-index: 99;
-    /* box-shadow: -1px .2px 4px rgb(148, 148, 148); */
+    box-shadow: -1px .2px 4px rgb(148, 148, 148);
 }
 
 .brand-modal ul li:hover {
