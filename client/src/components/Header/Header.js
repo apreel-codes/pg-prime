@@ -427,7 +427,7 @@ const [brands, setBrands] = useState([]);
                             ))            
                         }
                     </ul>
-                    
+                   
                 </div>
             </div>
     )

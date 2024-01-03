@@ -36,7 +36,6 @@ const Home = () => {
                   <BestSellers/>
                   <GalleryBg />
                   <Store />
-                  <HomeVideo />
                   <BackToTop />
                   <Link to="https://api.whatsapp.com/message/JYVSRELGD47UC1?autoload=1&app_absent=0">
                     <img className="whatsapp"  src="./images/whatsapp.png"/>               
