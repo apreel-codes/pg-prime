@@ -15,7 +15,7 @@ const HomeProduct = (props) => {
                                 <p className="product-name">{product.name}</p>
                         </Link>
                         {/* <Rating rating={product.rating} numReviews={product.numReviews}/> */}
-                        <small className="brand">{product.category}'s wear</small>
+                        <small className="brand">{product.category}</small>
                         <p className="price">₦{product.price.toFixed(2)}</p>
                     </div>
         </div>          
