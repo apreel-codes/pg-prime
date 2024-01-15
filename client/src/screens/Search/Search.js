@@ -401,10 +401,10 @@ const Search = (e) => {
                                         ))}
                                     </div>
 
-                                    <div className='mt-4'>
+                                    <div className='mt-14 md:mt-4'>
                                         {[...Array(pages).keys()].map((x) => (
                                             <LinkContainer
-                                                key={x + 1}
+                                                key={x + 1}s
                                                 className="mx-1 border"
                                                 to={{
                                                 pathname: '/search',
