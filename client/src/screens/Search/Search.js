@@ -405,7 +405,7 @@ const Search = (e) => {
                                         {[...Array(pages).keys()].map((x) => (
                                             <LinkContainer
                                                 key={x + 1}s
-                                                className="mx-1 border"
+                                                className="mx-1 border mb-3"
                                                 to={{
                                                 pathname: '/search',
                                                 search: getFilterUrl({ page: x + 1 }, true),
