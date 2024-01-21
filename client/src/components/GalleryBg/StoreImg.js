@@ -12,9 +12,6 @@ export const StoreImg = [
         img: './images/web-store-4.png',
     },
     {
-        img: './images/web-store-6.png',
-    },
-    {
         img: './images/web-store-7.png',
     },
     {
