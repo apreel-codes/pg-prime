@@ -88,7 +88,7 @@ userRouter.post(
         //     http://localhost:3000/reset-password/${token}`,
         text: ` 
             Please Click the following link to reset your password:
-            https://pgf-prime-ucfc.onrender.com/reset-password/${token}`,
+            https://pgf-prime.com/reset-password/${token}`,
       };
       
       transporter.sendMail(mailOptions, function(error, info){
